@@ -1,0 +1,72 @@
+@import './vars';
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--body-color);
+  font-family: var(--main-font);
+  color: var(--text-color);
+  font-size: var(--text-size);
+  line-height: 130%;
+
+  ::selection {
+    background-color: var(--main-color);
+    color: var(--body-color);
+  }
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+
+    &-track {
+      background: var(--light-grey);
+    }
+
+    &-thumb {
+      background: var(--main-color-lighter);
+      border-radius: 1rem;
+
+      &:hover {
+        background: var(--main-color);
+      }
+    }
+  }
+
+  &.dark {
+    // --main-color-secondary: hsl(var(--hue-color), 90%, 80%);
+    // --main-color-light: hsl(var(--hue-color), 70%, 80%);
+
+    --title-color:  hsl(var(--hue-color), 8%, 70%);
+    --text-color:  hsl(var(--hue-color), 8%, 40%);
+
+    --input-color: hsl(var(--hue-color), 29%, 16%);
+    --body-color: hsl(var(--hue-color), 28%, 12%);
+
+    --card-shadow: 0.5rem 0.5rem 1.5rem rgba(230, 230, 230, 0.3);
+    --box-shadow: 0 0 1.5rem rgba(230, 230, 230, 0.15);
+    --box-shadow-hover: 0 0 1.5rem rgba(230, 230, 230, 0.25);
+
+    --icon-filter: brightness(400%);
+
+    --sm-opacity: rgba(250, 250, 250, 0.05);
+    --md-opacity: rgba(250, 250, 250, 0.1);
+    --lg-opacity: rgba(250, 250, 250, 0.25);
+  }
+}
+
+svg {
+  filter: var(--icon-filter);
+}
+
+h1, h2, h3, h4{
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+@media screen and (min-width: 850px) {
+  body {
+    margin-left: var(--navbar-width);
+  }
+}
