@@ -48,7 +48,7 @@ const LanguageContextProvider: FunctionComponent<PropsWithChildren> = ({ childre
   };
 
   return (
-    <LanguageContext.Provider value={{lang, changeLang}}>
+    <LanguageContext.Provider value={{ lang, changeLang }}>
       {children}
     </LanguageContext.Provider>
   );

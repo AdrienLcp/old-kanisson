@@ -9,3 +9,35 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id                String    @id @unique
+  pseudo            String    @unique
+  email             String    @unique
+  password          String
+  admin             Boolean   @default(false)
+  moderator         Boolean   @default(false)
+  banned            Boolean   @default(false)
+}
+
+model Playlist {
+  id                String    @id @unique
+  user_id           String
+  creator           String
+  title             String    @unique
+  description       String?
+  date              String
+  ratings           Int[]
+  ratings_ids       String[]
+  deezer_ids        Int[]
+  nbOfPlayed        Int       @default(0)
+  visible           Boolean   @default(true)
+}
+
+model Played {
+  id                Int       @id @default(autoincrement())
+  user_id           String
+  playlist_id       String
+  score             Int
+  date              String
+}
