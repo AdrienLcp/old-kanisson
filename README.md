@@ -1,6 +1,6 @@
-# Site de blind test
+# Kanisson
 
-Un jeu de blid-test participatif en ligne. Vous pouvez créer vos propres quizz musicaux et jouer à ceux des autres.
+Un site de blind-tests participatifs en ligne. Vous pouvez créer vos propres quizz musicaux et jouer à ceux des autres.
 
 ## Créateur
 
@@ -19,7 +19,7 @@ Ce projet a été créé avec :
 - React
 - Next
 - Scss / Sass
-- PostgreSQL
+- Postgresql
 - Prisma
 - Json Web Token
 - Bcrypt
