@@ -34,7 +34,7 @@ model Playlist {
   visible           Boolean   @default(true)
 }
 
-model Played {
+model Game {
   id                Int       @id @default(autoincrement())
   user_id           String
   playlist_id       String
