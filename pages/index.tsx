@@ -1,12 +1,13 @@
-import { Playlist } from '@prisma/client';
-import { GetServerSideProps } from 'next';
-import { api } from '../api/api';
+import { NextPage } from 'next';
+import { useEffect } from 'react';
 import styles from '../styles/Home.module.scss';
 
-export default function Home({ data }: {data: Playlist[]}) {
+type Props = {
 
-  console.log(data);
-  
+};
+
+const Home: NextPage<Props> = () => {
+
   return (
     <>
       Hello World
@@ -14,15 +15,4 @@ export default function Home({ data }: {data: Playlist[]}) {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async() => {
-
-  const dataFromAPI = await fetch(`${api}/playlist/getAllVisible`);
-
-  const data = await dataFromAPI.json();
-
-  return {
-    props: {
-      data,
-    }
-  };
-};
+export default Home;
