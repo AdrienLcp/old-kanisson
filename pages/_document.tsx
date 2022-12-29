@@ -8,7 +8,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <script src="https://sdk.scdn.co/spotify-player.js"></script>
       </body>
     </Html>
   );

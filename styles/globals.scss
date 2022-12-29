@@ -48,9 +48,9 @@ body {
     --box-shadow: 0 0 1.5rem rgba(230, 230, 230, 0.15);
     --box-shadow-hover: 0 0 1.5rem rgba(230, 230, 230, 0.25);
 
-    --sm-opacity: hsla(var(--hue-color), 0%, 98%, 0.05);
-    --md-opacity: hsla(var(--hue-color), 0%, 98%, 0.1);
-    --lg-opacity: hsla(var(--hue-color), 0%, 98%, 0.25);
+    --sm-opacity: hsla(var(--hue-color), 10%, 98%, 0.05);
+    --md-opacity: hsla(var(--hue-color), 10%, 98%, 0.1);
+    --lg-opacity: hsla(var(--hue-color), 10%, 98%, 0.25);
 
     --icon-filter: brightness(400%);
   }

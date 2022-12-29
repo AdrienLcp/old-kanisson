@@ -12,8 +12,7 @@ Un site de blind-tests participatifs en ligne. Vous pouvez créer vos propres qu
 ## Langages / Librairies principales
 
 Ce projet a été créé avec :
-- Deezer API
-- Deezer SDK
+- Youtube API
 - JavaScript
 - TypeScript
 - React

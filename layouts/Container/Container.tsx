@@ -1,12 +1,11 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
+import Background from '../Background/Background';
 
-const Container: FunctionComponent<PropsWithChildren> = ({
-  children
-}) => {
+const Container: FunctionComponent<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      {/* Navbar, Background, ...  */}
+      <Background />
 
       {children}
     </>

@@ -2,8 +2,8 @@ import type { FunctionComponent } from "react";
 import Head from "next/head";
 
 type Props = {
-  title: string,
-  description: string
+  title?: string,
+  description?: string
 };
 
 const NextHead: FunctionComponent<Props> = ({
@@ -15,6 +15,7 @@ const NextHead: FunctionComponent<Props> = ({
     <Head>
       <meta httpEquiv="x-UA-Compatible" content="IE-edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="utf-8" />
 
       {/* <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
