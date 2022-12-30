@@ -13,12 +13,11 @@ const Player: FunctionComponent<Props> = ({
 
   return (
     <iframe
-      src={`https://www.youtube.com/embed/${url}?autoplay=${autoPlay ? '1' : '0'}`}
+      src={`https://www.youtube.com/embed/${url}?autoplay=${autoPlay ? '1' : '0'}&start=30&end=60`}
       width="560"
       height="315"
       title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
+      allow="autoplay"
       className={styles.iframe}
     />
   );

@@ -1,14 +1,14 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { createContext, useState, useEffect } from 'react';
 
-type ContextType = {
-  lang: string,
-  changeLang: (newLang: string) => void
+const initialState = {
+  lang: 'fr',
+  changeLang: (newLang: string) => {}
 };
 
-export const LanguageContext = createContext<ContextType | undefined>(undefined);
+export const LangContext = createContext<typeof initialState>(initialState);
 
-const LanguageContextProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
+const LangContextProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
 
   const [lang, setLang] = useState<string>('fr');
 
@@ -48,10 +48,10 @@ const LanguageContextProvider: FunctionComponent<PropsWithChildren> = ({ childre
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, changeLang }}>
+    <LangContext.Provider value={{ lang, changeLang }}>
       {children}
-    </LanguageContext.Provider>
+    </LangContext.Provider>
   );
 };
 
-export default LanguageContextProvider;
+export default LangContextProvider;
