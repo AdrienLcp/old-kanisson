@@ -36,7 +36,7 @@ const CurrentUserContextProvider: FunctionComponent<PropsWithChildren> = ({ chil
   }, []);
 
   useEffect(() => {
-    console.log(user);
+
   }, [user]);
 
   return (

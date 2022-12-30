@@ -19,8 +19,7 @@ export const isLogged = (fn: NextApiHandler) => async (
         });
 
         if(user) {
-
-          if(user.is_banished === true) {
+          if(user.banned) {
             res.status(401).json({message: "Vous avez été banni"});
           } else {
             return await fn(req, res);

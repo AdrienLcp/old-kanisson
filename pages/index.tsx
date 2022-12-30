@@ -6,12 +6,14 @@ import styles from '../styles/Home.module.scss';
 import Player from '../components/Player/Player';
 import { LangContext } from '../contexts/LangContext';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import useFetch from '../hooks/useFetch';
+import { SearchResults } from '../types/youtube';
 
 const API_KEY = process.env.API_KEY;
 
 type Props = {
   data: Playlist[],
-  dataTest: any
+  dataTest: SearchResults
 };
 
 const Home: NextPage<Props> = ({
@@ -20,9 +22,6 @@ const Home: NextPage<Props> = ({
 }) => {
 
   const { user, setUser } = useContext(CurrentUserContext);
-
-
-  console.log(dataTest.items[0].snippet.title);
 
   const [toggle, setToggle] = useState<boolean>(false);
   const [id, setID] = useState<string>(dataTest.items[0].id.videoId);
@@ -39,10 +38,12 @@ const Home: NextPage<Props> = ({
     };
   }, []);
 
+  // const [test, loading] = useFetch(`${youtube}jjg&key=${API_KEY}&maxResults=50`);
+
   const displayedList = useMemo(() => {
     const newList: string[] = [];
 
-    dataTest.items.map((item: any) => newList.push(item.snippet.title));
+    // test?.map((item: any) => newList.push(item.snippet.title));
 
     return newList;
   }, [list]);
@@ -52,6 +53,23 @@ const Home: NextPage<Props> = ({
       {toggle &&
         <Player url={id} />
       }
+
+      <br />
+      <br />
+      <br />
+      <br />
+
+      {/* {loading ?
+        "Chargement..."
+      :
+        test?.map((item: Playlist, index: number) => {
+          return (
+
+          <li key={index}>{item.title}</li>
+          );
+        }
+        )
+      } */}
 
       <br />
       <br />

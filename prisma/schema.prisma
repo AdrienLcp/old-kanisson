@@ -34,6 +34,26 @@ model Playlist {
   visible           Boolean   @default(true)
 }
 
+model Notification {
+  id            String    @id @unique
+  user_id       String
+  title         String
+  message       String
+  date          String
+  seen          Boolean   @default(false)
+}
+
+model Report {
+  id              String    @id @unique
+  user_id         String
+  pseudo          String
+  about_id        String
+  about_title     String
+  about_creator   String
+  message         String
+  date            String
+}
+
 model Game {
   id                Int       @id @default(autoincrement())
   user_id           String

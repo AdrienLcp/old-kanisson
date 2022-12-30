@@ -19,7 +19,7 @@ export const isAdmin = (fn: NextApiHandler) => async (
         });
 
         if(user) {
-          if(user.is_admin === true) {
+          if(user.admin === true) {
             return await fn(req, res);
           } else {
             res.status(403).json({message: "Vous n'êtes pas administrateur"});

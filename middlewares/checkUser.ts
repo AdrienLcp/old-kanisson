@@ -22,13 +22,13 @@ export const checkUser = (fn: NextApiHandler) => async (
         // if user still exist
         if(user) {
           // verify if user is admin
-          if(user.is_admin === true) {
+          if(user.admin === true) {
 
             // we return original API call
             return await fn(req, res);
 
-          // If user is banished
-          } else if(user.is_banished === true) {
+            // If user is banished
+          } else if(user.banned === true) {
 
             res.status(403).json({message: "Vous avez été banni"});
 
