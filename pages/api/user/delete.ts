@@ -8,6 +8,24 @@ export default checkUser(async function handle (
 ) {
   try {
 
+    await db.notification.deleteMany({
+      where: {
+        user_id: req.body.user_id
+      }
+    });
+
+    await db.report.deleteMany({
+      where: {
+        target_id: req.body.user_id
+      }
+    });
+
+    await db.game.deleteMany({
+      where: {
+        user_id: req.body.user_id
+      }
+    });
+
     await db.playlist.deleteMany({
       where: {
         user_id: req.body.user_id

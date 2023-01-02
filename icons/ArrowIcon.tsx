@@ -5,7 +5,7 @@ type Props = {
   height?: "24"
 };
 
-const IconArrow: FunctionComponent<Props> = ({
+const ArrowIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -27,4 +27,4 @@ const IconArrow: FunctionComponent<Props> = ({
   );
 };
 
-export default IconArrow;
+export default ArrowIcon;

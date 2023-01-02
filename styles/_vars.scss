@@ -22,6 +22,8 @@
   --dark-grey: hsl(var(--hue-color), 10%, 25%);
 
   --gold: hsl(45, 90%, 50%);
+  --green: hsl(123, 38%, 57%);;
+  --red: hsl(15, 90%, 50%);
 
   --valid: hsl(146, 61%, 28%);
   --valid-hover: hsl(146, 39%, 55%);
@@ -55,19 +57,20 @@
   --title-font: 'Rubik Moonrocks', cursive;
 
   --main-radius: 1.5rem 0.5rem;
-  --medium-radius: 1em;
-  --small-radius: 0.5em;
+  --md-radius: 1em;
+  --sm-radius: 0.5em;
 
   --main-padding: 0.7em 1.2em;
 
-  --card-shadow: 0.5rem 0.5rem 1.5rem rgba(10, 10, 10, 0.1);
-  --box-shadow: 0 0 1.5rem rgba(10, 10, 10, 0.1);
-  --box-shadow-hover: 0 0 2.5rem rgba(10, 10, 10, 0.1);
-  --inner-shadow: inset 0 0.5rem 1.5rem rgba(10, 10, 10, 0.1);
+  --card-shadow: 0.5rem 0.5rem 1.5rem hsla(var(--hue-color), 10%, 4%, 0.1);
+  --box-shadow: 0 0 1.5rem hsla(var(--hue-color), 10%, 4%, 0.1);
+  --box-shadow-hover: 0 0 2.5rem hsla(var(--hue-color), 10%, 4%, 0.1);
+  --inner-shadow: inset 0 0.5rem 1.5rem hsla(var(--hue-color), 10%, 4%, 0.1);
 
   --border-transparent: 0.2rem solid transparent;
 
   --icon-filter: brightness(90%);
 
-  --navbar-width: 35rem;
+  --navbar-width: 0rem;
+  --navbar-height: 10rem;
 }

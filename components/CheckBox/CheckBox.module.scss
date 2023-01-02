@@ -1,0 +1,56 @@
+@import '../../styles/mixins';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  height: 1.7rem;
+  width: 3rem;
+}
+
+.input {
+  display: none;
+}
+
+.slider {
+  @include posAbsolute(0, 0, 0, 0);
+  background: var(--light-grey);
+  transition: .4s;
+
+  &:before {
+    content: "";
+    @include posAbsolute(auto, auto, 0.2rem, 0.2rem);
+    background: var(--white);
+    height: 1.3rem;
+    width: 1.3rem;
+    transition: .4s;
+  }
+}
+
+.input:checked + .slider {
+  background: var(--green);
+}
+
+.input:checked + .slider:before {
+  transform: translateX(1.3rem);
+}
+
+.slider {
+  border-radius: 1.7rem;
+
+  &:before {
+    border-radius: 50%;
+  }
+}
+
+.label {
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}

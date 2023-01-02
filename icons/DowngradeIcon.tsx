@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconDowngrade: FunctionComponent<Props> = ({
+const DowngradeIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -24,4 +24,4 @@ const IconDowngrade: FunctionComponent<Props> = ({
   );
 };
 
-export default IconDowngrade;
+export default DowngradeIcon;

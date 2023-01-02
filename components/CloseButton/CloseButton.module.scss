@@ -1,0 +1,8 @@
+@import '../../styles/mixins';
+
+.close {
+  @include posAbsolute(10px, 10px, auto, auto);
+  @include flexCenter;
+  height: 1.2rem;
+  width: 1.2rem;
+}

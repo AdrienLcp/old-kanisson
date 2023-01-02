@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconPromote: FunctionComponent<Props> = ({
+const PromoteIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -24,4 +24,4 @@ const IconPromote: FunctionComponent<Props> = ({
   );
 };
 
-export default IconPromote;
+export default PromoteIcon;

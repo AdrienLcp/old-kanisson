@@ -1,102 +1,79 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import type { Playlist } from '@prisma/client';
-import { useEffect, useState, useMemo, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { api, youtube } from '../api/api';
 import styles from '../styles/Home.module.scss';
-import Player from '../components/Player/Player';
+import InputField from '../components/InputField/InputField';
 import { LangContext } from '../contexts/LangContext';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import useFetch from '../hooks/useFetch';
-import { SearchResults } from '../types/youtube';
+import Modal from '../layouts/Modal/Modal';
+import CheckBox from '../components/CheckBox/CheckBox';
+
+import { inputsTexts } from '../langs/components/inputs';
 
 const API_KEY = process.env.API_KEY;
 
 type Props = {
-  data: Playlist[],
-  dataTest: SearchResults
 };
 
-const Home: NextPage<Props> = ({
-  data,
-  dataTest
-}) => {
+const Home: NextPage<Props> = () => {
 
-  const { user, setUser } = useContext(CurrentUserContext);
+  const { lang, changeLang } = useContext(LangContext);
 
-  const [toggle, setToggle] = useState<boolean>(false);
-  const [id, setID] = useState<string>(dataTest.items[0].id.videoId);
-
-  const [list, setList] = useState<Playlist[]>([]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setID("fCK8-2pdtFU");
-    }, 10000);
-
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, []);
-
-  // const [test, loading] = useFetch(`${youtube}jjg&key=${API_KEY}&maxResults=50`);
-
-  const displayedList = useMemo(() => {
-    const newList: string[] = [];
-
-    // test?.map((item: any) => newList.push(item.snippet.title));
-
-    return newList;
-  }, [list]);
+  const [title, setTitle] = useState<string>('');
+  const [toggleModal, setToggleModal] = useState<boolean>(true);
 
   return (
     <>
-      {toggle &&
-        <Player url={id} />
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <InputField
+        state={title}
+        setState={setTitle}
+        name={lang === "fr" ? "Je fais un test" : "test english"}
+        id="input-test"
+        title="Entrez un titre entre 3 et 25 caractères"
+      />
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <CheckBox
+        state={toggleModal}
+        setState={setToggleModal}
+        id="checkbox-modal"
+        label='click me'
+        title="Cliquez pour changer le thème"
+      />
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <button onClick={() => changeLang('en')}>
+        {lang === 'fr' ? "Anglais" : "English"}
+      </button>
+
+      <br/>
+      <br/>
+
+      <button onClick={() => changeLang('fr')}>
+        {lang === 'fr' ? "Français" : "French"}
+      </button>
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      {toggleModal &&
+        <p>TEST</p>
       }
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      {/* {loading ?
-        "Chargement..."
-      :
-        test?.map((item: Playlist, index: number) => {
-          return (
-
-          <li key={index}>{item.title}</li>
-          );
-        }
-        )
-      } */}
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <button onClick={() => setUser({...user, pseudo: "Vadrial", admin: true})}>User</button>
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <button onClick={() => setToggle(prev => !prev)}>Toggle player</button>
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <ul>
-        {displayedList.map((item: any, index: number) =>
-          <li key={index}>
-            {item}
-          </li>
-        )}
-      </ul>
     </>
   );
 };

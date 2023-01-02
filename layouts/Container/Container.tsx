@@ -1,12 +1,12 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import CurrentUserContextProvider from '../../contexts/CurrentUserContext';
+import UserContextProvider from '../../contexts/UserContext';
 import LangContextProvider from '../../contexts/LangContext';
 import Background from '../Background/Background';
 
 const Container: FunctionComponent<PropsWithChildren> = ({ children }) => {
 
   return (
-    <CurrentUserContextProvider>
+    <UserContextProvider>
       <LangContextProvider>
 
         <Background />
@@ -14,7 +14,7 @@ const Container: FunctionComponent<PropsWithChildren> = ({ children }) => {
         {children}
 
       </LangContextProvider>
-    </CurrentUserContextProvider>
+    </UserContextProvider>
   );
 };
 

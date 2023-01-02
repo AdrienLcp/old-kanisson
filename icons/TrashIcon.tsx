@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconImage: FunctionComponent<Props> = ({
+const TrashIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -21,10 +21,10 @@ const IconImage: FunctionComponent<Props> = ({
     >
       <path
         fill={color}
-        d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm0-2h14V5H5v14Zm1-2h12l-3.75-5l-3 4L9 13Zm-1 2V5v14Z"
+        d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12m2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12M15.5 4l-1-1h-5l-1 1H5v2h14V4h-3.5Z"
       />
     </svg>
   );
 };
 
-export default IconImage;
+export default TrashIcon;

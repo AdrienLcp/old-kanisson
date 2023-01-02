@@ -1,27 +1,28 @@
 import type { FunctionComponent } from 'react';
+import styles from './PauseIcon.module.scss';
 
 type Props = {
   color?: string,
   height?: string
 };
 
-const IconHome: FunctionComponent<Props> = ({
+const PauseIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
 
   return (
     <svg
-      viewBox="0 0 24 24"
-      height={height}
       width={height}
+      height={height}
+      viewBox="0 0 24 24"
     >
       <path
         fill={color}
-        d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8h5z"
+        d="M6 5h4v14H6zm8 0h4v14h-4z"
       />
     </svg>
   );
 };
 
-export default IconHome;
+export default PauseIcon;

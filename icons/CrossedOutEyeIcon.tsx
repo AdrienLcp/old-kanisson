@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconHiddenEye: FunctionComponent<Props> = ({
+const CrossedOutEyeIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -30,4 +30,4 @@ const IconHiddenEye: FunctionComponent<Props> = ({
   );
 };
 
-export default IconHiddenEye;
+export default CrossedOutEyeIcon;

@@ -5,14 +5,14 @@ type Props = {
   height?: string
 };
 
-const IconSend: FunctionComponent<Props> = ({
+const ImageIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
 
   return (
     <svg
-      viewBox="0 0 512 512"
+      viewBox="0 0 24 24"
       height={height}
       width={height}
       aria-hidden="true"
@@ -21,10 +21,10 @@ const IconSend: FunctionComponent<Props> = ({
     >
       <path
         fill={color}
-        d="M435.9 64.9l-367.1 160c-6.5 3.1-6.3 12.4.3 15.3l99.3 56.1c5.9 3.3 13.2 2.6 18.3-1.8l195.8-168.8c1.3-1.1 4.4-3.2 5.6-2 1.3 1.3-.7 4.3-1.8 5.6L216.9 320.1c-4.7 5.3-5.4 13.1-1.6 19.1l64.9 104.1c3.2 6.3 12.3 6.2 15.2-.2L447.2 76c3.3-7.2-4.2-14.5-11.3-11.1z"
+        d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm0-2h14V5H5v14Zm1-2h12l-3.75-5l-3 4L9 13Zm-1 2V5v14Z"
       />
     </svg>
   );
 };
 
-export default IconSend;
+export default ImageIcon;

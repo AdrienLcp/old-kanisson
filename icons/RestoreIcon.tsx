@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconRestore: FunctionComponent<Props> = ({
+const RestoreIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -24,4 +24,4 @@ const IconRestore: FunctionComponent<Props> = ({
   );
 };
 
-export default IconRestore;
+export default RestoreIcon;

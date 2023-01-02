@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconMail: FunctionComponent<Props> = ({
+const MailIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -24,4 +24,4 @@ const IconMail: FunctionComponent<Props> = ({
   );
 };
 
-export default IconMail;
+export default MailIcon;

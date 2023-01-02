@@ -29,7 +29,7 @@ model Playlist {
   date              String
   ratings           Int[]
   ratings_ids       String[]
-  deezer_ids        Int[]
+  songs_ids         Int[]
   nbOfPlayed        Int       @default(0)
   visible           Boolean   @default(true)
 }
@@ -46,10 +46,8 @@ model Notification {
 model Report {
   id              String    @id @unique
   user_id         String
-  pseudo          String
-  about_id        String
-  about_title     String
-  about_creator   String
+  target_pseudo   String
+  target_id       String
   message         String
   date            String
 }

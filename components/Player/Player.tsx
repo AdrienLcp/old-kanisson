@@ -16,9 +16,8 @@ const Player: FunctionComponent<Props> = ({
       src={`https://www.youtube.com/embed/${url}?autoplay=${autoPlay ? '1' : '0'}&start=30&end=60`}
       width="560"
       height="315"
-      title="YouTube video player"
       allow="autoplay"
-      className={styles.iframe}
+      className={styles.player}
     />
   );
 };

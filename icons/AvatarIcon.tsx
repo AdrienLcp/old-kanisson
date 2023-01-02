@@ -5,7 +5,7 @@ type Props = {
   height?: string
 };
 
-const IconAvatar: FunctionComponent<Props> = ({
+const AvatarIcon: FunctionComponent<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -27,4 +27,4 @@ const IconAvatar: FunctionComponent<Props> = ({
   );
 };
 
-export default IconAvatar;
+export default AvatarIcon;
