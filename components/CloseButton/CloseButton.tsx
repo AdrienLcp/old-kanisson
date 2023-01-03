@@ -16,8 +16,6 @@ const CloseButton: FunctionComponent<Props> = ({
 
   const { lang } = useContext(LangContext);
 
-
-
   const title = buttonsTexts.closeButton.title[lang as keyof typeof buttonsTexts.closeButton.title];
 
   return (

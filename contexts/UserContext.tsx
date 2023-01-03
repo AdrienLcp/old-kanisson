@@ -17,7 +17,7 @@ const initialState = {
   logged: false,
   setUser: () => {},
   setLogged: () => {},
-  handleDisconnect: () => {}
+  logOut: () => {}
 };
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
   logged: boolean,
   setUser: Dispatch<SetStateAction<User>>,
   setLogged: Dispatch<SetStateAction<boolean>>,
-  handleDisconnect: () => void
+  logOut: () => void
 };
 
 export const UserContext = createContext<Props>(initialState);
@@ -63,16 +63,16 @@ const UserContextProvider: FunctionComponent<PropsWithChildren> = ({ children })
           router.push('/banned');
         };
       } else {
-        handleDisconnect();
+        logOut();
       };
     })
     .catch((error) => {
       console.log(error);
-      handleDisconnect();
+      logOut();
     });
   };
 
-  const handleDisconnect = () => {
+  const logOut = () => {
     localStorage.removeItem('token');
     setLogged(false);
     setUser(initialState.user);
@@ -80,7 +80,15 @@ const UserContextProvider: FunctionComponent<PropsWithChildren> = ({ children })
   };
 
   return (
-    <UserContext.Provider value={{ user, logged, setUser, setLogged, handleDisconnect }}>
+    <UserContext.Provider
+      value={{
+        user,
+        logged,
+        setUser,
+        setLogged,
+        logOut
+      }}>
+
       {children}
     </UserContext.Provider>
   );
