@@ -25,7 +25,7 @@ body {
     }
 
     &-thumb {
-      background: var(--main-color-lighter);
+      background: var(--main-color-alt);
       border-radius: 1rem;
 
       &:hover {
@@ -35,8 +35,8 @@ body {
   }
 
   &.dark {
-    --main-color-alt: hsl(var(--hue-color), 90%, 80%);
-    --main-color-light: hsl(var(--hue-color), 70%, 80%);
+    --main-color-alt: hsl(var(--hue-color), 30%, 50%);
+    --main-color-light: hsl(var(--hue-color), 50%, 30%);
 
     --title-color:  hsl(var(--hue-color), 8%, 70%);
     --text-color:  hsl(var(--hue-color), 8%, 40%);
@@ -67,7 +67,7 @@ h1, h2, h3, h4{
 
 @media screen and (min-width: 850px) {
   :root {
-    --navbar-width: 30rem;
+    --navbar-width: 35rem;
     --navbar-height: 100vh;
   }
 

@@ -1,22 +1,20 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
+import type { CloseButtonProps } from '../../types/componentsProps';
 import { useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
-import { buttonsTexts } from '../../langs/components/buttons';
+import { closeButton } from '../../langs/components/buttons';
 import CrossIcon from '../../icons/CrossIcon';
 import IconButton from '../IconButton/IconButton';
 import styles from './CloseButton.module.scss';
 
-type Props = {
-  handleFunction: () => void
-};
-
-const CloseButton: FunctionComponent<Props> = ({
-  handleFunction
+const CloseButton: FC<CloseButtonProps> = ({
+  handleFunction,
+  color = "var(--black)"
 }) => {
 
   const { lang } = useContext(LangContext);
 
-  const title = buttonsTexts.closeButton.title[lang as keyof typeof buttonsTexts.closeButton.title];
+  const title = closeButton.title[lang as keyof typeof closeButton.title];
 
   return (
     <div className={styles.close}>
@@ -24,7 +22,10 @@ const CloseButton: FunctionComponent<Props> = ({
         handleFunction={handleFunction}
         title={title}
       >
-        <CrossIcon height='18'/>
+        <CrossIcon
+          height='18'
+          color={color}
+        />
       </IconButton>
     </div>
   );

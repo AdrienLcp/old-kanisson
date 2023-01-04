@@ -1,13 +1,8 @@
-import type { FunctionComponent, PropsWithChildren } from 'react';
+import type { FC } from 'react';
+import type { IconButtonProps } from '../../types/componentsProps';
 import styles from './IconButton.module.scss';
 
-type Props = PropsWithChildren<{
-  title?: string,
-  name?: string,
-  handleFunction: () => void
-}>;
-
-const IconButton: FunctionComponent<Props> = ({
+const IconButton: FC<IconButtonProps> = ({
   title,
   name,
   handleFunction,

@@ -1,12 +1,10 @@
-import type { FunctionComponent, PropsWithChildren, Dispatch, SetStateAction } from 'react';
+import type { FC } from 'react';
+import type { ModalProps } from '../../types/layoutsProps';
 import CloseButton from '../../components/CloseButton/CloseButton';
 import styles from './Modal.module.scss';
 
-type Props = PropsWithChildren<{
-  setToggleModal: Dispatch<SetStateAction<boolean>>
-}>;
 
-const Modal: FunctionComponent<Props> = ({
+const Modal: FC<ModalProps> = ({
   setToggleModal,
   children
 }) => {

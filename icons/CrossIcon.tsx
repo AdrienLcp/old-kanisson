@@ -1,11 +1,11 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 
 type Props = {
   color?: string,
   height?: string
 };
 
-const CrossIcon: FunctionComponent<Props> = ({
+const CrossIcon: FC<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {

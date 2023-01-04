@@ -1,0 +1,26 @@
+@import "../../styles/mixins";
+
+.list {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  margin-left: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 850px) {
+  .desktop_hidden {
+    display: none;
+  }
+}

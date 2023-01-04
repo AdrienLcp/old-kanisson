@@ -1,11 +1,11 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 
 type Props = {
   color?: string,
   height?: string
 };
 
-const AvatarIcon: FunctionComponent<Props> = ({
+const AvatarIcon: FC<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {

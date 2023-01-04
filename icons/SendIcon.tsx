@@ -1,11 +1,11 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 
 type Props = {
   color?: string,
   height?: string
 };
 
-const SendIcon: FunctionComponent<Props> = ({
+const SendIcon: FC<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {

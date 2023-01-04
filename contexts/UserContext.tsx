@@ -1,4 +1,4 @@
-import type { FunctionComponent, PropsWithChildren, Dispatch, SetStateAction } from 'react';
+import type { FC, PropsWithChildren, Dispatch, SetStateAction } from 'react';
 import { createContext, useState, useEffect } from 'react';
 import { User } from '@prisma/client';
 import { api } from '../api/api';
@@ -10,8 +10,8 @@ const initialState = {
     pseudo: '',
     email: '',
     password: '',
-    admin: false,
-    moderator: false,
+    admin: true,
+    moderator: true,
     banned: false
   },
   logged: false,
@@ -30,17 +30,17 @@ type Props = {
 
 export const UserContext = createContext<Props>(initialState);
 
-const UserContextProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
+const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const router = useRouter();
 
   const [user, setUser] = useState<User>(initialState.user);
-  const [logged, setLogged] = useState<boolean>(false);
+  const [logged, setLogged] = useState<boolean>(true);
 
   useEffect(() => {
     if(logged) {
       const token: string | null = localStorage.getItem('token');
-      checkToken(token);
+      // checkToken(token);
     };
   }, [logged]);
 

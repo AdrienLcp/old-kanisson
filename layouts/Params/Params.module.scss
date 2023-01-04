@@ -1,0 +1,77 @@
+@import "../../styles/mixins";
+
+.mobile_hidden {
+  display: none;
+}
+
+.container {
+  @include posFixed(0, auto, auto, 0);
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  width: 100vw;
+  padding-bottom: 25vh;
+  background: var(--main-color-light);
+  transform: translate(0, 100vh);
+  transition: transform .3s;
+
+  &_opened {
+    @include posAbsolute(0, auto, auto, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.title {
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+@media screen and (min-width: 850px) {
+  .desktop_hidden {
+    display: none;
+  }
+
+  .mobile_hidden {
+    display: block;
+  }
+
+  .button {
+    @include posFixed(2rem, 2rem, auto, auto);
+    height: 5rem;
+    width: 5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    border: 0.2rem solid var(--body-color);
+    transition: transform .2s;
+
+    &:hover {
+      background: var(--main-color-alt);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .container {
+    @include posFixed(0, 0, auto, auto);
+    min-height: 100vh;
+    padding-bottom: 0;
+    width: 35rem;
+    gap: 15vh;
+    transform: translate(35rem, 0);
+
+    &_opened {
+      @include posAbsolute(0, 0, auto, auto);
+      transform: translate(0, 0);
+    }
+  }
+
+  .title {
+    padding: 4rem;
+    font-size: 2rem;
+  }
+}

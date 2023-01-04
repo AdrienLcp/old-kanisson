@@ -1,10 +1,10 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 
 type Props = {
   height?: string
 };
 
-const FrenchFlag: FunctionComponent<Props> = ({
+const FrenchFlag: FC<Props> = ({
   height = "24"
 }) => {
 

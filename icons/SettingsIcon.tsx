@@ -1,11 +1,11 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 
 type Props = {
   color?: string,
   height?: string
 };
 
-const SettingsIcon: FunctionComponent<Props> = ({
+const SettingsIcon: FC<Props> = ({
   color = "var(--white)",
   height = "24"
 }) => {

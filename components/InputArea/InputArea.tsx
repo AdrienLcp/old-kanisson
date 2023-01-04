@@ -1,17 +1,8 @@
-import type { FunctionComponent, Dispatch, SetStateAction } from 'react';
+import type { FC } from 'react';
+import type { InputAreaProps } from '../../types/componentsProps';
 import styles from './TextArea.module.scss';
 
-type Props = {
-  state: string,
-  setState: Dispatch<SetStateAction<string>>,
-  label: string,
-  id: string,
-  title?: string,
-  disabled?: boolean
-  required?: boolean
-};
-
-const TextArea: FunctionComponent<Props> = ({
+const TextArea: FC<InputAreaProps> = ({
   state,
   setState,
   label,
@@ -27,7 +18,6 @@ const TextArea: FunctionComponent<Props> = ({
       title={title ? title : undefined}
       aria-label={title ? title : undefined}
     >
-
       <textarea
         className={styles.input}
         value={state}
@@ -43,7 +33,6 @@ const TextArea: FunctionComponent<Props> = ({
       >
         {label}
       </label>
-
     </div>
   );
 };

@@ -1,23 +1,13 @@
-import type { FunctionComponent, Dispatch, SetStateAction } from 'react';
-import { useRef, useContext } from 'react';
-import CrossIcon from '../../icons/CrossIcon';
-import styles from './InputField.module.scss';
+import type { FC, ChangeEvent } from 'react';
+import type { InputFieldProps } from '../../types/componentsProps';
+import { useRef, useContext, useMemo } from 'react';
 import { LangContext } from '../../contexts/LangContext';
-import { inputsTexts } from '../../langs/components/inputs';
+import { clearTexts } from '../../langs/components/inputs';
+import styles from './InputField.module.scss';
 
-type Props = {
-  state: string,
-  setState: Dispatch<SetStateAction<string>>
-  name: string,
-  id: string,
-  title?: string,
-  type?: string,
-  disabled?: boolean,
-  required?: boolean,
-  autoFocus?: boolean,
-};
+import CrossIcon from '../../icons/CrossIcon';
 
-const InputField: FunctionComponent<Props> = ({
+const InputField: FC<InputFieldProps> = ({
   state,
   setState,
   name,
@@ -31,8 +21,8 @@ const InputField: FunctionComponent<Props> = ({
 
   const { lang } = useContext(LangContext);
 
-  const clearButtonTitle = inputsTexts.clear.title[lang as keyof typeof inputsTexts.clear.title];
-  const clearButtonLabel = inputsTexts.clear.label[lang as keyof typeof inputsTexts.clear.label];
+  const clearButtonTitle = clearTexts.title[lang as keyof typeof clearTexts.title];
+  const clearButtonLabel = clearTexts.label[lang as keyof typeof clearTexts.label];
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -40,6 +30,13 @@ const InputField: FunctionComponent<Props> = ({
     inputRef.current?.focus();
     setState('');
   };
+
+  const handleChange = useMemo(
+    () => (event: ChangeEvent<HTMLInputElement>) => {
+      setState(event.target.value);
+    },
+    [setState]
+  );
 
   return (
     <div
@@ -53,7 +50,7 @@ const InputField: FunctionComponent<Props> = ({
         type={type}
         id={id}
         value={state}
-        onChange={e => setState(e.target.value)}
+        onChange={e => handleChange(e)}
         disabled={disabled}
         required={required}
         autoFocus={autoFocus}

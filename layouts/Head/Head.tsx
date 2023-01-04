@@ -1,12 +1,8 @@
-import type { FunctionComponent } from "react";
+import type { FC } from "react";
+import type { HeadProps } from "../../types/layoutsProps";
 import Head from "next/head";
 
-type Props = {
-  title?: string,
-  description?: string
-};
-
-const NextHead: FunctionComponent<Props> = ({
+const NextHead: FC<HeadProps> = ({
   title = "",
   description = ""
 }) => {

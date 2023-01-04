@@ -1,12 +1,7 @@
-import type { FunctionComponent } from 'react';
-import styles from './AdminIcon.module.scss';
+import type { FC } from 'react';
+import type { IconProps } from '../types/componentsProps';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const AdminIcon: FunctionComponent<Props> = ({
+const AdminIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -27,8 +22,8 @@ const AdminIcon: FunctionComponent<Props> = ({
         cx="12"
         cy="8.5"
         r="2.5"
-
       />
+
       <path
         fill={color}
         d="M7 15a5.782 5.782 0 0 0 5 3a5.782 5.782 0 0 0 5-3c-.025-1.896-3.342-3-5-3c-1.667 0-4.975 1.104-5 3Z"

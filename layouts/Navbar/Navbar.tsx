@@ -1,9 +1,20 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
+import type { NavbarProps } from '../../types/layoutsProps';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
-import { navbarTexts } from '../../langs/layouts/navbar';
+import {
+  home as homeTexts,
+  search as searchTexts,
+  profile as profileTexts,
+  login as loginTexts,
+  logout as logoutTexts,
+  create as createTexts,
+  moderation as moderationTexts,
+  contact as contactTexts
+} from '../../langs/layouts/navbar';
+import { burgerButton } from '../../langs/components/buttons';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 
@@ -11,39 +22,44 @@ import HomeIcon from '../../icons/HomeIcon';
 import SearchIcon from '../../icons/SearchIcon';
 import CreateIcon from '../../icons/CreateIcon';
 import AvatarIcon from '../../icons/AvatarIcon';
-import LoginIcon from '../../icons/LoginIcon';
 import AdminIcon from '../../icons/AdminIcon';
 import MailIcon from '../../icons/MailIcon';
 import LogoutIcon from '../../icons/LogoutIcon';
+import BurgerIcon from '../../components/BurgerIcon/BurgerIcon';
 
-const Navbar: FunctionComponent = () => {
+const Navbar: FC<NavbarProps> = ({
+  toggleMenu,
+  setToggleMenu
+}) => {
 
   const router = useRouter();
   const { user, logged, logOut } = useContext(UserContext);
   const { lang } = useContext(LangContext);
 
-  const homeLabel = navbarTexts.home.label[lang as keyof typeof navbarTexts.home.label];
-  const homeTitle = navbarTexts.home.title[lang as keyof typeof navbarTexts.home.title];
+  const homeLabel = homeTexts.label[lang as keyof typeof homeTexts.label];
+  const homeTitle = homeTexts.title[lang as keyof typeof homeTexts.title];
 
-  const searchLabel = navbarTexts.search.label[lang as keyof typeof navbarTexts.search.label];
-  const searchTitle = navbarTexts.search.title[lang as keyof typeof navbarTexts.search.title];
+  const searchLabel = searchTexts.label[lang as keyof typeof searchTexts.label];
+  const searchTitle = searchTexts.title[lang as keyof typeof searchTexts.title];
 
-  const createLabel = navbarTexts.create.label[lang as keyof typeof navbarTexts.create.label];
-  const createTitle = navbarTexts.create.title[lang as keyof typeof navbarTexts.create.title];
+  const createLabel = createTexts.label[lang as keyof typeof createTexts.label];
+  const createTitle = createTexts.title[lang as keyof typeof createTexts.title];
 
-  const profileLabel = navbarTexts.profile.label[lang as keyof typeof navbarTexts.profile.label];
-  const profileTitle = navbarTexts.profile.title[lang as keyof typeof navbarTexts.profile.title];
+  const profileLabel = profileTexts.label[lang as keyof typeof profileTexts.label];
+  const profileTitle = profileTexts.title[lang as keyof typeof profileTexts.title];
 
-  const loginLabel = navbarTexts.login.label[lang as keyof typeof navbarTexts.login.label];
-  const loginTitle = navbarTexts.login.title[lang as keyof typeof navbarTexts.login.title];
+  const loginLabel = loginTexts.label[lang as keyof typeof loginTexts.label];
+  const loginTitle = loginTexts.title[lang as keyof typeof loginTexts.title];
 
-  const moderationLabel = navbarTexts.moderation.label[lang as keyof typeof navbarTexts.moderation.label];
-  const moderationTitle = navbarTexts.moderation.title[lang as keyof typeof navbarTexts.moderation.title];
+  const moderationLabel = moderationTexts.label[lang as keyof typeof moderationTexts.label];
+  const moderationTitle = moderationTexts.title[lang as keyof typeof moderationTexts.title];
 
-  const contactTitle = navbarTexts.contact.title[lang as keyof typeof navbarTexts.contact.title];
+  const contactTitle = contactTexts.title[lang as keyof typeof contactTexts.title];
 
-  const logoutLabel = navbarTexts.logOut.label[lang as keyof typeof navbarTexts.logOut.label];
-  const logoutTitle = navbarTexts.logOut.title[lang as keyof typeof navbarTexts.logOut.label];
+  const logoutLabel = logoutTexts.label[lang as keyof typeof logoutTexts.label];
+  const logoutTitle = logoutTexts.title[lang as keyof typeof logoutTexts.label];
+
+  const burgerTitle = burgerButton.title[lang as keyof typeof burgerButton.title];
 
   return (
     <nav className={styles.navbar}>
@@ -55,6 +71,7 @@ const Navbar: FunctionComponent = () => {
                 href="/"
                 title={homeTitle}
                 aria-label={homeTitle}
+                onClick={() => setToggleMenu(false)}
                 className={
                   router.pathname === "/" ?
                     `${styles.link} ${styles.active}`
@@ -74,6 +91,7 @@ const Navbar: FunctionComponent = () => {
                 href="/search"
                 title={searchTitle}
                 aria-label={searchTitle}
+                onClick={() => setToggleMenu(false)}
                 className={
                   router.pathname === "/search" ?
                     `${styles.link} ${styles.active}`
@@ -97,6 +115,7 @@ const Navbar: FunctionComponent = () => {
                 href="/create"
                 title={createTitle}
                 aria-label={createTitle}
+                onClick={() => setToggleMenu(false)}
                 className={
                   router.pathname === "/create" ?
                     `${styles.link} ${styles.active}`
@@ -116,6 +135,7 @@ const Navbar: FunctionComponent = () => {
                 href="/profile"
                 title={profileTitle}
                 aria-label={profileTitle}
+                onClick={() => setToggleMenu(false)}
                 className={
                   router.pathname === "/profile" ?
                     `${styles.link} ${styles.active}`
@@ -124,6 +144,7 @@ const Navbar: FunctionComponent = () => {
                 }
               >
                 <AvatarIcon color="var(--white)" />
+
                 <label className={styles.label}>
                   {profileLabel}
                 </label>
@@ -138,6 +159,7 @@ const Navbar: FunctionComponent = () => {
               href="/login"
               title={loginTitle}
               aria-label={loginTitle}
+              onClick={() => setToggleMenu(false)}
               className={
                 router.pathname === "/login" ?
                   `${styles.link} ${styles.active}`
@@ -145,7 +167,7 @@ const Navbar: FunctionComponent = () => {
                   `${styles.link}`
               }
             >
-              <LoginIcon color="var(--white)" />
+              <AvatarIcon color="var(--white)" />
 
               <label className={styles.label}>
                 {loginLabel}
@@ -155,11 +177,12 @@ const Navbar: FunctionComponent = () => {
         }
 
         {logged && user.admin && !user.banned &&
-          <li key={5}>
+          <li key={5} className={styles.mobile_hidden}>
             <Link
               href="/moderation"
               title={moderationTitle}
               aria-label={moderationTitle}
+              onClick={() => setToggleMenu(false)}
               className={
                 router.pathname === "/moderation" ?
                   `${styles.link} ${styles.active}`
@@ -176,11 +199,12 @@ const Navbar: FunctionComponent = () => {
           </li>
         }
 
-        <li key={6}>
+        <li key={6} className={styles.mobile_hidden}>
           <Link
             href="/contact"
             title={contactTitle}
             aria-label={contactTitle}
+            onClick={() => setToggleMenu(false)}
             className={
               router.pathname === "/contact" ?
                 `${styles.link} ${styles.active}`
@@ -197,13 +221,16 @@ const Navbar: FunctionComponent = () => {
         </li>
 
         {logged &&
-          <li key={7}>
+          <li key={7} className={styles.mobile_hidden}>
             <button
               type="button"
               className={styles.link}
               title={logoutTitle}
               aria-label={logoutTitle}
-              onClick={logOut}
+              onClick={() => {
+                logOut();
+                setToggleMenu(false);
+              }}
             >
               <LogoutIcon color="var(--white)" />
 
@@ -213,6 +240,18 @@ const Navbar: FunctionComponent = () => {
             </button>
           </li>
         }
+
+        <li key={8} className={styles.desktop_hidden}>
+          <button
+            type="button"
+            className={styles.link}
+            title={burgerTitle}
+            aria-label={burgerTitle}
+            onClick={() => setToggleMenu(prev => !prev)}
+          >
+            <BurgerIcon state={toggleMenu} />
+          </button>
+        </li>
       </ul>
     </nav>
   );

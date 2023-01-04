@@ -1,12 +1,8 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
+import type { PlayerProps } from '../../types/componentsProps';
 import styles from './Player.module.scss';
 
-type Props = {
-  url: string,
-  autoPlay?: boolean
-};
-
-const Player: FunctionComponent<Props> = ({
+const Player: FC<PlayerProps> = ({
   url,
   autoPlay = true
 }) => {

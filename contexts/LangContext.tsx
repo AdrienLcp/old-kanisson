@@ -1,4 +1,4 @@
-import type { FunctionComponent, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { createContext, useState, useEffect } from 'react';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export const LangContext = createContext<typeof initialState>(initialState);
 
-const LangContextProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
+const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [lang, setLang] = useState<string>('fr');
 

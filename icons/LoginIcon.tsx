@@ -1,4 +1,4 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 import styles from './LoginIcon.module.scss';
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   height?: string,
 };
 
-const LoginIcon: FunctionComponent<Props> = ({
+const LoginIcon: FC<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {

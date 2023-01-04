@@ -1,25 +1,18 @@
-import type { FunctionComponent, Dispatch, SetStateAction } from 'react';
+import type { FC } from 'react';
+import type { CheckBoxProps } from '../../types/componentsProps';
 import styles from './CheckBox.module.scss';
 
-type Props = {
-  state: boolean,
-  setState: Dispatch<SetStateAction<boolean>>,
-  id: string,
-  label: string,
-  title?: string
-};
-
-const CheckBox: FunctionComponent<Props> = ({
+const CheckBox: FC<CheckBoxProps> = ({
   state,
   setState,
   id,
-  label,
   title,
 }) => {
 
   return (
-    <div
-      className={styles.wrapper}
+    <button
+      className={styles.button}
+      type="button"
       title={title ? title : undefined}
       aria-label={title ? title : undefined}
       onClick={() => setState(prev => !prev)}
@@ -38,11 +31,7 @@ const CheckBox: FunctionComponent<Props> = ({
         />
         <div className={styles.slider} />
       </label>
-
-      <p className={styles.label}>
-        {label}
-      </p>
-    </div>
+    </button>
   );
 };
 

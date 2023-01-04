@@ -1,4 +1,4 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 import styles from './CreateIcon.module.scss';
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   height?: string
 };
 
-const CreateIcon: FunctionComponent<Props> = ({
+const CreateIcon: FC<Props> = ({
   color = "var(--black)",
   height = "24"
 }) => {

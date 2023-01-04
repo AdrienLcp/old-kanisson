@@ -1,7 +1,7 @@
-import type { FunctionComponent } from 'react';
+import type { FC } from 'react';
 import styles from './Background.module.scss';
 
-const Background: FunctionComponent = () => {
+const Background: FC = () => {
 
   return (
     <ul className={styles.background}>
