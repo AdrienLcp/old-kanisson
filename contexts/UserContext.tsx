@@ -1,4 +1,5 @@
-import type { FC, PropsWithChildren, Dispatch, SetStateAction } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import type { UserContextTypes } from '../types/contexts';
 import { createContext, useState, useEffect } from 'react';
 import { User } from '@prisma/client';
 import { api } from '../api/api';
@@ -20,15 +21,7 @@ const initialState = {
   logOut: () => {}
 };
 
-type Props = {
-  user: User,
-  logged: boolean,
-  setUser: Dispatch<SetStateAction<User>>,
-  setLogged: Dispatch<SetStateAction<boolean>>,
-  logOut: () => void
-};
-
-export const UserContext = createContext<Props>(initialState);
+export const UserContext = createContext<UserContextTypes>(initialState);
 
 const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
@@ -87,8 +80,8 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setUser,
         setLogged,
         logOut
-      }}>
-
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

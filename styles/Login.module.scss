@@ -1,0 +1,59 @@
+@import '../styles/mixins';
+
+.container {
+  @include flexCenter;
+  overflow-x: hidden;
+}
+
+@mixin commonLogin {
+  @include flexCenter;
+  flex-direction: column;
+  width: 20rem;
+  padding: 4rem 0 10rem;
+  opacity: 0;
+};
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 3.5rem;
+}
+
+.sign_in {
+  @include commonLogin;
+  transform: translateX(200%);
+  animation: signIn 0.5s ease-out forwards;
+}
+
+.sign_up {
+  @include commonLogin;
+  transform: translateX(-200%);
+  animation: signUp 0.5s ease-out forwards;
+}
+
+.button {
+  @include underlineButton;
+  margin-top: 2rem;
+}
+
+@keyframes signIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes signUp {
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .sign_in, .sign_up {
+    padding: 10rem 0;
+    width: 40rem;
+  }
+}

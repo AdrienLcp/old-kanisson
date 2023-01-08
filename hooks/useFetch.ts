@@ -1,16 +1,13 @@
+import type { UseFetchStateTypes } from '../types/hooks';
 import { useState, useEffect } from 'react';
-
-type StateTypes = {
-  items: any[],
-  loading: boolean
-};
 
 const useFetch = (
   url: string,
+  body?: {},
   token?: string
 ) => {
 
-  const [state, setState] = useState<StateTypes>({
+  const [state, setState] = useState<UseFetchStateTypes>({
     items: [],
     loading: true
   });
@@ -24,7 +21,8 @@ const useFetch = (
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `${token}`
-        }
+        },
+        body: JSON.stringify(body)
       })
       .then(async(res) => {
 

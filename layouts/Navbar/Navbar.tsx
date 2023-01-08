@@ -1,19 +1,10 @@
 import type { FC } from 'react';
-import type { NavbarProps } from '../../types/layoutsProps';
+import type { NavbarProps } from '../../types/layouts';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
-import {
-  home as homeTexts,
-  search as searchTexts,
-  profile as profileTexts,
-  login as loginTexts,
-  logout as logoutTexts,
-  create as createTexts,
-  moderation as moderationTexts,
-  contact as contactTexts
-} from '../../langs/layouts/navbar';
+import { homeTexts, searchTexts, profileTexts, logInTexts, logOutTexts, createTexts, moderationTexts, contactTexts } from '../../langs/layouts/navbar';
 import { burgerButton } from '../../langs/components/buttons';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
@@ -25,7 +16,7 @@ import AvatarIcon from '../../icons/AvatarIcon';
 import AdminIcon from '../../icons/AdminIcon';
 import MailIcon from '../../icons/MailIcon';
 import LogoutIcon from '../../icons/LogoutIcon';
-import BurgerIcon from '../../components/BurgerIcon/BurgerIcon';
+import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
 
 const Navbar: FC<NavbarProps> = ({
   toggleMenu,
@@ -48,16 +39,16 @@ const Navbar: FC<NavbarProps> = ({
   const profileLabel = profileTexts.label[lang as keyof typeof profileTexts.label];
   const profileTitle = profileTexts.title[lang as keyof typeof profileTexts.title];
 
-  const loginLabel = loginTexts.label[lang as keyof typeof loginTexts.label];
-  const loginTitle = loginTexts.title[lang as keyof typeof loginTexts.title];
+  const logInLabel = logInTexts.label[lang as keyof typeof logInTexts.label];
+  const logInTitle = logInTexts.title[lang as keyof typeof logInTexts.title];
 
   const moderationLabel = moderationTexts.label[lang as keyof typeof moderationTexts.label];
   const moderationTitle = moderationTexts.title[lang as keyof typeof moderationTexts.title];
 
   const contactTitle = contactTexts.title[lang as keyof typeof contactTexts.title];
 
-  const logoutLabel = logoutTexts.label[lang as keyof typeof logoutTexts.label];
-  const logoutTitle = logoutTexts.title[lang as keyof typeof logoutTexts.label];
+  const logOutLabel = logOutTexts.label[lang as keyof typeof logOutTexts.label];
+  const logOutTitle = logOutTexts.title[lang as keyof typeof logOutTexts.label];
 
   const burgerTitle = burgerButton.title[lang as keyof typeof burgerButton.title];
 
@@ -157,8 +148,8 @@ const Navbar: FC<NavbarProps> = ({
           <li key={4}>
             <Link
               href="/login"
-              title={loginTitle}
-              aria-label={loginTitle}
+              title={logInTitle}
+              aria-label={logInTitle}
               onClick={() => setToggleMenu(false)}
               className={
                 router.pathname === "/login" ?
@@ -170,7 +161,7 @@ const Navbar: FC<NavbarProps> = ({
               <AvatarIcon color="var(--white)" />
 
               <label className={styles.label}>
-                {loginLabel}
+                {logInLabel}
               </label>
             </Link>
           </li>
@@ -225,8 +216,8 @@ const Navbar: FC<NavbarProps> = ({
             <button
               type="button"
               className={styles.link}
-              title={logoutTitle}
-              aria-label={logoutTitle}
+              title={logOutTitle}
+              aria-label={logOutTitle}
               onClick={() => {
                 logOut();
                 setToggleMenu(false);
@@ -235,7 +226,7 @@ const Navbar: FC<NavbarProps> = ({
               <LogoutIcon color="var(--white)" />
 
               <label className={styles.label}>
-                {logoutLabel}
+                {logOutLabel}
               </label>
             </button>
           </li>
@@ -243,8 +234,8 @@ const Navbar: FC<NavbarProps> = ({
 
         <li key={8} className={styles.desktop_hidden}>
           <button
-            type="button"
             className={styles.link}
+            type="button"
             title={burgerTitle}
             aria-label={burgerTitle}
             onClick={() => setToggleMenu(prev => !prev)}

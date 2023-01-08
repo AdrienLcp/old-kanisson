@@ -1,4 +1,5 @@
 import type { FC, PropsWithChildren } from 'react';
+import type { LangContextTypes } from '../types/contexts';
 import { createContext, useState, useEffect } from 'react';
 
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   changeLang: (newLang: string) => {}
 };
 
-export const LangContext = createContext<typeof initialState>(initialState);
+export const LangContext = createContext<LangContextTypes>(initialState);
 
 const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
@@ -33,6 +34,10 @@ const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
     // we update the state and save it in local storage
     setLang(newLang);
     localStorage.setItem('lang', newLang);
+  };
+
+  const texts = {
+
   };
 
   return (

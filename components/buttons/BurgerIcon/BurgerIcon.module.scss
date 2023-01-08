@@ -1,0 +1,30 @@
+@import '../../../styles/mixins';
+
+.burger {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &_active {
+    .dash:nth-child(1) {
+      transform: translateY(0.6rem) rotate(-225deg);
+    }
+
+    .dash:nth-child(2) {
+      transform: rotate(180deg);
+      opacity: 0;
+    }
+
+    .dash:nth-child(3) {
+      transform: translateY(-0.6rem) rotate(-135deg);
+    }
+  }
+}
+
+.dash {
+  width: 1.8rem;
+  height: 0.2rem;
+  background: var(--white);
+  border-radius: 1rem;
+  transition: all .4s;
+}

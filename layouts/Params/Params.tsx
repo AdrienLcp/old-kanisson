@@ -1,15 +1,15 @@
 import type { FC } from 'react';
-import type { ParamsProps } from '../../types/layoutsProps';
-import { useContext } from 'react';
+import type { ParamsProps } from '../../types/layouts';
 import { LangContext } from '../../contexts/LangContext';
+import { title, button } from '../../langs/layouts/params';
+import { useContext } from 'react';
 import styles from './Params.module.scss';
 
-import { title, button } from '../../langs/layouts/params';
-import BurgerIcon from '../../components/BurgerIcon/BurgerIcon';
-import ParamsNav from '../../components/ParamsNav/ParamsNav';
-import ParamsLang from '../../components/ParamsLang/ParamsLang';
-import ParamsColor from '../../components/ParamsColor/ParamsColor';
-import ParamsTheme from '../../components/ParamsTheme/ParamsTheme';
+import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
+import ParamsNav from '../../components/params/ParamsNav/ParamsNav';
+import ParamsLang from '../../components/params/ParamsLang/ParamsLang';
+import ParamsColor from '../../components/params/ParamsColor/ParamsColor';
+import ParamsTheme from '../../components/params/ParamsTheme/ParamsTheme';
 
 const Params: FC<ParamsProps> = ({
   toggleMenu,

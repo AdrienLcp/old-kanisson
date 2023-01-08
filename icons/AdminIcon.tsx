@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { IconProps } from '../types/componentsProps';
+import type { IconProps } from '../types/components/components';
 
 const AdminIcon: FC<IconProps> = ({
   color = "var(--black)",

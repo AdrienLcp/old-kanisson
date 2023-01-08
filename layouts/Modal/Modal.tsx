@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { ModalProps } from '../../types/layoutsProps';
-import CloseButton from '../../components/CloseButton/CloseButton';
+import type { ModalProps } from '../../types/layouts';
+import CloseButton from '../../components/buttons/CloseButton/CloseButton';
 import styles from './Modal.module.scss';
 
 

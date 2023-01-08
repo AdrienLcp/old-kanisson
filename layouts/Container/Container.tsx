@@ -19,6 +19,8 @@ const Container: FC<PropsWithChildren> = ({ children }) => {
 
         <Background />
 
+        {children}
+
         <Params
           toggleMenu={toggleMenu}
           setToggleMenu={setToggleMenu}
@@ -28,8 +30,6 @@ const Container: FC<PropsWithChildren> = ({ children }) => {
           toggleMenu={toggleMenu}
           setToggleMenu={setToggleMenu}
         />
-
-        {children}
 
       </LangContextProvider>
     </UserContextProvider>

@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { HeadProps } from "../../types/layoutsProps";
+import type { HeadProps } from "../../types/layouts";
 import Head from "next/head";
 
 const NextHead: FC<HeadProps> = ({

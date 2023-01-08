@@ -30,12 +30,12 @@ export default async function handle (
 
           res.status(200).json({user, token});
         } else {
-          res.status(401).json({message: 'Le mot de passe ne correspond pas'});
+          res.status(401).json({message: "Username & password doesn't match"});
         };
       });
     }
-    catch (error){
-      res.status(401).json(error);
+    catch(error){
+      res.status(404).json({message: "Unknown user"});
     };
 
   } else {
@@ -59,11 +59,11 @@ export default async function handle (
 
           res.status(200).json({user, token});
         } else {
-          res.status(401).json({message: 'Le mot de passe ne correspond pas'});
+          res.status(401).json({message: "Username & password doesn't match"});
         };
       });
-    } catch (error){
-      res.status(401).json(error);
+    } catch(error){
+      res.status(404).json({message: "Unknown user"});
     };
   };
 };
