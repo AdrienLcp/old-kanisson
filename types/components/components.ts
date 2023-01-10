@@ -1,5 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
 
+export type ColorPickerProps = {
+  hue: string;
+  itemHue: string;
+  title: string;
+  color: string;
+  changeColor: (newHue: string) => void;
+};
+
 export type IconProps = {
   color?: string;
   height?: string;
@@ -24,7 +32,7 @@ export type PasswordValidationViewProps = {
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   checkPassword: () => void;
   checkPasswordsMatch: () => void;
-  validCases: validCasesState;
+  validCases: ValidCasesState;
   validMessage: string;
 };
 
@@ -33,7 +41,7 @@ export type PlayerProps = {
   autoPlay?: boolean;
 };
 
-export type validCasesState = {
+export type ValidCasesState = {
   lowerCase: boolean;
   upperCase: boolean;
   number: boolean;

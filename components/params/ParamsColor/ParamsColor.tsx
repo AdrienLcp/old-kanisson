@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { theme } from '../../../langs/layouts/params';
+import ColorPicker from '../../ColorPicker/ColorPicker';
 import styles from './ParamsColor.module.scss';
 
 const ParamsColor: FC = () => {
@@ -49,75 +50,45 @@ const ParamsColor: FC = () => {
       </header>
 
       <ul className={styles.list}>
-        <li key={0}>
-          <button
-            className={hue === '250' ?
-              `${styles.purple} ${styles.button} ${styles.button_active}`
-            :
-              `${styles.purple} ${styles.button}`
-            }
-            type="button"
-            aria-label={purpleTitle}
-            title={purpleTitle}
-            onClick={() => changeColor('250')}
-          />
-        </li>
+        <ColorPicker
+          hue={hue}
+          itemHue={'250'}
+          title={purpleTitle}
+          color={styles.purple}
+          changeColor={changeColor}
+        />
 
-        <li key={1}>
-          <button
-            className={hue === '230' ?
-              `${styles.blue} ${styles.button} ${styles.button_active}`
-            :
-              `${styles.blue} ${styles.button}`
-            }
-            type="button"
-            aria-label={blueTitle}
-            title={blueTitle}
-            onClick={() => changeColor('230')}
-          />
-        </li>
+        <ColorPicker
+          hue={hue}
+          itemHue={'230'}
+          title={blueTitle}
+          color={styles.blue}
+          changeColor={changeColor}
+        />
 
-        <li key={2}>
-          <button
-            className={hue === '340' ?
-              `${styles.pink} ${styles.button} ${styles.button_active}`
-            :
-              `${styles.pink} ${styles.button}`
-            }
-            type="button"
-            aria-label={pinkTitle}
-            title={pinkTitle}
-            onClick={() => changeColor('340')}
-          />
-        </li>
+        <ColorPicker
+          hue={hue}
+          itemHue={'25'}
+          title={orangeTitle}
+          color={styles.orange}
+          changeColor={changeColor}
+        />
 
-        <li key={3}>
-          <button
-            className={hue === '360' ?
-              `${styles.red} ${styles.button} ${styles.button_active}`
-            :
-              `${styles.red} ${styles.button}`
-            }
-            type="button"
-            aria-label={redTitle}
-            title={redTitle}
-            onClick={() => changeColor('360')}
-          />
-        </li>
+        <ColorPicker
+          hue={hue}
+          itemHue={'360'}
+          title={redTitle}
+          color={styles.red}
+          changeColor={changeColor}
+        />
 
-        <li key={4}>
-          <button
-            className={hue === '25' ?
-              `${styles.orange} ${styles.button} ${styles.button_active}`
-            :
-              `${styles.orange} ${styles.button}`
-            }
-            type="button"
-            aria-label={orangeTitle}
-            title={orangeTitle}
-            onClick={() => changeColor('25')}
-          />
-        </li>
+        <ColorPicker
+          hue={hue}
+          itemHue={'340'}
+          title={pinkTitle}
+          color={styles.pink}
+          changeColor={changeColor}
+        />
       </ul>
     </section>
   );

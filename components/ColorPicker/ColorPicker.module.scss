@@ -1,0 +1,23 @@
+@import '../../styles/mixins';
+
+.button {
+  @include flexCenter;
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--sm-radius);
+  border: 0.2rem solid var(--black);
+  transition: transform 0.2s;
+  position: relative;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &_active {
+    border: 0.2rem solid var(--white);
+  }
+}

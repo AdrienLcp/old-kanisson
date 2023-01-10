@@ -28,12 +28,12 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
   const [user, setUser] = useState<User>(initialState.user);
-  const [logged, setLogged] = useState<boolean>(true);
+  const [logged, setLogged] = useState<boolean>(false);
 
   useEffect(() => {
     if(logged) {
       const token: string | null = localStorage.getItem('token');
-      // checkToken(token);
+      checkToken(token);
     };
   }, [logged]);
 

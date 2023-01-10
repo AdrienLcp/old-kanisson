@@ -33,7 +33,11 @@ const CheckBox: FC<CheckBoxProps> = ({
         <div className={styles.slider} />
       </label>
 
-      {label ? label : null}
+      {label &&
+        <span className={styles.label}>
+          {label}
+        </span>
+      }
     </button>
   );
 };

@@ -30,14 +30,10 @@ const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   const changeLang = (newLang: string) => {
-    // When user toggle the lang, in Params component,
+    // When user change the lang, in Params component,
     // we update the state and save it in local storage
     setLang(newLang);
     localStorage.setItem('lang', newLang);
-  };
-
-  const texts = {
-
   };
 
   return (

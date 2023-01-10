@@ -1,13 +1,12 @@
 import type { FC, FormEvent } from 'react';
 import { useState } from 'react';
 import { api } from '../../../api/api';
-import useFetch from '../../../hooks/useFetch';
 import SignInFormView from './view';
 
 const SignInForm: FC = () => {
 
-  const [pseudoOrEmail, setPseudoOrEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [pseudoOrEmail, setPseudoOrEmail] = useState<string>('Vadrial');
+  const [password, setPassword] = useState<string>('Test123&');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const checkForm = () => {
@@ -24,11 +23,6 @@ const SignInForm: FC = () => {
       password,
       rememberMe
     };
-
-    // Use our personnalised hook to fetch data
-    const [items, loading] = useFetch(`${api}/user/login`, body);
-
-    console.log(items);
   };
 
   return (

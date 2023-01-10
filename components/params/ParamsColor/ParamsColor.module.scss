@@ -22,23 +22,6 @@
   max-width: 80%;
 }
 
-.button {
-  width: 5rem;
-  height: 5rem;
-  border-radius: var(--sm-radius);
-  border: 0.2rem solid var(--black);
-
-  &_active {
-    border: 0.2rem solid var(--white);
-  }
-}
-
-.picker {
-  width: 5rem;
-  height: 5rem;
-  border-radius: var(--sm-radius);
-}
-
 .purple {
   background: hsl(var(--purple-hue), 69%, 61%);
 }
