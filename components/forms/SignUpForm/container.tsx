@@ -4,11 +4,12 @@ import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../langs/components/inputs';
-import { message } from '../../../langs/others/error';
+import { messages } from '../../../langs/others/error';
 import SignUpFormView from './view';
 
 const SignUp: FC = () => {
 
+  // Contexts for language & user
   const { lang } = useContext(LangContext);
   const { setUser, setLogged } = useContext(UserContext);
 
@@ -20,13 +21,14 @@ const SignUp: FC = () => {
   const [validPassword, setValidPassword] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
 
-  const errorText = message.globalError[lang as keyof typeof message.globalError];
-  const alreadyTakenText = message.alreadyTaken[lang as keyof typeof message.alreadyTaken];
+  // Translated texts
+  const errorText = messages.globalError[lang as keyof typeof messages.globalError];
+  const alreadyTakenText = messages.alreadyTaken[lang as keyof typeof messages.alreadyTaken];
   const validPasswordText = passwordTexts.title[lang as keyof typeof passwordTexts.title];
-  const emptyText = message.empty[lang as keyof typeof message.empty];
+  const emptyText = messages.empty[lang as keyof typeof messages.empty];
   const validPseudoText = pseudoTexts.title[lang as keyof typeof pseudoTexts.title];
   const validEmailText = emailTexts.title[lang as keyof typeof emailTexts.title];
-  const validPasswordsMatch = message.passwordsDoesntMatch[lang as keyof typeof message.passwordsDoesntMatch];
+  const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
 
   useEffect(() => {
     if(pseudo) {
@@ -101,7 +103,7 @@ const SignUp: FC = () => {
       })
       .then(async(res) => {
         const data = await res.json();
-        // If response is ok
+        // If response is ok (201 = created)
         if(res.status === 201) {
           // set token into local storage
           localStorage.setItem('token', data.token);
@@ -118,7 +120,7 @@ const SignUp: FC = () => {
       })
       .catch((error) => {
         setWarningMessage(errorText);
-        console.log('catch Error : ', error);
+        console.error('catch Error : ', error);
       });
     };
   };

@@ -8,12 +8,14 @@ import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import InputPassword from '../../inputs/InputPassword/InputPassword';
 import FormWrapper from '../FormWrapper/FormWrapper';
+import WarningMessage from '../../WarningMessage/WarningMessage';
 
 const SignInFormView: FC<SignInFormProps> = ({
   handleSubmit,
   pseudoOrEmail, setPseudoOrEmail,
   password, setPassword,
-  rememberMe, setRememberMe
+  rememberMe, setRememberMe,
+  warningMessage, setWarningMessage
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -48,6 +50,13 @@ const SignInFormView: FC<SignInFormProps> = ({
         title={passwordInputTitle}
         id='sign-in-password-input'
       />
+
+      {warningMessage &&
+        <WarningMessage
+          message={warningMessage}
+          setMessage={setWarningMessage}
+        />
+      }
 
       <CheckBox
         state={rememberMe}
