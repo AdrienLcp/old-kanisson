@@ -1,12 +1,7 @@
 import type { FC } from 'react';
-import styles from './PauseIcon.module.scss';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const PauseIcon: FC<Props> = ({
+const PauseIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

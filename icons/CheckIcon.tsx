@@ -3,7 +3,7 @@ import type { IconProps } from '../types/components/components';
 
 const CheckIcon: FC<IconProps> = ({
   color = "var(--black)",
-  height = "32"
+  height = "24"
 }) => {
 
   return (

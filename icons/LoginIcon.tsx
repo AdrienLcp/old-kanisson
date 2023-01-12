@@ -1,12 +1,7 @@
 import type { FC } from 'react';
-import styles from './LoginIcon.module.scss';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string,
-};
-
-const LoginIcon: FC<Props> = ({
+const LoginIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

@@ -28,5 +28,7 @@ export type SignUpFormProps = {
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   rememberMe: boolean;
   setRememberMe: Dispatch<SetStateAction<boolean>>;
+  warningMessage: string;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
 };

@@ -1,11 +1,7 @@
 import type { FC } from 'react';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: "24"
-};
-
-const ArrowIcon: FC<Props> = ({
+const ArrowIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

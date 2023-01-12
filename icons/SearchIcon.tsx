@@ -1,12 +1,7 @@
 import type { FC } from 'react';
-import styles from './SearchIcon.module.scss';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const SearchIcon: FC<Props> = ({
+const SearchIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

@@ -31,9 +31,14 @@ export type PasswordValidationViewProps = {
   confirmPassword: string;
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   checkPassword: () => void;
-  checkPasswordsMatch: () => void;
   validCases: ValidCasesState;
   validMessage: string;
+  setValidMessage: Dispatch<SetStateAction<string>>
+};
+
+export type PasswordValidationItemProps = {
+  validCase: boolean;
+  text: string;
 };
 
 export type PlayerProps = {
@@ -47,4 +52,9 @@ export type ValidCasesState = {
   number: boolean;
   special: boolean;
   lengthPass: boolean;
+};
+
+export type MessageProps = {
+  message: string;
+  setMessage: Dispatch<SetStateAction<string>>;
 };

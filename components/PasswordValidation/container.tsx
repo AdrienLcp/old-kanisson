@@ -1,6 +1,6 @@
-import { FC, useContext } from 'react';
-import type { PasswordValidationProps, validCasesState } from '../../types/components/components';
-import { useState, } from 'react';
+import type { FC } from 'react';
+import type { PasswordValidationProps, ValidCasesState } from '../../types/components/components';
+import { useState, useContext, useEffect } from 'react';
 import PasswordValidationView from './view';
 import { LangContext } from '../../contexts/LangContext';
 import { passwordTexts } from '../../langs/components/inputs';
@@ -16,13 +16,21 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
   const matchText = passwordTexts.match[lang as keyof typeof passwordTexts.match];
 
   const [validMessage, setValidMessage] = useState<string>('');
-  const [validCases, setValidCases] = useState<validCasesState>({
+  const [validCases, setValidCases] = useState<ValidCasesState>({
     lowerCase: false,
     upperCase: false,
     number: false,
     special: false,
     lengthPass: false
   });
+
+  useEffect(() => {
+    if(password !== '' && password === confirmPassword) {
+      setValidMessage(matchText);
+    } else {
+      setValidMessage('');
+    };
+  }, [password, confirmPassword]);
 
   const checkPassword = () => {
     const lowercase = new RegExp('(?=.*[a-z])');
@@ -70,24 +78,16 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
     };
   };
 
-  const checkPasswordsMatch = () => {
-    if(password !== '' && password === confirmPassword) {
-      setValidMessage(`✅ ${matchText}`);
-    } else {
-      setValidMessage('');
-    };
-  };
-
   return (
     <PasswordValidationView
       password={password}
       setPassword={setPassword}
       confirmPassword={confirmPassword}
       setConfirmPassword={setConfirmPassword}
-      checkPassword={checkPassword}
-      checkPasswordsMatch={checkPasswordsMatch}
-      validCases={validCases}
       validMessage={validMessage}
+      setValidMessage={setValidMessage}
+      checkPassword={checkPassword}
+      validCases={validCases}
     />
   );
 };

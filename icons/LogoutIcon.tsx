@@ -1,12 +1,7 @@
 import type { FC } from 'react';
-import styles from './Logout.module.scss';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const LogoutIcon: FC<Props> = ({
+const LogoutIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

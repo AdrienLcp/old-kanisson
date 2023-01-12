@@ -26,8 +26,8 @@ export const pseudoTexts = {
     en: "Username"
   },
   title: {
-    fr: "Le pseudo doit contenir entre 3 et 30 caractères",
-    en: "Enter a nickname between 3 and 30 characters"
+    fr: "Le pseudo doit contenir entre 3 et 30 caractères et ne doit pas contenir de '@' ou de '.'",
+    en: "Enter a nickname between 3 and 30 characters and must not contain '@' or '.'"
   }
 };
 
@@ -37,8 +37,8 @@ export const emailTexts = {
     en: "Email"
   },
   title: {
-    fr: "Écrivez votre adresse mail",
-    en: "Enter your email"
+    fr: "Entrez une adresse mail valide",
+    en: "Enter a valid email"
   }
 };
 

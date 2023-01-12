@@ -4,10 +4,12 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { emailTexts, pseudoTexts } from '../../../langs/components/inputs';
 import { rememberMeTexts, signInTexts } from '../../../langs/pages/login';
+
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import PasswordValidation from '../../PasswordValidation/container';
 import FormWrapper from '../FormWrapper/FormWrapper';
+import WarningMessage from '../../WarningMessage/WarningMessage';
 
 const SignUpFormView: FC<SignUpFormProps> = ({
   handleSubmit,
@@ -16,6 +18,7 @@ const SignUpFormView: FC<SignUpFormProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   rememberMe, setRememberMe,
+  warningMessage, setWarningMessage,
   setValidPassword
 }) => {
 
@@ -60,6 +63,13 @@ const SignUpFormView: FC<SignUpFormProps> = ({
         setConfirmPassword={setConfirmPassword}
         setValidPassword={setValidPassword}
       />
+
+      {warningMessage &&
+        <WarningMessage
+          message={warningMessage}
+          setMessage={setWarningMessage}
+        />
+      }
 
       <CheckBox
         state={rememberMe}

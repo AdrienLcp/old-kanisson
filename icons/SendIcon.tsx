@@ -1,11 +1,7 @@
 import type { FC } from 'react';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const SendIcon: FC<Props> = ({
+const SendIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

@@ -1,11 +1,7 @@
 import type { FC } from 'react';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const SettingsIcon: FC<Props> = ({
+const SettingsIcon: FC<IconProps> = ({
   color = "var(--white)",
   height = "24"
 }) => {

@@ -9,7 +9,8 @@ import styles from './CloseButton.module.scss';
 
 const CloseButton: FC<CloseButtonProps> = ({
   handleFunction,
-  color = "var(--black)"
+  color = "var(--black)",
+  height = "18"
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -23,7 +24,7 @@ const CloseButton: FC<CloseButtonProps> = ({
         title={title}
       >
         <CrossIcon
-          height='18'
+          height={height}
           color={color}
         />
       </IconButton>

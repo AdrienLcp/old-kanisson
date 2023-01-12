@@ -1,12 +1,7 @@
 import type { FC } from 'react';
-import styles from './CreateIcon.module.scss';
+import type { IconProps } from '../types/components/components';
 
-type Props = {
-  color?: string,
-  height?: string
-};
-
-const CreateIcon: FC<Props> = ({
+const CreateIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {

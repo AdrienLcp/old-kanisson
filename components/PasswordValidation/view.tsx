@@ -4,17 +4,17 @@ import { useState, useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
 import { passwordTexts } from '../../langs/components/inputs';
-import { v4 as uuidv4 } from 'uuid';
 import InputPassword from '../inputs/InputPassword/InputPassword';
 import styles from './PasswordValidation.module.scss';
+import ValidMessage from '../ValidMessage/ValidMessage';
+import PasswordValidationItem from './Item/Item';
 
 const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
+  validMessage, setValidMessage,
   checkPassword,
-  checkPasswordsMatch,
-  validCases,
-  validMessage
+  validCases
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -40,10 +40,7 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
         className={styles.inputBox}
         onFocus={() => setToggleValidation(true)}
         onBlur={() => setToggleValidation(false)}
-        onKeyUp={() => {
-          checkPassword();
-          checkPasswordsMatch();
-        }}
+        onKeyUp={checkPassword}
       >
         <InputPassword
           value={password}
@@ -54,10 +51,7 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
         />
       </div>
 
-      <div
-        className={styles.inputBox}
-        onKeyUp={() => checkPasswordsMatch()}
-      >
+      <div className={styles.inputBox}>
         <InputPassword
           value={confirmPassword}
           setValue={setConfirmPassword}
@@ -75,66 +69,37 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
             `${styles.list}`
         }
       >
-        <li
-          key={uuidv4()}
-          className={
-            validCases.lowerCase ?
-              `${styles.item} ${styles.valid}`
-            :
-              `${styles.item}`
-          }
-        >
-          {lowerText}
-        </li>
-        <li
-          key={uuidv4()}
-          className={
-            validCases.upperCase ?
-              `${styles.item} ${styles.valid}`
-            :
-              `${styles.item}`
-          }
-        >
-          {upperText}
-        </li>
-        <li
-          key={uuidv4()}
-          className={
-            validCases.number ?
-              `${styles.item} ${styles.valid}`
-            :
-              `${styles.item}`
-          }
-        >
-          {numberText}
-        </li>
-        <li
-          key={uuidv4()}
-          className={
-            validCases.special ?
-              `${styles.item} ${styles.valid}`
-            :
-              `${styles.item}`
-          }
-        >
-          {specialText}
-        </li>
-        <li
-          key={uuidv4()}
-          className={
-            validCases.lengthPass ?
-              `${styles.item} ${styles.valid}`
-            :
-              `${styles.item}`
-          }
-        >
-          {lengthText}
-        </li>
+        <PasswordValidationItem
+          validCase={validCases.lowerCase}
+          text={lowerText}
+        />
+
+        <PasswordValidationItem
+          validCase={validCases.upperCase}
+          text={upperText}
+        />
+
+        <PasswordValidationItem
+          validCase={validCases.number}
+          text={numberText}
+        />
+
+        <PasswordValidationItem
+          validCase={validCases.special}
+          text={specialText}
+        />
+
+        <PasswordValidationItem
+          validCase={validCases.lengthPass}
+          text={lengthText}
+        />
       </ul>
 
       {validMessage &&
-        // créer une composant notif
-        <span></span>
+        <ValidMessage
+          message={validMessage}
+          setMessage={setValidMessage}
+        />
       }
     </>
   );

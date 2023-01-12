@@ -3,10 +3,17 @@
 .form {
   @include flexCenter;
   flex-direction: column;
+  width: 22rem;
   gap: 1rem;
 }
 
 .button {
   @include mainButton;
   margin-top: 2rem;
+}
+
+@media screen and (min-width: 850px) {
+  .form {
+    width: 25rem;
+  }
 }
