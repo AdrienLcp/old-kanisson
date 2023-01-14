@@ -53,7 +53,6 @@ const SignUpFormView: FC<SignUpFormProps> = ({
         label={emailInputLabel}
         title={emailInputTitle}
         id='sign-up-email-input'
-        type='email'
       />
 
       <PasswordValidation

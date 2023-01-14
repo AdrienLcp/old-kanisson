@@ -2,8 +2,8 @@ import { Dispatch, FormEvent, PropsWithChildren, SetStateAction } from 'react';
 
 export type FormWrapperProps = PropsWithChildren<{
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  submitLabel: string;
-  submitTitle: string;
+  submitLabel?: string;
+  submitTitle?: string;
 }>;
 
 export type SignInFormProps = {

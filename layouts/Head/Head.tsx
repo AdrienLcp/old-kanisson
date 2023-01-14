@@ -1,11 +1,18 @@
-import type { FC } from "react";
+import { FC, useContext } from "react";
 import type { HeadProps } from "../../types/layouts";
 import Head from "next/head";
+import { LangContext } from "../../contexts/LangContext";
+import { headTexts } from "../../langs/layouts/head";
 
 const NextHead: FC<HeadProps> = ({
   title = "",
   description = ""
 }) => {
+
+  const { lang } = useContext(LangContext);
+
+  const defaultTitle = headTexts.title[lang as keyof typeof headTexts.title];
+  const defaultDescription = headTexts.description[lang as keyof typeof headTexts.description];
 
   return (
     <Head>
@@ -22,12 +29,12 @@ const NextHead: FC<HeadProps> = ({
       <meta name="msapplication-TileColor" content="#da532c"/>
       <meta name="theme-color" content="#ffffff"/> */}
 
-      <meta 
+      <meta
         name="description"
-        content={description}
+        content={description ? description : defaultDescription}
       />
 
-      <title>{title}</title>
+      <title>{title ? title : defaultTitle}</title>
     </Head>
   );
 };

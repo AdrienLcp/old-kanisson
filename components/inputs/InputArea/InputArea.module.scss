@@ -3,8 +3,17 @@
 
 .input {
   padding: 0.9rem 1.6rem;
-  width: clamp(20rem, 100%, 80rem);
-  height: clamp(10rem, 100%, 50vh);
+  min-width: 20rem;
+  max-width: 90vw;
+  min-height: 20rem;
+  max-height: 50vh;
   font-family: inherit;
   outline: none;
+}
+
+@media screen and (min-width: 850px) {
+  .input {
+    min-width: 40rem;
+    max-width: 60vw;
+  }
 }

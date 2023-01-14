@@ -16,14 +16,16 @@ const FormWrapper: FC<FormWrapperProps> = ({
     >
       {children}
 
-      <button
-        className={styles.button}
-        aria-label={submitTitle}
-        title={submitTitle}
-        type='submit'
-      >
-        {submitLabel}
-      </button>
+      {submitLabel &&
+        <button
+          className={styles.button}
+          aria-label={submitTitle}
+          title={submitTitle}
+          type='submit'
+        >
+          {submitLabel}
+        </button>
+      }
     </form>
   );
 };

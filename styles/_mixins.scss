@@ -190,6 +190,7 @@
 
 @mixin messageStyles {
   @include flexCenter;
+  gap: 0.5em;
   position: relative;
   border-radius: var(--sm-radius);
   font-size: 1.2rem;

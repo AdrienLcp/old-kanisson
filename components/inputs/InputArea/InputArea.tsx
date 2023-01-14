@@ -1,15 +1,16 @@
 import type { FC, ChangeEvent } from 'react';
 import type { InputAreaProps } from '../../../types/components/inputs';
 import { useMemo } from 'react';
-import styles from './TextArea.module.scss';
+import styles from './InputArea.module.scss';
 
-const TextArea: FC<InputAreaProps> = ({
+const InputArea: FC<InputAreaProps> = ({
   value,
   setValue,
   label,
   id,
   title,
-  disabled = true,
+  name,
+  disabled = false,
   required = true
 }) => {
 
@@ -30,6 +31,7 @@ const TextArea: FC<InputAreaProps> = ({
         className={styles.input}
         value={value}
         id={id}
+        name={name ? name : undefined}
         required={required}
         disabled={disabled}
         onChange={e => handleChange(e)}
@@ -45,4 +47,4 @@ const TextArea: FC<InputAreaProps> = ({
   );
 };
 
-export default TextArea;
+export default InputArea;

@@ -14,6 +14,7 @@ export type InputAreaProps = {
   label: string;
   id: string;
   title?: string;
+  name?: string;
   disabled?: boolean;
   required?: boolean;
 };
