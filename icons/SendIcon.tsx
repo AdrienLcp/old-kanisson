@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { IconProps } from '../types/components/components';
+import type { IconProps } from '../types/components/others';
 
 const SendIcon: FC<IconProps> = ({
   color = "var(--black)",

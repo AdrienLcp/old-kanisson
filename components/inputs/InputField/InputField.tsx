@@ -1,6 +1,6 @@
 import type { FC, ChangeEvent } from 'react';
 import type { InputFieldProps } from '../../../types/components/inputs';
-import { useRef, useContext, useMemo,  } from 'react';
+import { useRef, useContext, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { clearTexts } from '../../../langs/components/inputs';
 import styles from './InputField.module.scss';

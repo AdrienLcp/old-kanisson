@@ -9,7 +9,7 @@ export default checkUser(async function handle (
   try {
     const user = await db.user.update({
       where: {
-        id: req.body.id
+        id: req.body.user_id
       },
       data: {
         pseudo: req.body.pseudo,

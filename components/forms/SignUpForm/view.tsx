@@ -8,7 +8,7 @@ import { rememberMeTexts, signInTexts } from '../../../langs/pages/login';
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import PasswordValidation from '../../PasswordValidation/container';
-import FormWrapper from '../FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
 import WarningMessage from '../../WarningMessage/WarningMessage';
 
 const SignUpFormView: FC<SignUpFormProps> = ({

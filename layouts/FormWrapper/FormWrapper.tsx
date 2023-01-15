@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { FormWrapperProps } from '../../../types/components/forms';
+import { FormWrapperProps } from '../../types/components/forms';
 import styles from './FormWrapper.module.scss';
 
 const FormWrapper: FC<FormWrapperProps> = ({

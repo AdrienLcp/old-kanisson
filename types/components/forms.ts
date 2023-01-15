@@ -34,3 +34,22 @@ export type SignUpFormProps = {
   setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
 };
+
+export type UpdateUserFormProps = {
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  pseudo: string;
+  setPseudo: Dispatch<SetStateAction<string>>;
+  email: string;
+  setEmail: Dispatch<SetStateAction<string>>;
+  previousPassword: string;
+  setPreviousPassword: Dispatch<SetStateAction<string>>;
+  newPassword: string;
+  setNewPassword: Dispatch<SetStateAction<string>>;
+  confirmPassword: string;
+  setConfirmPassword: Dispatch<SetStateAction<string>>;
+  validMessage: string;
+  setValidMessage: Dispatch<SetStateAction<string>>;
+  warningMessage: string;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
+  setValidPassword: Dispatch<SetStateAction<boolean>>;
+};

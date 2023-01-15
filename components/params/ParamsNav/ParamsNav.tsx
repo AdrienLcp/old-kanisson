@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ParamsNavProps } from '../../../types/components/components';
+import type { ParamsNavProps } from '../../../types/components/others';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';

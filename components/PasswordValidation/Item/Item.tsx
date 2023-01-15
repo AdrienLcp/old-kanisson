@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { PasswordValidationItemProps } from '../../../types/components/components';
+import type { PasswordValidationItemProps } from '../../../types/components/others';
 import { v4 as uuidv4 } from 'uuid';
 import CheckIcon from '../../../icons/CheckIcon';
 import CrossIcon from '../../../icons/CrossIcon';

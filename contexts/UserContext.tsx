@@ -31,8 +31,8 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [logged, setLogged] = useState<boolean>(false);
 
   useEffect(() => {
-    if(logged) {
-      const token: string | null = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    if(token) {
       checkToken(token);
     };
   }, [logged]);
@@ -49,13 +49,17 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
       const data = await res.json();
 
       if(res.status === 200) {
+        // If response is ok, log user & update data
         setLogged(true);
         setUser(data);
 
+        // If user is banned
         if(data.banned) {
+          // push him to banned page
           router.push('/banned');
         };
       } else {
+        // logout user
         logOut();
       };
     })

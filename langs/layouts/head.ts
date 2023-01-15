@@ -48,3 +48,14 @@ export const notFoundHeadTexts = {
     en: "Are you lost ? This way doesn't exist"
   }
 };
+
+export const profileHeadTexts = {
+  title: {
+    fr: "Mon espace - Kanisson",
+    en: "My personnal space - Kanisson"
+  },
+  description: {
+    fr: "Ma page de profil, changez les informations de votre compte et éditez vos playlists",
+    en: "My profile page, update my account information and update your playlists"
+  }
+};

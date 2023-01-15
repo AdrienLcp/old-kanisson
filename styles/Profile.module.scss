@@ -1,0 +1,23 @@
+@import '../styles/mixins';
+
+.toggle_button {
+  @include underlineButton;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease-out;
+
+  &.opened {
+    max-height: 60rem;
+    animation: show-overflow 0.3s linear forwards;
+  }
+}
+
+@keyframes show-overflow {
+  100% {
+    overflow: visible;
+  }
+}

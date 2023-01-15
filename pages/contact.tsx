@@ -5,7 +5,7 @@ import { titleTexts } from '../langs/pages/contact';
 import { contactHeadTexts } from '../langs/layouts/head';
 import NextHead from '../layouts/Head/Head';
 import ContactForm from '../components/forms/ContactForm/ContactForm';
-import styles from '../styles/Contact.module.scss';
+import PageWrapper from '../layouts/PageWrapper/PageWrapper';
 
 const Contact: NextPage = () => {
 
@@ -22,15 +22,11 @@ const Contact: NextPage = () => {
         description={headDescription}
       />
 
-      <section className={styles.container}>
-        <header>
-          <h1 className={styles.title}>
-            {pageTitle}
-          </h1>
-        </header>
+      <PageWrapper title={pageTitle}>
 
         <ContactForm />
-      </section>
+
+      </PageWrapper>
     </>
   );
 };

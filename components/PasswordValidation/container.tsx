@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { PasswordValidationProps, ValidCasesState } from '../../types/components/components';
+import type { PasswordValidationProps, ValidCasesState } from '../../types/components/others';
 import { useState, useContext, useEffect } from 'react';
 import PasswordValidationView from './view';
 import { LangContext } from '../../contexts/LangContext';
@@ -8,7 +8,7 @@ import { passwordTexts } from '../../langs/components/inputs';
 const PasswordValidation: FC<PasswordValidationProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
-  setValidPassword,
+  setValidPassword
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -30,6 +30,8 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
     } else {
       setValidMessage('');
     };
+
+    checkPassword()
   }, [password, confirmPassword]);
 
   const checkPassword = () => {
@@ -86,7 +88,6 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
       setConfirmPassword={setConfirmPassword}
       validMessage={validMessage}
       setValidMessage={setValidMessage}
-      checkPassword={checkPassword}
       validCases={validCases}
     />
   );

@@ -14,6 +14,12 @@ export type NavbarProps = {
   setToggleMenu: Dispatch<SetStateAction<boolean>>
 };
 
+export type PageWrapperProps = PropsWithChildren<{
+  title: string;
+  subtitle?: string;
+
+}>;
+
 export type ParamsProps = {
   toggleMenu: boolean,
   setToggleMenu: Dispatch<SetStateAction<boolean>>

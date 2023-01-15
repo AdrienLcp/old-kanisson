@@ -1,14 +1,27 @@
 @import '../../../styles/mixins';
 
+.form {
+  @include flexCenter;
+  flex-direction: column;
+  width: 90vw;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
 .button {
   @include mainButton;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5em;
+  margin-top: 2rem;
   font-size: 0.8rem;
 }
 
 @media screen and (min-width: 850px) {
+  .form {
+    width: 40rem;
+  }
+
   .button {
     font-size: 1rem;
   }

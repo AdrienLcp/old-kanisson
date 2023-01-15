@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { MessageProps } from '../../types/components/components';
+import type { MessageProps } from '../../types/components/others';
 import CheckIcon from '../../icons/CheckIcon';
 import CloseButton from '../buttons/CloseButton/CloseButton';
 import styles from './ValidMessage.module.scss';

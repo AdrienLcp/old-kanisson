@@ -1,9 +1,10 @@
-@import "../../../styles/mixins";
+@import "../../styles/mixins";
 
 .form {
   @include flexCenter;
   flex-direction: column;
-  min-width: 22rem;
+  width: 22rem;
+  margin: 2rem 0;
   gap: 1rem;
 }
 
@@ -14,6 +15,6 @@
 
 @media screen and (min-width: 850px) {
   .form {
-    min-width: 25rem;
+    width: 25rem;
   }
 }

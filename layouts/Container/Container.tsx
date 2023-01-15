@@ -10,7 +10,6 @@ import Params from '../Params/Params';
 
 const Container: FC<PropsWithChildren> = ({ children }) => {
 
-
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   return (

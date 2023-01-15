@@ -31,7 +31,7 @@ export default checkUser(async function handle (
         });
 
       } else {
-        res.status(401).json({message: "L'ancien mot de passe ne correspond pas"})
+        res.status(401).json({message: "Wrong previous password"})
       };
     });
 

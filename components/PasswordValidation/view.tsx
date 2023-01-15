@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { PasswordValidationViewProps } from '../../types/components/components';
+import type { PasswordValidationViewProps } from '../../types/components/others';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
@@ -13,7 +13,6 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   validMessage, setValidMessage,
-  checkPassword,
   validCases
 }) => {
 
@@ -40,7 +39,6 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
         className={styles.inputBox}
         onFocus={() => setToggleValidation(true)}
         onBlur={() => setToggleValidation(false)}
-        onKeyUp={checkPassword}
       >
         <InputPassword
           value={password}

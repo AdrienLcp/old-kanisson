@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { MessageProps } from '../../types/components/components';
+import type { MessageProps } from '../../types/components/others';
 import CloseButton from '../buttons/CloseButton/CloseButton';
 import styles from './WarningMessage.module.scss';
 import CrossIcon from '../../icons/CrossIcon';

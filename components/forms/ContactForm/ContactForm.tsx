@@ -7,7 +7,7 @@ import { areaTexts, mailTexts, sendTexts, sentTexts } from '../../../langs/pages
 import SendIcon from '../../../icons/SendIcon';
 import ValidMessage from '../../ValidMessage/ValidMessage';
 import InputField from '../../inputs/InputField/InputField';
-import FormWrapper from '../FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
 import InputArea from '../../inputs/InputArea/InputArea';
 
 // We use FormSpree for this contact form
@@ -38,7 +38,10 @@ const ContactForm: FunctionComponent = () => {
   }, [state]);
 
   return (
-    <FormWrapper handleSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className={styles.form}
+    >
 
       <InputField
         value={email}
@@ -87,7 +90,7 @@ const ContactForm: FunctionComponent = () => {
 
         {sendLabel}
       </button>
-    </FormWrapper>
+    </form>
   );
 };
 

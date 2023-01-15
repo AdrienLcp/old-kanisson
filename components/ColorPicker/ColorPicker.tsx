@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ColorPickerProps } from '../../types/components/components';
+import type { ColorPickerProps } from '../../types/components/others';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './ColorPicker.module.scss';
 import CheckIcon from '../../icons/CheckIcon';

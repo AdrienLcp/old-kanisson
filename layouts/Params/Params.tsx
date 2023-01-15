@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { ParamsProps } from '../../types/layouts';
 import { LangContext } from '../../contexts/LangContext';
 import { title, button } from '../../langs/layouts/params';
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import styles from './Params.module.scss';
 
 import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
