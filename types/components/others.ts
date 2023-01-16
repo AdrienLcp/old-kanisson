@@ -8,6 +8,13 @@ export type ColorPickerProps = {
   changeColor: (newHue: string) => void;
 };
 
+export type ConfirmModalProps = {
+  title: string;
+  content?: string;
+  handleFunction: () => void;
+  setToggleModal: Dispatch<SetStateAction<boolean>>;
+};
+
 export type IconProps = {
   color?: string;
   height?: string;
@@ -33,6 +40,7 @@ export type PasswordValidationProps = {
   confirmPassword: string;
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
+  required?: boolean
 };
 
 export type PasswordValidationViewProps = {
@@ -43,6 +51,7 @@ export type PasswordValidationViewProps = {
   validCases: ValidCasesState;
   validMessage: string;
   setValidMessage: Dispatch<SetStateAction<string>>;
+  required: boolean
 };
 
 export type PlayerProps = {

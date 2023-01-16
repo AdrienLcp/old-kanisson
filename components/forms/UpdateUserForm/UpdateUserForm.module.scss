@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+
+.container {
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.button {
+  @include secondaryButton;
+}

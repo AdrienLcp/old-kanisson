@@ -17,9 +17,9 @@ const Modal: FC<ModalProps> = ({
 
       <section className={styles.container}>
 
-        <CloseButton handleFunction={() => setToggleModal(false)} />
-
         {children}
+
+        <CloseButton handleFunction={() => setToggleModal(false)} />
 
       </section>
     </div>

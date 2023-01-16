@@ -11,6 +11,7 @@ import { bannedHeadTexts } from '../langs/layouts/head';
 import { messages } from '../langs/others/error';
 import { bannedTexts } from '../langs/pages/banned';
 import NextHead from '../layouts/Head/Head';
+import PageWrapper from '../layouts/PageWrapper/PageWrapper';
 import styles from '../styles/Banned.module.scss';
 
 const Banned: NextPage = () => {
@@ -71,17 +72,10 @@ const Banned: NextPage = () => {
         title={headTitle}
       />
 
-      <section className={styles.page}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>
-            {pageTitle}
-          </h1>
-
-          <p className={styles.subtitle}>
-            {pageSubtitle}
-          </p>
-        </header>
-
+      <PageWrapper
+        title={pageTitle}
+        subtitle={pageSubtitle}
+      >
         <ContactForm />
 
         {warningMessage &&
@@ -107,7 +101,7 @@ const Banned: NextPage = () => {
             {buttonLabel}
           </button>
         }
-      </section>
+      </PageWrapper>
     </>
   );
 };

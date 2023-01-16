@@ -52,4 +52,5 @@ export type UpdateUserFormProps = {
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
+  deleteAccount: () => void;
 };

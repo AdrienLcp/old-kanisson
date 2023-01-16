@@ -29,13 +29,6 @@ const Profile: NextPage = () => {
       />
 
       <PageWrapper title={pageTitle}>
-        <button
-          className={styles.toggle_button}
-          type="button"
-          onClick={() => setToggleForm(prev => !prev)}
-        >
-          {toggleForm ? toggleButtonOpenedText : toggleButtonClosedText}
-        </button>
 
         <section className={
           toggleForm ?
@@ -45,6 +38,14 @@ const Profile: NextPage = () => {
         }>
           <UpdateUserForm />
         </section>
+
+        <button
+          className={styles.toggle_button}
+          type="button"
+          onClick={() => setToggleForm(prev => !prev)}
+        >
+          {toggleForm ? toggleButtonOpenedText : toggleButtonClosedText}
+        </button>
 
 
 

@@ -13,7 +13,8 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   validMessage, setValidMessage,
-  validCases
+  validCases,
+  required
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -46,6 +47,7 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
           id={'password'}
           title={passwordTitle}
           label={logged ? newPasswordLabel : passwordLabel}
+          required={required}
         />
       </div>
 
@@ -56,6 +58,7 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
           id={'confirm-password'}
           title={passwordConfirmTitle}
           label={passwordConfirmLabel}
+          required={required}
         />
       </div>
 

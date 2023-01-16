@@ -2,16 +2,16 @@
 
 .wrapper {
   @include flexCenter;
-  @include posFixed(0, auto, auto, var(--navbar-width));
-  width: calc(100vw - var(--navbar-width));
+  @include posFixed(0, auto, auto, 0);
+  width: 100vw;
   height: 100vh;
   transition: 0.3s;
   @include opacityApparition;
 }
 
 .behind {
-  @include posFixed(0, auto, auto, var(--navbar-width));
-  width: calc(100vw - var(--navbar-width));
+  @include posFixed(0, auto, auto 0);
+  width: 100vw;
   height: 100vh;
   background: var(--lg-opacity);
 }

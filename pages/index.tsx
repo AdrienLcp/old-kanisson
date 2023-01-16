@@ -1,6 +1,8 @@
 import { User } from '@prisma/client';
 import type { GetServerSideProps, NextPage } from 'next';
 import { api, youtube } from '../api/api';
+import NextHead from '../layouts/Head/Head';
+import PageWrapper from '../layouts/PageWrapper/PageWrapper';
 import styles from '../styles/Home.module.scss';
 
 const API_KEY = process.env.API_KEY;
@@ -17,7 +19,11 @@ const Home: NextPage<Props> = ({
 
   return (
     <>
-      Accueil
+      <NextHead />
+
+      <PageWrapper title='Home'>
+
+      </PageWrapper>
     </>
   );
 };

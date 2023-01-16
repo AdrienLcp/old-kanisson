@@ -6,6 +6,7 @@ import HomeIcon from '../icons/HomeIcon';
 import { notFoundHeadTexts } from '../langs/layouts/head';
 import { linkTexts, pageTexts } from '../langs/pages/notFound';
 import NextHead from '../layouts/Head/Head';
+import PageWrapper from '../layouts/PageWrapper/PageWrapper';
 import styles from '../styles/NotFound.module.scss';
 
 const NotFound: NextPage = () => {
@@ -26,17 +27,10 @@ const NotFound: NextPage = () => {
         description={headDescription}
       />
 
-      <section className={styles.page}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>
-            {pageTitle}
-          </h1>
-
-          <p className={styles.subtitle}>
-            {pageSubtitle}
-          </p>
-        </header>
-
+      <PageWrapper
+        title={pageTitle}
+        subtitle={pageSubtitle}
+      >
         <Link
           href='/'
           className={styles.link}
@@ -49,8 +43,7 @@ const NotFound: NextPage = () => {
           />
           {linkLabel}
         </Link>
-
-      </section>
+      </PageWrapper>
     </>
   );
 };

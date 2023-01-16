@@ -1,38 +1,5 @@
 @import "../styles/mixins";
 
-.page {
-  @include flexCenter;
-  flex-direction: column;
-  padding: 5rem 0 10rem;
-  gap: 5rem;
-}
-
-.header {
-  @include flexCenter;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.title {
-  font-size: clamp(2rem, 2vw, 3rem);
-  font-weight: 300;
-}
-
-.subtitle {
-  text-align: center;
-  padding: 0 2rem;
-}
-
 .button {
   @include underlineButton;
-}
-
-@media screen and (min-width: 850px) {
-  .header {
-    padding: 10rem 0 5rem;
-  }
-
-  .subtitle {
-    font-size: 1.4rem;
-  }
 }

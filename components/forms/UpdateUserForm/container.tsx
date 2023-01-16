@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import type { FC, FormEvent } from 'react';
 import { useContext, useState } from 'react';
 import { api } from '../../../api/api';
@@ -5,13 +6,15 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../langs/components/inputs';
 import { messages } from '../../../langs/others/error';
-import { updatedText, wrongPasswordText } from '../../../langs/pages/profile';
+import { nothingChangedText, updatedText, wrongPasswordText } from '../../../langs/pages/profile';
+import Loader from '../../../layouts/Loader/Loader';
 import UpdateUserFormView from './view';
 
 const UpdateUserForm: FC = () => {
 
-  const { user } = useContext(UserContext);
+  const { user, setUser, setLogged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
+  const router = useRouter();
 
   // Translated texts
   const errorText = messages.globalError[lang as keyof typeof messages.globalError];
@@ -23,6 +26,7 @@ const UpdateUserForm: FC = () => {
   const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
   const updated = updatedText[lang as keyof typeof updatedText];
   const wrongPassword = wrongPasswordText[lang as keyof typeof wrongPasswordText];
+  const nothingChanged = nothingChangedText[lang as keyof typeof nothingChangedText];
 
   const [pseudo, setPseudo] = useState<string>(user.pseudo);
   const [email, setEmail] = useState<string>(user.email);
@@ -30,12 +34,18 @@ const UpdateUserForm: FC = () => {
   const [newPassword, setNewPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
 
+  const [loading, setLoading] = useState<boolean>(false);
   const [validPassword, setValidPassword] = useState<boolean>(false);
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const checkForm = () => {
-    if(pseudo.trim() === ''
+    if(pseudo === user.pseudo && email === user.email) {
+      // Nothing change
+      setValidMessage(nothingChanged);
+      return false;
+
+    } else if(pseudo.trim() === ''
     || email.trim() === '') {
       // If one input is empty, return false
       setWarningMessage(emptyText);
@@ -80,16 +90,22 @@ const UpdateUserForm: FC = () => {
   };
 
   const handleSubmit = async(event: FormEvent<HTMLFormElement>) => {
+    // Show loader
+    setLoading(true);
+
     // Avoid refresh
     event.preventDefault();
 
     if(checkForm()) {
-      updateUser();
+      await updateUser();
     };
 
     if(checkPasswords()) {
-      updatePassword();
+      await updatePassword();
     };
+
+    // Hide loader
+    setLoading(false);
   };
 
   const updateUser = async() => {
@@ -117,6 +133,7 @@ const UpdateUserForm: FC = () => {
 
       if(res.status === 200) {
         setValidMessage(updated);
+        setUser(data);
       } else {
         console.log(data);
         setWarningMessage(alreadyTakenText);
@@ -126,7 +143,6 @@ const UpdateUserForm: FC = () => {
       console.log("Catch error : ", error);
       setWarningMessage(errorText);
     });
-
   };
 
   const updatePassword = async() => {
@@ -165,6 +181,39 @@ const UpdateUserForm: FC = () => {
     });
   };
 
+  const deleteAccount = async() => {
+    // Get token from local storage for authorization
+    const token = localStorage.getItem('token');
+
+    await fetch(`${api}/user/delete`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify({ user_id: user.id })
+    })
+    .then(async(res) => {
+      const data = await res.json();
+
+      if(res.status === 200) {
+        setLogged(false);
+        router.push('/');
+      } else {
+        console.log(data);
+        setWarningMessage(errorText);
+      };
+    })
+    .catch((error) => {
+      console.log(error);
+      setWarningMessage(errorText);
+    });
+  };
+
+  if(loading) {
+    return <Loader />
+  };
+
   return (
     <UpdateUserFormView
       handleSubmit={handleSubmit}
@@ -183,6 +232,7 @@ const UpdateUserForm: FC = () => {
       warningMessage={warningMessage}
       setWarningMessage={setWarningMessage}
       setValidPassword={setValidPassword}
+      deleteAccount={deleteAccount}
     />
   );
 };

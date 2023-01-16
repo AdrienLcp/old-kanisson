@@ -2,7 +2,7 @@
 
 .toggle_button {
   @include underlineButton;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .container {
@@ -11,7 +11,7 @@
   transition: max-height .3s ease-out;
 
   &.opened {
-    max-height: 60rem;
+    max-height: 70rem;
     animation: show-overflow 0.3s linear forwards;
   }
 }

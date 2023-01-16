@@ -8,7 +8,8 @@ import { passwordTexts } from '../../langs/components/inputs';
 const PasswordValidation: FC<PasswordValidationProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
-  setValidPassword
+  setValidPassword,
+  required = true
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -89,6 +90,7 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
       validMessage={validMessage}
       setValidMessage={setValidMessage}
       validCases={validCases}
+      required={required}
     />
   );
 };
