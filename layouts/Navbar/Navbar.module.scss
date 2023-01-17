@@ -30,13 +30,17 @@
   }
 }
 
-.active::before {
-  content: '';
-  position: absolute;
-  bottom: 0.5rem;
-  width: 60%;
-  height: 0.2rem;
-  background: var(--white);
+.active {
+  filter: drop-shadow(0 0 0.2rem var(--white));
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    width: 60%;
+    height: 0.2rem;
+    background: var(--white);
+  }
 }
 
 .mobile_hidden {
@@ -108,6 +112,7 @@
 
   .active {
     opacity: 1;
+    filter: drop-shadow(0 0 0.5rem var(--white));
 
     &::before {
       display: none;

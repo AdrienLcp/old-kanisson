@@ -5,6 +5,7 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../langs/components/inputs';
 import { messages } from '../../../langs/others/error';
+import Loader from '../../../layouts/Loader/Loader';
 import SignUpFormView from './view';
 
 const SignUp: FC = () => {
@@ -20,6 +21,7 @@ const SignUp: FC = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [validPassword, setValidPassword] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Translated texts
   const errorText = messages.globalError[lang as keyof typeof messages.globalError];
@@ -30,9 +32,11 @@ const SignUp: FC = () => {
   const validEmailText = emailTexts.title[lang as keyof typeof emailTexts.title];
   const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
 
+  const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+
   useEffect(() => {
     if(pseudo) {
-      if(pseudo.length > 30 || pseudo.includes('@') || pseudo.includes('.')) {
+      if(pseudo.length > 30 || special.test(pseudo)) {
         setWarningMessage(validPseudoText);
       } else {
         setWarningMessage('');
@@ -59,8 +63,7 @@ const SignUp: FC = () => {
 
     } else if(!email.includes('@')
     || !email.includes('.')
-    || email.length < 3
-    || email.length > 100) {
+    || email.length < 5) {
       // If email is not valid, return false
       setWarningMessage(validEmailText);
       return false;
@@ -68,7 +71,8 @@ const SignUp: FC = () => {
     } else if(pseudo.includes('@')
     || pseudo.includes('.')
     || pseudo.length < 3
-    || pseudo.length > 30) {
+    || pseudo.length > 30
+    || special.test(pseudo)) {
       // You can't use '@' or '.' in username, return false
       setWarningMessage(validPseudoText);
       return false;
@@ -86,7 +90,12 @@ const SignUp: FC = () => {
     // Prevent reload
     event.preventDefault();
 
+    // Reset messages
+    setWarningMessage('');
+
     if(checkForm()) {
+      setLoading(true);
+
       // Set body with all needed data
       const body = {
         pseudo,
@@ -122,8 +131,12 @@ const SignUp: FC = () => {
         setWarningMessage(errorText);
         console.error('catch Error : ', error);
       });
+
+      setLoading(false);
     };
   };
+
+  if(loading) return <Loader />;
 
   return (
     <SignUpFormView

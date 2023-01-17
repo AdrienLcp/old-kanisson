@@ -1,0 +1,26 @@
+@import '../../styles/mixins';
+
+.message {
+  @include flexCenter;
+  gap: 0.5em;
+  position: relative;
+  border-radius: var(--sm-radius);
+  font-size: 1.2rem;
+  text-align: center;
+  max-height: 0;
+  margin-bottom: 1rem;
+  animation: messageApparition 0.3s ease-out forwards;
+}
+
+.valid {
+  background: var(--valid-bg);
+  color: var(--valid);
+  border: 0.2rem solid var(--valid-border);
+}
+
+.warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border: 0.2rem solid var(--warning-border);
+
+}

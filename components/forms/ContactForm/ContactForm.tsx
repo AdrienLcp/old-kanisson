@@ -1,14 +1,14 @@
 import type { FunctionComponent } from 'react';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import styles from './ContactForm.module.scss';
 import { LangContext } from '../../../contexts/LangContext';
 import { areaTexts, mailTexts, sendTexts, sentTexts } from '../../../langs/pages/contact';
+import styles from './ContactForm.module.scss';
 import SendIcon from '../../../icons/SendIcon';
-import ValidMessage from '../../ValidMessage/ValidMessage';
+import Message from '../../Message/Message';
 import InputField from '../../inputs/InputField/InputField';
-import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
 import InputArea from '../../inputs/InputArea/InputArea';
+import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
 
 // We use FormSpree for this contact form
 // ==>    https://formspree.io/
@@ -25,28 +25,20 @@ const ContactForm: FunctionComponent = () => {
   const sentText = sentTexts[lang as keyof typeof sentTexts];
 
   const [state, handleSubmit] = useForm('mknkynke');
-  const [sent, setSent] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [area, setArea] = useState<string>('');
 
-  useEffect(() => {
-    if(state.succeeded) {
-      setSent(sentText)
-    } else {
-      setSent('');
-    };
-  }, [state]);
+  if(state.succeeded) return (
+    <Message validMessage={sentText} />
+  );
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={styles.form}
-    >
-
+    <FormWrapper handleSubmit={handleSubmit}>
       <InputField
         value={email}
         setValue={setEmail}
         id="email"
+        name="email"
         title={mailTitle}
         label={mailLabel}
         autoFocus={true}
@@ -72,13 +64,6 @@ const ContactForm: FunctionComponent = () => {
         errors={state.errors}
       />
 
-      {sent &&
-        <ValidMessage
-          message={sent}
-          setMessage={setSent}
-        />
-      }
-
       <button
         className={styles.button}
         type='submit'
@@ -90,7 +75,7 @@ const ContactForm: FunctionComponent = () => {
 
         {sendLabel}
       </button>
-    </form>
+    </FormWrapper>
   );
 };
 

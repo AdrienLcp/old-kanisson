@@ -34,7 +34,7 @@ async function main() {
       date: new Date().toLocaleDateString(),
       ratings: [5, 4, 3, 4],
       ratings_ids: ['4', '8', '11', '20'],
-      songs_ids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      songs_ids: []
     });
   };
 

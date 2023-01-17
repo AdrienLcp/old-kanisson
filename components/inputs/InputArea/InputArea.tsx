@@ -1,7 +1,9 @@
 import type { FC, ChangeEvent } from 'react';
 import type { InputAreaProps } from '../../../types/components/inputs';
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
 import styles from './InputArea.module.scss';
+import { LangContext } from '../../../contexts/LangContext';
+import { limitTexts } from '../../../langs/components/inputs';
 
 const InputArea: FC<InputAreaProps> = ({
   value,
@@ -11,8 +13,17 @@ const InputArea: FC<InputAreaProps> = ({
   title,
   name,
   disabled = false,
-  required = true
+  required = true,
+  limit
 }) => {
+
+  const { lang } = useContext(LangContext);
+
+  const limitRemaining = limitTexts.remaining[lang as keyof typeof limitTexts.remaining];
+  const limitMaximum = limitTexts.maximum[lang as keyof typeof limitTexts.maximum];
+
+  const limitText = limit && (limit - value.length) < 0 ? limitMaximum : limitRemaining;
+  const limitLeft = limit && (limit - value.length) < 0 ? limit : limit && limit - value.length;
 
   const handleChange = useMemo(
     () => (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -23,9 +34,14 @@ const InputArea: FC<InputAreaProps> = ({
 
   return (
     <div
-      className={styles.field}
       title={title ? title : undefined}
       aria-label={title ? title : undefined}
+      className={
+        limit && (limit - value.length) < 0 ?
+          `${styles.field} ${styles.warning}`
+        :
+          `${styles.field}`
+      }
     >
       <textarea
         className={styles.input}
@@ -43,6 +59,12 @@ const InputArea: FC<InputAreaProps> = ({
       >
         {label}
       </label>
+
+      {limit &&
+        <span className={styles.limit}>
+          {limitLeft} {limitText}
+        </span>
+      }
     </div>
   );
 };

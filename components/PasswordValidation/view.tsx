@@ -6,8 +6,8 @@ import { UserContext } from '../../contexts/UserContext';
 import { passwordTexts } from '../../langs/components/inputs';
 import InputPassword from '../inputs/InputPassword/InputPassword';
 import styles from './PasswordValidation.module.scss';
-import ValidMessage from '../ValidMessage/ValidMessage';
 import PasswordValidationItem from './Item/Item';
+import Message from '../Message/Message';
 
 const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
@@ -96,12 +96,10 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
         />
       </ul>
 
-      {validMessage &&
-        <ValidMessage
-          message={validMessage}
-          setMessage={setValidMessage}
-        />
-      }
+      <Message
+        validMessage={validMessage}
+        setValidMessage={setValidMessage}
+      />
     </>
   );
 };

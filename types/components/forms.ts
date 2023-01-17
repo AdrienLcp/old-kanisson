@@ -1,10 +1,23 @@
-import { Dispatch, FormEvent, PropsWithChildren, SetStateAction } from 'react';
+import { Playlist } from '@prisma/client';
+import { Dispatch, FormEvent, SetStateAction } from 'react';
 
-export type FormWrapperProps = PropsWithChildren<{
+export type PlaylistFormProps = {
+  playlist?: Playlist
+};
+
+export type PlaylistFormViewProps = {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  submitLabel?: string;
-  submitTitle?: string;
-}>;
+  title: string;
+  setTitle: Dispatch<SetStateAction<string>>;
+  description: string;
+  setDescription: Dispatch<SetStateAction<string>>;
+  songs_ids: string[];
+  setSongs_ids: Dispatch<SetStateAction<string[]>>;
+  validMessage: string;
+  setValidMessage: Dispatch<SetStateAction<string>>;
+  warningMessage: string;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
+};
 
 export type SignInFormProps = {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;

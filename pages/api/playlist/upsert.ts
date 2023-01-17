@@ -7,14 +7,18 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quiz = await db.playlist.update({
+    const quiz = await db.playlist.upsert({
       where: {
-        title: req.body.currentTitle
+        id: req.body.id
       },
-      data: {
+      update: {
         title: req.body.title,
         description: req.body.description,
         songs_ids: req.body.songs_ids
+      },
+      create: {
+        ...req.body,
+        date: new Date().toLocaleDateString()
       }
     });
 

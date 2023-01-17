@@ -8,7 +8,7 @@ import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import InputPassword from '../../inputs/InputPassword/InputPassword';
 import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
-import WarningMessage from '../../WarningMessage/WarningMessage';
+import Message from '../../Message/Message';
 
 const SignInFormView: FC<SignInFormProps> = ({
   handleSubmit,
@@ -51,12 +51,10 @@ const SignInFormView: FC<SignInFormProps> = ({
         id='sign-in-password-input'
       />
 
-      {warningMessage &&
-        <WarningMessage
-          message={warningMessage}
-          setMessage={setWarningMessage}
-        />
-      }
+      <Message
+        warningMessage={warningMessage}
+        setWarningMessage={setWarningMessage}
+      />
 
       <CheckBox
         state={rememberMe}

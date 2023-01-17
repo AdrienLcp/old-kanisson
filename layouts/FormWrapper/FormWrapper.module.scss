@@ -4,8 +4,9 @@
   @include flexCenter;
   flex-direction: column;
   width: 22rem;
+  max-width: 90vw;
   margin: 2rem 0;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .button {
@@ -15,6 +16,7 @@
 
 @media screen and (min-width: 850px) {
   .form {
-    width: 25rem;
+    width: 30rem;
+    max-width: 50vw;
   }
 }

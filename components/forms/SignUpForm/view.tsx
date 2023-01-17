@@ -9,7 +9,7 @@ import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import PasswordValidation from '../../PasswordValidation/container';
 import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
-import WarningMessage from '../../WarningMessage/WarningMessage';
+import Message from '../../Message/Message';
 
 const SignUpFormView: FC<SignUpFormProps> = ({
   handleSubmit,
@@ -45,6 +45,7 @@ const SignUpFormView: FC<SignUpFormProps> = ({
         label={pseudoInputLabel}
         title={pseudoInputTitle}
         id='sign-up-pseudo-input'
+        limit={30}
       />
 
       <InputField
@@ -63,12 +64,10 @@ const SignUpFormView: FC<SignUpFormProps> = ({
         setValidPassword={setValidPassword}
       />
 
-      {warningMessage &&
-        <WarningMessage
-          message={warningMessage}
-          setMessage={setWarningMessage}
-        />
-      }
+      <Message
+        warningMessage={warningMessage}
+        setWarningMessage={setWarningMessage}
+      />
 
       <CheckBox
         state={rememberMe}

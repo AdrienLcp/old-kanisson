@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, PropsWithChildren } from 'react';
+import { Dispatch, FormEvent, SetStateAction, PropsWithChildren } from 'react';
+
+export type FormWrapperProps = PropsWithChildren<{
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  submitLabel?: string;
+  submitTitle?: string;
+}>;
 
 export type HeadProps = {
   title?: string,

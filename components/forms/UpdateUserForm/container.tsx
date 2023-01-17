@@ -39,6 +39,8 @@ const UpdateUserForm: FC = () => {
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
 
+  const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+
   const checkForm = () => {
     if(pseudo === user.pseudo && email === user.email) {
       // Nothing change
@@ -59,11 +61,10 @@ const UpdateUserForm: FC = () => {
       setWarningMessage(validEmailText);
       return false;
 
-    } else if(pseudo.includes('@')
-    || pseudo.includes('.')
-    || pseudo.length < 3
-    || pseudo.length > 30) {
-      // You can't use '@' or '.' in username, return false
+    } else if(pseudo.length < 3
+    || pseudo.length > 30
+    || special.test(pseudo)) {
+      // You can't use special character in username, return false
       setWarningMessage(validPseudoText);
       return false;
     };
@@ -95,6 +96,10 @@ const UpdateUserForm: FC = () => {
 
     // Avoid refresh
     event.preventDefault();
+
+    // Reset messages
+    setWarningMessage('');
+    setValidMessage('');
 
     if(checkForm()) {
       await updateUser();
@@ -210,9 +215,7 @@ const UpdateUserForm: FC = () => {
     });
   };
 
-  if(loading) {
-    return <Loader />
-  };
+  if(loading) return <Loader />;
 
   return (
     <UpdateUserFormView

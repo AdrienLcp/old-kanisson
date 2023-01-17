@@ -27,6 +27,17 @@ export const contactHeadTexts = {
   }
 };
 
+export const createHeadTexts = {
+  title: {
+    fr: "Créer un blind test - Kanisson",
+    en: "Create a blind test - Kanisson"
+  },
+  description: {
+    fr: "Créez une playlist, recherchez des morceaux et ajoutez les à votre quiz pour que les utilisateurs de Kanisson puissent y jouer",
+    en: "Create a playlist, search for songs and add them to your quiz for Kanisson users to play"
+  }
+};
+
 export const loginHeadTexts = {
   title: {
     fr: "Connexion - Kanisson ",
@@ -57,5 +68,12 @@ export const profileHeadTexts = {
   description: {
     fr: "Ma page de profil, changez les informations de votre compte et éditez vos playlists",
     en: "My profile page, update my account information and update your playlists"
+  }
+};
+
+export const updateHeadTexts = {
+  title: {
+    fr: "Modifier mon blind test",
+    en: "Update my blind test"
   }
 };

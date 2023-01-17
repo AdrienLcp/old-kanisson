@@ -1,0 +1,54 @@
+import type { FC } from 'react';
+import type { MessageProps } from '../../types/components/others';
+import CheckIcon from '../../icons/CheckIcon';
+import CrossIcon from '../../icons/CrossIcon';
+import CloseButton from '../buttons/CloseButton/CloseButton';
+import styles from './Message.module.scss';
+
+const Message: FC<MessageProps> = ({
+  validMessage,
+  setValidMessage,
+  warningMessage,
+  setWarningMessage
+}) => {
+
+  return (
+    <>
+      {validMessage &&
+        <section className={`${styles.message} ${styles.valid}`}>
+          {setValidMessage &&
+            <CloseButton
+              handleFunction={() => setValidMessage('')}
+              color="var(--valid)"
+            />
+          }
+
+          <span className={styles.icon}>
+            <CheckIcon color="var(--valid)" />
+          </span>
+
+          {validMessage}
+        </section>
+      }
+
+      {warningMessage &&
+        <section className={`${styles.message} ${styles.warning}`}>
+          {setWarningMessage &&
+            <CloseButton
+              handleFunction={() => setWarningMessage('')}
+              color="var(--warning)"
+            />
+          }
+
+          <span className={styles.icon}>
+            <CrossIcon color="var(--warning)" />
+          </span>
+
+          {warningMessage}
+        </section>
+      }
+    </>
+  );
+};
+
+export default Message;

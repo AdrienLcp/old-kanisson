@@ -1,51 +1,16 @@
 @import "../styles/mixins";
 
-.page {
-  @include flexCenter;
-  flex-direction: column;
-  padding: 10rem 0;
-}
-
-.header {
-  @include flexCenter;
-  flex-direction: column;
-  gap: 5rem;
-}
-
-.title {
-  text-align: center;
-  font-size: 4rem;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 1.3em;
-  padding: 0 3rem;
-}
-
 .link {
   @include mainButton;
+  @include posCenter;
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-top: 10rem;
 }
 
 @media screen and (min-width: 850px) {
-  .page {
-    padding: 20rem 0;
-  }
-
-  .title {
-    font-size: 5rem;
-  }
-
-  .subtitle {
-    font-size: 1.6em;
-  }
 
   .link {
-    margin-top: 25vh;
     font-size: 1.2rem;
   }
 }

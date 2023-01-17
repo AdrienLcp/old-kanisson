@@ -17,6 +17,7 @@ export type InputAreaProps = {
   name?: string;
   disabled?: boolean;
   required?: boolean;
+  limit?: number;
 };
 
 export type InputFieldProps = {
@@ -24,8 +25,10 @@ export type InputFieldProps = {
   setValue: Dispatch<SetStateAction<string>>;
   label: string;
   id: string;
+  limit?: number;
   title?: string;
   type?: string;
+  name?: string;
   disabled?: boolean;
   required?: boolean;
   autoFocus?: boolean;

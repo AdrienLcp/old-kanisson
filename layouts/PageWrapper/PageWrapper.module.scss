@@ -23,6 +23,7 @@
   text-align: center;
   font-size: 1.3em;
   padding: 0 3rem;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 850px) {
@@ -37,5 +38,9 @@
   .title {
     font-size: 3.5rem;
     font-weight: 200;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
   }
 }

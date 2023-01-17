@@ -8,11 +8,10 @@ import { submitButton } from '../../../langs/components/updateUser';
 import styles from './UpdateUserForm.module.scss';
 import InputField from '../../inputs/InputField/InputField';
 import PasswordValidation from '../../PasswordValidation/container';
-import ValidMessage from '../../ValidMessage/ValidMessage';
-import WarningMessage from '../../WarningMessage/WarningMessage';
 import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
 import InputPassword from '../../inputs/InputPassword/InputPassword';
 import ConfirmModal from '../../ConfirmModal/ConfirmModal';
+import Message from '../../Message/Message';
 
 const UpdateUserFormView: FC<UpdateUserFormProps> = ({
   handleSubmit,
@@ -56,6 +55,7 @@ const UpdateUserFormView: FC<UpdateUserFormProps> = ({
           id="update-user-pseudo-input"
           label={pseudoLabel}
           title={pseudoTitle}
+          limit={30}
         />
 
         <InputField
@@ -83,19 +83,12 @@ const UpdateUserFormView: FC<UpdateUserFormProps> = ({
           required={false}
         />
 
-        {validMessage &&
-          <ValidMessage
-            message={validMessage}
-            setMessage={setValidMessage}
-          />
-        }
-
-        {warningMessage &&
-          <WarningMessage
-            message={warningMessage}
-            setMessage={setWarningMessage}
-          />
-        }
+        <Message
+          validMessage={validMessage}
+          setValidMessage={setValidMessage}
+          warningMessage={warningMessage}
+          setWarningMessage={setWarningMessage}
+        />
       </FormWrapper>
 
       <button

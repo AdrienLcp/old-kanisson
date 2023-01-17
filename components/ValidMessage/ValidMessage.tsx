@@ -11,10 +11,12 @@ const ValidMessage: FC<MessageProps> = ({
 
   return (
     <section className={styles.valid}>
-      <CloseButton
-        handleFunction={() => setMessage('')}
-        color="var(--valid)"
-      />
+      {setMessage &&
+        <CloseButton
+          handleFunction={() => setMessage('')}
+          color="var(--valid)"
+        />
+      }
 
       <span className={styles.icon}>
         <CheckIcon color="var(--valid)" />

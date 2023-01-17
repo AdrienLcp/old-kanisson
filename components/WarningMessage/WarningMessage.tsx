@@ -11,10 +11,12 @@ const WarningMessage: FC<MessageProps> = ({
 
   return (
     <section className={styles.warning}>
-      <CloseButton
-        handleFunction={() => setMessage('')}
-        color="var(--warning)"
-      />
+      {setMessage &&
+        <CloseButton
+          handleFunction={() => setMessage('')}
+          color="var(--warning)"
+        />
+      }
 
       <span className={styles.icon}>
         <CrossIcon color="var(--warning)" />

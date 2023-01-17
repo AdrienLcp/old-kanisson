@@ -9,6 +9,17 @@ export const clearTexts = {
   }
 };
 
+export const limitTexts = {
+  remaining: {
+    fr: "caractère(s) restant(s)",
+    en: "remaining character(s)"
+  },
+  maximum: {
+    fr: "caractères maximum",
+    en: "max characters"
+  }
+};
+
 export const pseudoOrEmailTexts = {
   label: {
     fr: "Pseudo ou email",
@@ -26,8 +37,8 @@ export const pseudoTexts = {
     en: "Username"
   },
   title: {
-    fr: "Le pseudo doit contenir entre 3 et 30 caractères et ne doit pas contenir de '@' ou de '.'",
-    en: "Enter a nickname between 3 and 30 characters and must not contain '@' or '.'"
+    fr: "Le pseudo doit contenir entre 3 et 30 caractères et ne doit pas contenir de caractère spécial",
+    en: "Enter a nickname between 3 and 30 characters and must not contain special character"
   }
 };
 
@@ -96,3 +107,25 @@ export const passwordTexts = {
     en: "At least 8 characters"
   }
 };
+
+export const titleTexts = {
+  label: {
+    fr: "Titre",
+    en: "Title"
+  },
+  title: {
+    fr: "Le nom de votre blind test doit contenir entre 3 et 30 caractères",
+    en: "The name of your blind test must contain between 3 and 30 characters"
+  }
+};
+
+export const descriptionTexts = {
+  label: {
+    fr: "Description",
+    en: "Description"
+  },
+  title: {
+    fr: "Vous pouvez donner une description à votre quiz (500 caractères maximum)",
+    en: "You can give a description to your quiz (500 characters maximum)"
+  }
+}

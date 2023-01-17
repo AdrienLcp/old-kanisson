@@ -2,7 +2,7 @@ import type { FC, ChangeEvent } from 'react';
 import type { InputFieldProps } from '../../../types/components/inputs';
 import { useRef, useContext, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { clearTexts } from '../../../langs/components/inputs';
+import { clearTexts, limitTexts } from '../../../langs/components/inputs';
 import styles from './InputField.module.scss';
 
 import CrossIcon from '../../../icons/CrossIcon';
@@ -12,7 +12,9 @@ const InputField: FC<InputFieldProps> = ({
   setValue,
   label,
   id,
+  limit,
   title,
+  name,
   type = "text",
   disabled = false,
   required = true,
@@ -23,6 +25,11 @@ const InputField: FC<InputFieldProps> = ({
 
   const clearButtonTitle = clearTexts.title[lang as keyof typeof clearTexts.title];
   const clearButtonLabel = clearTexts.label[lang as keyof typeof clearTexts.label];
+  const limitRemaining = limitTexts.remaining[lang as keyof typeof limitTexts.remaining];
+  const limitMaximum = limitTexts.maximum[lang as keyof typeof limitTexts.maximum];
+
+  const limitText = limit && (limit - value.length) < 0 ? limitMaximum : limitRemaining;
+  const limitLeft = limit && (limit - value.length) < 0 ? limit : limit && limit - value.length;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -40,9 +47,14 @@ const InputField: FC<InputFieldProps> = ({
 
   return (
     <div
-      className={styles.field}
       title={title ? title : undefined}
       aria-label={title ? title : undefined}
+      className={
+        limit && (limit - value.length) < 0 ?
+          `${styles.field} ${styles.warning}`
+        :
+          `${styles.field}`
+      }
     >
       <input
         className={styles.input}
@@ -54,6 +66,7 @@ const InputField: FC<InputFieldProps> = ({
         disabled={disabled}
         required={required}
         autoFocus={autoFocus}
+        name={name ? name : undefined}
       />
 
       <label
@@ -73,6 +86,12 @@ const InputField: FC<InputFieldProps> = ({
       >
         <CrossIcon height='18'/>
       </button>
+
+      {limit &&
+        <span className={styles.limit}>
+          {limitLeft} {limitText}
+        </span>
+      }
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { messages } from '../../../langs/others/error';
+import Loader from '../../../layouts/Loader/Loader';
 import SignInFormView from './view';
 
 const SignInForm: FC = () => {
@@ -15,6 +16,7 @@ const SignInForm: FC = () => {
   const [password, setPassword] = useState<string>('Test123&');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Translated texts
   const errorText = messages.globalError[lang as keyof typeof messages.globalError];
@@ -23,6 +25,11 @@ const SignInForm: FC = () => {
   const handleSubmit = async(event: FormEvent<HTMLFormElement>) => {
     // Prevent reload
     event.preventDefault();
+
+    // Reset messages
+    setWarningMessage('');
+
+    setLoading(true);
 
     // Set the body
     const body = {
@@ -55,7 +62,11 @@ const SignInForm: FC = () => {
       setWarningMessage(errorText);
       console.error('catch error', error);
     });
+
+    setLoading(false);
   };
+
+  if(loading) return <Loader />;
 
   return (
     <SignInFormView

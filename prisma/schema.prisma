@@ -25,11 +25,11 @@ model Playlist {
   user_id           String
   creator           String
   title             String    @unique
-  description       String?
+  description       String
+  songs_ids         String[]
   date              String
   ratings           Int[]
   ratings_ids       String[]
-  songs_ids         Int[]
   nbOfPlayed        Int       @default(0)
   visible           Boolean   @default(true)
 }

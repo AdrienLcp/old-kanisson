@@ -6,9 +6,9 @@
 
 @mixin posCenter {
   position: absolute;
-  top: 45%;
-  left: calc(50% + var(--navbar-width));
-  transform: translate(calc(50% - var(--navbar-width)), -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @mixin posAbsolute ($top: auto, $right: auto, $bottom: auto, $left: auto) {
@@ -76,7 +76,17 @@
     pointer-events: none;
     display: block;
     font-size: 1.3rem;
-    transition: 0.4s;
+    transition: all 0.4s;
+  }
+
+  .limit {
+    white-space: nowrap;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: all 0.4s;
   }
 
   .input:focus + .label,
@@ -87,6 +97,23 @@
     color: var(--white);
     font-size: 1.1rem;
     border-radius: var(--sm-radius);
+  }
+
+  .input:focus ~ .limit {
+    opacity: 1;
+    transform: translate(-50%, 1.6em);
+  }
+
+  .warning {
+    & .input {
+      border-color: var(--red);
+    }
+
+    & .limit {
+      color: var(--red);
+      opacity: 1;
+      transform: translate(-50%, 1.6em);
+    }
   }
 }
 
@@ -187,18 +214,6 @@
       color: var(--grey);
     }
   }
-}
-
-@mixin messageStyles {
-  @include flexCenter;
-  gap: 0.5em;
-  position: relative;
-  border-radius: var(--sm-radius);
-  font-size: 1.2rem;
-  text-align: center;
-  max-height: 0;
-  margin-bottom: 1rem;
-  animation: messageApparition 0.3s ease-out forwards;
 }
 
 @mixin hiddenInput {

@@ -21,8 +21,10 @@ export type IconProps = {
 };
 
 export type MessageProps = {
-  message: string;
-  setMessage: Dispatch<SetStateAction<string>>;
+  validMessage?: string;
+  setValidMessage?: Dispatch<SetStateAction<string>>;
+  warningMessage?: string;
+  setWarningMessage?: Dispatch<SetStateAction<string>>;
 };
 
 export type ParamsNavProps = {

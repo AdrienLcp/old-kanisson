@@ -16,7 +16,7 @@ const PageWrapper: FC<PageWrapperProps> = ({
         </h1>
 
         {subtitle &&
-          <span>
+          <span className={styles.subtitle}>
             {subtitle}
           </span>
         }
