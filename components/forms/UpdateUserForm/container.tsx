@@ -4,9 +4,9 @@ import { useContext, useState } from 'react';
 import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
-import { emailTexts, passwordTexts, pseudoTexts } from '../../../langs/components/inputs';
-import { messages } from '../../../langs/others/error';
-import { nothingChangedText, updatedText, wrongPasswordText } from '../../../langs/pages/profile';
+import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
+import { messages } from '../../../translations/others/error';
+import { nothingChangedText, updatedText, wrongPasswordText } from '../../../translations/pages/profile';
 import Loader from '../../../layouts/Loader/Loader';
 import UpdateUserFormView from './view';
 

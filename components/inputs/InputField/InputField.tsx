@@ -2,7 +2,7 @@ import type { FC, ChangeEvent } from 'react';
 import type { InputFieldProps } from '../../../types/components/inputs';
 import { useRef, useContext, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { clearTexts, limitTexts } from '../../../langs/components/inputs';
+import { clearTexts, limitTexts } from '../../../translations/components/inputs';
 import styles from './InputField.module.scss';
 
 import CrossIcon from '../../../icons/CrossIcon';
@@ -47,8 +47,8 @@ const InputField: FC<InputFieldProps> = ({
 
   return (
     <div
-      title={title ? title : undefined}
-      aria-label={title ? title : undefined}
+      title={title}
+      aria-label={title}
       className={
         limit && (limit - value.length) < 0 ?
           `${styles.field} ${styles.warning}`
@@ -66,7 +66,7 @@ const InputField: FC<InputFieldProps> = ({
         disabled={disabled}
         required={required}
         autoFocus={autoFocus}
-        name={name ? name : undefined}
+        name={name}
       />
 
       <label
@@ -75,6 +75,7 @@ const InputField: FC<InputFieldProps> = ({
       >
         {label}
       </label>
+      {/* //! attention on peut pas cliquer, faut que le limit passe SOUS l'input et reste visible */}
 
       <button
         className={styles.clear}
@@ -84,7 +85,7 @@ const InputField: FC<InputFieldProps> = ({
         tabIndex={-1}
         onClick={clear}
       >
-        <CrossIcon height='18'/>
+        <CrossIcon height='18' />
       </button>
 
       {limit &&

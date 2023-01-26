@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
-import { messages } from '../../../langs/others/error';
+import { messages } from '../../../translations/others/error';
 import Loader from '../../../layouts/Loader/Loader';
 import SignInFormView from './view';
 

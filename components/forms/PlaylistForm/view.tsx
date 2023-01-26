@@ -2,22 +2,25 @@ import type { FC } from 'react';
 import type { PlaylistFormViewProps } from '../../../types/components/forms';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { titleTexts, descriptionTexts } from '../../../langs/components/inputs';
+import { titleTexts, descriptionTexts } from '../../../translations/components/inputs';
 import styles from './PlaylistForm.module.scss';
 import InputField from '../../inputs/InputField/InputField';
 import InputArea from '../../inputs/InputArea/InputArea';
-import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import Message from '../../Message/Message';
-import { buttonsTexts } from '../../../langs/components/playlistForm';
+import { buttonsTexts } from '../../../translations/components/playlistForm';
 import { useRouter } from 'next/router';
+import TracksForm from '../TracksForm/TracksForm';
 
 const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   handleSubmit,
   title, setTitle,
   description, setDescription,
-  songs_ids, setSongs_ids,
+  tracks, setTracks,
   validMessage, setValidMessage,
-  warningMessage, setWarningMessage
+  warningMessage, setWarningMessage,
+  loading,
+  apiKey
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -33,43 +36,52 @@ const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   const updateTitle = buttonsTexts.save.title[lang as keyof typeof buttonsTexts.save.title];
 
   return (
-    <FormWrapper handleSubmit={handleSubmit}>
-      <InputField
-        value={title}
-        setValue={setTitle}
-        id="playlist-title-input"
-        label={titleLabel}
-        title={titleTitle}
-        autoFocus={true}
-        limit={50}
-      />
+    <>
+      <FormWrapper handleSubmit={handleSubmit}>
+        <InputField
+          value={title}
+          setValue={setTitle}
+          id="playlist-title-input"
+          label={titleLabel}
+          title={titleTitle}
+          autoFocus={true}
+          limit={50}
+        />
 
-      <InputArea
-        value={description}
-        setValue={setDescription}
-        id="playlist-description-input"
-        label={descriptionLabel}
-        title={descriptionTitle}
-        limit={200}
-        required={false}
-      />
+        <InputArea
+          value={description}
+          setValue={setDescription}
+          id="playlist-description-input"
+          label={descriptionLabel}
+          title={descriptionTitle}
+          limit={200}
+          required={false}
+        />
 
-      <Message
-        validMessage={validMessage}
-        setValidMessage={setValidMessage}
-        warningMessage={warningMessage}
-        setWarningMessage={setWarningMessage}
-      />
+        <Message
+          validMessage={validMessage}
+          setValidMessage={setValidMessage}
+          warningMessage={warningMessage}
+          setWarningMessage={setWarningMessage}
+        />
 
-      <button
-        className={styles.button}
-        type='submit'
-        title={router.pathname.includes('/create') ? createTitle : updateTitle}
-        aria-label={router.pathname.includes('/create') ? createTitle : updateTitle}
-      >
-        {router.pathname.includes('/create') ? createLabel : updateLabel}
-      </button>
-    </FormWrapper>
+        <button
+          className={styles.button}
+          type='submit'
+          title={router.pathname.includes('/create') ? createTitle : updateTitle}
+          aria-label={router.pathname.includes('/create') ? createTitle : updateTitle}
+          disabled={loading}
+        >
+          {router.pathname.includes('/create') ? createLabel : updateLabel}
+        </button>
+      </FormWrapper>
+
+      <TracksForm
+        tracks={tracks}
+        setTracks={setTracks}
+        apiKey={apiKey}
+      />
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { ParamsProps } from '../../types/layouts';
 import { LangContext } from '../../contexts/LangContext';
-import { title, button } from '../../langs/layouts/params';
+import { title, button } from '../../translations/layouts/params';
 import { useContext, memo } from 'react';
 import styles from './Params.module.scss';
 

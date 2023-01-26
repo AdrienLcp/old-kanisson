@@ -2,12 +2,12 @@ import type { FC } from 'react';
 import type { SignInFormProps } from '../../../types/components/forms';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { pseudoOrEmailTexts, passwordTexts } from '../../../langs/components/inputs';
-import { rememberMeTexts, signInTexts } from '../../../langs/pages/login';
+import { pseudoOrEmailTexts, passwordTexts } from '../../../translations/components/inputs';
+import { rememberMeTexts, signInTexts } from '../../../translations/pages/login';
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import InputPassword from '../../inputs/InputPassword/InputPassword';
-import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import Message from '../../Message/Message';
 
 const SignInFormView: FC<SignInFormProps> = ({

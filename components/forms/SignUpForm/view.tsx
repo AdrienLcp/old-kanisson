@@ -2,13 +2,13 @@ import type { FC } from 'react';
 import type { SignUpFormProps } from '../../../types/components/forms';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { emailTexts, pseudoTexts } from '../../../langs/components/inputs';
-import { rememberMeTexts, signInTexts } from '../../../langs/pages/login';
+import { emailTexts, pseudoTexts } from '../../../translations/components/inputs';
+import { rememberMeTexts, signInTexts } from '../../../translations/pages/login';
 
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
 import PasswordValidation from '../../PasswordValidation/container';
-import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import Message from '../../Message/Message';
 
 const SignUpFormView: FC<SignUpFormProps> = ({

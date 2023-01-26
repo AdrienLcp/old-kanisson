@@ -7,9 +7,16 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
+
+    await db.track.deleteMany({
+      where: {
+        playlist_id: req.body.playlist_id
+      }
+    });
+
     const deletedQuiz = await db.playlist.delete({
       where: {
-        id: req.body.quiz_id
+        id: req.body.playlist_id
       }
     });
 

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { InputPasswordProps } from '../../../types/components/inputs';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { passwordTexts } from '../../../langs/components/inputs';
+import { passwordTexts } from '../../../translations/components/inputs';
 import styles from './InputPassword.module.scss';
 
 import InputField from '../InputField/InputField';

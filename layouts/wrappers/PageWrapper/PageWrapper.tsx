@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { PageWrapperProps } from '../../types/layouts';
+import type { PageWrapperProps } from '../../../types/layouts';
 import styles from './PageWrapper.module.scss';
 
 const PageWrapper: FC<PageWrapperProps> = ({
@@ -9,22 +9,23 @@ const PageWrapper: FC<PageWrapperProps> = ({
 }) => {
 
   return (
-    <section className={styles.page}>
+    <>
       <header className={styles.header}>
         <h1 className={styles.title}>
           {title}
         </h1>
 
         {subtitle &&
-          <span className={styles.subtitle}>
+          <h2 className={styles.subtitle}>
             {subtitle}
-          </span>
+          </h2>
         }
       </header>
 
-      {children}
-
-    </section>
+      <main className={styles.container}>
+        {children}
+      </main>
+    </>
   );
 };
 

@@ -1,8 +1,0 @@
-@import '../../styles/mixins';
-
-.warning {
-  @include messageStyles;
-  background: var(--warning-bg);
-  color: var(--warning);
-  border: 0.2rem solid var(--warning-border);
-}

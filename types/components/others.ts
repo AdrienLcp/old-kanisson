@@ -1,3 +1,4 @@
+import { Track } from '@prisma/client';
 import { Dispatch, SetStateAction } from 'react';
 
 export type ColorPickerProps = {
@@ -58,7 +59,21 @@ export type PasswordValidationViewProps = {
 
 export type PlayerProps = {
   url: string;
+  setTogglePlayer: Dispatch<SetStateAction<boolean>>;
   autoPlay?: boolean;
+  start?: number;
+  duration?: number;
+};
+
+export type TrackListProps = {
+  tracks: Track[];
+  setTracks: Dispatch<SetStateAction<Track[]>>;
+};
+
+export type TrackSearchProps = {
+  tracks: Track[];
+  setTracks: Dispatch<SetStateAction<Track[]>>;
+  apiKey: string;
 };
 
 export type ValidCasesState = {

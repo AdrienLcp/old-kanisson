@@ -11,40 +11,50 @@ datasource db {
 }
 
 model User {
-  id                String    @id @unique
-  pseudo            String    @unique
-  email             String    @unique
+  id                String        @id @unique
+  pseudo            String        @unique
+  email             String        @unique
   password          String
-  admin             Boolean   @default(false)
-  moderator         Boolean   @default(false)
-  banned            Boolean   @default(false)
+  admin             Boolean       @default(false)
+  moderator         Boolean       @default(false)
+  banned            Boolean       @default(false)
 }
 
 model Playlist {
-  id                String    @id @unique
+  id                String        @id @unique
   user_id           String
   creator           String
-  title             String    @unique
+  title             String        @unique
   description       String
-  songs_ids         String[]
   date              String
   ratings           Int[]
   ratings_ids       String[]
-  nbOfPlayed        Int       @default(0)
-  visible           Boolean   @default(true)
+  nbOfPlayed        Int           @default(0)
+  visible           Boolean       @default(true)
+}
+
+model Track {
+  id                String        @id @unique
+  playlist_id       String
+  youtube_id        String
+  youtube_title     String
+  title             String
+  artist            String
+  img               String
+  valid             Boolean       @default(false)
 }
 
 model Notification {
-  id            String    @id @unique
+  id            String            @id @unique
   user_id       String
   title         String
   message       String
   date          String
-  seen          Boolean   @default(false)
+  seen          Boolean           @default(false)
 }
 
 model Report {
-  id              String    @id @unique
+  id              String          @id @unique
   user_id         String
   target_pseudo   String
   target_id       String
@@ -53,7 +63,7 @@ model Report {
 }
 
 model Game {
-  id                Int       @id @default(autoincrement())
+  id                Int           @id @default(autoincrement())
   user_id           String
   playlist_id       String
   score             Int

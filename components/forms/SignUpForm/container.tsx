@@ -3,8 +3,8 @@ import { useState, useContext, useEffect } from 'react';
 import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
-import { emailTexts, passwordTexts, pseudoTexts } from '../../../langs/components/inputs';
-import { messages } from '../../../langs/others/error';
+import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
+import { messages } from '../../../translations/others/error';
 import Loader from '../../../layouts/Loader/Loader';
 import SignUpFormView from './view';
 

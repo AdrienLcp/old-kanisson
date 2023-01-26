@@ -5,6 +5,7 @@ import styles from './IconButton.module.scss';
 const IconButton: FC<IconButtonProps> = ({
   title,
   name,
+  disabled,
   handleFunction,
   children
 }) => {
@@ -13,8 +14,9 @@ const IconButton: FC<IconButtonProps> = ({
     <button
       className={styles.button}
       type="button"
-      title={title ? title : ''}
+      title={title}
       aria-label={title ? title : name}
+      disabled={disabled}
       onClick={handleFunction}
     >
       {children}

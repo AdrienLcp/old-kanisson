@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { theme } from '../../../langs/layouts/params';
+import { theme } from '../../../translations//layouts/params';
 import ColorPicker from '../../ColorPicker/ColorPicker';
 import styles from './ParamsColor.module.scss';
 

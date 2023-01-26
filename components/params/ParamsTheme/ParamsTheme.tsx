@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 import styles from './ParamsTheme.module.scss';
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import { LangContext } from "../../../contexts/LangContext";
-import { theme } from "../../../langs/layouts/params";
+import { theme } from "../../../translations/layouts/params";
 
 const ParamsTheme: FC = () => {
 

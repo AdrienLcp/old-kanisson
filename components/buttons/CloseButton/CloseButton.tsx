@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { CloseButtonProps } from '../../../types/components/buttons';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { closeButton } from '../../../langs/components/buttons';
+import { closeButton } from '../../../translations//components/buttons';
 import CrossIcon from '../../../icons/CrossIcon';
 import IconButton from '../IconButton/IconButton';
 import styles from './CloseButton.module.scss';

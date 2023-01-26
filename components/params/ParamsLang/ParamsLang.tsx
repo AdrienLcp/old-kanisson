@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { langs } from '../../../langs/layouts/params';
+import { langs } from '../../../translations/layouts/params';
+import { v4 as uuidv4 } from 'uuid';
 import frenchFlag from '../../../public/img/frenchFlag.png';
 import ukFlag from '../../../public/img/ukFlag.png';
 import styles from './ParamsLang.module.scss';
@@ -22,7 +23,7 @@ const ParamsLang: FC = () => {
       </header>
 
       <ul className={styles.list}>
-        <li key={0}>
+        <li key={uuidv4()}>
           <button
             className={lang === 'fr' ?
               `${styles.button} ${styles.button_active}`
@@ -43,7 +44,7 @@ const ParamsLang: FC = () => {
           </button>
         </li>
 
-        <li key={1}>
+        <li key={uuidv4()}>
           <button
             className={lang === 'en' ?
               `${styles.button} ${styles.button_active}`

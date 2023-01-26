@@ -3,6 +3,4 @@
 .close {
   @include posAbsolute(1em, 1em, auto, auto);
   @include flexCenter;
-  height: 1.2rem;
-  width: 1.2rem;
 }

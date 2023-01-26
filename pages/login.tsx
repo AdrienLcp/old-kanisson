@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { useState, useContext, useEffect } from 'react';
 import { LangContext } from '../contexts/LangContext';
 import { UserContext } from '../contexts/UserContext';
-import { loginHeadTexts } from '../langs/layouts/head';
-import { signInTexts, signUpTexts } from '../langs/pages/login';
+import { loginHeadTexts } from '../translations/layouts/head';
+import { signInTexts, signUpTexts } from '../translations/pages/login';
 
 import NextHead from '../layouts/Head/Head';
 import SignInForm from '../components/forms/SignInForm';

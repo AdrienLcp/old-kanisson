@@ -1,0 +1,29 @@
+@import '../../../styles/mixins';
+
+.card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  height: 5rem;
+  border-bottom: 0.1rem solid var(--black);
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--md-opacity);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 850px) {
+  .card {
+    border: none;
+    border-radius: var(--sm-radius);
+  }
+}

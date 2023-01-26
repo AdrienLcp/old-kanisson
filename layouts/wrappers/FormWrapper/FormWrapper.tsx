@@ -1,11 +1,12 @@
 import type { FC } from 'react';
-import { FormWrapperProps } from '../../types/layouts';
+import { FormWrapperProps } from '../../../types/layouts';
 import styles from './FormWrapper.module.scss';
 
 const FormWrapper: FC<FormWrapperProps> = ({
   handleSubmit,
   submitLabel,
   submitTitle,
+  loading,
   children
 }) => {
 
@@ -22,6 +23,7 @@ const FormWrapper: FC<FormWrapperProps> = ({
           aria-label={submitTitle}
           title={submitTitle}
           type='submit'
+          disabled={loading}
         >
           {submitLabel}
         </button>

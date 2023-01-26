@@ -1,26 +1,26 @@
 import type { FC, FormEvent } from 'react';
 import type { PlaylistFormProps } from '../../../types/components/forms';
+import type { Track } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { api } from '../../../api/api';
-import { messages } from '../../../langs/others/error';
-import { errorTexts, validTexts } from '../../../langs/components/playlistForm';
+import { messages } from '../../../translations/others/error';
+import { errorTexts, validTexts } from '../../../translations/components/playlistForm';
 import PlaylistFormView from './view';
 import Loader from '../../../layouts/Loader/Loader';
 
 const PlaylistForm: FC<PlaylistFormProps> = ({
-  playlist
+  playlist,
+  tracksData,
+  apiKey
 }) => {
 
   const { lang } = useContext(LangContext);
   const { user, logged } = useContext(UserContext);
   const router = useRouter();
-
-  // If user is not logged or not the playlist creator, redirect to home page
-  if(!logged || playlist && playlist.user_id !== user.id) router.push('/');
 
   // Translated texts
   const errorMessage = messages.globalError[lang as keyof typeof messages.globalError];
@@ -32,7 +32,7 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
 
   const [title, setTitle] = useState<string>(playlist ? playlist.title : '');
   const [description, setDescription] = useState<string>(playlist ? playlist.description : '');
-  const [songs_ids, setSongs_ids] = useState<string[]>(playlist ? playlist.songs_ids : []);
+  const [tracks, setTracks] = useState<Track[]>(tracksData ? tracksData : []);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [validMessage, setValidMessage] = useState<string>('');
@@ -42,10 +42,10 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
     const special = new RegExp('(?=.*[!@#\$%\^&\*])');
 
     // If nothing changed
-    if(playlist &&
+    if(playlist && tracksData &&
       playlist.title === title &&
       playlist.description === description &&
-      playlist.songs_ids === songs_ids) {
+      tracksData === tracks) {
       // Set valid message & return false
       setValidMessage(upToDate);
       return false;
@@ -82,7 +82,6 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
         id: playlist ? playlist.id : uuidv4(),
         title,
         description,
-        songs_ids,
         user_id: user.id,
         creator: user.pseudo
       };
@@ -116,7 +115,7 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
     };
   };
 
-  if(loading) return <Loader />
+  if(loading || !logged) return <Loader />
 
   return (
     <PlaylistFormView
@@ -125,12 +124,14 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
       setTitle={setTitle}
       description={description}
       setDescription={setDescription}
-      songs_ids={songs_ids}
-      setSongs_ids={setSongs_ids}
+      tracks={tracks}
+      setTracks={setTracks}
       validMessage={validMessage}
       setValidMessage={setValidMessage}
       warningMessage={warningMessage}
       setWarningMessage={setWarningMessage}
+      loading={loading}
+      apiKey={apiKey}
     />
   );
 };

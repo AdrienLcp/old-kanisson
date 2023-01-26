@@ -26,7 +26,7 @@ async function main() {
 
   for(let i = 0; i < 50; i++) {
     newPlaylists.push({
-      id: uuidv4(),
+      id: `${i}`,
       user_id: `${i + 1}`,
       creator: `User ${i + 1}`,
       title: `Playlist test ${i + 1}`,
@@ -34,12 +34,33 @@ async function main() {
       date: new Date().toLocaleDateString(),
       ratings: [5, 4, 3, 4],
       ratings_ids: ['4', '8', '11', '20'],
-      songs_ids: []
     });
   };
 
   await prisma.playlist.createMany({
     data: [...newPlaylists]
+  });
+
+  // ==========----------========== //
+
+  const newTracks = [];
+
+  for(let i = 0; i < 50; i++) {
+    for(let j = 0; i < 10; i++) {
+      newTracks.push({
+        id: uuidv4(),
+        playlist_id: `${i}`,
+        youtube_id: `${j}`,
+        youtube_title: `Titre youtube ${j}`,
+        title: `Titre personnalisé ${j}`,
+        artist: `Artiste personnalisé ${j}`,
+        img: `https://i.ytimg.com/vi/493R05ifNsI/default.jpg`
+      });
+    };
+  };
+
+  await prisma.track.createMany({
+    data: [...newTracks]
   });
 };
 

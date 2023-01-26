@@ -2,7 +2,7 @@ import { FC, useContext } from "react";
 import type { HeadProps } from "../../types/layouts";
 import Head from "next/head";
 import { LangContext } from "../../contexts/LangContext";
-import { headTexts } from "../../langs/layouts/head";
+import { headTexts } from "../../translations/layouts/head";
 
 const NextHead: FC<HeadProps> = ({
   title = "",

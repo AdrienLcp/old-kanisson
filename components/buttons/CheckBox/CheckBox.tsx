@@ -14,8 +14,8 @@ const CheckBox: FC<CheckBoxProps> = ({
     <button
       className={styles.button}
       type="button"
-      title={title ? title : undefined}
-      aria-label={title ? title : undefined}
+      title={title}
+      aria-label={title}
       onClick={() => setState(prev => !prev)}
     >
       <label

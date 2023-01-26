@@ -1,8 +1,0 @@
-@import '../../styles/mixins';
-
-.valid {
-  @include messageStyles;
-  background: var(--valid-bg);
-  color: var(--valid);
-  border: 0.2rem solid var(--valid-border);
-}

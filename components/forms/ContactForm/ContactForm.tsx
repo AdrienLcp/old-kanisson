@@ -2,13 +2,13 @@ import type { FunctionComponent } from 'react';
 import { useContext, useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { LangContext } from '../../../contexts/LangContext';
-import { areaTexts, mailTexts, sendTexts, sentTexts } from '../../../langs/pages/contact';
+import { areaTexts, mailTexts, sendTexts, sentTexts } from '../../../translations/pages/contact';
 import styles from './ContactForm.module.scss';
 import SendIcon from '../../../icons/SendIcon';
 import Message from '../../Message/Message';
 import InputField from '../../inputs/InputField/InputField';
 import InputArea from '../../inputs/InputArea/InputArea';
-import FormWrapper from '../../../layouts/FormWrapper/FormWrapper';
+import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 
 // We use FormSpree for this contact form
 // ==>    https://formspree.io/

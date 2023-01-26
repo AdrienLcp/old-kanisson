@@ -5,6 +5,24 @@ html {
   font-size: 62.5%;
 }
 
+*::-webkit-scrollbar {
+  width: 1rem;
+
+  &-track {
+    background: var(--light-grey);
+    border-radius: 1rem;
+  }
+
+  &-thumb {
+    background: var(--main-color-alt);
+    border-radius: 1rem;
+
+    &:hover {
+      background: var(--main-color);
+    }
+  }
+}
+
 body {
   background: var(--body-color);
   font-family: var(--main-font);
@@ -16,23 +34,6 @@ body {
   ::selection {
     background-color: var(--main-color);
     color: var(--body-color);
-  }
-
-  &::-webkit-scrollbar {
-    width: 1rem;
-
-    &-track {
-      background: var(--light-grey);
-    }
-
-    &-thumb {
-      background: var(--main-color-alt);
-      border-radius: 1rem;
-
-      &:hover {
-        background: var(--main-color);
-      }
-    }
   }
 
   &.dark {

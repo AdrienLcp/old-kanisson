@@ -3,7 +3,7 @@ import type { PasswordValidationProps, ValidCasesState } from '../../types/compo
 import { useState, useContext, useEffect } from 'react';
 import PasswordValidationView from './view';
 import { LangContext } from '../../contexts/LangContext';
-import { passwordTexts } from '../../langs/components/inputs';
+import { passwordTexts } from '../../translations/components/inputs';
 
 const PasswordValidation: FC<PasswordValidationProps> = ({
   password, setPassword,

@@ -1,0 +1,21 @@
+@import "../../styles/mixins";
+
+.warning {
+  @include flexCenter;
+  color: var(--warning);
+  height: 5.5rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 850px) {
+  .list {
+    background: var(--body-color);
+    max-height: 50vh;
+  }
+}

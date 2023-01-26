@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import { useContext, useState } from 'react';
 import { LangContext } from '../../contexts/LangContext';
-import { toggleButton } from '../../langs/components/updateUser';
-import { profileHeadTexts } from '../../langs/layouts/head';
-import { pageTitleTexts } from '../../langs/pages/profile';
+import { toggleButton } from '../../translations/components/updateUser';
+import { profileHeadTexts } from '../../translations/layouts/head';
+import { pageTitleTexts } from '../../translations/pages/profile';
 import NextHead from '../../layouts/Head/Head';
-import PageWrapper from '../../layouts/PageWrapper/PageWrapper';
+import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import UpdateUserForm from '../../components/forms/UpdateUserForm';
 import styles from '../../styles/Profile.module.scss';
 

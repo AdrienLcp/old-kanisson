@@ -3,7 +3,7 @@ import type { PasswordValidationViewProps } from '../../types/components/others'
 import { useState, useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
-import { passwordTexts } from '../../langs/components/inputs';
+import { passwordTexts } from '../../translations/components/inputs';
 import InputPassword from '../inputs/InputPassword/InputPassword';
 import styles from './PasswordValidation.module.scss';
 import PasswordValidationItem from './Item/Item';

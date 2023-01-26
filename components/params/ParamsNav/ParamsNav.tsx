@@ -7,7 +7,7 @@ import Link from 'next/link';
 import AdminIcon from '../../../icons/AdminIcon';
 import LogoutIcon from '../../../icons/LogoutIcon';
 import MailIcon from '../../../icons/MailIcon';
-import { moderationTexts, contactTexts, logOutTexts } from '../../../langs/layouts/navbar';
+import { moderationTexts, contactTexts, logOutTexts } from '../../../translations/layouts/navbar';
 import CloseButton from '../../buttons/CloseButton/CloseButton';
 import styles from './ParamsNav.module.scss';
 

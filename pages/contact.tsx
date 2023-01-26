@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import { useContext } from 'react';
 import { LangContext } from '../contexts/LangContext';
-import { titleTexts } from '../langs/pages/contact';
-import { contactHeadTexts } from '../langs/layouts/head';
+import { titleTexts } from '../translations/pages/contact';
+import { contactHeadTexts } from '../translations/layouts/head';
 import NextHead from '../layouts/Head/Head';
 import ContactForm from '../components/forms/ContactForm/ContactForm';
-import PageWrapper from '../layouts/PageWrapper/PageWrapper';
+import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
 
 const Contact: NextPage = () => {
 

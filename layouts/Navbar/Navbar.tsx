@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
-import { homeTexts, searchTexts, profileTexts, logInTexts, logOutTexts, createTexts, moderationTexts, contactTexts } from '../../langs/layouts/navbar';
-import { burgerButton } from '../../langs/components/buttons';
+import { homeTexts, searchTexts, profileTexts, logInTexts, logOutTexts, createTexts, moderationTexts, contactTexts } from '../../translations/layouts/navbar';
+import { burgerButton } from '../../translations/components/buttons';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 

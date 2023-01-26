@@ -1,10 +1,4 @@
-@import "../../styles/mixins";
-
-.page {
-  @include flexCenter;
-  flex-direction: column;
-  padding-bottom: 10rem;
-}
+@import "../../../styles/mixins";
 
 .header {
   @include flexCenter;
@@ -26,11 +20,13 @@
   font-weight: 300;
 }
 
-@media screen and (min-width: 850px) {
-  .page {
-    padding-bottom: 0;
-  }
+.container {
+  @include flexCenter;
+  flex-direction: column;
+  padding-bottom: 10rem;
+}
 
+@media screen and (min-width: 850px) {
   .header {
     padding: 5rem 0 10rem;
   }
@@ -42,5 +38,9 @@
 
   .subtitle {
     font-size: 1.8rem;
+  }
+
+  .container {
+    padding-bottom: 0;
   }
 }

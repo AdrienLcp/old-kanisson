@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { ConfirmModalProps } from '../../types/components/others';
 import { useContext } from 'react';
-import { confirmModalTexts } from '../../langs/components/confirmModal';
+import { confirmModalTexts } from '../../translations/components/confirmModal';
 import { LangContext } from '../../contexts/LangContext';
 import styles from './ConfirmModal.module.scss';
 import Modal from '../../layouts/Modal/Modal';

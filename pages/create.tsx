@@ -1,14 +1,16 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import type { CreateProps } from '../types/pages';
 import { useContext } from 'react';
-import PlaylistForm from '../components/forms/PlaylistForm';
 import { LangContext } from '../contexts/LangContext';
-import { createHeadTexts } from '../langs/layouts/head';
-import { createTexts } from '../langs/pages/create';
+import { createHeadTexts } from '../translations/layouts/head';
+import { createTexts } from '../translations/pages/create';
 import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/PageWrapper/PageWrapper';
-import styles from '../styles/Create.module.scss';
+import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
+import PlaylistForm from '../components/forms/PlaylistForm';
 
-const Create: NextPage = () => {
+const Create: NextPage<CreateProps> = ({
+  apiKey
+}) => {
 
   const { lang } = useContext(LangContext);
 
@@ -25,7 +27,7 @@ const Create: NextPage = () => {
 
       <PageWrapper title={pageTitle}>
 
-        <PlaylistForm />
+        <PlaylistForm apiKey={apiKey} />
 
       </PageWrapper>
     </>
@@ -33,3 +35,14 @@ const Create: NextPage = () => {
 };
 
 export default Create;
+
+export const getServerSideProps: GetServerSideProps = async() => {
+
+  const apiKey = process.env.API_KEY;
+
+  return {
+    props: {
+      apiKey
+    }
+  };
+};

@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { LangContext } from '../contexts/LangContext';
 import HomeIcon from '../icons/HomeIcon';
-import { notFoundHeadTexts } from '../langs/layouts/head';
-import { linkTexts, pageTexts } from '../langs/pages/notFound';
+import { notFoundHeadTexts } from '../translations/layouts/head';
+import { linkTexts, pageTexts } from '../translations/pages/notFound';
 import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/PageWrapper/PageWrapper';
+import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
 import styles from '../styles/NotFound.module.scss';
 
 const NotFound: NextPage = () => {

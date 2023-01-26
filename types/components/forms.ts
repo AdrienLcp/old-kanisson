@@ -1,8 +1,10 @@
-import { Playlist } from '@prisma/client';
+import { Playlist, Track } from '@prisma/client';
 import { Dispatch, FormEvent, SetStateAction } from 'react';
 
 export type PlaylistFormProps = {
-  playlist?: Playlist
+  playlist?: Playlist;
+  tracksData?: Track[];
+  apiKey: string;
 };
 
 export type PlaylistFormViewProps = {
@@ -11,12 +13,14 @@ export type PlaylistFormViewProps = {
   setTitle: Dispatch<SetStateAction<string>>;
   description: string;
   setDescription: Dispatch<SetStateAction<string>>;
-  songs_ids: string[];
-  setSongs_ids: Dispatch<SetStateAction<string[]>>;
+  tracks: Track[];
+  setTracks: Dispatch<SetStateAction<Track[]>>;
   validMessage: string;
   setValidMessage: Dispatch<SetStateAction<string>>;
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
+  loading: boolean;
+  apiKey: string;
 };
 
 export type SignInFormProps = {
@@ -46,6 +50,12 @@ export type SignUpFormProps = {
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
+};
+
+export type TracksFormProps = {
+  tracks: Track[];
+  setTracks: Dispatch<SetStateAction<Track[]>>;
+  apiKey: string;
 };
 
 export type UpdateUserFormProps = {

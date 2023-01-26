@@ -3,7 +3,7 @@ import type { InputAreaProps } from '../../../types/components/inputs';
 import { useMemo, useContext } from 'react';
 import styles from './InputArea.module.scss';
 import { LangContext } from '../../../contexts/LangContext';
-import { limitTexts } from '../../../langs/components/inputs';
+import { limitTexts } from '../../../translations/components/inputs';
 
 const InputArea: FC<InputAreaProps> = ({
   value,
@@ -34,8 +34,8 @@ const InputArea: FC<InputAreaProps> = ({
 
   return (
     <div
-      title={title ? title : undefined}
-      aria-label={title ? title : undefined}
+      title={title}
+      aria-label={title}
       className={
         limit && (limit - value.length) < 0 ?
           `${styles.field} ${styles.warning}`
@@ -47,7 +47,7 @@ const InputArea: FC<InputAreaProps> = ({
         className={styles.input}
         value={value}
         id={id}
-        name={name ? name : undefined}
+        name={name}
         required={required}
         disabled={disabled}
         onChange={e => handleChange(e)}
