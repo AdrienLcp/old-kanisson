@@ -1,4 +1,4 @@
-import { Playlist } from "@prisma/client";
+import type { Playlist, Track } from "@prisma/client";
 
 export type CreateProps = {
   apiKey: string;
@@ -6,5 +6,6 @@ export type CreateProps = {
 
 export type UpdateProps = {
   playlist: Playlist;
+  tracks: Track[];
   apiKey: string;
 };

@@ -7,14 +7,13 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quiz = await db.playlist.upsert({
+    const playlist = await db.playlist.upsert({
       where: {
         id: req.body.id
       },
       update: {
         title: req.body.title,
-        description: req.body.description,
-        songs_ids: req.body.songs_ids
+        description: req.body.description
       },
       create: {
         ...req.body,
@@ -22,7 +21,7 @@ export default checkUser(async function handle (
       }
     });
 
-    res.status(200).json(quiz);
+    res.status(200).json(playlist);
 
   } catch (error){
     res.status(404).json(error);

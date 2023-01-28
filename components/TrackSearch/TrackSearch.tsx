@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { TrackSearchProps } from '../../types/components/others';
 import type { SearchResultItem, SearchResults } from '../../types/youtube';
+import type { TrackSearchProps } from '../../types/components/tracks';
 import { useState, useContext } from 'react';
 import { youtube } from '../../api/api';
 import { LangContext } from '../../contexts/LangContext';
@@ -16,6 +16,12 @@ import Loader from '../../layouts/Loader/Loader';
 const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
   setTracks,
+  search,
+  setSearch,
+  previousSearch,
+  setPreviousSearch,
+  tracksResults,
+  setTracksResults,
   apiKey
 }) => {
 
@@ -25,15 +31,12 @@ const TrackSearch: FC<TrackSearchProps> = ({
   const inputTitle = inputTexts.title[lang as keyof typeof inputTexts.title];
   const buttonTitle = buttonTexts[lang as keyof typeof buttonTexts];
 
-  const [search, setSearch] = useState<string>('');
-  const [previousSearch, setPreviourSearch] = useState<string>('');
-  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchData = async() => {
     if(search && search !== previousSearch) {
       // Save search to avoid fechting same data
-      setPreviourSearch(search);
+      setPreviousSearch(search);
       setLoading(true);
 
       // Fetch data from youtube API
@@ -73,7 +76,6 @@ const TrackSearch: FC<TrackSearchProps> = ({
         {search &&
           <IconButton
             handleFunction={fetchData}
-            aria-label={buttonTitle}
             title={buttonTitle}
             disabled={loading}
           >

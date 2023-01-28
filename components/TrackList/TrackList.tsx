@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { TrackListProps } from '../../types/components/others';
 import type { Track } from '@prisma/client';
+import type { TrackListProps } from '../../types/components/tracks';
 import { useState, useContext, useMemo } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { trackFilter } from '../../translations/components/filters';
@@ -37,19 +37,22 @@ const TrackList: FC<TrackListProps> = ({
 
   return (
     <>
+
       {tracks.length < 10 ?
         <span className={styles.warning}>
           {warning}
         </span>
       :
-        <InputField
-          value={filter}
-          setValue={setFilter}
-          id='filter-track-list-input'
-          type='search'
-          title={filterTitle}
-          label={filterLabel}
-        />
+        <div className={styles.filter}>
+          <InputField
+            value={filter}
+            setValue={setFilter}
+            id='filter-track-list-input'
+            type='search'
+            title={filterTitle}
+            label={filterLabel}
+          />
+        </div>
       }
 
       <ul className={styles.list}>

@@ -3,8 +3,12 @@
 .warning {
   @include flexCenter;
   color: var(--warning);
-  height: 5.5rem;
+  height: 6rem;
   text-align: center;
+  padding: 0 1rem;
+}
+
+.filter {
   padding: 0 1rem;
 }
 
@@ -17,5 +21,9 @@
   .list {
     background: var(--body-color);
     max-height: 50vh;
+  }
+
+  .filter {
+    padding: 0;
   }
 }

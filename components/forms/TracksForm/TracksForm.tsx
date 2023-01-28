@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import type { TracksFormProps } from '../../../types/components/forms';
+import type { SearchResultItem } from '../../../types/youtube';
 import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { titlesTexts } from '../../../translations/components/trackForm';
@@ -19,6 +20,10 @@ const TracksForm: FC<TracksFormProps> = ({
   const listTitle = titlesTexts.list[lang as keyof typeof titlesTexts.list];
   const searchTitle = titlesTexts.search[lang as keyof typeof titlesTexts.search];
 
+  // Search states in this component to prevent to many fetchs with toggle state
+  const [search, setSearch] = useState<string>('');
+  const [previousSearch, setPreviousSearch] = useState<string>('');
+  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [toggle, setToggle] = useState<boolean>(true);
 
   return (
@@ -67,6 +72,12 @@ const TracksForm: FC<TracksFormProps> = ({
             <TrackSearch
               tracks={tracks}
               setTracks={setTracks}
+              search={search}
+              setSearch={setSearch}
+              previousSearch={previousSearch}
+              setPreviousSearch={setPreviousSearch}
+              tracksResults={tracksResults}
+              setTracksResults={setTracksResults}
               apiKey={apiKey}
             />
           </section>
@@ -86,6 +97,12 @@ const TracksForm: FC<TracksFormProps> = ({
           <TrackSearch
             tracks={tracks}
             setTracks={setTracks}
+            search={search}
+            setSearch={setSearch}
+            previousSearch={previousSearch}
+            setPreviousSearch={setPreviousSearch}
+            tracksResults={tracksResults}
+            setTracksResults={setTracksResults}
             apiKey={apiKey}
           />
         </ListWrapper>

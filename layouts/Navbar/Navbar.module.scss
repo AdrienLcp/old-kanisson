@@ -6,6 +6,7 @@
   height: var(--navbar-height);
   background: var(--main-color);
   @include flexCenter;
+  box-shadow: 0 -2rem 2rem var(--md-opacity);
 }
 
 .list {
@@ -59,6 +60,7 @@
     align-items: center;
     justify-content: center;
     width: 8rem;
+    box-shadow: 2rem 0 3rem var(--md-opacity);
     transition: width .2s;
 
     &:hover {

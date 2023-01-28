@@ -125,7 +125,7 @@ export const descriptionTexts = {
     en: "Description"
   },
   title: {
-    fr: "Vous pouvez donner une description à votre quiz (500 caractères maximum)",
-    en: "You can give a description to your quiz (500 characters maximum)"
+    fr: "Vous pouvez donner une description à votre blind test (500 caractères maximum)",
+    en: "You can give a description to your blind test (500 characters maximum)"
   }
 }

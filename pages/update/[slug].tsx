@@ -1,5 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import type { UpdateProps } from '../../types/pages';
+import type { Playlist, Track } from '@prisma/client';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { api } from '../../api/api';
@@ -11,21 +12,21 @@ import NextHead from '../../layouts/Head/Head';
 import PlaylistForm from '../../components/forms/PlaylistForm';
 import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import Loader from '../../layouts/Loader/Loader';
-import { Playlist } from '@prisma/client';
 
 const Update: NextPage<UpdateProps> = ({
-  playlist
+  playlist,
+  tracks,
+  apiKey
 }) => {
 
   const { lang } = useContext(LangContext);
-  const { user } = useContext(UserContext);
+  const { user, logged } = useContext(UserContext);
 
   const router = useRouter();
 
   if(!playlist) return <Loader />
 
-  if(playlist.user_id !== user.id) router.push('/404');
-
+  if(logged && playlist.user_id !== user.id) router.push('/404');
 
   const headTitle = updateHeadTexts.title[lang as keyof typeof updateHeadTexts.title];
   const pageTitle = pageTitleTexts[lang as keyof typeof pageTitleTexts];
@@ -36,7 +37,11 @@ const Update: NextPage<UpdateProps> = ({
 
       <PageWrapper title={pageTitle}>
 
-        <PlaylistForm playlist={playlist} />
+        <PlaylistForm
+          playlist={playlist}
+          tracksData={tracks}
+          apiKey={apiKey}
+        />
 
       </PageWrapper>
     </>
@@ -56,11 +61,20 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
   });
   const playlist: Playlist = await fetchedPlaylist.json();
 
-  // fetch songs from api with playlist.id
+  const fetchedTracks = await fetch(`${api}/track/getAllFromPlaylist`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ playlist_id: playlist.id })
+  });
+  const tracks: Track[] = await fetchedTracks.json();
+
+  const apiKey = process.env.API_KEY;
 
   return {
     props: {
-      playlist
+      playlist,
+      tracks,
+      apiKey
     }
   };
 };

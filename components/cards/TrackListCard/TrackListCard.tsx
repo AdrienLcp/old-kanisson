@@ -1,11 +1,12 @@
 import type { FC } from 'react';
 import type { TrackListCardProps } from '../../../types/components/cards';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { trackCardTexts } from '../../../translations/components/cards';
-import Image from 'next/image';
 import styles from './TrackListCard.module.scss';
-import ImageIcon from '../../../icons/ImageIcon';
+import Modal from '../../../layouts/Modal/Modal';
+import TrackEdit from '../../TrackEdit';
+import CoverImage from '../../CoverImage/CoverImage';
 
 const TrackListCard: FC<TrackListCardProps> = ({
   track,
@@ -17,44 +18,72 @@ const TrackListCard: FC<TrackListCardProps> = ({
   const { lang } = useContext(LangContext);
 
   const altText = trackCardTexts.coverAlt[lang as keyof typeof trackCardTexts.coverAlt];
+  const warningText = trackCardTexts.warning[lang as keyof typeof trackCardTexts.warning];
+  const titleText = trackCardTexts.title[lang as keyof typeof trackCardTexts.title];
+
+  const [toggleModal, setToggleModal] = useState<boolean>(false);
+
+  // If user gave personalized title and artist name, it's a valid track
+  const validTrack = track.artist && track.title;
 
   return (
-    <article className={styles.card}
-    >
-
-      {track.img ?
-        <Image
-          width={30}
-          height={30}
-          alt={altText}
-          src={track.img}
-        />
-      :
-        <ImageIcon />
-      }
-
-      <header className={styles.header}>
-        {track.title || track.artist ?
-          <>
-            {track.title &&
-              <h3 className={styles.title}>
-                {track.title}
-              </h3>
-            }
-
-            {track.artist &&
-              <h4 className={styles.artist}>
-                {track.artist}
-              </h4>
-            }
-          </>
+    <>
+      <article
+        className={validTrack ?
+          `${styles.card}`
         :
-          <h3 className={styles.title}>
-            {track.youtube_title}
-          </h3>
+          `${styles.card} ${styles.warning}`
         }
-      </header>
-    </article>
+        title={validTrack ? titleText : warningText}
+        onClick={() => setToggleModal(true)}
+      >
+        <CoverImage
+          url={track.img}
+          alt={altText}
+          height={30}
+        />
+
+        {!validTrack &&
+          <span>
+            ⚠️
+          </span>
+        }
+
+        <header className={styles.header}>
+          {track.title || track.artist ?
+            <>
+              {track.title &&
+                <h3 className={styles.title}>
+                  {track.title}
+                </h3>
+              }
+
+              {track.artist &&
+                <h4 className={styles.artist}>
+                  {track.artist}
+                </h4>
+              }
+            </>
+          :
+            <h3 className={styles.title}>
+              {track.youtube_title}
+            </h3>
+          }
+        </header>
+      </article>
+
+      {toggleModal &&
+        <Modal setToggleModal={setToggleModal}>
+          <TrackEdit
+            track={track}
+            index={index}
+            tracks={tracks}
+            setTracks={setTracks}
+            setToggleModal={setToggleModal}
+          />
+        </Modal>
+      }
+    </>
   );
 };
 

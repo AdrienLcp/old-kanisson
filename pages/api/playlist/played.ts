@@ -6,17 +6,17 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quiz: any = await db.playlist.findUnique({
+    const playlist: any = await db.playlist.findUnique({
       where: {
-        id: req.body.quiz_id
+        id: req.body.playlist_id
       }
     });
 
-    const newNbOfPlayed = quiz?.nbOfPlayed + 1;
+    const newNbOfPlayed = playlist?.nbOfPlayed + 1;
 
     await db.playlist.update({
       where: {
-        id: req.body.quiz_id
+        id: req.body.playlist_id
       },
       data: {
         nbOfPlayed: newNbOfPlayed

@@ -5,9 +5,8 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { searchCardTitle, trackCardTexts } from '../../../translations/components/cards';
 import { v4 as uuidv4 } from 'uuid';
-import Image from 'next/image';
 import styles from './TrackSearchCard.module.scss';
-import ImageIcon from '../../../icons/ImageIcon';
+import CoverImage from '../../CoverImage/CoverImage';
 
 const TrackSearchCard: FC<TrackSearchCardProps> = ({
   currentTrack,
@@ -37,7 +36,7 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
     };
 
     // Add it to previous list and update state
-    const newTrackList = [...tracks, newTrack];
+    const newTrackList = [newTrack, ...tracks];
     setTracks(newTrackList);
 
     // Remove this track from results list and update state
@@ -53,21 +52,14 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
       aria-label={cardTitle}
       onClick={addToList}
     >
-      <header className={styles.header}>
-        <div className={styles.image}>
-          {img ?
-            <Image
-              alt={altText}
-              width={30}
-              height={30}
-              src={img}
-            />
-          :
-            <ImageIcon height='30' />
-          }
-        </div>
+      <CoverImage
+        url={img}
+        alt={altText}
+        height={30}
+      />
 
-        <h3 className={styles.title}>
+      <header>
+        <h3>
           {currentTrack.snippet.title}
         </h3>
       </header>

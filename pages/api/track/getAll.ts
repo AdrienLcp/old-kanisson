@@ -1,20 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { isAdmin } from '../../../middlewares/isAdmin';
 import db from '../../../lib/prisma';
 
-export default async function handle (
+export default isAdmin(async function handle (
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    const playlist = await db.playlist.findUnique({
-      where: {
-        title: req.body.title
-      }
-    });
+    const tracks = await db.track.findMany();
 
-    res.status(200).json(playlist);
+    res.status(201).json(tracks);
 
   } catch (error){
     res.status(404).json(error);
   };
-};
+});

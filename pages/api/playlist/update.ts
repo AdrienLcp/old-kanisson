@@ -7,18 +7,17 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quiz = await db.playlist.update({
+    const playlist = await db.playlist.update({
       where: {
         title: req.body.currentTitle
       },
       data: {
         title: req.body.title,
-        description: req.body.description,
-        songs_ids: req.body.songs_ids
+        description: req.body.description
       }
     });
 
-    res.status(200).json(quiz);
+    res.status(200).json(playlist);
 
   } catch (error){
     res.status(404).json(error);

@@ -4,7 +4,7 @@ import styles from './IconButton.module.scss';
 
 const IconButton: FC<IconButtonProps> = ({
   title,
-  name,
+  label,
   disabled,
   handleFunction,
   children
@@ -15,15 +15,15 @@ const IconButton: FC<IconButtonProps> = ({
       className={styles.button}
       type="button"
       title={title}
-      aria-label={title ? title : name}
+      aria-label={title ? title : label}
       disabled={disabled}
       onClick={handleFunction}
     >
       {children}
 
-      {name &&
+      {label &&
         <label className={styles.button_label}>
-          {name}
+          {label}
         </label>
       }
     </button>

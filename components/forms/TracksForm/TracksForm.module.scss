@@ -29,11 +29,8 @@
   width: 100%;
   height: 100%;
 
-  &.selected {
-
-    & .button {
-      background: var(--sm-opacity);
-    }
+  &.selected .button {
+    background: var(--sm-opacity);
   }
 }
 

@@ -6,7 +6,7 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quizz = await db.playlist.findMany({
+    const playlists = await db.playlist.findMany({
       where: {
         visible: true
       },
@@ -14,7 +14,7 @@ export default async function handle (
         ratings: 'desc'
       }]
     });
-    res.status(200).json(quizz);
+    res.status(200).json(playlists);
 
   } catch (error){
     res.status(404).json(error);

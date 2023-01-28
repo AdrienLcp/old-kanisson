@@ -12,7 +12,7 @@ export type CloseButtonProps = {
 
 export type IconButtonProps = PropsWithChildren<{
   title?: string;
-  name?: string;
+  label?: string;
   disabled?: boolean;
   handleFunction: () => void;
 }>;

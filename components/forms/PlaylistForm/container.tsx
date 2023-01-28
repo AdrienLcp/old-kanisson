@@ -39,7 +39,7 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const checkForm = () => {
-    const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+    const special = new RegExp('(?=.*[!@/#\$%\^&\*])');
 
     // If nothing changed
     if(playlist && tracksData &&
@@ -98,9 +98,9 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
         const data = await res.json();
 
         if(res.status === 200) {
-          console.log(data);
           setValidMessage(updated);
-          if(router.pathname.includes('/create')) router.push(`/update/${title}`);
+          await updateTracks(data.id);
+          router.push(`/update/${data.title}`);
         } else {
           console.log(data);
           setWarningMessage(alreadyTaken);
@@ -113,6 +113,30 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
 
       setLoading(false);
     };
+  };
+
+  const updateTracks = async(playlist_id: string) => {
+    const token = localStorage.getItem('token');
+
+    // Update playlist_id for each track (usefull for create a playlist, not for updating)
+    const newTracks = [...tracks];
+    newTracks?.map(track => track.playlist_id = playlist_id);
+
+    await fetch(`${api}/track/createMany`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify(newTracks)
+    })
+    .then(async(res) => {
+      const data = await res.json();
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   if(loading || !logged) return <Loader />

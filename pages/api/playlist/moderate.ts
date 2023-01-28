@@ -8,9 +8,9 @@ export default isModerator(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const quiz = await db.playlist.update({
+    const playlist = await db.playlist.update({
       where: {
-        id: req.body.quiz_id
+        id: req.body.playlist_id
       },
       data: {
         visible: !req.body.visible
@@ -22,7 +22,7 @@ export default isModerator(async function handle (
     await db.notification.create({
       data: {
         id: uuidv4(),
-        user_id: quiz.user_id,
+        user_id: playlist.user_id,
         title: "Modération de playlist",
         message: `Votre playlist ${playlist.title} a été supprimée ou restaurée. Surveillez votre langage ou l'exactitude de vos questions/réponses`,
         date: newDate,
@@ -30,7 +30,7 @@ export default isModerator(async function handle (
       }
     });
 
-    res.status(200).json(quiz);
+    res.status(200).json(playlist);
 
   } catch (error){
     res.status(404).json(error);

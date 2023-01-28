@@ -17,6 +17,25 @@ const Home: NextPage<Props> = ({
 
   const [toggle, setToggle] = useState<boolean>(false);
 
+  const getTracks = async() => {
+    const token = localStorage.getItem('token');
+
+    await fetch(`${api}/track/getAll`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      }
+    })
+    .then(async(res) => {
+      const data = await res.json();
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
+
   return (
     <>
       <NextHead />
@@ -29,6 +48,14 @@ const Home: NextPage<Props> = ({
 
         <button onClick={() => setToggle(prev => !prev)}>
           toggle
+        </button>
+
+<br />
+<br />
+<br />
+<br />
+        <button onClick={getTracks}>
+          GET ALL TRACKS
         </button>
 
       </PageWrapper>

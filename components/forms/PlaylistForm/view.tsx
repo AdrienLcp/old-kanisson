@@ -3,13 +3,13 @@ import type { PlaylistFormViewProps } from '../../../types/components/forms';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { titleTexts, descriptionTexts } from '../../../translations/components/inputs';
+import { buttonsTexts } from '../../../translations/components/playlistForm';
+import { useRouter } from 'next/router';
 import styles from './PlaylistForm.module.scss';
 import InputField from '../../inputs/InputField/InputField';
 import InputArea from '../../inputs/InputArea/InputArea';
 import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import Message from '../../Message/Message';
-import { buttonsTexts } from '../../../translations/components/playlistForm';
-import { useRouter } from 'next/router';
 import TracksForm from '../TracksForm/TracksForm';
 
 const PlaylistFormView: FC<PlaylistFormViewProps> = ({
