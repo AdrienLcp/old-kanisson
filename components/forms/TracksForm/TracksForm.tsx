@@ -29,7 +29,6 @@ const TracksForm: FC<TracksFormProps> = ({
   return (
     <>
       <div className={`${styles.container} ${styles.mobile}`}>
-
         <header className={styles.header}>
           <h2 className={toggle ?
               `${styles.title} ${styles.selected}`

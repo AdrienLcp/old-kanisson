@@ -1,0 +1,28 @@
+@import "../../styles/mixins";
+
+.list {
+  padding: 4rem 0;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 400px) {
+  .input {
+    width: 30rem;
+  }
+
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .input {
+    width: 40rem;
+  }
+
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

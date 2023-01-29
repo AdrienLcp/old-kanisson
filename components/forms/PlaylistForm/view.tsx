@@ -54,7 +54,7 @@ const PlaylistFormView: FC<PlaylistFormViewProps> = ({
           id="playlist-description-input"
           label={descriptionLabel}
           title={descriptionTitle}
-          limit={200}
+          limit={100}
           required={false}
         />
 

@@ -34,6 +34,7 @@ async function main() {
       date: new Date().toLocaleDateString(),
       ratings: [5, 4, 3, 4],
       ratings_ids: ['4', '8', '11', '20'],
+      nbOfTracks: 0
     });
   };
 
@@ -46,7 +47,7 @@ async function main() {
   const newTracks = [];
 
   for(let i = 0; i < 50; i++) {
-    for(let j = 0; i < 10; i++) {
+    for(let j = 0; j < 10; j++) {
       newTracks.push({
         id: uuidv4(),
         playlist_id: `${i}`,
@@ -54,7 +55,8 @@ async function main() {
         youtube_title: `Titre youtube ${j}`,
         title: `Titre personnalisé ${j}`,
         artist: `Artiste personnalisé ${j}`,
-        img: `https://i.ytimg.com/vi/493R05ifNsI/default.jpg`
+        img: `https://i.ytimg.com/vi/493R05ifNsI/default.jpg`,
+        valid: true
       });
     };
   };

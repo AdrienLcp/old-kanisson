@@ -1,6 +1,6 @@
 import type { FC, FormEvent } from 'react';
 import type { PlaylistFormProps } from '../../../types/components/forms';
-import type { Track } from '@prisma/client';
+import type { Playlist, Track } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -27,13 +27,13 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
   const alreadyTaken = errorTexts.titleTaken[lang as keyof typeof errorTexts.titleTaken];
   const titleError = errorTexts.titleError[lang as keyof typeof errorTexts.titleError];
   const descriptionLength = errorTexts.descriptionLength[lang as keyof typeof errorTexts.descriptionLength];
+  const noTrack = errorTexts.noTrack[lang as keyof typeof errorTexts.noTrack];
   const upToDate = validTexts.alreadyUpToDate[lang as keyof typeof validTexts.alreadyUpToDate];
   const updated = validTexts.updated[lang as keyof typeof validTexts.updated];
 
   const [title, setTitle] = useState<string>(playlist ? playlist.title : '');
   const [description, setDescription] = useState<string>(playlist ? playlist.description : '');
-  const [tracks, setTracks] = useState<Track[]>(tracksData ? tracksData : []);
-
+  const [tracks, setTracks] = useState<Track[]>(tracksData ? tracksData : [] as Track[]);
   const [loading, setLoading] = useState<boolean>(false);
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
@@ -57,8 +57,11 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
       // set warning message, and return false
       setWarningMessage(titleError);
       return false;
-    } else if(description.length > 200) {
+    } else if(description.length > 100) {
       setWarningMessage(descriptionLength);
+      return false;
+    } else if(tracks.length <= 0) {
+      setWarningMessage(noTrack);
       return false;
     };
     return true;
@@ -78,12 +81,20 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
       // Get token from local storage for authorization
       const token = localStorage.getItem('token');
 
-      const body = {
+      const validTracks = tracks.filter(track => track.valid);
+
+      const body: Playlist = {
         id: playlist ? playlist.id : uuidv4(),
-        title,
-        description,
+        title: title.trim(),
+        description: description.trim(),
         user_id: user.id,
-        creator: user.pseudo
+        creator: user.pseudo,
+        date: playlist ? playlist.date : new Date().toLocaleDateString(),
+        ratings: playlist ? playlist.ratings : [],
+        ratings_ids: playlist ? playlist.ratings_ids : [],
+        nbOfPlayed: playlist ? playlist.nbOfPlayed : 0,
+        nbOfTracks: validTracks.length,
+        visible: validTracks.length >= 10 ? true : false
       };
 
       await fetch(`${api}/playlist/upsert`, {

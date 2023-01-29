@@ -1,6 +1,10 @@
 import type { Dispatch, SetStateAction } from "react";
-import type { Track } from "@prisma/client";
+import type { Playlist, Track } from "@prisma/client";
 import type { SearchResultItem } from "../youtube";
+
+export type PlaylistCard = {
+  playlist: Playlist;
+};
 
 export type TrackListCardProps = {
   track: Track;

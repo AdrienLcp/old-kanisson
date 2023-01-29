@@ -16,8 +16,7 @@ export default checkUser(async function handle (
         description: req.body.description
       },
       create: {
-        ...req.body,
-        date: new Date().toLocaleDateString()
+        ...req.body
       }
     });
 

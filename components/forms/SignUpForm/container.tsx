@@ -98,8 +98,8 @@ const SignUp: FC = () => {
 
       // Set body with all needed data
       const body = {
-        pseudo,
-        email,
+        pseudo: pseudo.trim(),
+        email: email.trim(),
         password,
         rememberMe
       };

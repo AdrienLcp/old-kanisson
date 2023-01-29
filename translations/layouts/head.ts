@@ -71,6 +71,17 @@ export const profileHeadTexts = {
   }
 };
 
+export const searchHeadTexts = {
+  title: {
+    fr: "Chercher un blind test - Kanisson",
+    en: "Find a blind test - Kanisson"
+  },
+  description: {
+    fr: "Tous les quizz musicaux de Kanisson, trouvez celui qui vous plaît",
+    en: "All Kanisson's blind tests, find the one you like"
+  }
+};
+
 export const updateHeadTexts = {
   title: {
     fr: "Modifier mon blind test",

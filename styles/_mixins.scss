@@ -29,6 +29,7 @@
 
 @mixin commonInput {
   .field {
+    z-index: 0;
     position: relative;
     width: clamp(20rem, 100%, 90vw);
     margin: 0.9rem 0;

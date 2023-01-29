@@ -10,6 +10,7 @@ import IconButton from '../buttons/IconButton/IconButton';
 import InputField from '../inputs/InputField/InputField';
 import styles from './TrackEdit.module.scss';
 import StopIcon from '../../icons/StopIcon';
+import Message from '../Message/Message';
 
 const TrackEditView: FC<TrackEditViewProps> = ({
   previousTitle,
@@ -20,7 +21,9 @@ const TrackEditView: FC<TrackEditViewProps> = ({
   updateTrack,
   isPlaying,
   setIsPlaying,
-  deleteTrack
+  deleteTrack,
+  warningMessage,
+  setWarningMessage
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -45,7 +48,6 @@ const TrackEditView: FC<TrackEditViewProps> = ({
       className={styles.container}
       onKeyDown={(event) => {
         if(event.code === 'Enter' || event.code === 'NumpadEnter') updateTrack();
-        if(event.code === 'Space') setIsPlaying(prev => !prev);
       }}
     >
       <header>
@@ -86,6 +88,11 @@ const TrackEditView: FC<TrackEditViewProps> = ({
           </div>
         }
       </section>
+
+      <Message
+        warningMessage={warningMessage}
+        setWarningMessage={setWarningMessage}
+      />
 
       <footer className={styles.footer}>
         <IconButton

@@ -1,15 +1,15 @@
-export const trackCardTexts = {
-  coverAlt: {
-    fr: "Vignette",
-    en: "Thumbnail"
-  },
-  warning: {
-    fr: "Attention, vous devez donner un titre et un nom d'artiste pour que ce son puisse être joué dans votre blind test",
-    en: "Attention, you must give a title and an artist name so that this sound can be played in your blind test"
+export const playlistCard = {
+  label: {
+    fr: "Jouer",
+    en: "Play"
   },
   title: {
-    fr: "Éditer ce son",
-    en: "Update this song"
+    fr: "Jouer à ce blind test",
+    en: "Play to this blind test"
+  },
+  link: {
+    fr: "Visiter le profil du créateur :",
+    en: "Visit the creator's profile :"
   }
 };
 
@@ -50,3 +50,18 @@ export const trackCardsButtons = {
     }
   }
 }
+
+export const trackCardTexts = {
+  coverAlt: {
+    fr: "Vignette",
+    en: "Thumbnail"
+  },
+  warning: {
+    fr: "Attention, vous devez donner un titre et un nom d'artiste pour que ce son puisse être joué dans votre blind test",
+    en: "Attention, you must give a title and an artist name so that this sound can be played in your blind test"
+  },
+  title: {
+    fr: "Éditer ce son",
+    en: "Update this song"
+  }
+};

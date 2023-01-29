@@ -6,6 +6,10 @@ export const warningTexts = {
   text: {
     fr: "Veillez à respecter l'orthographe d'origine pour que les joueurs puissent marquer des points",
     en: "Make sure to respect the original spelling so that players can score points"
+  },
+  length: {
+    fr: "Le titre et le nom de l'artiste ne doivent pas contenir plus de 50 caractères",
+    en: "Title and artist name must not contain more than 50 characters"
   }
 };
 

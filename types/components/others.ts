@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
+import type { Playlist } from '@prisma/client';
 
 export type ColorPickerProps = {
   hue: string;
@@ -48,7 +49,7 @@ export type PasswordValidationProps = {
   confirmPassword: string;
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
-  required?: boolean
+  required?: boolean;
 };
 
 export type PasswordValidationViewProps = {
@@ -59,7 +60,7 @@ export type PasswordValidationViewProps = {
   validCases: ValidCasesState;
   validMessage: string;
   setValidMessage: Dispatch<SetStateAction<string>>;
-  required: boolean
+  required: boolean;
 };
 
 export type PlayerProps = {
@@ -68,6 +69,14 @@ export type PlayerProps = {
   autoPlay?: boolean;
   start?: number;
   duration?: number;
+};
+
+export type PlaylistsFilterProps = {
+  playlists: Playlist[];
+};
+
+export type StarsProps = {
+  ratings: number[];
 };
 
 export type ValidCasesState = {

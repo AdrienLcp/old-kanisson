@@ -20,6 +20,8 @@ export type TrackEditViewProps = {
   isPlaying: boolean;
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
   deleteTrack: () => void;
+  warningMessage: string;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
 };
 
 export type TrackListProps = {

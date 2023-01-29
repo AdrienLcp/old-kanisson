@@ -75,7 +75,6 @@ const InputField: FC<InputFieldProps> = ({
       >
         {label}
       </label>
-      {/* //! attention on peut pas cliquer, faut que le limit passe SOUS l'input et reste visible */}
 
       <button
         className={styles.clear}

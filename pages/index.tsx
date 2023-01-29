@@ -20,7 +20,7 @@ const Home: NextPage<Props> = ({
   const getTracks = async() => {
     const token = localStorage.getItem('token');
 
-    await fetch(`${api}/track/getAll`, {
+    await fetch(`${api}/playlist/getAllVisible`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

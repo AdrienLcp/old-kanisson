@@ -19,15 +19,17 @@ const CloseButton: FC<CloseButtonProps> = ({
 
   return (
     <div className={styles.close}>
-      <IconButton
-        handleFunction={handleFunction}
+      <button
+        className={styles.button}
+        type="button"
         title={title}
+        onClick={handleFunction}
       >
         <CrossIcon
           height={height}
           color={color}
         />
-      </IconButton>
+      </button>
     </div>
   );
 };

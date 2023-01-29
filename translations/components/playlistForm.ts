@@ -10,6 +10,10 @@ export const errorTexts = {
   descriptionLength: {
     fr: "Votre description ne doit pas dépasser 200 caractères",
     en: "The description must not exceed 200 characters"
+  },
+  noTrack: {
+    fr: "Ajoutez au moins une musique pour valider la création de votre blind test",
+    en: "Add at least one track to validate the creation of your blind test"
   }
 };
 

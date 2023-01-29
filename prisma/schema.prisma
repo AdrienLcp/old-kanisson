@@ -29,6 +29,7 @@ model Playlist {
   date              String
   ratings           Int[]
   ratings_ids       String[]
+  nbOfTracks        Int
   nbOfPlayed        Int           @default(0)
   visible           Boolean       @default(true)
 }
