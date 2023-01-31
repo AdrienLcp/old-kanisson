@@ -1,0 +1,62 @@
+@import "../styles/mixins";
+
+.title {
+  font-family: var(--title-font);
+  font-size: 4rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 5rem 0 8rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding-bottom: 15rem;
+}
+
+.filter {
+  display: none;
+}
+
+@media screen and (min-width: 850px) {
+  .title {
+    font-size: 5rem;
+  }
+
+  .main {
+    gap: 10rem;
+  }
+
+  .filter {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 0;
+
+    &_left {
+      left: 0;
+      background: linear-gradient(to left, transparent, var(--body-color));
+      width: 30rem;
+    }
+
+    &_right {
+      right: 0;
+      background: linear-gradient(to right, transparent, var(--body-color));
+      width: 5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    margin: 8rem 0 16rem;
+  }
+
+  .filter {
+    &_left {
+      width: 45rem;
+    }
+  }
+}

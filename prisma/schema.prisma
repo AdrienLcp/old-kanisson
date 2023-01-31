@@ -26,6 +26,7 @@ model Playlist {
   creator           String
   title             String        @unique
   description       String
+  img               String
   date              String
   ratings           Int[]
   ratings_ids       String[]

@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import type { ParamsProps } from '../../types/layouts';
 import { LangContext } from '../../contexts/LangContext';
-import { title, button } from '../../translations/layouts/params';
-import { useContext, memo } from 'react';
+import { title } from '../../translations/layouts/params';
+import { burgerButton } from '../../translations/components/buttons';
+import { useContext } from 'react';
 import styles from './Params.module.scss';
 
 import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
@@ -19,7 +20,8 @@ const Params: FC<ParamsProps> = ({
   const { lang } = useContext(LangContext);
 
   const headingTtitle = title[lang as keyof typeof title];
-  const buttonTitle = button[lang as keyof typeof button];
+  const openTitle = burgerButton.open[lang as keyof typeof burgerButton.open];
+  const closeTitle = burgerButton.close[lang as keyof typeof burgerButton.close];
 
   return (
     <div className={styles.test}>
@@ -48,8 +50,8 @@ const Params: FC<ParamsProps> = ({
       <button
         className={`${styles.button} ${styles.mobile_hidden}`}
         type="button"
-        title={buttonTitle}
-        aria-label={buttonTitle}
+        title={toggleMenu ? closeTitle : openTitle}
+        aria-label={toggleMenu ? closeTitle : openTitle}
         onClick={() => setToggleMenu(prev => !prev)}
       >
         <BurgerIcon state={toggleMenu} />

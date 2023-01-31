@@ -50,7 +50,8 @@ const Navbar: FC<NavbarProps> = ({
   const logOutLabel = logOutTexts.label[lang as keyof typeof logOutTexts.label];
   const logOutTitle = logOutTexts.title[lang as keyof typeof logOutTexts.label];
 
-  const burgerTitle = burgerButton.title[lang as keyof typeof burgerButton.title];
+  const openTitle = burgerButton.open[lang as keyof typeof burgerButton.open];
+  const closeTitle = burgerButton.close[lang as keyof typeof burgerButton.close];
 
   return (
     <nav className={styles.navbar}>
@@ -236,8 +237,8 @@ const Navbar: FC<NavbarProps> = ({
           <button
             className={styles.link}
             type="button"
-            title={burgerTitle}
-            aria-label={burgerTitle}
+            title={toggleMenu ? closeTitle : openTitle}
+            aria-label={toggleMenu ? closeTitle : openTitle}
             onClick={() => setToggleMenu(prev => !prev)}
           >
             <BurgerIcon state={toggleMenu} />

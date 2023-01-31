@@ -75,6 +75,11 @@ export type PlaylistsFilterProps = {
   playlists: Playlist[];
 };
 
+export type PlaylistsSliderProps = {
+  playlists: Playlist[];
+  title: string;
+};
+
 export type StarsProps = {
   ratings: number[];
 };

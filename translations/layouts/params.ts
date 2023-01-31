@@ -4,11 +4,6 @@ export const title = {
   en: "Settings"
 };
 
-export const button = {
-  fr: "Ouvrir les paramètres",
-  en: "Open settings"
-};
-
 export const langs = {
   fr: "Choisir la langue",
   en: "Choose language"

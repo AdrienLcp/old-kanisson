@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { IconProps } from '../types/components/others';
 
-const TrashIcon: FC<IconProps> = ({
+const BinIcon: FC<IconProps> = ({
   color = "var(--black)",
   height = "24"
 }) => {
@@ -23,4 +23,4 @@ const TrashIcon: FC<IconProps> = ({
   );
 };
 
-export default TrashIcon;
+export default BinIcon;

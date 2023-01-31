@@ -10,6 +10,10 @@ export const playlistCard = {
   link: {
     fr: "Visiter le profil du créateur :",
     en: "Visit the creator's profile :"
+  },
+  creator: {
+    fr: "Créé par",
+    en: "Created by"
   }
 };
 

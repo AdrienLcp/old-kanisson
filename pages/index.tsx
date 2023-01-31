@@ -1,18 +1,18 @@
-import type { User } from '@prisma/client';
+import type { Playlist } from '@prisma/client';
 import type { GetServerSideProps, NextPage } from 'next';
 import { api } from '../api/api';
 import { useState } from 'react';
-import Player from '../components/Player/Player';
 import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
 import styles from '../styles/Home.module.scss';
+import PlaylistsSlider from '../components/PlaylistsSlider/PlaylistsSlider';
 
 type Props = {
-  users: User[]
+  playlists: Playlist[]
 };
 
 const Home: NextPage<Props> = ({
   // users
+  playlists
 }) => {
 
   const [toggle, setToggle] = useState<boolean>(false);
@@ -40,39 +40,48 @@ const Home: NextPage<Props> = ({
     <>
       <NextHead />
 
-      <PageWrapper title='Home'>
+      <header>
+        <h1 className={styles.title}>
+          Kanisson
+        </h1>
+      </header>
 
-        {toggle &&
-          <Player url='493R05ifNsI' setTogglePlayer={setToggle} />
-        }
+      <main className={styles.main}>
 
-        <button onClick={() => setToggle(prev => !prev)}>
-          toggle
-        </button>
+        <PlaylistsSlider
+          playlists={playlists}
+          title="test"
+        />
 
-<br />
-<br />
-<br />
-<br />
-        <button onClick={getTracks}>
-          GET ALL TRACKS
-        </button>
+        <PlaylistsSlider
+          playlists={playlists}
+          title="test"
+        />
 
-      </PageWrapper>
+        <PlaylistsSlider
+          playlists={playlists}
+          title="test"
+        />
+
+        <div className={`${styles.filter} ${styles.filter_left}`} />
+        <div className={`${styles.filter} ${styles.filter_right}`} />
+
+      </main>
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async() => {
 
-  // const dataFromAPI = await fetch(`${api}/playlist/getAllVisible`);
-  // const data = await dataFromAPI.json();
+  const fetchedPlaylists = await fetch(`${api}/playlist/getAllVisible`);
+  const playlists = await fetchedPlaylists.json();
 
   // const usersFromAPI = await fetch(`${api}/user/getAll`);
   // const users = await usersFromAPI.json();
 
   return {
     props: {
+      playlists
       // users,
       // data,
     }

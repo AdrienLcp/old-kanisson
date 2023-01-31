@@ -1,0 +1,45 @@
+@import "../../styles/mixins";
+
+.container {
+  position: relative;
+}
+
+.title {
+  padding-left: 4rem;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translateY(-100%);
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+  padding-left: 4rem;
+  transition: transform 0.5s;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .title {
+    padding-left: 30rem;
+  }
+
+  .list {
+    padding-left: 30rem;
+    overflow-x: visible;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    padding-left: 45rem;
+  }
+
+  .list {
+    padding-left: 45rem;
+  }
+}

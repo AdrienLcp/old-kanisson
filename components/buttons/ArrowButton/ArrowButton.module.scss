@@ -1,0 +1,52 @@
+@import "../../../styles/mixins";
+
+.button {
+  display: none;
+}
+
+@media screen and (min-width: 850px) {
+  .button {
+    @include flexCenter;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background: var(--md-opacity);
+    position: absolute;
+    top: 50%;
+    transition: transform 0.2s;
+    z-index: 1;
+
+    &_left {
+      left: 30rem;
+      transform: translate(-150%, -50%) rotate(90deg);
+
+      &:active {
+        transform: translate(-150%, -50%) scale(0.9) rotate(90deg);
+      }
+    }
+
+    &_right {
+      right: 0;
+      transform: translate(-50%, -50%) rotate(270deg);
+
+      &:active {
+        transform: translate(-50%, -50%) scale(0.9) rotate(270deg);
+      }
+    }
+
+    &:hover {
+      background: var(--lg-opacity);
+    }
+
+    &:disabled {
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .button_left {
+    left: 45rem;
+  }
+}

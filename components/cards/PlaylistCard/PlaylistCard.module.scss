@@ -13,11 +13,11 @@
 
 .card {
   @include flexCenter;
-  width: 10rem;
-  height: 6rem;
-  padding: 1em 1.5em;
+  width: 130px;
+  height: 80px;
+  padding: 1.5em 1em;
   box-shadow: var(--card-shadow);
-  background: var(--body-color);
+  background: var(--main-color-alt);
   border-radius: var(--main-radius);
   overflow: hidden;
 }
@@ -26,6 +26,7 @@
   text-align: center;
   font-weight: 400;
   font-size: 1rem;
+  color: var(--white);
 }
 
 .content {
@@ -43,13 +44,13 @@
 }
 
 @media screen and (min-width: 850px) {
-
   .card {
     cursor: pointer;
     position: relative;
-    width: 15rem;
-    height: 10rem;
-    padding: 2em 3em;
+    padding: 3em 2em;
+    width: 20rem;
+    height: 12rem;
+    background: var(--body-color);
 
     &:hover .content {
       transform: translateY(0);
@@ -57,7 +58,8 @@
   }
 
   .title {
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    color: var(--text-color);
   }
 
   .content {
@@ -70,10 +72,11 @@
     left: 0;
     overflow: hidden;
     padding: 0.5em;
-    width: 15rem;
-    height: 10rem;
+    width: 20rem;
+    height: 12rem;
     border-radius: var(--main-radius);
     background: var(--main-color);
+    color: var(--white);
     transform: translateY(105%);
     transition: transform 0.2s ease-out;
     text-overflow: ellipsis;
@@ -81,9 +84,9 @@
 
   .description {
     text-align: center;
-    color: var(--white);
     text-overflow: ellipsis;
     font-size: 1rem;
+    padding: 2em 1em;
   }
 
   .creator {

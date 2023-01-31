@@ -1,5 +1,12 @@
 import { PropsWithChildren } from 'react';
 
+export type ArrowButtonProps = {
+  handleFunction: () => void;
+  title: string;
+  disabled: boolean;
+  side: string;
+};
+
 export type BurgerIconProps = {
   state: boolean;
 };

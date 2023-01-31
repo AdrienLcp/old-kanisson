@@ -3,13 +3,13 @@ import type { TrackEditViewProps } from '../../types/components/tracks';
 import { useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { buttonsTexts, inputsTexts, warningTexts } from '../../translations/components/trackEdit';
+import styles from './TrackEdit.module.scss';
 import SaveIcon from '../../icons/SaveIcon';
 import PlayIcon from '../../icons/PlayIcon';
-import TrashIcon from '../../icons/TrashIcon';
+import StopIcon from '../../icons/StopIcon';
+import BinIcon from '../../icons/BinIcon';
 import IconButton from '../buttons/IconButton/IconButton';
 import InputField from '../inputs/InputField/InputField';
-import styles from './TrackEdit.module.scss';
-import StopIcon from '../../icons/StopIcon';
 import Message from '../Message/Message';
 
 const TrackEditView: FC<TrackEditViewProps> = ({
@@ -116,7 +116,7 @@ const TrackEditView: FC<TrackEditViewProps> = ({
           title={deleteTitle}
           label={deleteLabel}
         >
-          <TrashIcon />
+          <BinIcon />
         </IconButton>
       </footer>
     </article>
