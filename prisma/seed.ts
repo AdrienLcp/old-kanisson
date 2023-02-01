@@ -12,7 +12,7 @@ async function main() {
       id: `${i + 1}`,
       pseudo: `User ${i + 1}`,
       email: `user${i + 1}@gmail.com`,
-      password: `${i + 1}123abcABC&`
+      password: `Test123&`
     });
   };
 
@@ -30,8 +30,10 @@ async function main() {
       user_id: `${i + 1}`,
       creator: `User ${i + 1}`,
       title: `Playlist test ${i + 1}`,
+      img: '',
       description: `Description de la playlist test n°${i + 1}`,
       date: new Date().toLocaleDateString(),
+      average: i / 10,
       ratings: [5, 4, 3, 4],
       ratings_ids: ['4', '8', '11', '20'],
       nbOfTracks: 0

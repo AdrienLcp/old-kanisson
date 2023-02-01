@@ -28,6 +28,7 @@ model Playlist {
   description       String
   img               String
   date              String
+  average           Int
   ratings           Int[]
   ratings_ids       String[]
   nbOfTracks        Int

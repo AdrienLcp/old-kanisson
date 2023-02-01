@@ -1,11 +1,21 @@
 @import "../styles/mixins";
 
+.header {
+  @include flexCenter;
+  flex-direction: column;
+}
+
 .title {
   font-family: var(--title-font);
   font-size: 4rem;
   font-weight: 600;
   text-align: center;
   margin: 5rem 0 8rem;
+}
+
+.button {
+  @include mainButton;
+  margin-bottom: 10rem;
 }
 
 .main {
@@ -44,7 +54,7 @@
     &_right {
       right: 0;
       background: linear-gradient(to right, transparent, var(--body-color));
-      width: 5rem;
+      width: 8rem;
     }
   }
 }
@@ -54,9 +64,7 @@
     margin: 8rem 0 16rem;
   }
 
-  .filter {
-    &_left {
-      width: 45rem;
-    }
+  .filter_left {
+    width: 45rem;
   }
 }

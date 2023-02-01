@@ -81,6 +81,7 @@ export type PlaylistsSliderProps = {
 };
 
 export type StarsProps = {
+  average: number;
   ratings: number[];
 };
 

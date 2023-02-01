@@ -9,19 +9,25 @@ export default checkUser(async function handle (
   try {
     const playlist: any = await db.playlist.findUnique({
       where: {
-        id: req.body.playlist
+        id: req.body.playlist_id
       }
     });
 
-    const newRate = [...playlist.rate, req.body.user_rate];
-    const newIDs = [...playlist.rates_IDs, req.body.user_id];
+    // Add new rating & new ID, then calcul new average rating for playlist
+    const newRatings = [...playlist.ratings, req.body.rate];
+    const newIDs = [...playlist.ratings_ids, req.body.user_id];
+    let sum = 0;
+    newRatings.map(rate => sum + rate);
+    const newAverage = sum / newRatings.length;
 
+    // Update playlist with new data
     const rated = await db.playlist.update({
       where: {
         id: playlist.id
       },
       data: {
-        ratings: newRate,
+        average: newAverage,
+        ratings: newRatings,
         ratings_ids: newIDs
       }
     });

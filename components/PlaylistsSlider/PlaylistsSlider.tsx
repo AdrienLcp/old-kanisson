@@ -9,7 +9,6 @@ import styles from './PlaylistsSlider.module.scss';
 import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
 import ArrowButton from '../buttons/ArrowButton/ArrowButton';
 
-
 const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
   playlists,
   title
@@ -35,8 +34,8 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     const visiblePlaylistsWidth = getVisiblePlaylistsWidth();
 
     // Toggle arrows in case of slider go too far
-    if(listWidth && listWidth > visiblePlaylistsWidth
-    && (currentPosition - visiblePlaylistsWidth) > -listWidth) {
+    if(listWidth > visiblePlaylistsWidth &&
+    (currentPosition - visiblePlaylistsWidth) > -listWidth) {
       setToggleRightArrow(true);
     } else {
       setToggleRightArrow(false);
@@ -45,7 +44,8 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
 
   const getListWidth = () => {
     const cardWidth = cardRef.current?.offsetWidth;
-    return cardWidth && (cardWidth + gapBetweenCards) * playlists.length;
+    // @ts-ignore
+    return (cardWidth + gapBetweenCards) * playlists.length;
   };
 
   // Gap between cards is 2rem = 20px
@@ -90,14 +90,14 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     const listWidth = getListWidth();
 
     // If there is enough space to slide, set new position
-    if(listWidth && (currentPosition - newScroll) > (-listWidth + newScroll)) {
+    if((currentPosition - newScroll) > (-listWidth + newScroll)) {
       sliderRef.current?.setAttribute('style', `transform: translateX(${currentPosition - newScroll}px)`);
       setCurrentPosition(current => current - newScroll);
     } else {
       // If slide goes to end of the list, set position to maximum
-      const newPosition = listWidth && -listWidth + visiblePlaylistsWidth;
+      const newPosition = -listWidth + visiblePlaylistsWidth;
       sliderRef.current?.setAttribute('style', `transform: translateX(${newPosition}px)`);
-      newPosition && setCurrentPosition(newPosition);
+      setCurrentPosition(newPosition);
     };
   };
 

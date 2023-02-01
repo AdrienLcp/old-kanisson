@@ -6,14 +6,21 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
+
     const playlists = await db.playlist.findMany({
       where: {
         visible: true
-      },
-      orderBy: [{
-        average: 'desc'
-      }]
+      }
     });
+
+    // Randomize order in array
+    for(let i = playlists.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = playlists[i];
+      playlists[i] = playlists[j];
+      playlists[j] = temp;
+    };
+
     res.status(200).json(playlists);
 
   } catch (error){

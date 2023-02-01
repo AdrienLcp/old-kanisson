@@ -48,7 +48,10 @@ const PlaylistCard: FC<PlaylistCard> = ({
 
       {playlist.ratings.length > 0 &&
         <span className={styles.stars}>
-          <Stars ratings={playlist.ratings} />
+          <Stars
+            average={playlist.average}
+            ratings={playlist.ratings}
+          />
         </span>
       }
 
