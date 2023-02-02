@@ -34,10 +34,10 @@ const MyPlaylists: FC = () => {
   }, [logged]);
 
   const getUserPlaylists = async() => {
-    await fetch(`${api}/playlist/getUserPlaylists`, {
+    await fetch(`${api}/playlist/getMyPlaylists`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pseudo: user.pseudo })
+      body: JSON.stringify({ user_id: user.id })
     })
     .then(async(res) => {
       const data = await res.json();

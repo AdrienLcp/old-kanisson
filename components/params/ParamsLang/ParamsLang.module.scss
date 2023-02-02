@@ -4,14 +4,14 @@
   margin: 0 1rem;
   color: var(--white);
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.1rem;
   text-align: center;
 }
 
 .list {
   @include flexCenter;
   gap: 3rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .button {
@@ -23,7 +23,6 @@
   color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  padding: 1em;
   border-radius: var(--sm-radius);
 
   &_active::before {
@@ -38,11 +37,18 @@
 }
 
 @media screen and (min-width: 850px) {
+  .title {
+    font-size: 1.4rem;
+    padding: 1.5rem;
+  }
+
   .list {
-    padding: 2rem;
+    padding: 0;
   }
 
   .button {
+    padding: 1rem;
+
     &:hover {
       background: var(--md-opacity);
     }

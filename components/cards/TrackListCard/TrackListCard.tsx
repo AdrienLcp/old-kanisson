@@ -24,7 +24,7 @@ const TrackListCard: FC<TrackListCardProps> = ({
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
   // If user gave personalized title and artist name, it's a valid track
-  const validTrack = track.artist && track.title;
+  const validTrack = track.artist || track.title;
 
   return (
     <>

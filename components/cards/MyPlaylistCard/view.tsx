@@ -24,12 +24,17 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
   const deleteTitle = myPlaylistCard.buttons.delete[lang as keyof typeof myPlaylistCard.buttons.delete];
   const confirmTitle = myPlaylistCard.confirmModal.title[lang as keyof typeof myPlaylistCard.confirmModal.title];
   const confirmContent = myPlaylistCard.confirmModal.content[lang as keyof typeof myPlaylistCard.confirmModal.content];
+  const warningTitle = myPlaylistCard.warningTexts[lang as keyof typeof myPlaylistCard.warningTexts];
 
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
   return (
     <>
-      <article className={styles.card}>
+      <article className={!playlist.visible ?
+        `${styles.card} ${styles.no_visible}`
+      :
+        `${styles.card}`
+      }>
         <header className={styles.header}>
           <h3>
             {playlist.title}
@@ -40,16 +45,30 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
               {playlist.description}
             </p>
           }
-
         </header>
 
-        <footer className={styles.footer}>
-          <IconButton
-            handleFunction={() => router.push(`/play/${playlist.title}`)}
-            title={playTitle}
+        {!playlist.visible &&
+          <span
+            className={styles.warning}
+            aria-label={warningTitle}
+            title={warningTitle}
           >
-            <PlayIcon />
-          </IconButton>
+            ⚠️
+            <p className={styles.warning_text}>
+              {warningTitle}
+            </p>
+          </span>
+        }
+
+        <footer className={styles.footer}>
+          {playlist.visible &&
+            <IconButton
+              handleFunction={() => router.push(`/play/${playlist.title}`)}
+              title={playTitle}
+            >
+              <PlayIcon />
+            </IconButton>
+          }
 
           <IconButton
             handleFunction={() => router.push(`/update/${playlist.title}`)}
@@ -65,6 +84,7 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
             <BinIcon />
           </IconButton>
         </footer>
+
       </article>
 
       {toggleModal &&

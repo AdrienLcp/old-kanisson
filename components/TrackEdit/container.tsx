@@ -44,7 +44,8 @@ const TrackEdit: FC<TrackEditProps> = ({
       tracksList[index].title = title;
       tracksList[index].artist = artist;
 
-      if(title && artist) tracksList[index].valid = true;
+      // If there is a title or an artist, track is valid
+      tracksList[index].valid = title || artist ? true : false;
 
       // Update state & close modal
       setTracks(tracksList);

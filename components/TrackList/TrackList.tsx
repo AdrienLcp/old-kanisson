@@ -39,7 +39,7 @@ const TrackList: FC<TrackListProps> = ({
     <>
       {tracks.length < 10 ?
         <span className={styles.warning}>
-          {warning}
+          {warning} ({tracks.length}/10)
         </span>
       :
         <div className={styles.filter}>

@@ -1,6 +1,7 @@
 @import "../../../styles/mixins";
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,10 @@
   box-shadow: var(--card-shadow);
   border-radius: var(--sm-radius);
   padding: 1rem;
+
+  &.no_visible {
+    border: 0.2rem solid var(--warning);
+  }
 }
 
 .header {
@@ -18,6 +23,17 @@
   flex-direction: column;
   text-align: center;
   gap: 1rem;
+}
+
+.warning {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 100%;
+
+  &_text {
+    margin-top: 0.5rem;
+    color: var(--warning);
+  }
 }
 
 .footer {
@@ -29,6 +45,7 @@
   .card {
     flex-direction: row;
     justify-content: space-between;
+    padding: 1rem 1.5rem;
   }
 
   .header {
@@ -37,10 +54,29 @@
   }
 
   .description {
-    max-width: 25rem;
+    max-width: 24rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .warning {
+    position: absolute;
+    @include flexCenter;
+    height: 4rem;
+    width: 4rem;
+    right: -5rem;
+    border-radius: var(--sm-radius);
+    font-size: 1.5rem;
+    cursor: help;
+
+    &_text {
+      display: none;
+    }
+
+    &:hover {
+      background: var(--md-opacity);
+    }
   }
 
   .footer {

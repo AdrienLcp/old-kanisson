@@ -38,13 +38,15 @@ const Params: FC<ParamsProps> = ({
           </h1>
         </header>
 
-        <ParamsNav setToggleMenu={setToggleMenu} />
+        <div className={styles.params}>
+          <ParamsNav setToggleMenu={setToggleMenu} />
 
-        <ParamsColor />
+          <ParamsColor />
 
-        <ParamsTheme />
+          <ParamsTheme />
 
-        <ParamsLang />
+          <ParamsLang />
+        </div>
       </section>
 
       <button

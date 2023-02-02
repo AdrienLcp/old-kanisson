@@ -2,8 +2,8 @@
 
 .button {
   @include flexCenter;
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: var(--sm-radius);
   border: 0.2rem solid var(--black);
   transition: transform 0.2s;
@@ -19,5 +19,12 @@
 
   &_active {
     border: 0.2rem solid var(--white);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .button {
+    width: 5rem;
+    height: 5rem;
   }
 }

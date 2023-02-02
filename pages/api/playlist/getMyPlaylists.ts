@@ -8,8 +8,7 @@ export default async function handle (
   try {
     const playlists = await db.playlist.findMany({
       where: {
-        creator: req.body.pseudo,
-        visible: true
+        user_id: req.body.user_id
       },
       orderBy: [{
         date: 'desc'

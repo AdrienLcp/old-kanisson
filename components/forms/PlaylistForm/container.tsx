@@ -96,7 +96,7 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
         ratings_ids: playlist ? playlist.ratings_ids : [],
         nbOfPlayed: playlist ? playlist.nbOfPlayed : 0,
         nbOfTracks: validTracks.length,
-        visible: validTracks.length >= 10 ? true : false
+        visible: validTracks.length < 10 ? false : true
       };
 
       await fetch(`${api}/playlist/upsert`, {

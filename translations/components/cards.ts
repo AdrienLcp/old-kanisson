@@ -22,6 +22,10 @@ export const myPlaylistCard = {
       fr: "Toutes les informations et musiques qu'elle contient seront perdues définitivement",
       en: "All information and music it contains will be permanently lost."
     }
+  },
+  warningTexts: {
+    fr: 'Attention, votre blind test n\'est pas visible, ni jouable par les utilisateurs, il doit contenir au moins 10 sons "valides", c\'est à dire avec soit un titre, soit un artiste personnalisé (soit les deux). Cliquez sur un son dans votre liste pour le personnaliser.',
+    en: 'Attention, your blind test is not visible or playable by users, it must contain at least 10 "valid" sounds, either with a title or a custom artist (or both). Click on a sound in your list to customize it.'
   }
 };
 
