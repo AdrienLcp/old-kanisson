@@ -6,6 +6,7 @@
   padding: 0.1em;
   opacity: 0.7;
   border-radius: var(--sm-radius);
+  background: var(--main-color-light);
   transition: transform 0.2s;
   width: 3em;
   height: 3em;
@@ -24,6 +25,7 @@
 @media screen and (min-width: 850px) {
   .button {
     padding: 0.2em;
+    background: transparent;
 
     &_label {
       opacity: 0;
@@ -33,7 +35,7 @@
     }
 
     &:hover {
-      background: var(--md-opacity);
+      background: var(--main-color-light);
       opacity: 1;
 
       & .button_label {

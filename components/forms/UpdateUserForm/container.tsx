@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
 import type { FC, FormEvent } from 'react';
 import { useContext, useState } from 'react';
+import { useRouter } from 'next/router';
 import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
@@ -101,13 +101,8 @@ const UpdateUserForm: FC = () => {
     setWarningMessage('');
     setValidMessage('');
 
-    if(checkForm()) {
-      await updateUser();
-    };
-
-    if(checkPasswords()) {
-      await updatePassword();
-    };
+    if(checkForm()) await updateUser();
+    if(checkPasswords()) await updatePassword();
 
     // Hide loader
     setLoading(false);

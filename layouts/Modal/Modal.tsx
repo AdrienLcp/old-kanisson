@@ -9,7 +9,12 @@ const Modal: FC<ModalProps> = ({
   children
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      onKeyDown={(event) => {
+        if(event.key === "Escape") setToggleModal(false);
+      }}
+    >
       <div
         className={styles.behind}
         onClick={() => setToggleModal(false)}

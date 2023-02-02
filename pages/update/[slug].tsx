@@ -54,9 +54,6 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
 
   const title = context.query.slug;
 
-  console.log(title);
-  
-
   const fetchedPlaylist = await fetch(`${api}/playlist/getOne`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

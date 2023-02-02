@@ -32,7 +32,8 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
       youtube_title: currentTrack.snippet.title,
       title: '',
       artist: '',
-      img: currentTrack.snippet.thumbnails.high.url
+      img: currentTrack.snippet.thumbnails.high.url,
+      valid: false
     };
 
     // Add it to previous list and update state

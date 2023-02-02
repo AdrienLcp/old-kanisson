@@ -39,3 +39,14 @@ export const confirmModalTexts = {
     en: "All playlists and data linked to this account will be permanently lost"
   }
 }
+
+export const linkTexts = {
+  label: {
+    fr: "Voir mon profil",
+    en: "See my profile"
+  },
+  title: {
+    fr: "Voir ma page de profil tel que les visiteurs la voient",
+    en: "See my profile page as visitors see it"
+  }
+};

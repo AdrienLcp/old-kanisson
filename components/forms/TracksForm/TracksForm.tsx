@@ -40,7 +40,7 @@ const TracksForm: FC<TracksFormProps> = ({
               type="button"
               onClick={() => setToggle(true)}
             >
-              {listTitle}
+              {listTitle} ({tracks.length})
             </button>
           </h2>
 
@@ -85,7 +85,7 @@ const TracksForm: FC<TracksFormProps> = ({
 
       <div className={`${styles.container} ${styles.desktop}`}>
 
-        <ListWrapper title={listTitle}>
+        <ListWrapper title={`${listTitle} (${tracks.length})`}>
           <TrackList
             tracks={tracks}
             setTracks={setTracks}

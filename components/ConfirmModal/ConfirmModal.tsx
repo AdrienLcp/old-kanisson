@@ -5,7 +5,6 @@ import { confirmModalTexts } from '../../translations/components/confirmModal';
 import { LangContext } from '../../contexts/LangContext';
 import styles from './ConfirmModal.module.scss';
 import Modal from '../../layouts/Modal/Modal';
-import CloseButton from '../buttons/CloseButton/CloseButton';
 
 const ConfirmModal: FC<ConfirmModalProps> = ({
   title,

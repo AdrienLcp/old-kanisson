@@ -1,3 +1,30 @@
+export const myPlaylistCard = {
+  playlistDeleted: {
+    fr: "Le blind test a correctement été supprimée",
+    en: "The blind test has been correctly removed"
+  },
+  buttons: {
+    update: {
+      fr: "Éditer ce quiz",
+      en: "Update this playlist"
+    },
+    delete: {
+      fr: "Supprimer ce quiz",
+      en: "Delete this playlist"
+    }
+  },
+  confirmModal: {
+    title: {
+      fr: "Êtes vous certain de vouloir supprimer ce quiz musical ?",
+      en: "Are you sure you want to delete this music quiz ?"
+    },
+    content: {
+      fr: "Toutes les informations et musiques qu'elle contient seront perdues définitivement",
+      en: "All information and music it contains will be permanently lost."
+    }
+  }
+};
+
 export const playlistCard = {
   label: {
     fr: "Jouer",

@@ -18,5 +18,9 @@ export const messages = {
   loginFailed: {
     fr: "Cet identifiant n'est pas enregistré sur ce site, ou le mot de passe n'y correspond pas",
     en: "This identifier is not registered on this site, or the password does not correspond to it"
+  },
+  authorization: {
+    fr: "Vous n'avez pas l'autorisation pour cette action",
+    en: "You do not have permission for this action"
   }
 };

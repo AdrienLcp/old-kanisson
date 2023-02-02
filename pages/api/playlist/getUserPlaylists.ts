@@ -11,7 +11,7 @@ export default async function handle (
         creator: req.body.pseudo
       },
       orderBy: [{
-        title: 'asc'
+        date: 'desc'
       }]
     });
     res.status(200).json(playlists);

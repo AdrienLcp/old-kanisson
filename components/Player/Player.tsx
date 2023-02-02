@@ -14,6 +14,7 @@ const Player: FC<PlayerProps> = ({
   const end = start + duration;
 
   useEffect(() => {
+    // Close player after 30 seconds
     const timer = setTimeout(() => {
       setTogglePlayer(false);
     }, (duration * 1000));

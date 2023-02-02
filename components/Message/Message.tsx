@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import type { MessageProps } from '../../types/components/others';
+import { useEffect } from 'react';
 import CheckIcon from '../../icons/CheckIcon';
 import CrossIcon from '../../icons/CrossIcon';
 import CloseButton from '../buttons/CloseButton/CloseButton';
@@ -11,6 +12,14 @@ const Message: FC<MessageProps> = ({
   warningMessage,
   setWarningMessage
 }) => {
+
+  useEffect(() => {
+    if(validMessage && setWarningMessage) {
+      setWarningMessage('');
+    } else if(warningMessage && setValidMessage) {
+      setValidMessage('');
+    };
+  }, [validMessage, warningMessage]);
 
   return (
     <>

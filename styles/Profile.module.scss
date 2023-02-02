@@ -16,6 +16,14 @@
   }
 }
 
+.link {
+  @include secondaryButton;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
 @keyframes show-overflow {
   100% {
     overflow: visible;

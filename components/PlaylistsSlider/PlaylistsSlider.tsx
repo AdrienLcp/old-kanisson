@@ -86,7 +86,7 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     disableButtons();
 
     const visiblePlaylistsWidth = getVisiblePlaylistsWidth();
-    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 2;
+    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 10;
     const listWidth = getListWidth();
 
     // If there is enough space to slide, set new position
@@ -105,7 +105,7 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     disableButtons();
 
     const visiblePlaylistsWidth = getVisiblePlaylistsWidth();
-    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 2;
+    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 10;
 
     // If new scroll lead to 0 or above, update position to 0
     if((currentPosition + newScroll) >= 0) {
