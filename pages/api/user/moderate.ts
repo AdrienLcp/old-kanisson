@@ -12,7 +12,7 @@ export default isModerator(async function handle (
         id: req.body.user_id
       },
       data: {
-        banned: !req.body.is_banished
+        banned: req.body.banned
       }
     });
 

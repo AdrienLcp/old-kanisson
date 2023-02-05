@@ -18,7 +18,7 @@ export default checkUser(async function handle (
     const newIDs = [...playlist.ratings_ids, req.body.user_id];
     let sum = 0;
     newRatings.map(rate => sum + rate);
-    const newAverage = sum / newRatings.length;
+    const newAverage = Math.ceil(sum / newRatings.length);
 
     // Update playlist with new data
     const rated = await db.playlist.update({

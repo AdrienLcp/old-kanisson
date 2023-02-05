@@ -9,11 +9,10 @@ export default checkUser(async function handle (
   try {
     const playlist = await db.playlist.update({
       where: {
-        title: req.body.currentTitle
+        id: req.body.playlist_id
       },
       data: {
-        title: req.body.title,
-        description: req.body.description
+        ...req.body
       }
     });
 

@@ -16,9 +16,11 @@ export default checkUser(async function handle (
     const playlistsPlayedByUser = [] as any[];
 
     played.map(async(game) => {
-      const newPlaylist = await db.playlist.findUnique({
+      const newPlaylist = await db.playlist.findMany({
         where: {
-          id: game.playlist_id
+          id: game.playlist_id,
+          visible: true,
+          playable: true
         }
       });
 

@@ -4,6 +4,10 @@ export type CreateProps = {
   apiKey: string;
 };
 
+export type PlaylistsModerationProps = {
+  visiblePlaylistsData: Playlist[];
+};
+
 export type SearchProps = {
   playlists: Playlist[];
 };

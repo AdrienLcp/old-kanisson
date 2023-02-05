@@ -12,8 +12,7 @@ export default checkUser(async function handle (
         id: req.body.id
       },
       update: {
-        title: req.body.title,
-        description: req.body.description
+        ...req.body
       },
       create: {
         ...req.body

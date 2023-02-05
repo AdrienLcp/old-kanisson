@@ -49,6 +49,17 @@ export const loginHeadTexts = {
   }
 };
 
+export const moderationHeadTexts = {
+  playlists: {
+    fr: "Gérer les blind tests - Kanisson",
+    en: "Manage blind tests - Kanisson"
+  },
+  reports: {
+    fr: "Gérer les signalements - Kanisson",
+    en: "Manage reports - Kanisson"
+  }
+};
+
 export const notFoundHeadTexts = {
   title: {
     fr: "Page 404 - Kanisson",

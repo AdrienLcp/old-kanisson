@@ -26,6 +26,10 @@ export const myPlaylistCard = {
   warningTexts: {
     fr: 'Attention, votre blind test n\'est pas visible, ni jouable par les utilisateurs, il doit contenir au moins 10 sons "valides", c\'est à dire avec soit un titre, soit un artiste personnalisé (soit les deux). Cliquez sur un son dans votre liste pour le personnaliser.',
     en: 'Attention, your blind test is not visible or playable by users, it must contain at least 10 "valid" sounds, either with a title or a custom artist (or both). Click on a sound in your list to customize it.'
+  },
+  hiddenTexts: {
+    fr: "Ce quiz a été caché par l'équipe de Kanisson, il n'est pas jouable actuellement. Veillez à surveiller le langage du titre et de la description, et à l'exactitude des titres et artites des musiques que contient votre blind test",
+    en: "This quiz has been hidden by the Kanisson team, it is currently not playable. Be sure to monitor the language of the title and description, and the accuracy of the titles and artists of the musics in your blind test"
   }
 };
 

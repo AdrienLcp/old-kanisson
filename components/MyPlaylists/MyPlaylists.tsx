@@ -51,7 +51,7 @@ const MyPlaylists: FC = () => {
   const filteredPlaylists = useMemo(() => {
     if(filter) {
       return playlists.filter((playlist: Playlist) => {
-        // Filter playlists with title or creator username
+        // Filter playlists with title or description
         return playlist.title.toLowerCase().includes(filter.toLowerCase())
         || playlist.description.toLowerCase().includes(filter.toLowerCase());
       });

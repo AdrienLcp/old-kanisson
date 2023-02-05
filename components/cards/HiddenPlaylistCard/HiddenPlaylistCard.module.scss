@@ -1,0 +1,47 @@
+@import "../../../styles/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: default;
+  border-bottom: 0.1rem solid var(--black);
+}
+
+.title {
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  @include underlineButton;
+  margin-left: 0.5em;
+}
+
+@media screen and (min-width: 850px) {
+  .card {
+    border-radius: var(--sm-radius);
+    border: none;
+
+    &:hover {
+      background: var(--sm-opacity);
+    }
+  }
+
+  .description {
+    max-width: 20rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

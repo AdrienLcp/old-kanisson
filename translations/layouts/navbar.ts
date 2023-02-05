@@ -75,6 +75,10 @@ export const moderationTexts = {
 };
 
 export const contactTexts = {
+  label: {
+    fr: "Contact",
+    en: "Contact"
+  },
   title: {
     fr: "Contactez l'équipe de Kanisson",
     en: "Contact Kanisson's team"

@@ -68,11 +68,11 @@ const PlaylistFormView: FC<PlaylistFormViewProps> = ({
         <button
           className={styles.button}
           type='submit'
-          title={router.pathname.includes('/create') ? createTitle : updateTitle}
-          aria-label={router.pathname.includes('/create') ? createTitle : updateTitle}
+          title={router.pathname === '/playlist/create' ? createTitle : updateTitle}
+          aria-label={router.pathname === '/playlist/create' ? createTitle : updateTitle}
           disabled={loading}
         >
-          {router.pathname.includes('/create') ? createLabel : updateLabel}
+          {router.pathname === '/playlist/create' ? createLabel : updateLabel}
         </button>
       </FormWrapper>
 

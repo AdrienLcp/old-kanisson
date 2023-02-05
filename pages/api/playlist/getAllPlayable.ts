@@ -6,14 +6,15 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
-
     const playlists = await db.playlist.findMany({
       where: {
-        creator: "Kanisson",
+        visible: true,
         playable: true
-      }
+      },
+      orderBy: [{
+        title: 'desc'
+      }]
     });
-
     res.status(200).json(playlists);
 
   } catch (error){

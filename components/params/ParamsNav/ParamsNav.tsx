@@ -1,13 +1,14 @@
 import type { FC } from 'react';
 import type { ParamsNavProps } from '../../../types/components/others';
 import { useContext } from 'react';
-import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
+import { LangContext } from '../../../contexts/LangContext';
+import { moderationTexts, contactTexts, logOutTexts } from '../../../translations/layouts/navbar';
+import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import AdminIcon from '../../../icons/AdminIcon';
 import LogoutIcon from '../../../icons/LogoutIcon';
 import MailIcon from '../../../icons/MailIcon';
-import { moderationTexts, contactTexts, logOutTexts } from '../../../translations/layouts/navbar';
 import CloseButton from '../../buttons/CloseButton/CloseButton';
 import styles from './ParamsNav.module.scss';
 
@@ -36,7 +37,7 @@ const ParamsNav: FC<ParamsNavProps> = ({
       <nav className={styles.nav}>
 
         <ul className={styles.list}>
-          <li key={0}>
+          <li key={uuidv4()}>
             <Link
               href="/contact"
               title={contactTitle}
@@ -53,9 +54,9 @@ const ParamsNav: FC<ParamsNavProps> = ({
           </li>
 
           {logged && user.admin && !user.banned &&
-            <li key={1}>
+            <li key={uuidv4()}>
               <Link
-                href="/moderation"
+                href="/moderation/playlists"
                 title={moderationTitle}
                 aria-label={moderationTitle}
                 className={styles.link}
@@ -71,7 +72,7 @@ const ParamsNav: FC<ParamsNavProps> = ({
           }
 
           {logged &&
-            <li key={2}>
+            <li key={uuidv4()}>
               <button
                 type="button"
                 className={styles.link}

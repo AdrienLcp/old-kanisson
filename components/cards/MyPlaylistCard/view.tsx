@@ -25,6 +25,7 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
   const confirmTitle = myPlaylistCard.confirmModal.title[lang as keyof typeof myPlaylistCard.confirmModal.title];
   const confirmContent = myPlaylistCard.confirmModal.content[lang as keyof typeof myPlaylistCard.confirmModal.content];
   const warningTitle = myPlaylistCard.warningTexts[lang as keyof typeof myPlaylistCard.warningTexts];
+  const hiddenTitle = myPlaylistCard.hiddenTexts[lang as keyof typeof myPlaylistCard.hiddenTexts];
 
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
@@ -47,7 +48,7 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
           }
         </header>
 
-        {!playlist.visible &&
+        {!playlist.playable &&
           <span
             className={styles.warning}
             aria-label={warningTitle}
@@ -56,6 +57,19 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
             ⚠️
             <p className={styles.warning_text}>
               {warningTitle}
+            </p>
+          </span>
+        }
+
+        {!playlist.visible &&
+          <span
+            className={styles.hidden}
+            aria-label={hiddenTitle}
+            title={hiddenTitle}
+          >
+            ⚠️
+            <p className={styles.hidden_text}>
+              {hiddenTitle}
             </p>
           </span>
         }

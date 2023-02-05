@@ -10,7 +10,8 @@ export default checkUser(async function handle (
   try {
     const playlists = await db.playlist.findMany({
       where: {
-        visible: true
+        visible: true,
+        playable: true
       },
       orderBy: [{
         average: 'desc'

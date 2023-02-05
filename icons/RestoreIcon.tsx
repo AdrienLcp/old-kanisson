@@ -3,7 +3,7 @@ import type { IconProps } from '../types/components/others';
 
 const RestoreIcon: FC<IconProps> = ({
   color = "var(--black)",
-  height = "24"
+  height = "18"
 }) => {
 
   return (

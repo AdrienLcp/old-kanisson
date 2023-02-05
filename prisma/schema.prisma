@@ -15,9 +15,9 @@ model User {
   pseudo            String        @unique
   email             String        @unique
   password          String
-  admin             Boolean       @default(false)
-  moderator         Boolean       @default(false)
   banned            Boolean       @default(false)
+  moderator         Boolean       @default(false)
+  admin             Boolean       @default(false)
 }
 
 model Playlist {
@@ -33,7 +33,8 @@ model Playlist {
   ratings_ids       String[]
   nbOfTracks        Int
   nbOfPlayed        Int           @default(0)
-  visible           Boolean       @default(false)
+  playable          Boolean       @default(false)
+  visible           Boolean       @default(true)
 }
 
 model Track {

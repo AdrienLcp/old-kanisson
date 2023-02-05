@@ -9,7 +9,8 @@ export default async function handle (
 
     const playlists = await db.playlist.findMany({
       where: {
-        visible: true
+        visible: true,
+        playable: true
       }
     });
 

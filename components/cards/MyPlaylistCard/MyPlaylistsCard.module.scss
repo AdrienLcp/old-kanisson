@@ -36,6 +36,17 @@
   }
 }
 
+.hidden {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 100%;
+
+  &_text {
+    margin-top: 0.5rem;
+    color: var(--warning);
+  }
+}
+
 .footer {
   display: flex;
   gap: 2rem;
@@ -66,6 +77,25 @@
     height: 4rem;
     width: 4rem;
     right: -5rem;
+    border-radius: var(--sm-radius);
+    font-size: 1.5rem;
+    cursor: help;
+
+    &_text {
+      display: none;
+    }
+
+    &:hover {
+      background: var(--md-opacity);
+    }
+  }
+
+  .hidden {
+    position: absolute;
+    @include flexCenter;
+    height: 4rem;
+    width: 4rem;
+    right: -10rem;
     border-radius: var(--sm-radius);
     font-size: 1.5rem;
     cursor: help;
