@@ -1,5 +1,11 @@
 import type { Dispatch, SetStateAction } from "react";
-import type { Playlist } from "@prisma/client";
+import type { Playlist, User } from "@prisma/client";
+
+export type BannedUsersCardViewProps = {
+  user: User;
+  unbanUser: () => void;
+  deleteUser: () => void;
+};
 
 export type HiddenPlaylistCardViewProps = {
   playlist: Playlist;
@@ -21,6 +27,8 @@ export type ModerationPlaylistCardProps = {
 export type VisiblePlaylistCardViewProps = {
   playlist: Playlist;
   hidePlaylist: () => void;
+  message: string;
+  setMessage: Dispatch<SetStateAction<string>>;
 };
 
 export type PlaylistsListProps = {
@@ -28,6 +36,31 @@ export type PlaylistsListProps = {
   setVisiblePlaylists: Dispatch<SetStateAction<Playlist[]>>;
   hiddenPlaylists: Playlist[];
   setHiddenPlaylists: Dispatch<SetStateAction<Playlist[]>>;
+  setValidMessage: Dispatch<SetStateAction<string>>;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
+};
+
+export type UserCardProps = {
+  user: User;
+  index: number;
+  users: User[];
+  setUsers: Dispatch<SetStateAction<User[]>>;
+  bannedUsers: User[];
+  setBannedUsers: Dispatch<SetStateAction<User[]>>;
+  setValidMessage: Dispatch<SetStateAction<string>>;
+  setWarningMessage: Dispatch<SetStateAction<string>>;
+};
+
+export type UserCardViewProps = {
+  user: User;
+  banUser: () => void;
+};
+
+export type UsersListProps = {
+  users: User[];
+  setUsers: Dispatch<SetStateAction<User[]>>;
+  bannedUsers: User[];
+  setBannedUsers: Dispatch<SetStateAction<User[]>>;
   setValidMessage: Dispatch<SetStateAction<string>>;
   setWarningMessage: Dispatch<SetStateAction<string>>;
 };

@@ -35,7 +35,7 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
 
     // Toggle arrows in case of slider go too far
     if(listWidth > visiblePlaylistsWidth &&
-    (currentPosition - visiblePlaylistsWidth) > -listWidth) {
+    (currentPosition - visiblePlaylistsWidth) > -listWidth - 100) {
       setToggleRightArrow(true);
     } else {
       setToggleRightArrow(false);
@@ -95,7 +95,7 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
       setCurrentPosition(current => current - newScroll);
     } else {
       // If slide goes to end of the list, set position to maximum
-      const newPosition = -listWidth + visiblePlaylistsWidth;
+      const newPosition = (-listWidth + visiblePlaylistsWidth) - 100;
       sliderRef.current?.setAttribute('style', `transform: translateX(${newPosition}px)`);
       setCurrentPosition(newPosition);
     };

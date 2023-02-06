@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { isModerator } from '../../../middlewares/isModerator';
 import db from '../../../lib/prisma';
 
-export default async function getAllUsers (
+export default isModerator(async function getAllUsers (
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -14,4 +14,4 @@ export default async function getAllUsers (
   } catch (error){
     res.status(404).json(error);
   };
-};
+});

@@ -1,4 +1,4 @@
-export const moderationTexts = {
+export const playlistsTexts = {
   title: {
     fr: "Modérer les blinds tests",
     en: "Moderate blind tests"
@@ -10,5 +10,20 @@ export const moderationTexts = {
   hiddenPlaylists: {
     fr: "Corbeille",
     en: "Deleted blind tests"
+  }
+};
+
+export const usersTexts = {
+  title: {
+    fr: "Modérer les utilisateurs",
+    en: "Moderate users"
+  },
+  users: {
+    fr: "Utilisateurs",
+    en: "Users"
+  },
+  bannedUsers: {
+    fr: "Bannis",
+    en: "Banned users"
   }
 };

@@ -41,8 +41,8 @@ const VisiblePlaylistsList: FC<PlaylistsListProps> = ({
         <InputField
           value={filter}
           setValue={setFilter}
-          id="moderation-visible-playlists-filter"
-          type="search"
+          id='moderation-visible-playlists-filter'
+          type='search'
           label={filterLabel}
           title={filterTitle}
         />

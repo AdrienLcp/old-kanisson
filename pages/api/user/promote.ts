@@ -12,7 +12,7 @@ export default isAdmin(async function handle (
         id: req.body.user_id
       },
       data: {
-        moderator: !req.body.moderator
+        moderator: req.body.moderator
       }
     });
 

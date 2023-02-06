@@ -15,7 +15,7 @@ export default async function handle (
     res.status(200).json({
       id: user?.id,
       pseudo: user?.pseudo,
-      is_banished: user?.banned
+      banned: user?.banned
     });
 
   } catch (error){

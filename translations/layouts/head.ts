@@ -57,6 +57,10 @@ export const moderationHeadTexts = {
   reports: {
     fr: "Gérer les signalements - Kanisson",
     en: "Manage reports - Kanisson"
+  },
+  users: {
+    fr: "Gérer les utilisateurs - Kanisson",
+    en: "Manage users - Kanisson"
   }
 };
 

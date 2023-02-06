@@ -24,6 +24,7 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   const authError = messages.authorization[lang as keyof typeof messages.authorization];
   const deletedText = playlistsTexts.deleted[lang as keyof typeof playlistsTexts.deleted];
 
+  const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const updateState = () => {
@@ -86,6 +87,8 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
     <VisiblePlaylistCardView
       playlist={playlist}
       hidePlaylist={hidePlaylist}
+      message={message}
+      setMessage={setMessage}
     />
   );
 };

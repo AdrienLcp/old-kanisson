@@ -1,64 +1,86 @@
 import type { FC } from 'react';
 import type { VisiblePlaylistCardViewProps } from '../../../types/components/moderation';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { playlistCard } from '../../../translations/components/cards';
 import { playlistsTexts } from '../../../translations/components/moderation';
 import styles from './VisiblePlaylistCard.module.scss';
 import IconButton from '../../buttons/IconButton/IconButton';
-import Link from 'next/link';
 import BinIcon from '../../../icons/BinIcon';
+import PlaylistModal from '../../moderation/PlaylistModal/PlaylistModal';
+import InputArea from '../../inputs/InputArea/InputArea';
 
 const VisiblePlaylistCardView: FC<VisiblePlaylistCardViewProps> = ({
   playlist,
-  hidePlaylist
+  hidePlaylist,
+  message,
+  setMessage
 }) => {
 
   const { lang } = useContext(LangContext);
-  const linkTitle = playlistCard.link[lang as keyof typeof playlistCard.link];
-  const createdBy = playlistCard.creator[lang as keyof typeof playlistCard.creator];
   const deleteTitle = playlistsTexts.delete[lang as keyof typeof playlistsTexts.delete];
+  const confirmLabel = playlistsTexts.confirm[lang as keyof typeof playlistsTexts.confirm];
+  const deleteText = playlistsTexts.deleteText[lang as keyof typeof playlistsTexts.deleteText];
+  const areaLabel = playlistsTexts.areaLabel[lang as keyof typeof playlistsTexts.areaLabel];
+
+  const [toggleModal, setToggleModal] = useState<boolean>(false);
+  const [toggleMessage, setToggleMessage] = useState<boolean>(false);
 
   return (
     <>
-      <article className={styles.card}>
+      <article
+        className={styles.card}
+        onClick={() => setToggleModal(true)}
+      >
         <header className={styles.header}>
           <h3 className={styles.title}>
             {playlist.title}
           </h3>
-
-          {playlist.description &&
-            <p
-              className={styles.description}
-              title={playlist.description}
-            >
-              {playlist.description}
-            </p>
-          }
         </header>
-
-        <span className={styles.creator}>
-          {createdBy}
-
-          <Link
-            href={`/profile/${playlist.creator}`}
-            className={styles.link}
-            title={`${linkTitle} ${playlist.creator}`}
-          >
-            {playlist.creator}
-          </Link>
-        </span>
-
-        <section className={styles.buttons}>
-
-          <IconButton
-            handleFunction={hidePlaylist}
-            title={deleteTitle}
-          >
-            <BinIcon />
-          </IconButton>
-        </section>
       </article>
+
+      {toggleModal &&
+        <PlaylistModal
+          playlist={playlist}
+          setToggleModal={setToggleModal}
+        >
+          <section className={styles.buttons}>
+            <IconButton
+              handleFunction={() => setToggleMessage(true)}
+              title={deleteTitle}
+              disabled={toggleMessage}
+            >
+              <BinIcon />
+            </IconButton>
+          </section>
+
+          <section className={toggleMessage ?
+            `${styles.message} ${styles.opened}`
+          :
+            `${styles.message}`
+          }>
+            <p className={styles.text}>
+              {deleteText}
+            </p>
+
+            <div className={styles.area}>
+              <InputArea
+                value={message}
+                setValue={setMessage}
+                id="message-visible-playlist-modal-input-area"
+                label={areaLabel}
+              />
+            </div>
+
+            <button
+              className={styles.button}
+              type='button'
+              onClick={hidePlaylist}
+            >
+              {confirmLabel}
+            </button>
+          </section>
+        </PlaylistModal>
+      }
     </>
   );
 };

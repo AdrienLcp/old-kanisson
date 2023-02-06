@@ -5,7 +5,7 @@ import { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { LangContext } from '../../contexts/LangContext';
 import { moderationHeadTexts } from '../../translations/layouts/head';
-import { moderationTexts } from '../../translations/pages/moderation';
+import { playlistsTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
 import NextHead from '../../layouts/Head/Head';
 import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
@@ -14,6 +14,7 @@ import Tabs from '../../components/Tabs/Tabs';
 import VisiblePlaylistsList from '../../components/moderation/VisiblePlaylistsList/VisiblePlaylistsList';
 import HiddenPlaylistsList from '../../components/moderation/HiddenPlaylistsList/HiddenPlaylistsList';
 import Message from '../../components/Message/Message';
+import ModerationNav from '../../components/moderation/Navigation/ModerationNav';
 
 const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
   visiblePlaylistsData
@@ -22,9 +23,9 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
   const { user, logged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
   const headTitle = moderationHeadTexts.playlists[lang as keyof typeof moderationHeadTexts.playlists];
-  const pageTitle = moderationTexts.title[lang as keyof typeof moderationTexts.title];
-  const visiblePlaylistsTitle = moderationTexts.visiblePlaylists[lang as keyof typeof moderationTexts.visiblePlaylists];
-  const hiddenTitle = moderationTexts.hiddenPlaylists[lang as keyof typeof moderationTexts.hiddenPlaylists];
+  const pageTitle = playlistsTexts.title[lang as keyof typeof playlistsTexts.title];
+  const visiblePlaylistsTitle = playlistsTexts.visiblePlaylists[lang as keyof typeof playlistsTexts.visiblePlaylists];
+  const hiddenTitle = playlistsTexts.hiddenPlaylists[lang as keyof typeof playlistsTexts.hiddenPlaylists];
 
   const [visiblePlaylists, setVisiblePlaylists] = useState<Playlist[]>(visiblePlaylistsData ? visiblePlaylistsData : []);
   const [hiddenPlaylists, setHiddenPlaylists] = useState<Playlist[]>([]);
@@ -68,6 +69,8 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
   return (
     <>
       <NextHead title={headTitle} />
+
+      <ModerationNav />
 
       <PageWrapper title={pageTitle}>
 

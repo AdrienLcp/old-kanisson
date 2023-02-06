@@ -33,3 +33,14 @@ export const playlistsFilter = {
     }
   }
 };
+
+export const usersFilter = {
+  label: {
+    fr: "Filtrer...",
+    en: "Filter..."
+  },
+  title: {
+    fr: "Vous pouvez filtrer utilisateurs grâce à leur pseudo",
+    en: "You can filter users with their pseudo"
+  }
+};

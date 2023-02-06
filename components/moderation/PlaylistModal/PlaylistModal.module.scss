@@ -1,0 +1,40 @@
+@import '../../../styles/mixins';
+
+.container {
+  background: var(--body-color);
+  border-radius: var(--sm-radius);
+  width: 95vw;
+  max-width: 40rem;
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.span {
+  margin-right: 0.5em;
+  text-decoration: underline;
+}
+
+.link {
+  @include underlineButton;
+  margin-left: 0.5em;
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    max-width: 60rem;
+  }
+}

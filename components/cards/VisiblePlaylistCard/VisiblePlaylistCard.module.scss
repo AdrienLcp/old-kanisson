@@ -6,30 +6,45 @@
   align-items: center;
   padding: 1rem;
   gap: 1rem;
-  border-radius: var(--sm-radius);
-  cursor: default;
+  border-bottom: 0.1rem solid var(--black);
+  cursor: pointer;
 }
 
-.description {
-  max-width: 10rem;
-  white-space: nowrap;
+.buttons {
+  @include flexCenter;
+}
+
+.message {
+  @include flexCenter;
+  flex-direction: column;
+  max-height: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
+  transition: max-height .3s;
+
+  &.opened {
+    max-height: 100rem;
+  }
 }
 
-.link {
-  @include underlineButton;
-  margin-left: 0.5em;
+.text {
+  text-align: center;
+}
+
+.area {
+  margin-top: 2rem;
+}
+
+.button {
+  @include mainButton;
 }
 
 @media screen and (min-width: 850px) {
   .card {
+    border-radius: var(--sm-radius);
+    border: none;
+
     &:hover {
       background: var(--sm-opacity);
     }
-  }
-
-  .description {
-    max-width: 20rem;
   }
 }

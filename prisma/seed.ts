@@ -33,7 +33,7 @@ async function main() {
       img: '',
       description: `Description de la playlist test n°${i + 1}`,
       date: new Date().toLocaleDateString(),
-      average: Math.floor(i / 10),
+      average: Math.ceil(i / 10),
       ratings: [5, 4, 3, 4],
       ratings_ids: ['4', '8', '11', '20'],
       nbOfTracks: 0,

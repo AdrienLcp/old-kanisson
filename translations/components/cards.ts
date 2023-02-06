@@ -46,9 +46,37 @@ export const playlistCard = {
     fr: "Visiter le profil du créateur :",
     en: "Visit the creator's profile :"
   },
+  detailsTitle: {
+    fr: "Titre :",
+    en: "Title :"
+  },
+  description: {
+    fr: "Description :",
+    en: "Description :"
+  },
   creator: {
-    fr: "Créé par",
-    en: "Created by"
+    fr: "Créé par :",
+    en: "Created by :"
+  },
+  createdOn: {
+    fr: "Créé le :",
+    en: "Created on :"
+  },
+  rate: {
+    fr: "Note :",
+    en: "Rate :"
+  },
+  nbOfTracks: {
+    fr: "Nombre de musiques :",
+    en: "Number of tracks :"
+  },
+  playable: {
+    fr: "Jouable :",
+    en: "Playable :"
+  },
+  visible: {
+    fr: "Visible :",
+    en: "Visible :"
   }
 };
 
