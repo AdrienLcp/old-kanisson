@@ -1,0 +1,31 @@
+@import "../../../styles/mixins";
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 0.1rem solid var(--black);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 850px) {
+  .card {
+    border: none;
+    border-radius: var(--sm-radius);
+
+    &:hover {
+      background: var(--sm-opacity);
+    }
+  }
+}

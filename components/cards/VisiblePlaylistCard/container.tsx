@@ -3,6 +3,7 @@ import type { ModerationPlaylistCardProps } from '../../../types/components/mode
 import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { playlistsTexts } from '../../../translations/components/moderation';
+import { moderationMessage } from '../../../translations/others/notification';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import VisiblePlaylistCardView from './view';
@@ -23,6 +24,7 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   const globalError = messages.globalError[lang as keyof typeof messages.globalError];
   const authError = messages.authorization[lang as keyof typeof messages.authorization];
   const deletedText = playlistsTexts.deleted[lang as keyof typeof playlistsTexts.deleted];
+  const notificationTitle = moderationMessage[lang as keyof typeof moderationMessage];
 
   const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -64,8 +66,9 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
       },
       body: JSON.stringify(body)
     })
-    .then((res) => {
+    .then(async(res) => {
       if(res.status === 200) {
+        if(message) await sendNotificationToUser();
         updateState();
       } else {
         // Unauthorized
@@ -79,6 +82,30 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
 
     // Hide loader
     setLoading(false);
+  };
+
+  const sendNotificationToUser = async() => {
+    const token = localStorage.getItem('token');
+
+    const body = {
+      user_id: playlist.user_id,
+      title: notificationTitle,
+      message,
+      date: new Date().toLocaleDateString(),
+      seen: false
+    };
+
+    await fetch(`${api}/notification/createOne`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify(body)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   if(loading) return <Loader />

@@ -6,6 +6,7 @@ import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import UserCardView from './view';
 import Loader from '../../../layouts/Loader/Loader';
+import { usersTexts } from '../../../translations/components/moderation';
 
 const UserCard: FC<UserCardProps> = ({
   user,
@@ -21,6 +22,9 @@ const UserCard: FC<UserCardProps> = ({
   const { lang } = useContext(LangContext);
   const globalError = messages.globalError[lang as keyof typeof messages.globalError];
   const authError = messages.authorization[lang as keyof typeof messages.authorization];
+  const bannedText = usersTexts.banned[lang as keyof typeof usersTexts.banned];
+  const promotedText = usersTexts.promoted[lang as keyof typeof usersTexts.promoted];
+  const downgradedText = usersTexts.downgraded[lang as keyof typeof usersTexts.downgraded];
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -37,8 +41,7 @@ const UserCard: FC<UserCardProps> = ({
     setBannedUsers(newBannedUsers);
 
     // Set message
-    setValidMessage('');
-    //! valid message
+    setValidMessage(bannedText);
   };
 
   const banUser = async() => {
@@ -73,12 +76,51 @@ const UserCard: FC<UserCardProps> = ({
     setLoading(false);
   };
 
+  const manageUser = async() => {
+    setLoading(true);
+    const token = localStorage.getItem('token');
+
+    const body = {
+      user_id: user.id,
+      moderator: !user.moderator
+    };
+
+    await fetch(`${api}/user/manage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify(body)
+    })
+    .then((res) => {
+      if(res.status === 200) {
+        // If response is ok, set message
+        user.moderator ? setValidMessage(downgradedText) : setValidMessage(promotedText);
+
+        // & update state
+        const previousUsers = [...users];
+        previousUsers[index].moderator = !user.moderator;
+        setUsers(previousUsers);
+
+      } else {
+        setWarningMessage(authError);
+      };
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    setLoading(false);
+  };
+
   if(loading) return <Loader />
 
   return (
     <UserCardView
-      user={user}
+      currentUser={user}
       banUser={banUser}
+      manageUser={manageUser}
     />
   );
 };

@@ -7,6 +7,7 @@ import { usersFilter } from '../../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './UsersList.module.scss';
 import InputField from '../../inputs/InputField/InputField';
+import UserCard from '../../cards/UserCard';
 
 const UsersList: FC<UsersListProps> = ({
   users,

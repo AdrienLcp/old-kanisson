@@ -52,7 +52,8 @@ export type UserCardProps = {
 };
 
 export type UserCardViewProps = {
-  user: User;
+  currentUser: User;
+  manageUser: () => void;
   banUser: () => void;
 };
 

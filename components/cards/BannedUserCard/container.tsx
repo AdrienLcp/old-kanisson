@@ -6,6 +6,7 @@ import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import BannedUserCardView from './view';
 import Loader from '../../../layouts/Loader/Loader';
+import { usersTexts } from '../../../translations/components/moderation';
 
 const BannedUserCard: FC<UserCardProps> = ({
   user,
@@ -21,6 +22,8 @@ const BannedUserCard: FC<UserCardProps> = ({
   const { lang } = useContext(LangContext);
   const globalError = messages.globalError[lang as keyof typeof messages.globalError];
   const authError = messages.authorization[lang as keyof typeof messages.authorization];
+  const userUnbanned = usersTexts.unbanned[lang as keyof typeof usersTexts.unbanned];
+  const userDeleted = usersTexts.deleted[lang as keyof typeof usersTexts.deleted];
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -37,8 +40,7 @@ const BannedUserCard: FC<UserCardProps> = ({
     setUsers(newUsers);
 
     // Set message
-    setValidMessage('');
-    //! valid message
+    setValidMessage(userUnbanned);
   };
 
   const unbanUser = async() => {
@@ -87,10 +89,11 @@ const BannedUserCard: FC<UserCardProps> = ({
     })
     .then(async(res) => {
       if(res.status === 200) {
-        // Update state
+        // Remove user card from state
         const previousBannedUsers = [...bannedUsers];
         previousBannedUsers.splice(index, 1);
         setBannedUsers(previousBannedUsers);
+        setValidMessage(userDeleted);
       } else {
         setWarningMessage(authError);
       };
