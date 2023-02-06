@@ -18,6 +18,7 @@ import AdminIcon from '../../icons/AdminIcon';
 import MailIcon from '../../icons/MailIcon';
 import LogoutIcon from '../../icons/LogoutIcon';
 import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
+import KanissonIcon from '../../icons/KanissonIcon';
 
 const Navbar: FC<NavbarProps> = ({
   toggleMenu,
@@ -50,23 +51,32 @@ const Navbar: FC<NavbarProps> = ({
 
   return (
     <nav className={styles.navbar}>
+      <Link
+        href='/'
+        title={homeTitle}
+        aria-label={homeTitle}
+        className={`${styles.logo} ${styles.mobile_hidden}`}
+      >
+        <KanissonIcon color='var(--white)' height='100%' />
+      </Link>
+
       <ul className={styles.list}>
         {!user.banned &&
           <>
             <li key={uuidv4()}>
               <Link
-                href="/"
+                href='/'
                 title={homeTitle}
                 aria-label={homeTitle}
                 onClick={() => setToggleMenu(false)}
                 className={
-                  router.pathname === "/" ?
+                  router.pathname === '/' ?
                     `${styles.link} ${styles.active}`
                   :
                     `${styles.link}`
                 }
               >
-                <HomeIcon color="var(--white)" />
+                <HomeIcon color='var(--white)' />
                 <label className={styles.label}>
                   {homeLabel}
                 </label>
@@ -75,18 +85,18 @@ const Navbar: FC<NavbarProps> = ({
 
             <li key={uuidv4()}>
               <Link
-                href="/search"
+                href='/search'
                 title={searchTitle}
                 aria-label={searchTitle}
                 onClick={() => setToggleMenu(false)}
                 className={
-                  router.pathname === "/search" ?
+                  router.pathname === '/search' ?
                     `${styles.link} ${styles.active}`
                   :
                     `${styles.link}`
                 }
               >
-                <SearchIcon color="var(--white)" />
+                <SearchIcon color='var(--white)' />
                 <label className={styles.label}>
                   {searchLabel}
                 </label>
@@ -99,18 +109,18 @@ const Navbar: FC<NavbarProps> = ({
           <>
             <li key={uuidv4()}>
               <Link
-                href="/create"
+                href='/create'
                 title={createTitle}
                 aria-label={createTitle}
                 onClick={() => setToggleMenu(false)}
                 className={
-                  router.pathname === "/create" ?
+                  router.pathname === '/create' ?
                     `${styles.link} ${styles.active}`
                   :
                     `${styles.link}`
                 }
               >
-                <CreateIcon color="var(--white)" />
+                <CreateIcon color='var(--white)' />
                 <label className={styles.label}>
                   {createLabel}
                 </label>
@@ -119,18 +129,18 @@ const Navbar: FC<NavbarProps> = ({
 
             <li key={uuidv4()}>
               <Link
-                href="/profile"
+                href='/profile'
                 title={profileTitle}
                 aria-label={profileTitle}
                 onClick={() => setToggleMenu(false)}
                 className={
-                  router.pathname === "/profile" ?
+                  router.pathname === '/profile' ?
                     `${styles.link} ${styles.active}`
                   :
                     `${styles.link}`
                 }
               >
-                <AvatarIcon color="var(--white)" />
+                <AvatarIcon color='var(--white)' />
 
                 <label className={styles.label}>
                   {profileLabel}
@@ -143,18 +153,18 @@ const Navbar: FC<NavbarProps> = ({
         {!logged && !user.banned &&
           <li key={uuidv4()}>
             <Link
-              href="/login"
+              href='/login'
               title={logInTitle}
               aria-label={logInTitle}
               onClick={() => setToggleMenu(false)}
               className={
-                router.pathname === "/login" ?
+                router.pathname === '/login' ?
                   `${styles.link} ${styles.active}`
                 :
                   `${styles.link}`
               }
             >
-              <AvatarIcon color="var(--white)" />
+              <AvatarIcon color='var(--white)' />
 
               <label className={styles.label}>
                 {logInLabel}
@@ -166,18 +176,18 @@ const Navbar: FC<NavbarProps> = ({
         {logged && user.admin && !user.banned &&
           <li key={uuidv4()} className={styles.mobile_hidden}>
             <Link
-              href="/moderation/playlists"
+              href='/moderation/playlists'
               title={moderationTitle}
               aria-label={moderationTitle}
               onClick={() => setToggleMenu(false)}
               className={
-                router.pathname.includes("/moderation") ?
+                router.pathname.includes('/moderation') ?
                   `${styles.link} ${styles.active}`
                 :
                   `${styles.link}`
               }
             >
-              <AdminIcon color="var(--white)" />
+              <AdminIcon color='var(--white)' />
 
               <label className={styles.label}>
                 {moderationLabel}
@@ -188,18 +198,18 @@ const Navbar: FC<NavbarProps> = ({
 
         <li key={uuidv4()} className={styles.mobile_hidden}>
           <Link
-            href="/contact"
+            href='/contact'
             title={contactTitle}
             aria-label={contactTitle}
             onClick={() => setToggleMenu(false)}
             className={
-              router.pathname === "/contact" ?
+              router.pathname === '/contact' ?
                 `${styles.link} ${styles.active}`
               :
                 `${styles.link}`
             }
           >
-            <MailIcon color="var(--white)" />
+            <MailIcon color='var(--white)' />
 
             <label className={styles.label}>
               {contactLabel}
@@ -210,7 +220,7 @@ const Navbar: FC<NavbarProps> = ({
         {logged &&
           <li key={uuidv4()} className={styles.mobile_hidden}>
             <button
-              type="button"
+              type='button'
               className={styles.link}
               title={logOutTitle}
               aria-label={logOutTitle}
@@ -219,7 +229,7 @@ const Navbar: FC<NavbarProps> = ({
                 setToggleMenu(false);
               }}
             >
-              <LogoutIcon color="var(--white)" />
+              <LogoutIcon color='var(--white)' />
 
               <label className={styles.label}>
                 {logOutLabel}
@@ -231,7 +241,7 @@ const Navbar: FC<NavbarProps> = ({
         <li key={uuidv4()} className={styles.desktop_hidden}>
           <button
             className={styles.link}
-            type="button"
+            type='button'
             title={toggleMenu ? closeTitle : openTitle}
             aria-label={toggleMenu ? closeTitle : openTitle}
             onClick={() => setToggleMenu(prev => !prev)}

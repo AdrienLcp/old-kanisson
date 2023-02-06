@@ -72,7 +72,7 @@
     transform: translate(35rem, 0);
 
     &_opened {
-      @include posAbsolute(0, 0, auto, auto);
+      @include posFixed(0, 0, auto, auto);
       transform: translate(0, 0);
     }
   }

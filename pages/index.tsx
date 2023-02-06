@@ -8,6 +8,7 @@ import { playlistsTexts } from '../translations/pages/home';
 import NextHead from '../layouts/Head/Head';
 import styles from '../styles/Home.module.scss';
 import PlaylistsSlider from '../components/PlaylistsSlider/PlaylistsSlider';
+import KanissonIcon from '../icons/KanissonIcon';
 
 type Props = {
   mostPlayedPlaylists: Playlist[];
