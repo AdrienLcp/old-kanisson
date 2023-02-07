@@ -1,0 +1,23 @@
+@import '../../styles/mixins';
+
+@import '../../styles/mixins';
+
+.container {
+  margin-top: 5rem;
+  width: 95vw;
+  max-width: 40rem;
+}
+
+.list {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    max-width: 60rem;
+  }
+}

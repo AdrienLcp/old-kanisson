@@ -3,7 +3,6 @@ import { Dispatch, SetStateAction } from 'react';
 
 export type UserContextTypes = {
   user: User;
-  token: string | null;
   logged: boolean;
   setUser: Dispatch<SetStateAction<User>>;
   setLogged: Dispatch<SetStateAction<boolean>>;

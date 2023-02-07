@@ -44,3 +44,7 @@ export type TrackSearchCardProps = {
   tracks: Track[];
   setTracks: Dispatch<SetStateAction<Track[]>>;
 };
+
+export type UserPlaylistCardProps = {
+  playlist: Playlist;
+};

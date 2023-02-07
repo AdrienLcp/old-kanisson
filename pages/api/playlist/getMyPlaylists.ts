@@ -7,16 +7,15 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const playlist = await db.playlist.update({
+    const playlists = await db.playlist.findMany({
       where: {
-        id: req.body.playlist_id
+        user_id: req.body.user_id
       },
-      data: {
-        ...req.body
-      }
+      orderBy: [{
+        date: 'desc'
+      }]
     });
-
-    res.status(200).json(playlist);
+    res.status(200).json(playlists);
 
   } catch (error){
     res.status(404).json(error);

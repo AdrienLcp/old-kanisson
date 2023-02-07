@@ -41,7 +41,7 @@ export default Search;
 
 export const getServerSideProps: GetServerSideProps = async() => {
 
-  const fetchedPlaylists = await fetch(`${api}/playlist/getAllVisible`);
+  const fetchedPlaylists = await fetch(`${api}/playlist/getAllPlayable`);
   const playlists = await fetchedPlaylists.json();
 
   return {

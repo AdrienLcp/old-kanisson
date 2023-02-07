@@ -111,7 +111,7 @@ export default PlaylistsModeration;
 
 export const getServerSideProps: GetServerSideProps = async() => {
 
-  const fetchedVisiblePlaylists = await fetch(`${api}/playlist/getAllVisible`);
+  const fetchedVisiblePlaylists = await fetch(`${api}/playlist/getAllPlayable`);
   const visiblePlaylistsData = await fetchedVisiblePlaylists.json();
 
   return {

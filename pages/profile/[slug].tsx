@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import type { Playlist } from '@prisma/client';
 import type { UserProfileProps } from '../../types/pages';
 import { useContext, useState } from 'react';
 import { LangContext } from '../../contexts/LangContext';
@@ -9,6 +8,7 @@ import { api } from '../../api/api';
 import NextHead from '../../layouts/Head/Head';
 import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import UserGames from '../../components/UserGames/UserGames';
+import UserPlaylists from '../../components/UserPlaylists/UserPlaylists';
 
 const UserPage: NextPage<UserProfileProps> = ({
   userPlaylists,
@@ -24,8 +24,6 @@ const UserPage: NextPage<UserProfileProps> = ({
   const pageTitleBefore = pageTitle.before[lang as keyof typeof pageTitle.before];
   const pageTitleAfter = pageTitle.after[lang as keyof typeof pageTitle.after];
 
-  const [playlists, setPlaylists] = useState<Playlist[]>(userPlaylists ? userPlaylists : []);
-
   return (
     <>
       <NextHead
@@ -40,7 +38,7 @@ const UserPage: NextPage<UserProfileProps> = ({
           pseudo={pseudo}
         />
 
-        {/* user playlists */}
+        <UserPlaylists userPlaylists={userPlaylists} />
 
       </PageWrapper>
     </>

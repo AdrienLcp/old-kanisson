@@ -9,7 +9,8 @@ export default isModerator(async function handle (
   try {
     const playlists = await db.playlist.findMany({
       where: {
-        visible: false
+        visible: false,
+        playable: true
       },
       orderBy: [{
         title: 'desc'

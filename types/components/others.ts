@@ -95,6 +95,10 @@ export type UserGamesProps = {
   pseudo: string;
 };
 
+export type UserPlaylistsProps = {
+  userPlaylists: Playlist[];
+};
+
 export type ValidCasesState = {
   lowerCase: boolean;
   upperCase: boolean;

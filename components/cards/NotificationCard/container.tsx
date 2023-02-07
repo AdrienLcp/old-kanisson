@@ -9,9 +9,11 @@ const NotificationCard: FC<NotificationCardProps> = ({
   notification,
 }) => {
 
-  const { user, token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const notificationSeen = async() => {
+    const token = localStorage.getItem('token');
+
     const body = {
       user_id: user.id,
       id: notification.id

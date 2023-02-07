@@ -16,7 +16,7 @@ const PlaylistCard: FC<PlaylistCard> = ({
   const { lang } = useContext(LangContext);
 
   const playTitle = playlistCard.title[lang as keyof typeof playlistCard.title];
-  const playLabel = playlistCard.label[lang as keyof typeof playlistCard.label];
+  const songsText = playlistCard.songs[lang as keyof typeof playlistCard.songs];
   const linkTitle = playlistCard.link[lang as keyof typeof playlistCard.link];
   const createdBy = playlistCard.creator[lang as keyof typeof playlistCard.creator];
 
@@ -41,7 +41,7 @@ const PlaylistCard: FC<PlaylistCard> = ({
           }
 
           <p className={styles.play}>
-            {playLabel}
+            {playlist.nbOfTracks} {songsText}
           </p>
         </div>
       </article>

@@ -10,6 +10,7 @@ export default async function handle (
     const playlists = await db.playlist.findMany({
       where: {
         creator: "Kanisson",
+        visible: true,
         playable: true
       }
     });

@@ -15,7 +15,6 @@ const initialState = {
     moderator: true,
     banned: false
   },
-  token: '',
   logged: false,
   setUser: () => {},
   setLogged: () => {},
@@ -30,22 +29,21 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [user, setUser] = useState<User>(initialState.user);
   const [logged, setLogged] = useState<boolean>(false);
-  const [token, setToken] = useState<string | null>('');
 
   useEffect(() => {
     // Get previous token from local storage
-    const tokenFromLocalStorage = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     // If there is a token in local storage, check in database if it's still valid
-    if(tokenFromLocalStorage) checkToken(tokenFromLocalStorage);
+    if(token) checkToken(token);
   }, [logged]);
 
-  const checkToken = async(tokenFromLocalStorage: string | null) => {
+  const checkToken = async(token: string | null) => {
     await fetch(`${api}/user/checkToken`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${tokenFromLocalStorage}`
+        'Authorization': `${token}`
       }
     })
     .then(async(res) => {
@@ -55,7 +53,6 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         // If response is ok, log user & update data
         setLogged(true);
         setUser(data);
-        setToken(token);
 
         // If user is banned
         if(data.banned) {
@@ -84,7 +81,6 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     <UserContext.Provider
       value={{
         user,
-        token,
         logged,
         setUser,
         setLogged,

@@ -14,7 +14,7 @@ import NotificationCard from '../cards/NotificationCard';
 
 const Notifications: FC = () => {
 
-  const { user, token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { lang } = useContext(LangContext);
   const newNotificationText = toggleButton.new[lang as keyof typeof toggleButton.new];
   const noNotificationText = toggleButton.none[lang as keyof typeof toggleButton.none];
@@ -36,6 +36,7 @@ const Notifications: FC = () => {
 
   const getNotifications = async() => {
     setLoading(true);
+    const token = localStorage.getItem('token');
 
     await fetch(`${api}/notification/getAllFromUser`, {
       method: 'POST',

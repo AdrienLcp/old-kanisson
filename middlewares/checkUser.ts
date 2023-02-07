@@ -19,10 +19,13 @@ export const checkUser = (fn: NextApiHandler) => async (
           }
         });
 
+        console.log(user)
+
+
         // if user still exist
         if(user) {
           // verify if user is admin
-          if(user.admin === true) {
+          if(user.admin || user.moderator) {
 
             // we return original API call
             return await fn(req, res);

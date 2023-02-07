@@ -33,10 +33,15 @@ const MyPlaylists: FC = () => {
   }, [logged]);
 
   const getUserPlaylists = async() => {
-    await fetch(`${api}/playlist/getUserPlaylists`, {
+    const token = localStorage.getItem('token');
+
+    await fetch(`${api}/playlist/getMyPlaylists`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pseudo: user.pseudo })
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify({ user_id: user.id })
     })
     .then(async(res) => {
       const data = await res.json();
