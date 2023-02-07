@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import type { Playlist, Track } from "@prisma/client";
+import type { Notification, Playlist, Track } from "@prisma/client";
 import type { SearchResultItem } from "../youtube";
 
 export type MyPlaylistCard = {
@@ -14,6 +14,15 @@ export type MyPlaylistCard = {
 export type MyPlaylistCardView = {
   playlist: Playlist;
   deletePlaylist: () => void;
+};
+
+export type NotificationCardProps = {
+  notification: Notification;
+};
+
+export type NotificationCardViewProps = {
+  notification: Notification;
+  notificationSeen: () => void;
 };
 
 export type PlaylistCard = {

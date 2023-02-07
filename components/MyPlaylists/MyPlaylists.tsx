@@ -11,6 +11,7 @@ import styles from './MyPlaylists.module.scss';
 import MyPlaylistsCard from '../cards/MyPlaylistCard/container';
 import Message from '../Message/Message';
 import InputField from '../inputs/InputField/InputField';
+import Link from 'next/link';
 
 const MyPlaylists: FC = () => {
 
@@ -72,14 +73,13 @@ const MyPlaylists: FC = () => {
                 {noPlaylistText}
               </h2>
 
-              <button
+              <Link
                 className={styles.button}
-                type="button"
                 title={buttonTitle}
-                onClick={() => router.push('/create')}
+                href='/create'
               >
                 {buttonLabel}
-              </button>
+              </Link>
             </>
           }
       </header>

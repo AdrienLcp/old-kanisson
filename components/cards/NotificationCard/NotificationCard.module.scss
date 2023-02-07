@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
+  border-bottom: 0.1rem solid var(--black);
+  background: var(--sm-opacity);
+  cursor: pointer;
+
+  & .seen {
+    background: transparent;
+  }
+
+  &.seen {
+    background: transparent;
+  }
+
+  &:hover {
+    background: var(--main-color-light);
+  }
+}
+
+.date {
+  background: transparent !important;
+}
+
+@media screen and (min-width: 850px) {
+  .card {
+    border-radius: var(--sm-radius);
+    border: none;
+    padding: 1em 1.5em;
+  }
+}

@@ -33,6 +33,13 @@ export const myPlaylistCard = {
   }
 };
 
+export const notificationCard = {
+  see: {
+    fr: 'Voir la notification',
+    en: 'See notification'
+  }
+};
+
 export const playlistCard = {
   label: {
     fr: "Jouer",

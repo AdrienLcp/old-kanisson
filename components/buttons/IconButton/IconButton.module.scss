@@ -15,10 +15,20 @@
     position: absolute;
     transform: translateY(2.5em);
     color: var(--text-color);
+    width: 400%;
   }
 
   &:active {
     transform: scale(0.95);
+  }
+
+  &:disabled {
+    background: transparent;
+    cursor: default;
+
+    &:active {
+      transform: none;
+    }
   }
 }
 

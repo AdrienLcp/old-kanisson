@@ -1,11 +1,11 @@
 export const createTexts = {
   label: {
-    fr: "Créer une playlist",
-    en: "Create playlist"
+    fr: "Créer un blind test",
+    en: "Create blind test"
   },
   title: {
-    fr: "Créer une nouvelle playlist",
-    en: "Create a new playlist"
+    fr: "Créer un nouveau quiz musical",
+    en: "Create a new blind test"
   }
 };
 

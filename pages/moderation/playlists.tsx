@@ -64,7 +64,7 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
     setLoading(false);
   };
 
-  if(loading || logged && !user.moderator || logged && !user.admin) return <Loader />
+  if(loading || !logged || logged && !user.moderator || logged && !user.admin) return <Loader />
 
   return (
     <>

@@ -11,11 +11,13 @@ import UpdateUserForm from '../../components/forms/UpdateUserForm';
 import styles from '../../styles/Profile.module.scss';
 import MyPlaylists from '../../components/MyPlaylists/MyPlaylists';
 import Link from 'next/link';
+import Loader from '../../layouts/Loader/Loader';
+import Notifications from '../../components/Notifications/Notifications';
 
 const MyProfile: NextPage = () => {
 
   const { lang } = useContext(LangContext);
-  const { user } = useContext(UserContext);
+  const { user, logged } = useContext(UserContext);
 
   const headTitle = profileHeadTexts.title[lang as keyof typeof profileHeadTexts.title];
   const headDescription = profileHeadTexts.description[lang as keyof typeof profileHeadTexts.description];
@@ -27,6 +29,8 @@ const MyProfile: NextPage = () => {
 
   const [toggleForm, setToggleForm] = useState<boolean>(false);
 
+  if(!logged) return <Loader />
+
   return (
     <>
       <NextHead
@@ -35,6 +39,8 @@ const MyProfile: NextPage = () => {
       />
 
       <PageWrapper title={pageTitle}>
+
+        <Notifications />
 
         <Link
           className={styles.link}
