@@ -1,5 +1,5 @@
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
-import type { Playlist } from '@prisma/client';
+import type { Game, Playlist } from '@prisma/client';
 
 export type ColorPickerProps = {
   hue: string;
@@ -88,6 +88,11 @@ export type StarsProps = {
 export type TabsProps = {
   tabs: string[];
   contents: ReactElement<any>[];
+};
+
+export type UserGamesProps = {
+  userGames: Game[];
+  pseudo: string;
 };
 
 export type ValidCasesState = {

@@ -8,7 +8,7 @@ export default async function handle (
   try {
     const playedGames = await db.game.findMany({
       where: {
-        user_id: req.body.user_id
+        pseudo: req.body.pseudo
       }
     });
 

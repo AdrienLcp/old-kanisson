@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import type { Playlist } from '@prisma/client';
-import { useRouter } from 'next/router';
 import { useContext, useEffect, useState, useMemo } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
@@ -15,7 +14,6 @@ import Link from 'next/link';
 
 const MyPlaylists: FC = () => {
 
-  const router = useRouter();
   const { user, logged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
   const titleText = titleTexts.playlists[lang as keyof typeof titleTexts.playlists];
@@ -35,10 +33,10 @@ const MyPlaylists: FC = () => {
   }, [logged]);
 
   const getUserPlaylists = async() => {
-    await fetch(`${api}/playlist/getMyPlaylists`, {
+    await fetch(`${api}/playlist/getUserPlaylists`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: user.id })
+      body: JSON.stringify({ pseudo: user.pseudo })
     })
     .then(async(res) => {
       const data = await res.json();

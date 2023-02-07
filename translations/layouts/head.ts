@@ -103,3 +103,26 @@ export const updateHeadTexts = {
     en: "Update my blind test"
   }
 };
+
+export const userProfileHeadTexts = {
+  title: {
+    before: {
+      fr: 'Profil de ',
+      en: ''
+    },
+    after: {
+      fr: ' - Kanisson',
+      en: "'s profile page - Kanisson"
+    }
+  },
+  description: {
+    before: {
+      fr: 'Page de profil de ',
+      en: ''
+    },
+    after: {
+      fr: ', découvrez les quizz musicaux créés par cet utilisateur de Kanisson ainsi que ses scores',
+      en: "'s profile page, discover the blind tests created by this Kanisson user as well as his scores"
+    }
+  }
+};

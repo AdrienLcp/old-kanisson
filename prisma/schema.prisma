@@ -60,6 +60,7 @@ model Notification {
 model Game {
   id                Int           @id @default(autoincrement())
   user_id           String
+  pseudo            String
   playlist_id       String
   score             Int
   date              String
