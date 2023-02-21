@@ -98,7 +98,7 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
   const title = context.query.slug;
 
   // Fetch playlist data
-  const fetchedPlaylist = await fetch(`${api}/playlist/getOne`, {
+  const fetchedPlaylist = await fetch(`https://www.kanisson.com/api/playlist/getOne`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ title })
@@ -106,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
   const playlist = await fetchedPlaylist.json();
 
   // Fetch 10 random tracks from this playlist
-  const fetchedTracks = await fetch(`${api}/track/getRandomTracksFromPlaylist`, {
+  const fetchedTracks = await fetch(`https://www.kanisson.com/api/track/getRandomTracksFromPlaylist`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ playlist_id: playlist.id })
