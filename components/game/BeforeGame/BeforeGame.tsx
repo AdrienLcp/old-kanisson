@@ -29,7 +29,7 @@ export const BeforeGame: FC<BeforeGameProps> = ({
             {playlist.title}
           </h2>
 
-          <h3>
+          <h3 className={styles.description}>
             {playlist.description}
           </h3>
         </header>

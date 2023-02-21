@@ -117,7 +117,6 @@ export const GameScreen: FC<GameScreenProps> = ({
       setUserProposal={setUserProposal}
       handleSubmitProposal={handleSumbitProposal}
       guessingTime={guessingTime}
-      setGuessingTime={setGuessingTime}
       goodGuess={goodGuess}
       wrongGuess={wrongGuess}
       gameStarted={gameStarted}

@@ -1,7 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import type { PlayProps } from '../../types/pages';
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import { LangContext } from '../../contexts/LangContext';
 import { playHeadTexts } from '../../translations/layouts/head';
 import { api } from '../../api/api';
@@ -18,6 +19,7 @@ const Play: NextPage<PlayProps> = ({
   const router = useRouter();
   if(!playlist || !playlist.playable || !playlist.visible) router.push('/404');
 
+  const { logged, user } = useContext(UserContext);
   const { lang } = useContext(LangContext);
   const headTitle = playHeadTexts.title;
   const headDescriptionBefore = playHeadTexts.description.before[lang as keyof typeof playHeadTexts.description.before];
@@ -25,6 +27,34 @@ const Play: NextPage<PlayProps> = ({
 
   const [step, setStep] = useState<number>(1);
   const [score, setScore] = useState<number>(0);
+
+  useEffect(() => {
+    if(logged && step === 3) saveGame();
+  }, [step]);
+
+  const saveGame = async() => {
+    const token = localStorage.getItem('token');
+
+    const body = {
+      user_id: user.id,
+      pseudo: user.pseudo,
+      playlist_id: playlist.id,
+      date: new Date().toLocaleDateString(),
+      score
+    };
+
+    await fetch(`${api}/game/create`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      },
+      body: JSON.stringify(body)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
 
   return (
     <>
@@ -34,7 +64,6 @@ const Play: NextPage<PlayProps> = ({
       />
 
       <main>
-
         {step === 1 &&
           <BeforeGame
             playlist={playlist}

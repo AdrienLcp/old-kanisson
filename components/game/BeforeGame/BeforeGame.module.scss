@@ -23,6 +23,10 @@
   margin-bottom: 1rem;
 }
 
+.description {
+  font-weight: 400;
+}
+
 .details {
   @include flexCenter;
   flex-direction: column;

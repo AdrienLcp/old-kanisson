@@ -31,7 +31,7 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
       youtube_title: currentTrack.snippet.title,
       title: '',
       artist: '',
-      img: currentTrack.snippet.thumbnails.high.url,
+      img: currentTrack.snippet.thumbnails.default.url,
       valid: false
     };
 

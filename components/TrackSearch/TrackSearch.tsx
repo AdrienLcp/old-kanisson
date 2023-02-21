@@ -35,9 +35,9 @@ const TrackSearch: FC<TrackSearchProps> = ({
 
   const fetchData = async() => {
     if(search && search !== previousSearch) {
+      setLoading(true);
       // Save search to avoid fechting same data
       setPreviousSearch(search);
-      setLoading(true);
 
       // Fetch data from youtube API
       const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=50`);

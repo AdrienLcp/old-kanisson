@@ -31,7 +31,6 @@ export type GameScreenViewProps = {
   setUserProposal: Dispatch<SetStateAction<string>>;
   handleSubmitProposal: (event: FormEvent<HTMLFormElement>) => void;
   guessingTime: boolean;
-  setGuessingTime: Dispatch<SetStateAction<boolean>>;
   goodGuess: boolean;
   wrongGuess: boolean;
   gameStarted: boolean;

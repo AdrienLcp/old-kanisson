@@ -12,6 +12,16 @@
   border-radius: var(--sm-radius);
   box-shadow: var(--box-shadow);
 
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.2rem;
+    background: var(--main-color);
+    animation: timeout 5s linear forwards;
+  }
+
   .track {
     display: flex;
     align-items: center;
@@ -43,5 +53,15 @@
 @media screen and (min-width: 1500px) {
   .container {
     max-width: 50rem;
+  }
+}
+
+@keyframes timeout {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
   }
 }

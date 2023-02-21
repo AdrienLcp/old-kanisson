@@ -19,7 +19,6 @@ export const GameScreenView: FC<GameScreenViewProps> = ({
   setUserProposal,
   handleSubmitProposal,
   guessingTime,
-  setGuessingTime,
   goodGuess,
   wrongGuess,
   gameStarted,
