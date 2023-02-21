@@ -59,8 +59,8 @@ export const searchTexts = {
     en: "Search"
   },
   title: {
-    fr: "Chercher parmi toutes les playlists de Kanisson",
-    en: "Search among all Kanisson playlists"
+    fr: "Chercher parmi toutes les blind tests de Kanisson",
+    en: "Search among all Kanisson blind tests"
   }
 };
 export const moderationTexts = {

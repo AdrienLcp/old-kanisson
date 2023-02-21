@@ -11,6 +11,13 @@ export type BurgerIconProps = {
   state: boolean;
 };
 
+export type ButtonProps = PropsWithChildren<{
+  handleFunction: () => void;
+  styles?: string;
+  title?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
+}>;
+
 export type CloseButtonProps = {
   handleFunction: () => void;
   color?: string;

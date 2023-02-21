@@ -20,7 +20,6 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
   const { lang } = useContext(LangContext);
 
   const cardTitle = searchCardTitle[lang as keyof typeof searchCardTitle];
-  const altText = trackCardTexts.coverAlt[lang as keyof typeof trackCardTexts.coverAlt];
   const img = currentTrack.snippet.thumbnails.default.url;
 
   const addToList = () => {
@@ -55,7 +54,6 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
     >
       <CoverImage
         url={img}
-        alt={altText}
         height={30}
       />
 

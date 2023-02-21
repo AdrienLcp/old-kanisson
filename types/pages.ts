@@ -4,6 +4,11 @@ export type CreateProps = {
   apiKey: string;
 };
 
+export type PlayProps = {
+  playlist: Playlist;
+  tracks: Track[];
+};
+
 export type PlaylistsModerationProps = {
   visiblePlaylistsData: Playlist[];
 };

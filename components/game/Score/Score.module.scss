@@ -1,0 +1,29 @@
+@import '../../../styles/mixins';
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content {
+  margin: 0 0 0 0.4em;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    @include flexCenter;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .label {
+    font-size: 1.5rem;
+  }
+
+  .content {
+    margin: 1rem 0 0 0;
+    font-size: 3rem;
+  }
+}

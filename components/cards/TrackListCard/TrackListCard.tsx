@@ -16,8 +16,6 @@ const TrackListCard: FC<TrackListCardProps> = ({
 }) => {
 
   const { lang } = useContext(LangContext);
-
-  const altText = trackCardTexts.coverAlt[lang as keyof typeof trackCardTexts.coverAlt];
   const warningText = trackCardTexts.warning[lang as keyof typeof trackCardTexts.warning];
   const titleText = trackCardTexts.title[lang as keyof typeof trackCardTexts.title];
 
@@ -39,7 +37,6 @@ const TrackListCard: FC<TrackListCardProps> = ({
       >
         <CoverImage
           url={track.img}
-          alt={altText}
           height={30}
         />
 

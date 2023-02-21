@@ -1,0 +1,47 @@
+@import '../../../styles/mixins';
+
+.container {
+  @include posCenter;
+  @include flexCenter;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 90vw;
+  max-width: 40rem;
+  padding: 2.5em 2em;
+  background: var(--body-color);
+  border-radius: var(--sm-radius);
+  box-shadow: var(--box-shadow);
+
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-weight: 400;
+    color: var(--text-color);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    font-size: 1.3rem;
+    padding: 4em 3em;
+  }
+
+  .header {
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
+    max-width: 50rem;
+  }
+}

@@ -24,7 +24,7 @@ const Params: FC<ParamsProps> = ({
   const closeTitle = burgerButton.close[lang as keyof typeof burgerButton.close];
 
   return (
-    <div className={styles.test}>
+    <aside className={styles.test}>
       <section
         className={toggleMenu ?
           `${styles.container} ${styles.container_opened}`
@@ -58,7 +58,7 @@ const Params: FC<ParamsProps> = ({
       >
         <BurgerIcon state={toggleMenu} />
       </button>
-    </div>
+    </aside>
   );
 };
 

@@ -17,9 +17,9 @@ export type ConfirmModalProps = {
 };
 
 export type CoverImageProps = {
-  url: string;
-  alt: string;
-  height: number;
+  url?: string;
+  height?: number;
+  alt?: string;
 };
 
 export type IconProps = {
@@ -65,7 +65,7 @@ export type PasswordValidationViewProps = {
 
 export type PlayerProps = {
   url: string;
-  setTogglePlayer: Dispatch<SetStateAction<boolean>>;
+  setTogglePlayer?: Dispatch<SetStateAction<boolean>>;
   autoPlay?: boolean;
   start?: number;
   duration?: number;

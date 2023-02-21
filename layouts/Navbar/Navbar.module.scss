@@ -2,11 +2,11 @@
 
 .navbar {
   @include posFixed(auto, auto, 0, 0);
+  @include flexCenter;
   width: var(--navbar-width);
   height: var(--navbar-height);
   background: var(--main-color);
-  @include flexCenter;
-  box-shadow: 0 -2rem 2rem var(--md-opacity);
+  box-shadow: 0 -1rem 2rem var(--sm-opacity);
   z-index: 3;
 }
 
@@ -61,17 +61,19 @@
     align-items: center;
     justify-content: center;
     width: 8rem;
-    box-shadow: 2rem 0 3rem var(--md-opacity);
+    box-shadow: 2rem 0 3rem var(--sm-opacity);
     transition: width .2s;
 
     &:hover {
       width: var(--navbar-width);
 
       & .logo {
+        opacity: 0.9;
         transform: translateY(calc(7rem + 200%)) scale(2);
 
         &:hover {
           transform: translateY(calc(7rem + 200%)) scale(3) rotate(320deg);
+          opacity: 1;
         }
       }
 
@@ -89,6 +91,7 @@
   }
 
   .logo {
+    opacity: 0.8;
     transform: translateY(7rem);
     transition: transform .3s;
     height: 3.2rem;

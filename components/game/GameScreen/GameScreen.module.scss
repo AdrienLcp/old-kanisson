@@ -1,0 +1,23 @@
+@import '../../../styles/mixins';
+
+.input {
+  @include posFixed(auto, auto, 5rem, auto);
+  @include flexCenter;
+  width: 100vw;
+  padding: 1.5em 1em 0.5em;
+  background: var(--body-color);
+}
+
+@media screen and (min-width: 850px) {
+  .input {
+    background: var(--md-opacity);
+    bottom: 0;
+    padding: 3em 30vw 2em;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .input {
+    padding: 3em 35vw 2em;
+  }
+}

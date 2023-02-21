@@ -1,0 +1,68 @@
+@import '../../../styles/mixins';
+
+.timer {
+  @include posAbsolute(30%, auto, auto, 50%);
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  height: 15rem;
+
+  & svg {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    transform: rotate(270deg);
+    filter: none;
+
+    & circle {
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke-width: 5;
+      transform: translate(5px, 5px);
+    }
+  }
+}
+
+.circle {
+  stroke: var(--light-grey);
+}
+
+.time {
+  @include flexCenter;
+  position: absolute;
+  inset: 0;
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.progress_bar {
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * 30) / 30);
+  animation: fill-circle 30s linear forwards;
+}
+
+@keyframes fill-circle {
+  0% {
+    stroke-dashoffset: calc(440 - (440 * 0) / 30);
+  }
+
+  100% {
+    stroke-dashoffset: calc(440 - (440 * 30) / 30);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .timer {
+    @include posCenter;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .timer {
+    transform: translate(-50%, -50%) scale(1.5);
+
+    & svg circle {
+      stroke-width: 8;
+    }
+  }
+}

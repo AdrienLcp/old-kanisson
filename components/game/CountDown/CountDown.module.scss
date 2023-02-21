@@ -1,0 +1,16 @@
+@import '../../../styles/mixins';
+
+.span {
+  @include posCenter;
+  font-size: 10vh;
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

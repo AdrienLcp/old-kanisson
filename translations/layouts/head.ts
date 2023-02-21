@@ -1,106 +1,120 @@
 export const headTexts = {
   title: {
-    fr: "Kanisson - Site de blind test",
-    en: "Kanisson - Blind test site"
+    fr: 'Kanisson - Site de blind test',
+    en: 'Kanisson - Blind test site'
   },
   description: {
-    fr: "Créez votre propre quiz musical et jouez à ceux de la communauté",
-    en: "Create your own musical quiz and play those of the community"
+    fr: 'Créez votre propre quiz musical et jouez à ceux de la communauté',
+    en: 'Create your own musical quiz and play those of the community'
   }
 };
 
 export const bannedHeadTexts = {
   title: {
-    fr: "Banni",
-    en: "Banned"
+    fr: 'Banni',
+    en: 'Banned'
   }
 };
 
 export const contactHeadTexts = {
   title: {
-    fr: "Contact - Kanisson",
-    en: "Contact - Kanisson",
+    fr: 'Contact - Kanisson',
+    en: 'Contact - Kanisson',
   },
   description: {
-    fr: "Besoin d'aide ? Une question ? Envoyez un message à l'équipe de Kanisson",
-    en: "Need help ? A question ? Send a message to Kanisson's team"
+    fr: 'Besoin d\'aide ? Une question ? Envoyez un message à l\'équipe de Kanisson',
+    en: 'Need help ? A question ? Send a message to Kanisson\'s team'
   }
 };
 
 export const createHeadTexts = {
   title: {
-    fr: "Créer un blind test - Kanisson",
-    en: "Create a blind test - Kanisson"
+    fr: 'Créer un blind test - Kanisson',
+    en: 'Create a blind test - Kanisson'
   },
   description: {
-    fr: "Créez une playlist, recherchez des morceaux et ajoutez les à votre quiz pour que les utilisateurs de Kanisson puissent y jouer",
-    en: "Create a playlist, search for songs and add them to your quiz for Kanisson users to play"
+    fr: 'Créez une playlist, recherchez des morceaux et ajoutez les à votre quiz pour que les utilisateurs de Kanisson puissent y jouer',
+    en: 'Create a playlist, search for songs and add them to your quiz for Kanisson users to play'
   }
 };
 
 export const loginHeadTexts = {
   title: {
-    fr: "Connexion - Kanisson ",
-    en: "Login - Kanisson"
+    fr: 'Connexion - Kanisson ',
+    en: 'Login - Kanisson'
   },
   description: {
-    fr: "Connectez-vous sur Kanisson. Créez un compte, identifiez-vous et créez des blinds tests pour la communauté",
-    en: "Login to Kanisson. Create playlists for the community and play to others user's playlists"
+    fr: 'Connectez-vous sur Kanisson. Créez un compte, identifiez-vous et créez des blinds tests pour la communauté',
+    en: 'Login to Kanisson. Create playlists for the community and play to others user\'s playlists'
   }
 };
 
 export const moderationHeadTexts = {
   playlists: {
-    fr: "Gérer les blind tests - Kanisson",
-    en: "Manage blind tests - Kanisson"
+    fr: 'Gérer les blind tests - Kanisson',
+    en: 'Manage blind tests - Kanisson'
   },
   reports: {
-    fr: "Gérer les signalements - Kanisson",
-    en: "Manage reports - Kanisson"
+    fr: 'Gérer les signalements - Kanisson',
+    en: 'Manage reports - Kanisson'
   },
   users: {
-    fr: "Gérer les utilisateurs - Kanisson",
-    en: "Manage users - Kanisson"
+    fr: 'Gérer les utilisateurs - Kanisson',
+    en: 'Manage users - Kanisson'
   }
 };
 
 export const notFoundHeadTexts = {
   title: {
-    fr: "Page 404 - Kanisson",
-    en: "Page 404 - Kanisson"
+    fr: 'Page 404 - Kanisson',
+    en: 'Page 404 - Kanisson'
   },
   description: {
-    fr: "Vous êtes perdus ? Ce chemin n'existe pas",
-    en: "Are you lost ? This way doesn't exist"
+    fr: 'Vous êtes perdus ? Ce chemin n\'existe pas',
+    en: 'Are you lost ? This way doesn\'t exist'
+  }
+};
+
+export const playHeadTexts = {
+  title: '- Kanisson',
+  description: {
+    before: {
+      fr: 'Jouez à la playlist',
+      en: 'Play to'
+    },
+    after: {
+      fr: 'sur Kanisson, le site de quiz musical. Vous avez 30 secondes pour trouver le titre et/ou l\'artiste de 10 musiques',
+      en: 'on Kanisson, the blind test site. You have 30 seconds to find the title and/or the artist of 10 songs'
+    }
   }
 };
 
 export const profileHeadTexts = {
   title: {
-    fr: "Mon espace - Kanisson",
-    en: "My personnal space - Kanisson"
+    fr: 'Mon espace - Kanisson',
+    en: 'My personnal space - Kanisson'
   },
   description: {
-    fr: "Ma page de profil, changez les informations de votre compte et éditez vos playlists",
-    en: "My profile page, update my account information and update your playlists"
+    fr: 'Ma page de profil, changez les informations de votre compte et éditez vos playlists',
+    en: 'My profile page, update my account information and update your playlists'
   }
 };
 
 export const searchHeadTexts = {
   title: {
-    fr: "Chercher un blind test - Kanisson",
-    en: "Find a blind test - Kanisson"
+    fr: 'Chercher un blind test - Kanisson',
+    en: 'Find a blind test - Kanisson'
   },
   description: {
-    fr: "Tous les quizz musicaux de Kanisson, trouvez celui qui vous plaît",
-    en: "All Kanisson's blind tests, find the one you like"
+    fr: 'Tous les quizz musicaux de Kanisson, trouvez celui qui vous plaît',
+    en: 'All Kanisson\'s blind tests, find the one you like'
   }
 };
 
 export const updateHeadTexts = {
   title: {
-    fr: "Modifier mon blind test",
-    en: "Update my blind test"
+    fr: 'Modifier mon blind test',
+    en: 'Update my blind test'
   }
 };
 
@@ -112,7 +126,7 @@ export const userProfileHeadTexts = {
     },
     after: {
       fr: ' - Kanisson',
-      en: "'s profile page - Kanisson"
+      en: '\'s profile page - Kanisson'
     }
   },
   description: {
@@ -122,7 +136,7 @@ export const userProfileHeadTexts = {
     },
     after: {
       fr: ', découvrez les quizz musicaux créés par cet utilisateur de Kanisson ainsi que ses scores',
-      en: "'s profile page, discover the blind tests created by this Kanisson user as well as his scores"
+      en: '\'s profile page, discover the blind tests created by this Kanisson user as well as his scores'
     }
   }
 };

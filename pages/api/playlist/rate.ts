@@ -7,23 +7,31 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const playlist: any = await db.playlist.findUnique({
-      where: {
-        id: req.body.playlist_id
-      }
-    });
+    let newRatings = [...req.body.ratings];
+    let newIDs = [...req.body.ratings_ids];
 
-    // Add new rating & new ID, then calcul new average rating for playlist
-    const newRatings = [...playlist.ratings, req.body.rate];
-    const newIDs = [...playlist.ratings_ids, req.body.user_id];
+    // If user already rated this playlist
+    if(req.body.ratings_ids.includes(req.body.user_id)) {
+      // Find index of his ID
+      const index = req.body.ratings_ids.findIndex((id: string) => id === req.body.user_id);
+
+      // To find & update his previous rate
+      newRatings[index] = req.body.rate;
+
+    } else {
+      newRatings.push(req.body.rate);
+      newIDs.push(req.body.user_id);
+    };
+
+    // Calculate new average of the playlist
     let sum = 0;
     newRatings.map(rate => sum + rate);
     const newAverage = Math.ceil(sum / newRatings.length);
 
     // Update playlist with new data
-    const rated = await db.playlist.update({
+    const ratedPlaylist = await db.playlist.update({
       where: {
-        id: playlist.id
+        id: req.body.playlist_id
       },
       data: {
         average: newAverage,
@@ -32,7 +40,7 @@ export default checkUser(async function handle (
       }
     });
 
-    res.status(200).json(rated);
+    res.status(200).json(ratedPlaylist);
 
   } catch (error){
     res.status(404).json(error);

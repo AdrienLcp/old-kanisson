@@ -1,0 +1,56 @@
+@import '../../../styles/mixins';
+
+.container {
+  @include posCenter;
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.card {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: var(--box-shadow);
+  background: var(--body-color);
+  border-radius: var(--sm-radius);
+  width: 90vw;
+  max-width: 40rem;
+  padding: 3em 1em;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.rate {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.replay {
+  @include mainButton;
+  margin-top: 2rem;
+}
+
+.home {
+  @include underlineButton;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 850px) {
+  .card {
+    padding: 4em 5em;
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .score {
+    font-size: 1.5rem;
+  }
+}

@@ -78,7 +78,7 @@ const InputField: FC<InputFieldProps> = ({
 
       <button
         className={styles.clear}
-        type="button"
+        type="reset"
         title={clearButtonTitle}
         aria-label={clearButtonLabel}
         tabIndex={-1}

@@ -50,91 +50,116 @@ const Navbar: FC<NavbarProps> = ({
   const closeTitle = burgerButton.close[lang as keyof typeof burgerButton.close];
 
   return (
-    <nav className={styles.navbar}>
-      <Link
-        href='/'
-        title={homeTitle}
-        aria-label={homeTitle}
-        className={`${styles.logo} ${styles.mobile_hidden}`}
-      >
-        <KanissonIcon color='var(--white)' height='100%' />
-      </Link>
+    <aside>
+      <nav className={styles.navbar}>
+        <Link
+          href='/'
+          title={homeTitle}
+          aria-label={homeTitle}
+          className={`${styles.logo} ${styles.mobile_hidden}`}
+        >
+          <KanissonIcon color='var(--white)' height='100%' />
+        </Link>
 
-      <ul className={styles.list}>
-        {!user.banned &&
-          <>
+        <ul className={styles.list}>
+          {!user.banned &&
+            <>
+              <li key={uuidv4()}>
+                <Link
+                  href='/'
+                  title={homeTitle}
+                  aria-label={homeTitle}
+                  onClick={() => setToggleMenu(false)}
+                  className={
+                    router.pathname === '/' ?
+                      `${styles.link} ${styles.active}`
+                    :
+                      `${styles.link}`
+                  }
+                >
+                  <HomeIcon color='var(--white)' />
+                  <label className={styles.label}>
+                    {homeLabel}
+                  </label>
+                </Link>
+              </li>
+
+              <li key={uuidv4()}>
+                <Link
+                  href='/search'
+                  title={searchTitle}
+                  aria-label={searchTitle}
+                  onClick={() => setToggleMenu(false)}
+                  className={
+                    router.pathname === '/search' ?
+                      `${styles.link} ${styles.active}`
+                    :
+                      `${styles.link}`
+                  }
+                >
+                  <SearchIcon color='var(--white)' />
+                  <label className={styles.label}>
+                    {searchLabel}
+                  </label>
+                </Link>
+              </li>
+            </>
+          }
+
+          {logged && !user.banned &&
+            <>
+              <li key={uuidv4()}>
+                <Link
+                  href='/create'
+                  title={createTitle}
+                  aria-label={createTitle}
+                  onClick={() => setToggleMenu(false)}
+                  className={
+                    router.pathname === '/create' ?
+                      `${styles.link} ${styles.active}`
+                    :
+                      `${styles.link}`
+                  }
+                >
+                  <CreateIcon color='var(--white)' />
+                  <label className={styles.label}>
+                    {createLabel}
+                  </label>
+                </Link>
+              </li>
+
+              <li key={uuidv4()}>
+                <Link
+                  href='/profile'
+                  title={profileTitle}
+                  aria-label={profileTitle}
+                  onClick={() => setToggleMenu(false)}
+                  className={
+                    router.pathname === '/profile' ?
+                      `${styles.link} ${styles.active}`
+                    :
+                      `${styles.link}`
+                  }
+                >
+                  <AvatarIcon color='var(--white)' />
+
+                  <label className={styles.label}>
+                    {profileLabel}
+                  </label>
+                </Link>
+              </li>
+            </>
+          }
+
+          {!logged && !user.banned &&
             <li key={uuidv4()}>
               <Link
-                href='/'
-                title={homeTitle}
-                aria-label={homeTitle}
+                href='/login'
+                title={logInTitle}
+                aria-label={logInTitle}
                 onClick={() => setToggleMenu(false)}
                 className={
-                  router.pathname === '/' ?
-                    `${styles.link} ${styles.active}`
-                  :
-                    `${styles.link}`
-                }
-              >
-                <HomeIcon color='var(--white)' />
-                <label className={styles.label}>
-                  {homeLabel}
-                </label>
-              </Link>
-            </li>
-
-            <li key={uuidv4()}>
-              <Link
-                href='/search'
-                title={searchTitle}
-                aria-label={searchTitle}
-                onClick={() => setToggleMenu(false)}
-                className={
-                  router.pathname === '/search' ?
-                    `${styles.link} ${styles.active}`
-                  :
-                    `${styles.link}`
-                }
-              >
-                <SearchIcon color='var(--white)' />
-                <label className={styles.label}>
-                  {searchLabel}
-                </label>
-              </Link>
-            </li>
-          </>
-        }
-
-        {logged && !user.banned &&
-          <>
-            <li key={uuidv4()}>
-              <Link
-                href='/create'
-                title={createTitle}
-                aria-label={createTitle}
-                onClick={() => setToggleMenu(false)}
-                className={
-                  router.pathname === '/create' ?
-                    `${styles.link} ${styles.active}`
-                  :
-                    `${styles.link}`
-                }
-              >
-                <CreateIcon color='var(--white)' />
-                <label className={styles.label}>
-                  {createLabel}
-                </label>
-              </Link>
-            </li>
-
-            <li key={uuidv4()}>
-              <Link
-                href='/profile'
-                title={profileTitle}
-                aria-label={profileTitle}
-                onClick={() => setToggleMenu(false)}
-                className={
-                  router.pathname === '/profile' ?
+                  router.pathname === '/login' ?
                     `${styles.link} ${styles.active}`
                   :
                     `${styles.link}`
@@ -143,114 +168,91 @@ const Navbar: FC<NavbarProps> = ({
                 <AvatarIcon color='var(--white)' />
 
                 <label className={styles.label}>
-                  {profileLabel}
+                  {logInLabel}
                 </label>
               </Link>
             </li>
-          </>
-        }
+          }
 
-        {!logged && !user.banned &&
-          <li key={uuidv4()}>
+          {logged && user.admin && !user.banned &&
+            <li key={uuidv4()} className={styles.mobile_hidden}>
+              <Link
+                href='/moderation/playlists'
+                title={moderationTitle}
+                aria-label={moderationTitle}
+                onClick={() => setToggleMenu(false)}
+                className={
+                  router.pathname.includes('/moderation') ?
+                    `${styles.link} ${styles.active}`
+                  :
+                    `${styles.link}`
+                }
+              >
+                <AdminIcon color='var(--white)' />
+
+                <label className={styles.label}>
+                  {moderationLabel}
+                </label>
+              </Link>
+            </li>
+          }
+
+          <li key={uuidv4()} className={styles.mobile_hidden}>
             <Link
-              href='/login'
-              title={logInTitle}
-              aria-label={logInTitle}
+              href='/contact'
+              title={contactTitle}
+              aria-label={contactTitle}
               onClick={() => setToggleMenu(false)}
               className={
-                router.pathname === '/login' ?
+                router.pathname === '/contact' ?
                   `${styles.link} ${styles.active}`
                 :
                   `${styles.link}`
               }
             >
-              <AvatarIcon color='var(--white)' />
+              <MailIcon color='var(--white)' />
 
               <label className={styles.label}>
-                {logInLabel}
+                {contactLabel}
               </label>
             </Link>
           </li>
-        }
 
-        {logged && user.admin && !user.banned &&
-          <li key={uuidv4()} className={styles.mobile_hidden}>
-            <Link
-              href='/moderation/playlists'
-              title={moderationTitle}
-              aria-label={moderationTitle}
-              onClick={() => setToggleMenu(false)}
-              className={
-                router.pathname.includes('/moderation') ?
-                  `${styles.link} ${styles.active}`
-                :
-                  `${styles.link}`
-              }
-            >
-              <AdminIcon color='var(--white)' />
+          {logged &&
+            <li key={uuidv4()} className={styles.mobile_hidden}>
+              <button
+                type='button'
+                className={styles.link}
+                title={logOutTitle}
+                aria-label={logOutTitle}
+                onClick={() => {
+                  logOut();
+                  setToggleMenu(false);
+                }}
+              >
+                <LogoutIcon color='var(--white)' />
 
-              <label className={styles.label}>
-                {moderationLabel}
-              </label>
-            </Link>
-          </li>
-        }
+                <label className={styles.label}>
+                  {logOutLabel}
+                </label>
+              </button>
+            </li>
+          }
 
-        <li key={uuidv4()} className={styles.mobile_hidden}>
-          <Link
-            href='/contact'
-            title={contactTitle}
-            aria-label={contactTitle}
-            onClick={() => setToggleMenu(false)}
-            className={
-              router.pathname === '/contact' ?
-                `${styles.link} ${styles.active}`
-              :
-                `${styles.link}`
-            }
-          >
-            <MailIcon color='var(--white)' />
-
-            <label className={styles.label}>
-              {contactLabel}
-            </label>
-          </Link>
-        </li>
-
-        {logged &&
-          <li key={uuidv4()} className={styles.mobile_hidden}>
+          <li key={uuidv4()} className={styles.desktop_hidden}>
             <button
-              type='button'
               className={styles.link}
-              title={logOutTitle}
-              aria-label={logOutTitle}
-              onClick={() => {
-                logOut();
-                setToggleMenu(false);
-              }}
+              type='button'
+              title={toggleMenu ? closeTitle : openTitle}
+              aria-label={toggleMenu ? closeTitle : openTitle}
+              onClick={() => setToggleMenu(prev => !prev)}
             >
-              <LogoutIcon color='var(--white)' />
-
-              <label className={styles.label}>
-                {logOutLabel}
-              </label>
+              <BurgerIcon state={toggleMenu} />
             </button>
           </li>
-        }
-
-        <li key={uuidv4()} className={styles.desktop_hidden}>
-          <button
-            className={styles.link}
-            type='button'
-            title={toggleMenu ? closeTitle : openTitle}
-            aria-label={toggleMenu ? closeTitle : openTitle}
-            onClick={() => setToggleMenu(prev => !prev)}
-          >
-            <BurgerIcon state={toggleMenu} />
-          </button>
-        </li>
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </aside>
   );
 };
 

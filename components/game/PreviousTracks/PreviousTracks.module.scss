@@ -1,0 +1,128 @@
+@import '../../../styles/mixins';
+
+.container {
+  @include flexCenter;
+  flex-direction: column;
+  width: 100%;
+}
+
+.arrow {
+  @include flexCenter;
+  transition: transform .3s ease-out;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.header {
+  width: 100%;
+}
+
+.button {
+  @include flexCenter;
+  width: 100%;
+  height: 5rem;
+  color: var(--text-color);
+}
+
+.list {
+  @include posFixed(5rem, auto, auto, 0);
+  max-height: 0;
+  overflow: hidden;
+  width: 100vw;
+  background: var(--body-color);
+  transition: max-height .2s;
+
+  &.opened {
+    overflow-y: auto;
+    max-height: calc(100vh - 5rem - var(--navbar-height));
+  }
+}
+
+.item {
+  &:first-child {
+    border-top: 0.1rem solid var(--black);
+  }
+
+  &:last-child {
+    border-bottom: 0.1rem solid var(--black);
+  }
+
+  &:nth-child(odd) {
+    background: var(--sm-opacity);
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1em 2em;
+  border-radius: var(--sm-radius);
+
+  &:hover {
+    background: var(--sm-opacity);
+  }
+}
+
+.title {
+  font-weight: 500;
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    width: 100%;
+  }
+
+  .header {
+    height: auto;
+  }
+
+  .button {
+    font-size: 1.5rem;
+    height: auto;
+    cursor: default;
+
+    &:after {
+      content: ':';
+      margin-left: 0.4em;
+    }
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .list {
+    width: 90%;
+    position: relative;
+    max-height: 50vh;
+    overflow-y: auto;
+
+    &.opened {
+      max-height: auto;
+      overflow-y: auto;
+    }
+  }
+
+  .item {
+    padding: 0 1em;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-child(odd) {
+      background: transparent;
+    }
+  }
+
+  .card {
+    padding: 1em;
+  }
+}
