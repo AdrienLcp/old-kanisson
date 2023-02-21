@@ -18,14 +18,9 @@ const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const previousLang = localStorage.getItem('lang');
 
     // Update the state in terms of previous lang
-    if (previousLang) {
+    if(previousLang) {
       setLang(previousLang);
       localStorage.setItem('lang', previousLang);
-    } else {
-      const favoriteLang = navigator.language;
-
-      setLang(favoriteLang);
-      localStorage.setItem('lang', favoriteLang);
     };
   }, []);
 
