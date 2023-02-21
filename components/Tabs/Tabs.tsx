@@ -15,20 +15,24 @@ const Tabs: FC<TabsProps> = ({
     <section className={styles.container}>
 
       <header className={styles.buttons}>
-        {tabs.map((tab: string, index: number) =>
-          <button
-            className={selectedTab === index ?
-              `${styles.button} ${styles.selected}`
-            :
-              `${styles.button}`
-            }
-            key={uuidv4()}
-            type="button"
-            onClick={() => setSelectedTab(index)}
-          >
-            <h2>{tab}</h2>
-          </button>
-        )}
+
+        <ul>
+          {tabs.map((tab: string, index: number) =>
+            <li key={uuidv4()}>
+              <button
+                className={selectedTab === index ?
+                  `${styles.button} ${styles.selected}`
+                :
+                  `${styles.button}`
+                }
+                type="button"
+                onClick={() => setSelectedTab(index)}
+              >
+                <h2>{tab}</h2>
+              </button>
+            </li>
+          )}
+        </ul>
       </header>
 
       <div className={styles.content}>

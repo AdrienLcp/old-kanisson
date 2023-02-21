@@ -1,6 +1,5 @@
 // Solution found on the web for not running many instances of Prisma Client at the same time
 
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { PrismaClient } from '@prisma/client';
 
 let db: PrismaClient;

@@ -14,12 +14,6 @@ export default checkUser(async function handle (
       }
     });
 
-    await db.report.deleteMany({
-      where: {
-        target_id: req.body.user_id
-      }
-    });
-
     await db.game.deleteMany({
       where: {
         user_id: req.body.user_id

@@ -22,10 +22,8 @@ const Banned: NextPage = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    if(!user.banned) {
-      router.push('/');
-    };
-  }, []);
+    if(!user.banned) router.push('/');
+  }, [user]);
 
   // Translated texts
   const headTitle = bannedHeadTexts.title[lang as keyof typeof bannedHeadTexts.title];

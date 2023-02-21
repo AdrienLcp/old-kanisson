@@ -6,6 +6,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { moderationHeadTexts } from '../../translations/layouts/head';
 import { usersTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
+import { v4 as uuidv4 } from 'uuid';
 import NextHead from '../../layouts/Head/Head';
 import ModerationNav from '../../components/moderation/Navigation/ModerationNav';
 import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
@@ -90,6 +91,7 @@ const UsersModeration: NextPage = () => {
           tabs={[`${usersTab}`, `${bannedUsersTab}`]}
           contents={[
             <UsersList
+              key={uuidv4()}
               users={users}
               setUsers={setUsers}
               bannedUsers={bannedUsers}
@@ -98,6 +100,7 @@ const UsersModeration: NextPage = () => {
               setWarningMessage={setWarningMessage}
             />,
             <BannedUsersList
+              key={uuidv4()}
               users={users}
               setUsers={setUsers}
               bannedUsers={bannedUsers}

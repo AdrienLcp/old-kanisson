@@ -7,6 +7,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { moderationHeadTexts } from '../../translations/layouts/head';
 import { playlistsTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
+import { v4 as uuidv4 } from 'uuid';
 import NextHead from '../../layouts/Head/Head';
 import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import Loader from '../../layouts/Loader/Loader';
@@ -85,6 +86,7 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
           tabs={[`${visiblePlaylistsTitle}`, `${hiddenTitle}`]}
           contents={[
             <VisiblePlaylistsList
+              key={uuidv4()}
               visiblePlaylists={visiblePlaylists}
               setVisiblePlaylists={setVisiblePlaylists}
               hiddenPlaylists={hiddenPlaylists}
@@ -93,6 +95,7 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
               setWarningMessage={setWarningMessage}
             />,
             <HiddenPlaylistsList
+              key={uuidv4()}
               visiblePlaylists={visiblePlaylists}
               setVisiblePlaylists={setVisiblePlaylists}
               hiddenPlaylists={hiddenPlaylists}

@@ -33,9 +33,7 @@ const Login: NextPage = () => {
   const [toggleForm, setToggleForm] = useState<boolean>(false);
 
   useEffect(() => {
-    if(logged) {
-      router.push('/');
-    };
+    if(logged) router.push('/');
   }, [logged]);
 
   return (

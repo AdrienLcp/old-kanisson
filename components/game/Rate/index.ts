@@ -1,3 +1,3 @@
-import Rate from "./container";
+import { Rate } from "./container";
 
 export default Rate;
