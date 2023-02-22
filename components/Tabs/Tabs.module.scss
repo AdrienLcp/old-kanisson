@@ -1,12 +1,15 @@
 @import "../../styles/mixins";
 
 .container {
-  width: 95vw;
+  width: 90vw;
   max-width: 30rem;
 }
 
-.buttons {
+.list {
   display: flex;
+}
+
+.item {
   width: 100%;
 }
 

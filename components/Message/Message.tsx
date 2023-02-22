@@ -22,7 +22,7 @@ const Message: FC<MessageProps> = ({
   }, [validMessage, warningMessage]);
 
   return (
-    <>
+    <div>
       {validMessage &&
         <section className={`${styles.message} ${styles.valid}`}>
           {setValidMessage &&
@@ -56,7 +56,7 @@ const Message: FC<MessageProps> = ({
           {warningMessage}
         </section>
       }
-    </>
+    </div>
   );
 };
 

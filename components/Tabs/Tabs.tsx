@@ -16,9 +16,9 @@ const Tabs: FC<TabsProps> = ({
 
       <header className={styles.buttons}>
 
-        <ul>
+        <ul className={styles.list}>
           {tabs.map((tab: string, index: number) =>
-            <li key={uuidv4()}>
+            <li className={styles.item} key={uuidv4()}>
               <button
                 className={selectedTab === index ?
                   `${styles.button} ${styles.selected}`

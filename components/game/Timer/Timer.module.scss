@@ -1,8 +1,7 @@
 @import '../../../styles/mixins';
 
 .timer {
-  @include posAbsolute(30%, auto, auto, 50%);
-  transform: translate(-50%, -50%);
+  @include posCenter;
   width: 15rem;
   height: 15rem;
 

@@ -3,7 +3,7 @@ import type { SignUpFormProps } from '../../../types/components/forms';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { emailTexts, pseudoTexts } from '../../../translations/components/inputs';
-import { rememberMeTexts, signInTexts } from '../../../translations/pages/login';
+import { rememberMeTexts, signUpTexts } from '../../../translations/pages/login';
 
 import CheckBox from '../../buttons/CheckBox/CheckBox';
 import InputField from '../../inputs/InputField/InputField';
@@ -28,8 +28,8 @@ const SignUpFormView: FC<SignUpFormProps> = ({
   const pseudoInputTitle = pseudoTexts.title[lang as keyof typeof pseudoTexts.title];
   const emailInputLabel = emailTexts.label[lang as keyof typeof emailTexts.label];
   const emailInputTitle = emailTexts.title[lang as keyof typeof emailTexts.title];
-  const submitLabel = signInTexts.submit.label[lang as keyof typeof signInTexts.submit.label];
-  const submitTitle = signInTexts.submit.title[lang as keyof typeof signInTexts.submit.title];
+  const submitLabel = signUpTexts.submit.label[lang as keyof typeof signUpTexts.submit.label];
+  const submitTitle = signUpTexts.submit.title[lang as keyof typeof signUpTexts.submit.title];
   const checkBoxLabel = rememberMeTexts.label[lang as keyof typeof rememberMeTexts.label];
   const checkBoxTitle = rememberMeTexts.title[lang as keyof typeof rememberMeTexts.title];
 

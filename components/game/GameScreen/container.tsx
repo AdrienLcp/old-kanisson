@@ -42,6 +42,10 @@ export const GameScreen: FC<GameScreenProps> = ({
   };
 
   const nextSong = () => {
+    // Reset messages
+    setWrongGuess(false);
+    setGoodGuess(false);
+
     // Start game & turn on 'guessing time' state
     setGuessingTime(true);
 
@@ -82,15 +86,19 @@ export const GameScreen: FC<GameScreenProps> = ({
     event.preventDefault();
 
     if(guessed) return setUserProposal('');
+    setWrongGuess(false);
+    setGoodGuess(false);
 
     // Remove all spaces & specials carachters
     const title = tracks[index].title.toLowerCase().replace(/[^a-z0-9]/g, "");
     const artist = tracks[index].artist.toLowerCase().replace(/[^a-z0-9]/g, "");
     const proposal = userProposal.toLowerCase().replace(/[^a-z0-9]/g, "");
 
+    console.log(title, artist, proposal);
+
     // If proposal includes title or artist
-    if(proposal.includes(title) || proposal.includes(artist)) {
-      setWrongGuess(false);
+    if(title && proposal.includes(title)
+    || artist && proposal.includes(artist)) {
       setGoodGuess(true);
 
       // Turn on guessed state to avoid multi score on same song
@@ -100,7 +108,6 @@ export const GameScreen: FC<GameScreenProps> = ({
       setScore(value => value + 1);
     } else {
       // If not, try again
-      setGoodGuess(false);
       setWrongGuess(true);
     };
 

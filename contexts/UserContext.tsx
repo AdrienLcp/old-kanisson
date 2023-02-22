@@ -11,8 +11,8 @@ const initialState = {
     pseudo: '',
     email: '',
     password: '',
-    admin: true,
-    moderator: true,
+    admin: false,
+    moderator: false,
     banned: false
   },
   logged: false,

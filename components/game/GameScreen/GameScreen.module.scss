@@ -8,16 +8,62 @@
   background: var(--body-color);
 }
 
+.guess {
+  @include posFixed(auto, auto, 30vh, 50%);
+  padding: 1em 2em;
+  border-radius: var(--sm-radius);
+  font-weight: 300;
+  max-width: 50vw;
+  animation: fromBottom 0.5s ease-out forwards;
+
+  &_good {
+    color: var(--valid);
+    background: var(--valid-bg);
+    border: 0.1rem solid var(--valid-border);
+  }
+
+  &_wrong {
+    color: var(--warning);
+    background: var(--warning-bg);
+    border: 0.1rem solid var(--warning-border);
+  }
+}
+
 @media screen and (min-width: 850px) {
   .input {
     background: var(--md-opacity);
     bottom: 0;
     padding: 3em 30vw 2em;
   }
+
+  .guess {
+    @include posFixed(auto, auto, 15vh, 50%);
+    font-size: 2rem;
+
+    &_good {
+      border: 0.2rem solid var(--valid-border);
+    }
+
+    &_wrong {
+      border: 0.2rem solid var(--warning-border);
+    }
+  }
 }
 
 @media screen and (min-width: 1500px) {
   .input {
     padding: 3em 35vw 2em;
+  }
+}
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

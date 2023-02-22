@@ -1,8 +1,9 @@
-import { FC, useContext } from "react";
+import type { FC } from "react";
 import type { HeadProps } from "../../types/layouts";
-import Head from "next/head";
+import { useContext } from 'react';
 import { LangContext } from "../../contexts/LangContext";
 import { headTexts } from "../../translations/layouts/head";
+import Head from "next/head";
 
 const NextHead: FC<HeadProps> = ({
   title = "",
@@ -27,10 +28,6 @@ const NextHead: FC<HeadProps> = ({
       <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik+Moonrocks&display=swap" rel="stylesheet"/>
 
       <meta
         name="description"
