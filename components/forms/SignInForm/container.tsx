@@ -12,8 +12,8 @@ const SignInForm: FC = () => {
   const { lang } = useContext(LangContext);
   const { setUser, setLogged } = useContext(UserContext);
 
-  const [pseudoOrEmail, setPseudoOrEmail] = useState<string>('Vadrial');
-  const [password, setPassword] = useState<string>('Test123&');
+  const [pseudoOrEmail, setPseudoOrEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
