@@ -29,7 +29,9 @@ const Player: FC<PlayerProps> = ({
   let muteTest = 0;
 
   useEffect(() => {
-    if(mute === 1) setMute(0);
+    setTimeout(() => {
+      setMute(0);
+    },1000);
   }, []);
 
   return (
