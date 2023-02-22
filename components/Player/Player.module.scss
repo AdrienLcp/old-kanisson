@@ -1,3 +1,6 @@
 .player {
-  display: none;
+  // display: none;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 }
