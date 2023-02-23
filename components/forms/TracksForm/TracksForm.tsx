@@ -4,10 +4,12 @@ import type { SearchResultItem } from '../../../types/youtube';
 import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { titlesTexts } from '../../../translations/components/trackForm';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './TracksForm.module.scss';
 import TrackList from '../../TrackList/TrackList';
 import TrackSearch from '../../TrackSearch/TrackSearch';
 import ListWrapper from '../../../layouts/wrappers/ListWrapper/ListWrapper';
+import Tabs from '../../Tabs/Tabs';
 
 const TracksForm: FC<TracksFormProps> = ({
   tracks,
@@ -29,46 +31,16 @@ const TracksForm: FC<TracksFormProps> = ({
   return (
     <>
       <div className={`${styles.container} ${styles.mobile}`}>
-        <header className={styles.header}>
-          <h2 className={toggle ?
-              `${styles.title} ${styles.selected}`
-            :
-              `${styles.title}`
-          }>
-            <button
-              className={styles.button}
-              type="button"
-              onClick={() => setToggle(true)}
-            >
-              {listTitle} ({tracks.length})
-            </button>
-          </h2>
-
-          <h2 className={toggle ?
-              `${styles.title}`
-            :
-              `${styles.title} ${styles.selected}`
-          }>
-            <button
-              className={styles.button}
-              type="button"
-              onClick={() => setToggle(false)}
-            >
-              {searchTitle}
-            </button>
-          </h2>
-        </header>
-
-        {toggle ?
-          <section className={styles.wrapper}>
+        <Tabs
+          tabs={[`${listTitle} (${tracks.length})`, `${searchTitle}`]}
+          contents={[
             <TrackList
+              key={uuidv4()}
               tracks={tracks}
               setTracks={setTracks}
-            />
-          </section>
-        :
-          <section className={styles.wrapper}>
+            />,
             <TrackSearch
+              key={uuidv4()}
               tracks={tracks}
               setTracks={setTracks}
               search={search}
@@ -79,8 +51,8 @@ const TracksForm: FC<TracksFormProps> = ({
               setTracksResults={setTracksResults}
               apiKey={apiKey}
             />
-          </section>
-        }
+          ]}
+        />
       </div>
 
       <div className={`${styles.container} ${styles.desktop}`}>
