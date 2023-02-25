@@ -72,8 +72,7 @@ const UsersModeration: NextPage = () => {
     setBannedUsers(filteredBannedUsers);
   };
 
-  // if(!logged || logged && !user.moderator || logged && !user.admin) router.push('/');
-  if(loading) return <Loader />
+  if(loading || !logged || logged && !user.moderator || logged && !user.admin) return <Loader />
 
   return (
     <>
