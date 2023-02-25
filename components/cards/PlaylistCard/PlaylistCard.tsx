@@ -56,7 +56,7 @@ const PlaylistCard: FC<PlaylistCard> = ({
         </span>
       }
 
-      {!router.pathname.includes('/profile/') &&
+      {/* {!router.pathname.includes('/profile/') && */}
         <span className={styles.creator}>
           {createdBy}
 
@@ -68,7 +68,7 @@ const PlaylistCard: FC<PlaylistCard> = ({
             {playlist.creator}
           </Link>
         </span>
-      }
+      {/* } */}
     </section>
   );
 };
