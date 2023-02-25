@@ -1,3 +1,3 @@
-import UserCard from "./container";
+import { UserCard } from "./container";
 
 export default UserCard;

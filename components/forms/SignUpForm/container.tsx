@@ -5,10 +5,10 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
-import Loader from '../../../layouts/Loader/Loader';
-import SignUpFormView from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
+import { SignUpFormView } from './view';
 
-const SignUp: FC = () => {
+export const SignUpForm: FC = () => {
 
   // Contexts for language & user
   const { lang } = useContext(LangContext);
@@ -35,12 +35,10 @@ const SignUp: FC = () => {
   const special = new RegExp('(?=.*[!@#\$%\^&\*])');
 
   useEffect(() => {
-    if(pseudo) {
-      if(pseudo.length > 30 || special.test(pseudo)) {
-        setWarningMessage(validPseudoText);
-      } else {
-        setWarningMessage('');
-      };
+    if(pseudo && pseudo.length > 30 || pseudo && special.test(pseudo)) {
+      setWarningMessage(validPseudoText);
+    } else {
+      setWarningMessage('');
     };
   }, [pseudo]);
 
@@ -157,5 +155,3 @@ const SignUp: FC = () => {
     />
   );
 };
-
-export default SignUp;

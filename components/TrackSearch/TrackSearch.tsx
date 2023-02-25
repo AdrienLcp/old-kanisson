@@ -7,13 +7,13 @@ import { LangContext } from '../../contexts/LangContext';
 import { inputTexts, buttonTexts } from '../../translations/components/trackSearch';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TrackSearch.module.scss';
-import InputField from '../inputs/InputField/InputField';
-import IconButton from '../buttons/IconButton/IconButton';
-import TrackSearchCard from '../cards/TrackSearchCard/TrackSearchCard';
+import { InputField } from '../inputs/InputField/InputField';
+import { IconButton } from '../buttons/IconButton/IconButton';
+import { TrackSearchCard } from '../cards/TrackSearchCard/TrackSearchCard';
+import { Loader } from '../../layouts/Loader/Loader';
 import SearchIcon from '../../icons/SearchIcon';
-import Loader from '../../layouts/Loader/Loader';
 
-const TrackSearch: FC<TrackSearchProps> = ({
+export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
   setTracks,
   search,
@@ -101,5 +101,3 @@ const TrackSearch: FC<TrackSearchProps> = ({
     </>
   );
 };
-
-export default TrackSearch;

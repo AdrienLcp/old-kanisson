@@ -9,10 +9,10 @@ import { UserContext } from '../../../contexts/UserContext';
 import { api } from '../../../api/api';
 import { messages } from '../../../translations/others/error';
 import { errorTexts, validTexts } from '../../../translations/components/playlistForm';
-import PlaylistFormView from './view';
-import Loader from '../../../layouts/Loader/Loader';
+import { PlaylistFormView } from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
 
-const PlaylistForm: FC<PlaylistFormProps> = ({
+export const PlaylistForm: FC<PlaylistFormProps> = ({
   playlist,
   tracksData,
   apiKey
@@ -173,5 +173,3 @@ const PlaylistForm: FC<PlaylistFormProps> = ({
     />
   );
 };
-
-export default PlaylistForm;

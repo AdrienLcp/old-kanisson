@@ -5,10 +5,9 @@ import { LangContext } from '../../../contexts/LangContext';
 import { playlistCard } from '../../../translations/components/cards';
 import styles from './PlaylistModal.module.scss';
 import Link from 'next/link';
-import Modal from '../../../layouts/Modal/Modal';
-import PlaylistCard from '../../cards/PlaylistCard/PlaylistCard';
+import { Modal } from '../../../layouts/Modal/Modal';
 
-const PlaylistModal: FC<PlaylistModalProps> = ({
+export const PlaylistModal: FC<PlaylistModalProps> = ({
   playlist,
   setToggleModal,
   children
@@ -116,5 +115,3 @@ const PlaylistModal: FC<PlaylistModalProps> = ({
     </Modal>
   );
 };
-
-export default PlaylistModal;

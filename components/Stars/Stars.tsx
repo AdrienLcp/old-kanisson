@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Stars.module.scss';
 import StarIcon from '../../icons/StarIcon';
 
-const Stars: FC<StarsProps> = ({
+export const Stars: FC<StarsProps> = ({
   average,
   ratings
 }) => {
@@ -21,17 +21,11 @@ const Stars: FC<StarsProps> = ({
 
   // Get number of filled stars
   const filledStars = [] as string[];
-
-  for(let j = 0; j < average; j++) {
-    filledStars.push('+1');
-  };
+  for(let j = 0; j < average; j++) filledStars.push('+1');
 
   // Get number of empty stars
   const emptyStars = [] as string[];
-
-  for(let k = 0; k < 5 - average; k++) {
-    emptyStars.push('+1');
-  };
+  for(let k = 0; k < 5 - average; k++) emptyStars.push('+1');
 
   return (
     <div
@@ -60,5 +54,3 @@ const Stars: FC<StarsProps> = ({
     </div>
   );
 };
-
-export default Stars;

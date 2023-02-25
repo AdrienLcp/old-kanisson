@@ -6,7 +6,7 @@ import { userGamesTexts } from '../../translations/components/games';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './UserGames.module.scss';
 
-const UserGames: FC<UserGamesProps> = ({
+export const UserGames: FC<UserGamesProps> = ({
   userGames,
   pseudo
 }) => {
@@ -78,5 +78,3 @@ const UserGames: FC<UserGamesProps> = ({
     </>
   );
 };
-
-export default UserGames;

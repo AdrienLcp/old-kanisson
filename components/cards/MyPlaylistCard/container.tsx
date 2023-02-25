@@ -1,14 +1,14 @@
 import type { FC } from 'react';
-import type { MyPlaylistCard } from '../../../types/components/cards';
+import type { MyPlaylistCardProps } from '../../../types/components/cards';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { myPlaylistCard } from '../../../translations/components/cards';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
-import Loader from '../../../layouts/Loader/Loader';
-import MyPlaylistCardView from './view';
+import { MyPlaylistCardView } from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
 
-const MyPlaylistsCard: FC<MyPlaylistCard> = ({
+export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
   playlist,
   index,
   playlists,
@@ -72,5 +72,3 @@ const MyPlaylistsCard: FC<MyPlaylistCard> = ({
     />
   );
 };
-
-export default MyPlaylistsCard;

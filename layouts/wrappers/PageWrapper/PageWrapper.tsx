@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { PageWrapperProps } from '../../../types/layouts';
 import styles from './PageWrapper.module.scss';
 
-const PageWrapper: FC<PageWrapperProps> = ({
+export const PageWrapper: FC<PageWrapperProps> = ({
   title,
   subtitle,
   children
@@ -28,5 +28,3 @@ const PageWrapper: FC<PageWrapperProps> = ({
     </>
   );
 };
-
-export default PageWrapper;

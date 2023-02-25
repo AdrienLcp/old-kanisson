@@ -1,3 +1,3 @@
-import VisiblePlaylistCard from "./container";
+import { VisiblePlaylistCard } from "./container";
 
 export default VisiblePlaylistCard;

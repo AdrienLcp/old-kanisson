@@ -5,9 +5,9 @@ import { LangContext } from '../contexts/LangContext';
 import { searchHeadTexts } from '../translations/layouts/head';
 import { pageTitleTexts } from '../translations/pages/search';
 import { api } from '../api/api';
-import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
-import PlaylistFilter from '../components/PlaylistsFilter/PlaylistsFilter';
+import { NextHead } from '../layouts/Head/Head';
+import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { PlaylistFilter } from '../components/PlaylistsFilter/PlaylistsFilter';
 
 const Search: NextPage<SearchProps> = ({
   playlists

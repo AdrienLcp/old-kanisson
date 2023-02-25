@@ -1,11 +1,11 @@
 import type { FC } from 'react';
 import type { PasswordValidationProps, ValidCasesState } from '../../types/components/others';
 import { useState, useContext, useEffect } from 'react';
-import PasswordValidationView from './view';
+import { PasswordValidationView } from './view';
 import { LangContext } from '../../contexts/LangContext';
 import { passwordTexts } from '../../translations/components/inputs';
 
-const PasswordValidation: FC<PasswordValidationProps> = ({
+export const PasswordValidation: FC<PasswordValidationProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   setValidPassword,
@@ -94,5 +94,3 @@ const PasswordValidation: FC<PasswordValidationProps> = ({
     />
   );
 };
-
-export default PasswordValidation;

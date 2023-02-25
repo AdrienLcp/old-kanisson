@@ -5,14 +5,15 @@ import { toggleButton } from '../../translations/components/updateUser';
 import { profileHeadTexts } from '../../translations/layouts/head';
 import { linkTexts, pageTitleTexts } from '../../translations/pages/profile';
 import { UserContext } from '../../contexts/UserContext';
-import NextHead from '../../layouts/Head/Head';
-import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
+import { NextHead } from '../../layouts/Head/Head';
+import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import UpdateUserForm from '../../components/forms/UpdateUserForm';
 import styles from '../../styles/Profile.module.scss';
-import MyPlaylists from '../../components/MyPlaylists/MyPlaylists';
+import { MyPlaylists } from '../../components/MyPlaylists/MyPlaylists';
 import Link from 'next/link';
-import Loader from '../../layouts/Loader/Loader';
-import Notifications from '../../components/Notifications/Notifications';
+import { Loader } from '../../layouts/Loader/Loader';
+import { Notifications } from '../../components/Notifications/Notifications';
+import { Button } from '../../components/buttons/Button/Button';
 
 const MyProfile: NextPage = () => {
 
@@ -59,13 +60,12 @@ const MyProfile: NextPage = () => {
           <UpdateUserForm />
         </section>
 
-        <button
-          className={styles.toggle_button}
-          type="button"
+        <Button
+          styles={styles.toggle_button}
           onClick={() => setToggleForm(prev => !prev)}
         >
           {toggleForm ? toggleButtonOpenedText : toggleButtonClosedText}
-        </button>
+        </Button>
 
         <MyPlaylists />
 

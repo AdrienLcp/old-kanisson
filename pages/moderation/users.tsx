@@ -8,14 +8,14 @@ import { usersTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
-import NextHead from '../../layouts/Head/Head';
-import ModerationNav from '../../components/moderation/Navigation/ModerationNav';
-import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import Loader from '../../layouts/Loader/Loader';
-import Message from '../../components/Message/Message';
-import Tabs from '../../components/Tabs/Tabs';
-import UsersList from '../../components/moderation/UsersList/UsersList';
-import BannedUsersList from '../../components/moderation/BannedUsersList/BannedUsersList';
+import { NextHead } from '../../layouts/Head/Head';
+import { ModerationNav } from '../../components/moderation/Navigation/ModerationNav';
+import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
+import { Loader } from '../../layouts/Loader/Loader';
+import { Message } from '../../components/Message/Message';
+import { Tabs } from '../../components/Tabs/Tabs';
+import { UsersList } from '../../components/moderation/UsersList/UsersList';
+import { BannedUsersList } from '../../components/moderation/BannedUsersList/BannedUsersList';
 
 const UsersModeration: NextPage = () => {
 

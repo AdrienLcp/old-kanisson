@@ -1,3 +1,4 @@
+import styles from '../styles/Home.module.scss';
 import type { Playlist } from '@prisma/client';
 import type { GetServerSideProps, NextPage } from 'next';
 import { api } from '../api/api';
@@ -5,10 +6,8 @@ import { useState, useContext, Dispatch, SetStateAction, useEffect } from 'react
 import { UserContext } from '../contexts/UserContext';
 import { LangContext } from '../contexts/LangContext';
 import { playlistsTexts } from '../translations/pages/home';
-import NextHead from '../layouts/Head/Head';
-import styles from '../styles/Home.module.scss';
-import PlaylistsSlider from '../components/PlaylistsSlider/PlaylistsSlider';
-import { Rate } from '../components/game/Rate/container';
+import { NextHead } from '../layouts/Head/Head';
+import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
 
 type Props = {
   mostPlayedPlaylists: Playlist[];

@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { pseudoOrEmailTexts, passwordTexts } from '../../../translations/components/inputs';
 import { rememberMeTexts, signInTexts } from '../../../translations/pages/login';
-import CheckBox from '../../buttons/CheckBox/CheckBox';
-import InputField from '../../inputs/InputField/InputField';
-import InputPassword from '../../inputs/InputPassword/InputPassword';
-import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
-import Message from '../../Message/Message';
+import { CheckBox } from '../../buttons/CheckBox/CheckBox';
+import { InputField } from '../../inputs/InputField/InputField';
+import { InputPassword } from '../../inputs/InputPassword/InputPassword';
+import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
+import { Message } from '../../Message/Message';
 
-const SignInFormView: FC<SignInFormProps> = ({
+export const SignInFormView: FC<SignInFormProps> = ({
   handleSubmit,
   pseudoOrEmail, setPseudoOrEmail,
   password, setPassword,
@@ -66,5 +66,3 @@ const SignInFormView: FC<SignInFormProps> = ({
     </FormWrapper>
   );
 };
-
-export default SignInFormView;

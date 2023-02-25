@@ -3,9 +3,9 @@ import type { NotificationCardProps } from '../../../types/components/cards';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import { api } from '../../../api/api';
-import NotificationCardView from './view';
+import { NotificationCardView } from './view';
 
-const NotificationCard: FC<NotificationCardProps> = ({
+export const NotificationCard: FC<NotificationCardProps> = ({
   notification,
 }) => {
 
@@ -43,5 +43,3 @@ const NotificationCard: FC<NotificationCardProps> = ({
     />
   );
 };
-
-export default NotificationCard;

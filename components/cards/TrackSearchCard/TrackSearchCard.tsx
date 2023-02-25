@@ -3,12 +3,12 @@ import type { TrackSearchCardProps } from '../../../types/components/cards';
 import type { Track } from '@prisma/client';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
-import { searchCardTitle, trackCardTexts } from '../../../translations/components/cards';
+import { searchCardTitle } from '../../../translations/components/cards';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TrackSearchCard.module.scss';
-import CoverImage from '../../CoverImage/CoverImage';
+import { CoverImage } from '../../CoverImage/CoverImage';
 
-const TrackSearchCard: FC<TrackSearchCardProps> = ({
+export const TrackSearchCard: FC<TrackSearchCardProps> = ({
   currentTrack,
   index,
   tracksResults,
@@ -65,5 +65,3 @@ const TrackSearchCard: FC<TrackSearchCardProps> = ({
     </article>
   );
 };
-
-export default TrackSearchCard;

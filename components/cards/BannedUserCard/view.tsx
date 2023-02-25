@@ -4,11 +4,11 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { usersTexts } from '../../../translations/components/moderation';
 import styles from './BannedUserCard.module.scss';
-import IconButton from '../../buttons/IconButton/IconButton';
+import { IconButton } from '../../buttons/IconButton/IconButton';
 import UnbanIcon from '../../../icons/UnbanIcon';
 import BinIcon from '../../../icons/BinIcon';
 
-const BannedUserCardView: FC<BannedUsersCardViewProps> = ({
+export const BannedUserCardView: FC<BannedUsersCardViewProps> = ({
   user,
   unbanUser,
   deleteUser
@@ -44,5 +44,3 @@ const BannedUserCardView: FC<BannedUsersCardViewProps> = ({
     </article>
   );
 };
-
-export default BannedUserCardView;

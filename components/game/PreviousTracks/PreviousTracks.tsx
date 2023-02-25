@@ -6,9 +6,9 @@ import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PreviousTracks.module.scss';
-import Button from '../../buttons/Button/Button';
+import { Button } from '../../buttons/Button/Button';
 import ArrowIcon from '../../../icons/ArrowIcon';
-import CoverImage from '../../CoverImage/CoverImage';
+import { CoverImage } from '../../CoverImage/CoverImage';
 
 export const PreviousTracks: FC<PreviousTracksProps> = ({
   previousTracks
@@ -24,7 +24,7 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
       <header className={styles.header}>
         <h4>
           <Button
-            handleFunction={() => setOpened(prev => !prev)}
+            onClick={() => setOpened(prev => !prev)}
             styles={styles.button}
           >
             {buttonLabel}

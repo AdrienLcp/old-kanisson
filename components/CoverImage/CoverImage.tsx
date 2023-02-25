@@ -7,7 +7,7 @@ import Image from 'next/image';
 import ImageIcon from '../../icons/ImageIcon';
 import styles from './CoverImage.module.scss';
 
-const CoverImage: FC<CoverImageProps> = ({
+export const CoverImage: FC<CoverImageProps> = ({
   url,
   alt,
   height
@@ -32,5 +32,3 @@ const CoverImage: FC<CoverImageProps> = ({
     </>
   );
 };
-
-export default CoverImage;

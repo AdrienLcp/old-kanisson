@@ -6,12 +6,12 @@ import { LangContext } from '../../../contexts/LangContext';
 import { titlesTexts } from '../../../translations/components/trackForm';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TracksForm.module.scss';
-import TrackList from '../../TrackList/TrackList';
-import TrackSearch from '../../TrackSearch/TrackSearch';
-import ListWrapper from '../../../layouts/wrappers/ListWrapper/ListWrapper';
-import Tabs from '../../Tabs/Tabs';
+import { TrackList } from '../../TrackList/TrackList';
+import { TrackSearch } from '../../TrackSearch/TrackSearch';
+import { ListWrapper } from '../../../layouts/wrappers/ListWrapper/ListWrapper';
+import { Tabs } from '../../Tabs/Tabs';
 
-const TracksForm: FC<TracksFormProps> = ({
+export const TracksForm: FC<TracksFormProps> = ({
   tracks,
   setTracks,
   apiKey
@@ -26,7 +26,6 @@ const TracksForm: FC<TracksFormProps> = ({
   const [search, setSearch] = useState<string>('');
   const [previousSearch, setPreviousSearch] = useState<string>('');
   const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
-  const [toggle, setToggle] = useState<boolean>(true);
 
   return (
     <>
@@ -81,5 +80,3 @@ const TracksForm: FC<TracksFormProps> = ({
     </>
   );
 };
-
-export default TracksForm;

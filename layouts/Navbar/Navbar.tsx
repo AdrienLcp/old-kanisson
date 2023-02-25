@@ -17,10 +17,11 @@ import AvatarIcon from '../../icons/AvatarIcon';
 import AdminIcon from '../../icons/AdminIcon';
 import MailIcon from '../../icons/MailIcon';
 import LogoutIcon from '../../icons/LogoutIcon';
-import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
 import KanissonIcon from '../../icons/KanissonIcon';
+import { BurgerIcon } from '../../components/BurgerIcon/BurgerIcon';
+import { Button } from '../../components/buttons/Button/Button';
 
-const Navbar: FC<NavbarProps> = ({
+export const Navbar: FC<NavbarProps> = ({
   toggleMenu,
   setToggleMenu
 }) => {
@@ -220,11 +221,9 @@ const Navbar: FC<NavbarProps> = ({
 
           {logged &&
             <li key={uuidv4()} className={styles.mobile_hidden}>
-              <button
-                type='button'
-                className={styles.link}
+              <Button
+                styles={styles.link}
                 title={logOutTitle}
-                aria-label={logOutTitle}
                 onClick={() => {
                   logOut();
                   setToggleMenu(false);
@@ -235,25 +234,21 @@ const Navbar: FC<NavbarProps> = ({
                 <label className={styles.label}>
                   {logOutLabel}
                 </label>
-              </button>
+              </Button>
             </li>
           }
 
           <li key={uuidv4()} className={styles.desktop_hidden}>
-            <button
-              className={styles.link}
-              type='button'
+            <Button
+              styles={styles.link}
               title={toggleMenu ? closeTitle : openTitle}
-              aria-label={toggleMenu ? closeTitle : openTitle}
               onClick={() => setToggleMenu(prev => !prev)}
             >
               <BurgerIcon state={toggleMenu} />
-            </button>
+            </Button>
           </li>
         </ul>
       </nav>
     </aside>
   );
 };
-
-export default Navbar;

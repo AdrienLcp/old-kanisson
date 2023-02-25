@@ -2,10 +2,10 @@ import type { FC } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { theme } from '../../../translations//layouts/params';
-import ColorPicker from '../../ColorPicker/ColorPicker';
+import { ColorPicker } from '../../ColorPicker/ColorPicker';
 import styles from './ParamsColor.module.scss';
 
-const ParamsColor: FC = () => {
+export const ParamsColor: FC = () => {
 
   const { lang } = useContext(LangContext);
 
@@ -93,5 +93,3 @@ const ParamsColor: FC = () => {
     </section>
   );
 };
-
-export default ParamsColor;

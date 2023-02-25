@@ -7,10 +7,10 @@ import { trackFilter } from '../../translations/components/filters';
 import { warningTexts } from '../../translations/components/trackForm';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TrackList.module.scss';
-import InputField from '../inputs/InputField/InputField';
-import TrackListCard from '../cards/TrackListCard/TrackListCard';
+import { InputField } from '../inputs/InputField/InputField';
+import { TrackListCard } from '../cards/TrackListCard/TrackListCard';
 
-const TrackList: FC<TrackListProps> = ({
+export const TrackList: FC<TrackListProps> = ({
   tracks,
   setTracks
 }) => {
@@ -69,5 +69,3 @@ const TrackList: FC<TrackListProps> = ({
     </>
   );
 };
-
-export default TrackList;

@@ -1,17 +1,17 @@
 import type { FC } from 'react';
-import type { MyPlaylistCardView } from '../../../types/components/cards';
+import type { MyPlaylistCardViewProps } from '../../../types/components/cards';
 import { useRouter } from 'next/router';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { myPlaylistCard, playlistCard } from '../../../translations/components/cards';
 import styles from './MyPlaylistsCard.module.scss';
-import IconButton from '../../buttons/IconButton/IconButton';
+import { IconButton } from '../../buttons/IconButton/IconButton';
 import PlayIcon from '../../../icons/PlayIcon';
 import PenIcon from '../../../icons/PenIcon';
 import BinIcon from '../../../icons/BinIcon';
-import ConfirmModal from '../../ConfirmModal/ConfirmModal';
+import { ConfirmModal } from '../../ConfirmModal/ConfirmModal';
 
-const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
+export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
   playlist,
   deletePlaylist
 }) => {
@@ -112,5 +112,3 @@ const MyPlaylistCardView: FC<MyPlaylistCardView> = ({
     </>
   );
 };
-
-export default MyPlaylistCardView;

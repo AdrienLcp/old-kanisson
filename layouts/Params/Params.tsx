@@ -6,13 +6,14 @@ import { burgerButton } from '../../translations/components/buttons';
 import { useContext } from 'react';
 import styles from './Params.module.scss';
 
-import BurgerIcon from '../../components/buttons/BurgerIcon/BurgerIcon';
-import ParamsNav from '../../components/params/ParamsNav/ParamsNav';
-import ParamsLang from '../../components/params/ParamsLang/ParamsLang';
-import ParamsColor from '../../components/params/ParamsColor/ParamsColor';
-import ParamsTheme from '../../components/params/ParamsTheme/ParamsTheme';
+import { BurgerIcon } from '../../components/BurgerIcon/BurgerIcon';
+import { ParamsNav } from '../../components/params/ParamsNav/ParamsNav';
+import { ParamsLang } from '../../components/params/ParamsLang/ParamsLang';
+import { ParamsColor } from '../../components/params/ParamsColor/ParamsColor';
+import { ParamsTheme } from '../../components/params/ParamsTheme/ParamsTheme';
+import { Button } from '../../components/buttons/Button/Button';
 
-const Params: FC<ParamsProps> = ({
+export const Params: FC<ParamsProps> = ({
   toggleMenu,
   setToggleMenu
 }) => {
@@ -49,17 +50,13 @@ const Params: FC<ParamsProps> = ({
         </div>
       </section>
 
-      <button
-        className={`${styles.button} ${styles.mobile_hidden}`}
-        type="button"
+      <Button
+        styles={`${styles.button} ${styles.mobile_hidden}`}
         title={toggleMenu ? closeTitle : openTitle}
-        aria-label={toggleMenu ? closeTitle : openTitle}
         onClick={() => setToggleMenu(prev => !prev)}
       >
         <BurgerIcon state={toggleMenu} />
-      </button>
+      </Button>
     </aside>
   );
 };
-
-export default Params;

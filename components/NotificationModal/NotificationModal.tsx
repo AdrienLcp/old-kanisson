@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import type { NotificationModalProps } from '../../types/components/modals';
-import Modal from '../../layouts/Modal/Modal';
+import { Modal } from '../../layouts/Modal/Modal';
 import styles from './NotificationModal.module.scss';
 
-const NotificationModal: FC<NotificationModalProps> = ({
+export const NotificationModal: FC<NotificationModalProps> = ({
   notification,
   setToggleModal
 }) => {
@@ -31,5 +31,3 @@ const NotificationModal: FC<NotificationModalProps> = ({
     </Modal>
   );
 };
-
-export default NotificationModal;

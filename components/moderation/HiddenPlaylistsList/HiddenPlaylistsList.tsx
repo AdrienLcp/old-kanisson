@@ -1,3 +1,4 @@
+import styles from './HiddenPlaylistsList.module.scss';
 import type { FC } from 'react';
 import type { Playlist } from '@prisma/client';
 import type { PlaylistsListProps } from '../../../types/components/moderation';
@@ -5,11 +6,10 @@ import { useContext, useState, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { playlistsFilter } from '../../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
-import InputField from '../../inputs/InputField/InputField';
-import styles from './HiddenPlaylistsList.module.scss';
-import HiddenPlaylistCard from '../../cards/HiddenPlaylistCard/container';
+import { InputField } from '../../inputs/InputField/InputField';
+import { HiddenPlaylistCard } from '../../cards/HiddenPlaylistCard/container';
 
-const HiddenPlaylistsList: FC<PlaylistsListProps> = ({
+export const HiddenPlaylistsList: FC<PlaylistsListProps> = ({
   visiblePlaylists,
   setVisiblePlaylists,
   hiddenPlaylists,
@@ -67,5 +67,3 @@ const HiddenPlaylistsList: FC<PlaylistsListProps> = ({
     </section>
   );
 };
-
-export default HiddenPlaylistsList;

@@ -6,10 +6,10 @@ import { LangContext } from '../../../contexts/LangContext';
 import { playlistsFilter } from '../../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './VisiblePlaylistsList.module.scss';
-import InputField from '../../inputs/InputField/InputField';
+import { InputField } from '../../inputs/InputField/InputField';
 import VisiblePlaylistCard from '../../cards/VisiblePlaylistCard';
 
-const VisiblePlaylistsList: FC<PlaylistsListProps> = ({
+export const VisiblePlaylistsList: FC<PlaylistsListProps> = ({
   visiblePlaylists,
   setVisiblePlaylists,
   hiddenPlaylists,
@@ -67,5 +67,3 @@ const VisiblePlaylistsList: FC<PlaylistsListProps> = ({
     </section>
   );
 };
-
-export default VisiblePlaylistsList;

@@ -1,11 +1,13 @@
 import type { FC } from 'react';
 import type { ButtonProps } from '../../../types/components/buttons';
 
-const Button: FC<ButtonProps> = ({
-  handleFunction,
+export const Button: FC<ButtonProps> = ({
+  onClick,
   styles,
   title,
   type = 'button',
+  disabled = false,
+  tabIndex,
   children
 }) => {
 
@@ -15,11 +17,11 @@ const Button: FC<ButtonProps> = ({
       type={type}
       arial-label={title ?? undefined}
       title={title ?? undefined}
-      onClick={handleFunction}
+      disabled={disabled}
+      tabIndex={tabIndex ? tabIndex : 0}
+      onClick={onClick}
     >
       {children}
     </button>
   );
 };
-
-export default Button;

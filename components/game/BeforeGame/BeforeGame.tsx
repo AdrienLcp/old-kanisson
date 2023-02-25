@@ -4,10 +4,10 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { beforeTexts } from '../../../translations/pages/play';
 import { playlistCard } from '../../../translations/components/cards';
-import Button from '../../buttons/Button/Button';
+import { Button } from '../../buttons/Button/Button';
 import styles from './BeforeGame.module.scss';
 import Link from 'next/link';
-import Stars from '../../Stars/Stars';
+import { Stars } from '../../Stars/Stars';
 
 export const BeforeGame: FC<BeforeGameProps> = ({
   playlist,
@@ -60,13 +60,11 @@ export const BeforeGame: FC<BeforeGameProps> = ({
             />
           </footer>
         }
-
-
       </article>
 
       <div className={styles.box}>
         <Button
-          handleFunction={() => setStep(value => value + 1)}
+          onClick={() => setStep(value => value + 1)}
           title={playTitle}
           styles={styles.button}
         >

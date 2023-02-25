@@ -7,10 +7,10 @@ import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
 import { nothingChangedText, updatedText, wrongPasswordText } from '../../../translations/pages/profile';
-import Loader from '../../../layouts/Loader/Loader';
-import UpdateUserFormView from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
+import { UpdateUserFormView } from './view';
 
-const UpdateUserForm: FC = () => {
+export const UpdateUserForm: FC = () => {
 
   const { user, setUser, setLogged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
@@ -234,5 +234,3 @@ const UpdateUserForm: FC = () => {
     />
   );
 };
-
-export default UpdateUserForm;

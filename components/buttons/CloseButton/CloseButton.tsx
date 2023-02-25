@@ -3,11 +3,11 @@ import type { CloseButtonProps } from '../../../types/components/buttons';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { closeButton } from '../../../translations//components/buttons';
+import { Button } from '../Button/Button';
 import CrossIcon from '../../../icons/CrossIcon';
-import IconButton from '../IconButton/IconButton';
 import styles from './CloseButton.module.scss';
 
-const CloseButton: FC<CloseButtonProps> = ({
+export const CloseButton: FC<CloseButtonProps> = ({
   handleFunction,
   color = "var(--black)",
   height = "18"
@@ -19,9 +19,8 @@ const CloseButton: FC<CloseButtonProps> = ({
 
   return (
     <div className={styles.close}>
-      <button
-        className={styles.button}
-        type="button"
+      <Button
+        styles={styles.button}
         title={title}
         onClick={handleFunction}
       >
@@ -29,9 +28,7 @@ const CloseButton: FC<CloseButtonProps> = ({
           height={height}
           color={color}
         />
-      </button>
+      </Button>
     </div>
   );
 };
-
-export default CloseButton;

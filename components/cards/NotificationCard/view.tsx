@@ -4,9 +4,9 @@ import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { notificationCard } from '../../../translations/components/cards';
 import styles from './NotificationCard.module.scss';
-import NotificationModal from '../../NotificationModal/NotificationModal';
+import { NotificationModal } from '../../NotificationModal/NotificationModal';
 
-const NotificationCardView: FC<NotificationCardViewProps> = ({
+export const NotificationCardView: FC<NotificationCardViewProps> = ({
   notification,
   notificationSeen
 }) => {
@@ -52,5 +52,3 @@ const NotificationCardView: FC<NotificationCardViewProps> = ({
     </>
   );
 };
-
-export default NotificationCardView;

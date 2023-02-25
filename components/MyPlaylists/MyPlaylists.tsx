@@ -7,12 +7,12 @@ import { buttonTexts, filterTexts, titleTexts } from '../../translations/compone
 import { v4 as uuidv4 } from 'uuid';
 import { api } from '../../api/api';
 import styles from './MyPlaylists.module.scss';
-import MyPlaylistsCard from '../cards/MyPlaylistCard/container';
-import Message from '../Message/Message';
-import InputField from '../inputs/InputField/InputField';
+import { MyPlaylistsCard } from '../cards/MyPlaylistCard/container';
+import { Message } from '../Message/Message';
+import { InputField } from '../inputs/InputField/InputField';
 import Link from 'next/link';
 
-const MyPlaylists: FC = () => {
+export const MyPlaylists: FC = () => {
 
   const { user, logged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
@@ -126,5 +126,3 @@ const MyPlaylists: FC = () => {
     </section>
   );
 };
-
-export default MyPlaylists;

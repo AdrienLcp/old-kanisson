@@ -2,11 +2,11 @@ import type { FC } from 'react';
 import type { TrackEditProps } from '../../types/components/tracks';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
-import TrackEditView from './view';
-import Player from '../Player/Player';
+import { TrackEditView } from './view';
+import { Player } from '../Player/Player';
 import { warningTexts } from '../../translations/components/trackEdit';
 
-const TrackEdit: FC<TrackEditProps> = ({
+export const TrackEdit: FC<TrackEditProps> = ({
   track,
   index,
   tracks,
@@ -88,5 +88,3 @@ const TrackEdit: FC<TrackEditProps> = ({
     </>
   );
 };
-
-export default TrackEdit;

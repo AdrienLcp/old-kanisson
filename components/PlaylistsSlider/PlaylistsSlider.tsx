@@ -7,9 +7,9 @@ import { arrowButton } from '../../translations/components/buttons';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PlaylistsSlider.module.scss';
 import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
-import ArrowButton from '../buttons/ArrowButton/ArrowButton';
+import { ArrowButton } from '../buttons/ArrowButton/ArrowButton';
 
-const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
+export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
   playlists,
   title
 }) => {
@@ -157,5 +157,3 @@ const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     </section>
   );
 };
-
-export default PlaylistsSlider;

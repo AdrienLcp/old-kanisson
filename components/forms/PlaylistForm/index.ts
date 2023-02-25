@@ -1,3 +1,3 @@
-import PlaylistForm from "./container";
+import { PlaylistForm } from "./container";
 
 export default PlaylistForm;

@@ -1,3 +1,3 @@
-import MyPlaylistCard from "./container";
+import { MyPlaylistsCard } from "./container";
 
-export default MyPlaylistCard;
+export default MyPlaylistsCard;

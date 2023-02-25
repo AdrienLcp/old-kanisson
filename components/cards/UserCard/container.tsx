@@ -2,13 +2,13 @@ import type { FC } from 'react';
 import type { UserCardProps } from '../../../types/components/moderation';
 import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
+import { usersTexts } from '../../../translations/components/moderation';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
-import UserCardView from './view';
-import Loader from '../../../layouts/Loader/Loader';
-import { usersTexts } from '../../../translations/components/moderation';
+import { UserCardView } from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
 
-const UserCard: FC<UserCardProps> = ({
+export const UserCard: FC<UserCardProps> = ({
   user,
   index,
   users,
@@ -124,5 +124,3 @@ const UserCard: FC<UserCardProps> = ({
     />
   );
 };
-
-export default UserCard;

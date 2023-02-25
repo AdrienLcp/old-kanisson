@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import type { RateViewProps } from '../../../types/components/game';
 import { useState } from 'react';
 import styles from './Rate.module.scss';
-import Message from '../../Message/Message';
+import { Message } from '../../Message/Message';
+import { Button } from '../../buttons/Button/Button';
 import StarIcon from '../../../icons/StarIcon';
-import Button from '../../buttons/Button/Button';
 
 export const RateView: FC<RateViewProps> = ({
   ratePlaylist,
@@ -30,7 +30,7 @@ export const RateView: FC<RateViewProps> = ({
               onPointerEnter={() => setHover(value)}
             >
               <Button
-                handleFunction={() => {
+                onClick={() => {
                   setRating(value);
                   ratePlaylist(value);
                 }}

@@ -6,13 +6,14 @@ import { titleTexts, descriptionTexts } from '../../../translations/components/i
 import { buttonsTexts } from '../../../translations/components/playlistForm';
 import { useRouter } from 'next/router';
 import styles from './PlaylistForm.module.scss';
-import InputField from '../../inputs/InputField/InputField';
-import InputArea from '../../inputs/InputArea/InputArea';
-import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
-import Message from '../../Message/Message';
-import TracksForm from '../TracksForm/TracksForm';
+import { InputField } from '../../inputs/InputField/InputField';
+import { InputArea } from '../../inputs/InputArea/InputArea';
+import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
+import { Message } from '../../Message/Message';
+import { TracksForm } from '../TracksForm/TracksForm';
+import { Button } from '../../buttons/Button/Button';
 
-const PlaylistFormView: FC<PlaylistFormViewProps> = ({
+export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   handleSubmit,
   title, setTitle,
   description, setDescription,
@@ -65,15 +66,14 @@ const PlaylistFormView: FC<PlaylistFormViewProps> = ({
           setWarningMessage={setWarningMessage}
         />
 
-        <button
-          className={styles.button}
+        <Button
+          styles={styles.button}
           type='submit'
           title={router.pathname === '/playlist/create' ? createTitle : updateTitle}
-          aria-label={router.pathname === '/playlist/create' ? createTitle : updateTitle}
           disabled={loading}
         >
           {router.pathname === '/playlist/create' ? createLabel : updateLabel}
-        </button>
+        </Button>
       </FormWrapper>
 
       <TracksForm
@@ -84,5 +84,3 @@ const PlaylistFormView: FC<PlaylistFormViewProps> = ({
     </>
   );
 };
-
-export default PlaylistFormView;

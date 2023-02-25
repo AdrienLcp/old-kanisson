@@ -1,14 +1,14 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import type { UserProfileProps } from '../../types/pages';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { userProfileHeadTexts } from '../../translations/layouts/head';
 import { pageTitle } from '../../translations/pages/userProfile';
 import { api } from '../../api/api';
-import NextHead from '../../layouts/Head/Head';
-import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import UserGames from '../../components/UserGames/UserGames';
-import UserPlaylists from '../../components/UserPlaylists/UserPlaylists';
+import { NextHead } from '../../layouts/Head/Head';
+import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
+import { UserGames } from '../../components/UserGames/UserGames';
+import { UserPlaylists } from '../../components/UserPlaylists/UserPlaylists';
 
 const UserPage: NextPage<UserProfileProps> = ({
   userPlaylists,

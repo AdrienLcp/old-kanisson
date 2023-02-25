@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import type { CheckBoxProps } from '../../../types/components/inputs';
+import { Button } from '../Button/Button';
 import styles from './CheckBox.module.scss';
 
-const CheckBox: FC<CheckBoxProps> = ({
+export const CheckBox: FC<CheckBoxProps> = ({
   state,
   setState,
   id,
@@ -11,11 +12,9 @@ const CheckBox: FC<CheckBoxProps> = ({
 }) => {
 
   return (
-    <button
-      className={styles.button}
-      type="button"
+    <Button
+      styles={styles.button}
       title={title}
-      aria-label={title}
       onClick={() => setState(prev => !prev)}
     >
       <label
@@ -24,7 +23,7 @@ const CheckBox: FC<CheckBoxProps> = ({
       >
         <input
           className={styles.input}
-          type="checkbox"
+          type='checkbox'
           id={id}
           checked={state}
           readOnly
@@ -38,8 +37,6 @@ const CheckBox: FC<CheckBoxProps> = ({
           {label}
         </span>
       }
-    </button>
+    </Button>
   );
 };
-
-export default CheckBox;

@@ -8,10 +8,10 @@ import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
 import { updateHeadTexts } from '../../translations/layouts/head';
 import { pageTitleTexts } from '../../translations/pages/update';
-import NextHead from '../../layouts/Head/Head';
+import { NextHead } from '../../layouts/Head/Head';
 import PlaylistForm from '../../components/forms/PlaylistForm';
-import PageWrapper from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import Loader from '../../layouts/Loader/Loader';
+import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
+import { Loader } from '../../layouts/Loader/Loader';
 
 const Update: NextPage<UpdateProps> = ({
   playlist,

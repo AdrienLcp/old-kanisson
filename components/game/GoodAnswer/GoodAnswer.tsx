@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
 import styles from './GoodAnswer.module.scss';
-import CoverImage from '../../CoverImage/CoverImage';
+import { CoverImage } from '../../CoverImage/CoverImage';
 
 export const GoodAnswer: FC<GoodAnswerProps> = ({
   goodAnswer

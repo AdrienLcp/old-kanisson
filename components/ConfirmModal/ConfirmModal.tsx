@@ -4,9 +4,10 @@ import { useContext } from 'react';
 import { confirmModalTexts } from '../../translations/components/confirmModal';
 import { LangContext } from '../../contexts/LangContext';
 import styles from './ConfirmModal.module.scss';
-import Modal from '../../layouts/Modal/Modal';
+import { Modal } from '../../layouts/Modal/Modal';
+import { Button } from '../buttons/Button/Button';
 
-const ConfirmModal: FC<ConfirmModalProps> = ({
+export const ConfirmModal: FC<ConfirmModalProps> = ({
   title,
   content,
   handleFunction,
@@ -32,32 +33,26 @@ const ConfirmModal: FC<ConfirmModalProps> = ({
         }
 
         <div className={styles.buttons}>
-          <button
-            className={`${styles.button} ${styles.confirm}`}
-            type='button'
+          <Button
+            styles={`${styles.button} ${styles.confirm}`}
             title={confirmText}
-            aria-label={confirmText}
             onClick={() => {
               handleFunction();
               setToggleModal(false);
             }}
           >
             {confirmText}
-          </button>
+          </Button>
 
-          <button
-            className={`${styles.button} ${styles.cancel}`}
-            type='button'
+          <Button
+            styles={`${styles.button} ${styles.cancel}`}
             title={cancelText}
-            aria-label={cancelText}
             onClick={() => setToggleModal(false)}
           >
             {cancelText}
-          </button>
+          </Button>
         </div>
       </section>
     </Modal>
   );
 };
-
-export default ConfirmModal;

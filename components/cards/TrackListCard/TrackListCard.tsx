@@ -4,11 +4,11 @@ import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { trackCardTexts } from '../../../translations/components/cards';
 import styles from './TrackListCard.module.scss';
-import Modal from '../../../layouts/Modal/Modal';
+import { Modal } from '../../../layouts/Modal/Modal';
 import TrackEdit from '../../TrackEdit';
-import CoverImage from '../../CoverImage/CoverImage';
+import { CoverImage } from '../../CoverImage/CoverImage';
 
-const TrackListCard: FC<TrackListCardProps> = ({
+export const TrackListCard: FC<TrackListCardProps> = ({
   track,
   index,
   tracks,
@@ -40,11 +40,7 @@ const TrackListCard: FC<TrackListCardProps> = ({
           height={30}
         />
 
-        {!validTrack &&
-          <span>
-            ⚠️
-          </span>
-        }
+        {!validTrack && <span aria-label={warningText}>⚠️</span>}
 
         <header className={styles.header}>
           {track.title || track.artist ?
@@ -83,5 +79,3 @@ const TrackListCard: FC<TrackListCardProps> = ({
     </>
   );
 };
-
-export default TrackListCard;

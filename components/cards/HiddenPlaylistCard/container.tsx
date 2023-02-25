@@ -5,10 +5,10 @@ import { LangContext } from '../../../contexts/LangContext';
 import { playlistsTexts } from '../../../translations/components/moderation';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
-import HiddenPlaylistCardView from './view';
-import Loader from '../../../layouts/Loader/Loader';
+import { HiddenPlaylistCardView } from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
 
-const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
+export const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,
   index,
   visiblePlaylists,
@@ -125,5 +125,3 @@ const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
     />
   );
 };
-
-export default HiddenPlaylistCard;

@@ -1,3 +1,3 @@
-import TrackEdit from "./container";
+import { TrackEdit } from "./container";
 
 export default TrackEdit;

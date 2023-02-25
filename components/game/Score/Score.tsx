@@ -1,8 +1,8 @@
 import type { FC } from 'react';
+import type { ScoreProps } from '../../../types/components/game';
 import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
-import type { ScoreProps } from '../../../types/components/game';
 import styles from './Score.module.scss';
 
 export const Score: FC<ScoreProps> = ({

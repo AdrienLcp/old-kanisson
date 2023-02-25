@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import styles from './ModerationNav.module.scss';
 
-const ModerationNav: FC = () => {
+export const ModerationNav: FC = () => {
 
   const router = useRouter();
 
@@ -48,10 +48,7 @@ const ModerationNav: FC = () => {
             {usersLabel}
           </Link>
         </li>
-
       </ul>
     </nav>
   );
 };
-
-export default ModerationNav;

@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import type { Notification, Playlist, Track } from "@prisma/client";
 import type { SearchResultItem } from "../youtube";
 
-export type MyPlaylistCard = {
+export type MyPlaylistCardProps = {
   playlist: Playlist;
   index: number;
   playlists: Playlist[];
@@ -11,7 +11,7 @@ export type MyPlaylistCard = {
   setValidMessage: Dispatch<SetStateAction<string>>;
 };
 
-export type MyPlaylistCardView = {
+export type MyPlaylistCardViewProps = {
   playlist: Playlist;
   deletePlaylist: () => void;
 };
@@ -43,8 +43,4 @@ export type TrackSearchCardProps = {
   setTracksResults: Dispatch<SetStateAction<SearchResultItem[]>>;
   tracks: Track[];
   setTracks: Dispatch<SetStateAction<Track[]>>;
-};
-
-export type UserPlaylistCardProps = {
-  playlist: Playlist;
 };

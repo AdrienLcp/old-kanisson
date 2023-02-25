@@ -6,10 +6,10 @@ import { playlistsTexts } from '../../../translations/components/moderation';
 import { moderationMessage } from '../../../translations/others/notification';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
-import VisiblePlaylistCardView from './view';
-import Loader from '../../../layouts/Loader/Loader';
+import { VisiblePlaylistCardView } from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
 
-const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
+export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,
   index,
   visiblePlaylists,
@@ -119,5 +119,3 @@ const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
     />
   );
 };
-
-export default VisiblePlaylistCard;

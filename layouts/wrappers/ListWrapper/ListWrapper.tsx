@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { ListWrapperProps } from '../../../types/layouts';
 import styles from './ListWrapper.module.scss';
 
-const ListWrapper: FC<ListWrapperProps> = ({
+export const ListWrapper: FC<ListWrapperProps> = ({
   title,
   children
 }) => {
@@ -21,5 +21,3 @@ const ListWrapper: FC<ListWrapperProps> = ({
     </section>
   );
 };
-
-export default ListWrapper;

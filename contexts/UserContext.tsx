@@ -23,7 +23,7 @@ const initialState = {
 
 export const UserContext = createContext<UserContextTypes>(initialState);
 
-const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
+export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const router = useRouter();
 
@@ -91,5 +91,3 @@ const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     </UserContext.Provider>
   );
 };
-
-export default UserContextProvider;

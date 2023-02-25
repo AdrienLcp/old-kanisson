@@ -4,10 +4,10 @@ import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { messages } from '../../../translations/others/error';
-import Loader from '../../../layouts/Loader/Loader';
-import SignInFormView from './view';
+import { Loader } from '../../../layouts/Loader/Loader';
+import { SignInFormView } from './view';
 
-const SignInForm: FC = () => {
+export const SignInForm: FC = () => {
 
   const { lang } = useContext(LangContext);
   const { setUser, setLogged } = useContext(UserContext);
@@ -82,5 +82,3 @@ const SignInForm: FC = () => {
     />
   );
 };
-
-export default SignInForm;

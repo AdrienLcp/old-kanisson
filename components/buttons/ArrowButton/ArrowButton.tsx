@@ -2,8 +2,9 @@ import type { FC } from 'react';
 import type { ArrowButtonProps } from '../../../types/components/buttons';
 import ArrowIcon from '../../../icons/ArrowIcon';
 import styles from './ArrowButton.module.scss';
+import { Button } from '../Button/Button';
 
-const ArrowButton: FC<ArrowButtonProps> = ({
+export const ArrowButton: FC<ArrowButtonProps> = ({
   handleFunction,
   title,
   disabled,
@@ -11,20 +12,17 @@ const ArrowButton: FC<ArrowButtonProps> = ({
 }) => {
 
   return (
-    <button
-      className={side.includes('left') ?
+    <Button
+      styles={side.includes('left') ?
         `${styles.button} ${styles.button_left}`
       :
         `${styles.button} ${styles.button_right}`
       }
-      type="button"
       title={title}
       disabled={disabled}
       onClick={handleFunction}
     >
       <ArrowIcon color="var(--white)" />
-    </button>
+    </Button>
   );
 };
-
-export default ArrowButton;

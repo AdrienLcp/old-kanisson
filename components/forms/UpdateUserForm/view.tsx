@@ -6,14 +6,15 @@ import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/co
 import { confirmModalTexts, deleteAccountButtonText } from '../../../translations/pages/profile';
 import { submitButton } from '../../../translations/components/updateUser';
 import styles from './UpdateUserForm.module.scss';
-import InputField from '../../inputs/InputField/InputField';
-import PasswordValidation from '../../PasswordValidation/container';
-import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
-import InputPassword from '../../inputs/InputPassword/InputPassword';
-import ConfirmModal from '../../ConfirmModal/ConfirmModal';
-import Message from '../../Message/Message';
+import { InputField } from '../../inputs/InputField/InputField';
+import { PasswordValidation } from '../../PasswordValidation/container';
+import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
+import { InputPassword } from '../../inputs/InputPassword/InputPassword';
+import { ConfirmModal } from '../../ConfirmModal/ConfirmModal';
+import { Message } from '../../Message/Message';
+import { Button } from '../../buttons/Button/Button';
 
-const UpdateUserFormView: FC<UpdateUserFormProps> = ({
+export const UpdateUserFormView: FC<UpdateUserFormProps> = ({
   handleSubmit,
   pseudo, setPseudo,
   email, setEmail,
@@ -91,15 +92,13 @@ const UpdateUserFormView: FC<UpdateUserFormProps> = ({
         />
       </FormWrapper>
 
-      <button
-        className={styles.button}
-        type='button'
+      <Button
+        styles={styles.button}
         title={buttonTitle}
-        aria-label={buttonTitle}
         onClick={() => setToggleModal(true)}
       >
         {buttonLabel}
-      </button>
+      </Button>
 
       {toggleModal &&
         <ConfirmModal
@@ -112,5 +111,3 @@ const UpdateUserFormView: FC<UpdateUserFormProps> = ({
     </section>
   );
 };
-
-export default UpdateUserFormView;

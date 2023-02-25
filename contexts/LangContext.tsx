@@ -9,7 +9,7 @@ const initialState = {
 
 export const LangContext = createContext<LangContextTypes>(initialState);
 
-const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
+export const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [lang, setLang] = useState<string>('fr');
 
@@ -37,5 +37,3 @@ const LangContextProvider: FC<PropsWithChildren> = ({ children }) => {
     </LangContext.Provider>
   );
 };
-
-export default LangContextProvider;

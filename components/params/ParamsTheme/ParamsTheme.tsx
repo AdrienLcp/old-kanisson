@@ -1,11 +1,11 @@
 import type { FC } from "react";
 import { useEffect, useState, useContext } from 'react';
 import styles from './ParamsTheme.module.scss';
-import CheckBox from '../../buttons/CheckBox/CheckBox';
+import { CheckBox } from '../../buttons/CheckBox/CheckBox';
 import { LangContext } from "../../../contexts/LangContext";
 import { theme } from "../../../translations/layouts/params";
 
-const ParamsTheme: FC = () => {
+export const ParamsTheme: FC = () => {
 
   const { lang } = useContext(LangContext);
 
@@ -61,5 +61,3 @@ const ParamsTheme: FC = () => {
     </section>
   );
 };
-
-export default ParamsTheme

@@ -1,3 +1,3 @@
-import HiddenPlaylistCard from "./container";
+import { HiddenPlaylistCard } from "./container";
 
 export default HiddenPlaylistCard;

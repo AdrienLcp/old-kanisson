@@ -1,8 +1,8 @@
 import type { FC } from 'react';
-import type { BurgerIconProps } from '../../../types/components/buttons';
+import type { BurgerIconProps } from '../../types/components/buttons';
 import styles from './BurgerIcon.module.scss';
 
-const BurgerIcon: FC<BurgerIconProps> = ({
+export const BurgerIcon: FC<BurgerIconProps> = ({
   state,
 }) => {
   return (
@@ -19,5 +19,3 @@ const BurgerIcon: FC<BurgerIconProps> = ({
     </ul>
   );
 };
-
-export default BurgerIcon;

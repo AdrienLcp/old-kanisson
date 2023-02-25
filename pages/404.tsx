@@ -5,8 +5,8 @@ import { LangContext } from '../contexts/LangContext';
 import HomeIcon from '../icons/HomeIcon';
 import { notFoundHeadTexts } from '../translations/layouts/head';
 import { linkTexts, pageTexts } from '../translations/pages/notFound';
-import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { NextHead } from '../layouts/Head/Head';
+import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
 import styles from '../styles/NotFound.module.scss';
 
 const NotFound: NextPage = () => {

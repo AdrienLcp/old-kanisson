@@ -6,7 +6,7 @@ import { LangContext } from '../../../contexts/LangContext';
 import { playlistCard } from '../../../translations/components/cards';
 import styles from './PlaylistCard.module.scss';
 import Link from 'next/link';
-import Stars from '../../Stars/Stars';
+import { Stars } from '../../Stars/Stars';
 
 const PlaylistCard: FC<PlaylistCard> = ({
   playlist
@@ -22,29 +22,30 @@ const PlaylistCard: FC<PlaylistCard> = ({
 
   return (
     <section className={styles.container}>
-      <article
-        className={styles.card}
-        title={playTitle}
-        onClick={() => router.push(`/play/${playlist.title}`)}
-      >
-        <header>
-          <h2 className={styles.title}>
-            {playlist.title}
-          </h2>
-        </header>
+      <Link href={`/play/${playlist.title}`}>
+        <article
+          className={styles.card}
+          title={playTitle}
+        >
+          <header>
+            <h2 className={styles.title}>
+              {playlist.title}
+            </h2>
+          </header>
 
-        <div className={styles.content}>
-          {playlist.description &&
-            <p className={styles.description}>
-              {playlist.description}
+          <div className={styles.content}>
+            {playlist.description &&
+              <p className={styles.description}>
+                {playlist.description}
+              </p>
+            }
+
+            <p className={styles.play}>
+              {playlist.nbOfTracks} {songsText}
             </p>
-          }
-
-          <p className={styles.play}>
-            {playlist.nbOfTracks} {songsText}
-          </p>
-        </div>
-      </article>
+          </div>
+        </article>
+      </Link>
 
       {playlist.ratings.length > 0 &&
         <span className={styles.stars}>
@@ -55,17 +56,19 @@ const PlaylistCard: FC<PlaylistCard> = ({
         </span>
       }
 
-      <span className={styles.creator}>
-        {createdBy}
+      {!router.pathname.includes('/profile/') &&
+        <span className={styles.creator}>
+          {createdBy}
 
-        <Link
-          href={`/profile/${playlist.creator}`}
-          className={styles.link}
-          title={`${linkTitle} ${playlist.creator}`}
-        >
-          {playlist.creator}
-        </Link>
-      </span>
+          <Link
+            href={`/profile/${playlist.creator}`}
+            className={styles.link}
+            title={`${linkTitle} ${playlist.creator}`}
+          >
+            {playlist.creator}
+          </Link>
+        </span>
+      }
     </section>
   );
 };

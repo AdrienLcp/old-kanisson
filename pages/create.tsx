@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { LangContext } from '../contexts/LangContext';
 import { createHeadTexts } from '../translations/layouts/head';
 import { createTexts } from '../translations/pages/create';
-import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { NextHead } from '../layouts/Head/Head';
+import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
 import PlaylistForm from '../components/forms/PlaylistForm';
 
 const Create: NextPage<CreateProps> = ({

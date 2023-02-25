@@ -8,11 +8,11 @@ import { bannedHeadTexts } from '../translations/layouts/head';
 import { messages } from '../translations/others/error';
 import { bannedTexts } from '../translations/pages/banned';
 import { confirmModalTexts } from '../translations/pages/profile';
-import NextHead from '../layouts/Head/Head';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
-import ConfirmModal from '../components/ConfirmModal/ConfirmModal';
-import ContactForm from '../components/forms/ContactForm/ContactForm';
-import Message from '../components/Message/Message';
+import { NextHead } from '../layouts/Head/Head';
+import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { ConfirmModal } from '../components/ConfirmModal/ConfirmModal';
+import { ContactForm } from '../components/forms/ContactForm/ContactForm';
+import { Message } from '../components/Message/Message';
 import styles from '../styles/Banned.module.scss';
 
 const Banned: NextPage = () => {

@@ -5,7 +5,7 @@ import CheckIcon from '../../../icons/CheckIcon';
 import CrossIcon from '../../../icons/CrossIcon';
 import styles from './Item.module.scss';
 
-const PasswordValidationItem: FC<PasswordValidationItemProps> = ({
+export const PasswordValidationItem: FC<PasswordValidationItemProps> = ({
   validCase,
   text
 }) => {
@@ -36,5 +36,3 @@ const PasswordValidationItem: FC<PasswordValidationItemProps> = ({
     </li>
   );
 };
-
-export default PasswordValidationItem;

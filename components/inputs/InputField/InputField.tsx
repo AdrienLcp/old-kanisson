@@ -6,8 +6,9 @@ import { clearTexts, limitTexts } from '../../../translations/components/inputs'
 import styles from './InputField.module.scss';
 
 import CrossIcon from '../../../icons/CrossIcon';
+import { Button } from '../../buttons/Button/Button';
 
-const InputField: FC<InputFieldProps> = ({
+export const InputField: FC<InputFieldProps> = ({
   value,
   setValue,
   label,
@@ -76,16 +77,16 @@ const InputField: FC<InputFieldProps> = ({
         {label}
       </label>
 
-      <button
-        className={styles.clear}
-        type="reset"
+      <Button
+        styles={styles.clear}
+        type='reset'
         title={clearButtonTitle}
         aria-label={clearButtonLabel}
         tabIndex={-1}
         onClick={clear}
       >
         <CrossIcon height='18' />
-      </button>
+      </Button>
 
       {limit &&
         <span className={styles.limit}>
@@ -95,5 +96,3 @@ const InputField: FC<InputFieldProps> = ({
     </div>
   );
 };
-
-export default InputField;

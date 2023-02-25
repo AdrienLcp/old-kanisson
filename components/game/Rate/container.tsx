@@ -6,7 +6,7 @@ import { LangContext } from '../../../contexts/LangContext';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { RateView } from './view';
-import Loader from '../../../layouts/Loader/Loader';
+import { Loader } from '../../../layouts/Loader/Loader';
 
 export const Rate: FC<RateProps> = ({
   playlist,

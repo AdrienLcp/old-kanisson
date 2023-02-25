@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import type { ModalProps } from '../../types/layouts';
-import CloseButton from '../../components/buttons/CloseButton/CloseButton';
+import { CloseButton } from '../../components/buttons/CloseButton/CloseButton';
 import styles from './Modal.module.scss';
 
 
-const Modal: FC<ModalProps> = ({
+export const Modal: FC<ModalProps> = ({
   setToggleModal,
   children
 }) => {
@@ -30,5 +30,3 @@ const Modal: FC<ModalProps> = ({
     </div>
   );
 };
-
-export default Modal;

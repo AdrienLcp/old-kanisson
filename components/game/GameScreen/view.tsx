@@ -5,9 +5,9 @@ import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
 import styles from './GameScreen.module.scss';
 import { CountDown } from '../CountDown/CountDown';
-import InputField from '../../inputs/InputField/InputField';
+import { InputField } from '../../inputs/InputField/InputField';
 import { Timer } from '../Timer/Timer';
-import Player from '../../Player/Player';
+import { Player } from '../../Player/Player';
 import { SideBar } from '../SideBar/SideBar';
 import { GoodAnswer } from '../GoodAnswer/GoodAnswer';
 

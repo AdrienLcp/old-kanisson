@@ -4,12 +4,13 @@ import { useContext, useState } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { playlistsTexts } from '../../../translations/components/moderation';
 import styles from './VisiblePlaylistCard.module.scss';
-import IconButton from '../../buttons/IconButton/IconButton';
+import { Button } from '../../buttons/Button/Button';
+import { IconButton } from '../../buttons/IconButton/IconButton';
 import BinIcon from '../../../icons/BinIcon';
-import PlaylistModal from '../../moderation/PlaylistModal/PlaylistModal';
-import InputArea from '../../inputs/InputArea/InputArea';
+import { PlaylistModal } from '../../moderation/PlaylistModal/PlaylistModal';
+import { InputArea } from '../../inputs/InputArea/InputArea';
 
-const VisiblePlaylistCardView: FC<VisiblePlaylistCardViewProps> = ({
+export const VisiblePlaylistCardView: FC<VisiblePlaylistCardViewProps> = ({
   playlist,
   hidePlaylist,
   message,
@@ -71,18 +72,15 @@ const VisiblePlaylistCardView: FC<VisiblePlaylistCardViewProps> = ({
               />
             </div>
 
-            <button
-              className={styles.button}
-              type='button'
+            <Button
+              styles={styles.button}
               onClick={hidePlaylist}
             >
               {confirmLabel}
-            </button>
+            </Button>
           </section>
         </PlaylistModal>
       }
     </>
   );
 };
-
-export default VisiblePlaylistCardView;

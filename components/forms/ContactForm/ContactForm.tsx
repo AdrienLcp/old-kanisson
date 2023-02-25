@@ -5,15 +5,16 @@ import { LangContext } from '../../../contexts/LangContext';
 import { areaTexts, mailTexts, sendTexts, sentTexts } from '../../../translations/pages/contact';
 import styles from './ContactForm.module.scss';
 import SendIcon from '../../../icons/SendIcon';
-import Message from '../../Message/Message';
-import InputField from '../../inputs/InputField/InputField';
-import InputArea from '../../inputs/InputArea/InputArea';
-import FormWrapper from '../../../layouts/wrappers/FormWrapper/FormWrapper';
+import { Message } from '../../Message/Message';
+import { InputField } from '../../inputs/InputField/InputField';
+import { InputArea } from '../../inputs/InputArea/InputArea';
+import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
+import { Button } from '../../buttons/Button/Button';
 
 // We use FormSpree for this contact form
 // ==>    https://formspree.io/
 
-const ContactForm: FunctionComponent = () => {
+export const ContactForm: FunctionComponent = () => {
 
   const { lang } = useContext(LangContext);
 
@@ -64,19 +65,16 @@ const ContactForm: FunctionComponent = () => {
         errors={state.errors}
       />
 
-      <button
-        className={styles.button}
+      <Button
+        styles={styles.button}
         type='submit'
         title={sendTitle}
-        aria-label={sendTitle}
         disabled={state.submitting}
       >
         <SendIcon color={"var(--white)"} />
 
         {sendLabel}
-      </button>
+      </Button>
     </FormWrapper>
   );
 };
-
-export default ContactForm;

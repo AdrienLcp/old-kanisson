@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import styles from './Background.module.scss';
 
-const Background: FC = () => {
+export const Background: FC = () => {
 
   return (
     <ul className={styles.background}>
@@ -28,5 +28,3 @@ const Background: FC = () => {
     </ul>
   );
 };
-
-export default Background;

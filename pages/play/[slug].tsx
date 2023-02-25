@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { LangContext } from '../../contexts/LangContext';
 import { playHeadTexts } from '../../translations/layouts/head';
 import { api } from '../../api/api';
-import NextHead from '../../layouts/Head/Head';
+import { NextHead } from '../../layouts/Head/Head';
 import { BeforeGame } from '../../components/game/BeforeGame/BeforeGame';
 import { GameOver } from '../../components/game/GameOver/GameOver';
 import GameScreen from '../../components/game/GameScreen';

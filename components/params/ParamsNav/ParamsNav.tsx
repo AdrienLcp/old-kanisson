@@ -9,10 +9,11 @@ import Link from 'next/link';
 import AdminIcon from '../../../icons/AdminIcon';
 import LogoutIcon from '../../../icons/LogoutIcon';
 import MailIcon from '../../../icons/MailIcon';
-import CloseButton from '../../buttons/CloseButton/CloseButton';
+import { CloseButton } from '../../buttons/CloseButton/CloseButton';
 import styles from './ParamsNav.module.scss';
+import { Button } from '../../buttons/Button/Button';
 
-const ParamsNav: FC<ParamsNavProps> = ({
+export const ParamsNav: FC<ParamsNavProps> = ({
   setToggleMenu
 }) => {
 
@@ -21,9 +22,7 @@ const ParamsNav: FC<ParamsNavProps> = ({
 
   const moderationLabel = moderationTexts.label[lang as keyof typeof moderationTexts.label];
   const moderationTitle = moderationTexts.title[lang as keyof typeof moderationTexts.title];
-
   const contactTitle = contactTexts.title[lang as keyof typeof contactTexts.title];
-
   const logOutLabel = logOutTexts.label[lang as keyof typeof logOutTexts.label];
   const logOutTitle = logOutTexts.title[lang as keyof typeof logOutTexts.label];
 
@@ -73,11 +72,9 @@ const ParamsNav: FC<ParamsNavProps> = ({
 
           {logged &&
             <li key={uuidv4()}>
-              <button
-                type="button"
-                className={styles.link}
+              <Button
+                styles={styles.link}
                 title={logOutTitle}
-                aria-label={logOutTitle}
                 onClick={() => {
                   logOut();
                   setToggleMenu(false);
@@ -88,7 +85,7 @@ const ParamsNav: FC<ParamsNavProps> = ({
                 <label className={styles.label}>
                   {logOutLabel}
                 </label>
-              </button>
+              </Button>
             </li>
           }
         </ul>
@@ -96,5 +93,3 @@ const ParamsNav: FC<ParamsNavProps> = ({
     </div>
   );
 };
-
-export default ParamsNav;

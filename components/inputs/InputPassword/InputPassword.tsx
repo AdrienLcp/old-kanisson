@@ -3,13 +3,13 @@ import type { InputPasswordProps } from '../../../types/components/inputs';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { passwordTexts } from '../../../translations/components/inputs';
+import { InputField } from '../InputField/InputField';
+import { Button } from '../../buttons/Button/Button';
 import styles from './InputPassword.module.scss';
-
-import InputField from '../InputField/InputField';
 import EyeIcon from '../../../icons/EyeIcon';
 import CrossedOutEyeIcon from '../../../icons/CrossedOutEyeIcon';
 
-const InputPassword: FC<InputPasswordProps> = ({
+export const InputPassword: FC<InputPasswordProps> = ({
   value,
   setValue,
   label,
@@ -40,19 +40,15 @@ const InputPassword: FC<InputPasswordProps> = ({
       />
 
       {value.length > 0 &&
-        <button
-          className={styles.icon}
-          type='button'
+        <Button
+          styles={styles.icon}
           tabIndex={-1}
           title={showPassword ? hideText : showText}
-          aria-label={showPassword ? hideText : showText}
           onClick={() => setShowPassword(prev => !prev)}
         >
           {showPassword ? <EyeIcon /> : <CrossedOutEyeIcon />}
-        </button>
+        </Button>
       }
     </div>
   );
 };
-
-export default InputPassword;

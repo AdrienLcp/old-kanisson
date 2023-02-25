@@ -6,10 +6,10 @@ import { LangContext } from '../../../contexts/LangContext';
 import { usersFilter } from '../../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './UsersList.module.scss';
-import InputField from '../../inputs/InputField/InputField';
+import { InputField } from '../../inputs/InputField/InputField';
 import UserCard from '../../cards/UserCard';
 
-const UsersList: FC<UsersListProps> = ({
+export const UsersList: FC<UsersListProps> = ({
   users,
   setUsers,
   bannedUsers,
@@ -66,5 +66,3 @@ const UsersList: FC<UsersListProps> = ({
     </section>
   );
 };
-
-export default UsersList;

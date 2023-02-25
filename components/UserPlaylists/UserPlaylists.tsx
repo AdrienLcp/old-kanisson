@@ -6,11 +6,10 @@ import { LangContext } from '../../contexts/LangContext';
 import { playlistsFilter } from '../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './UserPlaylists.module.scss';
-import Link from 'next/link';
-import UserPlaylistCard from '../cards/UserPlaylistCard/UserPlaylistCard';
-import InputField from '../inputs/InputField/InputField';
+import { InputField } from '../inputs/InputField/InputField';
+import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
 
-const UserPlaylists: FC<UserPlaylistsProps> = ({
+export const UserPlaylists: FC<UserPlaylistsProps> = ({
   userPlaylists
 }) => {
 
@@ -44,14 +43,10 @@ const UserPlaylists: FC<UserPlaylistsProps> = ({
       <ul className={styles.list}>
         {filteredPlaylists.map((playlist: Playlist) =>
           <li key={uuidv4()}>
-            <Link href={`/play/${playlist.title}`}>
-              <UserPlaylistCard playlist={playlist} />
-            </Link>
+            <PlaylistCard playlist={playlist} />
           </li>
         )}
       </ul>
     </section>
   );
 };
-
-export default UserPlaylists;

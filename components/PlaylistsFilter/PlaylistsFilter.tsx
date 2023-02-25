@@ -6,10 +6,10 @@ import { LangContext } from '../../contexts/LangContext';
 import { filterTexts } from '../../translations/pages/search';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PlaylistsFilter.module.scss';
-import InputField from '../inputs/InputField/InputField';
+import { InputField } from '../inputs/InputField/InputField';
 import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
 
-const PlaylistFilter: FC<PlaylistsFilterProps> = ({
+export const PlaylistFilter: FC<PlaylistsFilterProps> = ({
   playlists
 }) => {
 
@@ -55,5 +55,3 @@ const PlaylistFilter: FC<PlaylistsFilterProps> = ({
     </>
   );
 };
-
-export default PlaylistFilter;

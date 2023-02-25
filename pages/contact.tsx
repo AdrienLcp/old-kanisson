@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import { LangContext } from '../contexts/LangContext';
 import { titleTexts } from '../translations/pages/contact';
 import { contactHeadTexts } from '../translations/layouts/head';
-import NextHead from '../layouts/Head/Head';
-import ContactForm from '../components/forms/ContactForm/ContactForm';
-import PageWrapper from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { NextHead } from '../layouts/Head/Head';
+import { ContactForm } from '../components/forms/ContactForm/ContactForm';
+import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
 
 const Contact: NextPage = () => {
 

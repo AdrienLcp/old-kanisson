@@ -1,3 +1,3 @@
-import BannedUserCard from "./container";
+import { BannedUserCard } from "./container";
 
 export default BannedUserCard;

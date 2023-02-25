@@ -12,9 +12,11 @@ export type BurgerIconProps = {
 };
 
 export type ButtonProps = PropsWithChildren<{
-  handleFunction: () => void;
+  onClick?: () => void;
   styles?: string;
   title?: string;
+  disabled?: boolean;
+  tabIndex?: number;
   type?: 'button' | 'submit' | 'reset' | undefined;
 }>;
 

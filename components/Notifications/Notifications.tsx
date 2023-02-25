@@ -7,12 +7,12 @@ import { toggleButton } from '../../translations/components/notifications';
 import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './Notifications.module.scss';
-import Loader from '../../layouts/Loader/Loader';
-import IconButton from '../buttons/IconButton/IconButton';
+import { Loader } from '../../layouts/Loader/Loader';
+import { IconButton } from '../buttons/IconButton/IconButton';
 import NotificationIcon from '../../icons/NotificationIcon';
 import NotificationCard from '../cards/NotificationCard';
 
-const Notifications: FC = () => {
+export const Notifications: FC = () => {
 
   const { user } = useContext(UserContext);
   const { lang } = useContext(LangContext);
@@ -26,7 +26,6 @@ const Notifications: FC = () => {
   let newNotifications = [];
 
   notifications.map(notification => {
-
     if(!notification.seen) newNotifications.push(notification);
   });
 
@@ -96,5 +95,3 @@ const Notifications: FC = () => {
     </section>
   );
 };
-
-export default Notifications;

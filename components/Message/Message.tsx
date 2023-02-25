@@ -3,10 +3,10 @@ import type { MessageProps } from '../../types/components/others';
 import { useEffect } from 'react';
 import CheckIcon from '../../icons/CheckIcon';
 import CrossIcon from '../../icons/CrossIcon';
-import CloseButton from '../buttons/CloseButton/CloseButton';
+import { CloseButton } from '../buttons/CloseButton/CloseButton';
 import styles from './Message.module.scss';
 
-const Message: FC<MessageProps> = ({
+export const Message: FC<MessageProps> = ({
   validMessage,
   setValidMessage,
   warningMessage,
@@ -59,5 +59,3 @@ const Message: FC<MessageProps> = ({
     </div>
   );
 };
-
-export default Message;

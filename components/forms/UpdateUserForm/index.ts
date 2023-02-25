@@ -1,3 +1,3 @@
-import UpdateUserForm from "./container";
+import { UpdateUserForm } from "./container";
 
 export default UpdateUserForm;

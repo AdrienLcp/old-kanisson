@@ -3,7 +3,7 @@ import type { PlayerProps } from '../../types/components/others';
 import { useEffect } from 'react';
 import styles from './Player.module.scss';
 
-const Player: FC<PlayerProps> = ({
+export const Player: FC<PlayerProps> = ({
   url,
   setTogglePlayer,
   autoPlay = true,
@@ -34,5 +34,3 @@ const Player: FC<PlayerProps> = ({
     />
   );
 };
-
-export default Player;

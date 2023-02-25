@@ -1,8 +1,9 @@
 import type { FC } from 'react';
+import { Button } from '../../../components/buttons/Button/Button';
 import { FormWrapperProps } from '../../../types/layouts';
 import styles from './FormWrapper.module.scss';
 
-const FormWrapper: FC<FormWrapperProps> = ({
+export const FormWrapper: FC<FormWrapperProps> = ({
   handleSubmit,
   submitLabel,
   submitTitle,
@@ -18,18 +19,15 @@ const FormWrapper: FC<FormWrapperProps> = ({
       {children}
 
       {submitLabel &&
-        <button
-          className={styles.button}
-          aria-label={submitTitle}
+        <Button
+          styles={styles.button}
           title={submitTitle}
           type='submit'
           disabled={loading}
         >
           {submitLabel}
-        </button>
+        </Button>
       }
     </form>
   );
 };
-
-export default FormWrapper;

@@ -5,7 +5,7 @@ import { LangContext } from "../../contexts/LangContext";
 import { headTexts } from "../../translations/layouts/head";
 import Head from "next/head";
 
-const NextHead: FC<HeadProps> = ({
+export const NextHead: FC<HeadProps> = ({
   title = "",
   description = ""
 }) => {
@@ -38,5 +38,3 @@ const NextHead: FC<HeadProps> = ({
     </Head>
   );
 };
-
-export default NextHead;

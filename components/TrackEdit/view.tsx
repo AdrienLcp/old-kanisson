@@ -8,11 +8,11 @@ import SaveIcon from '../../icons/SaveIcon';
 import PlayIcon from '../../icons/PlayIcon';
 import StopIcon from '../../icons/StopIcon';
 import BinIcon from '../../icons/BinIcon';
-import IconButton from '../buttons/IconButton/IconButton';
-import InputField from '../inputs/InputField/InputField';
-import Message from '../Message/Message';
+import { IconButton } from '../buttons/IconButton/IconButton';
+import { InputField } from '../inputs/InputField/InputField';
+import { Message } from '../Message/Message';
 
-const TrackEditView: FC<TrackEditViewProps> = ({
+export const TrackEditView: FC<TrackEditViewProps> = ({
   previousTitle,
   title,
   setTitle,
@@ -122,5 +122,3 @@ const TrackEditView: FC<TrackEditViewProps> = ({
     </article>
   );
 };
-
-export default TrackEditView;

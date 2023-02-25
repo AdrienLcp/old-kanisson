@@ -7,8 +7,9 @@ import frenchFlag from '../../../public/img/frenchFlag.png';
 import ukFlag from '../../../public/img/ukFlag.png';
 import styles from './ParamsLang.module.scss';
 import Image from 'next/image';
+import { Button } from '../../buttons/Button/Button';
 
-const ParamsLang: FC = () => {
+export const ParamsLang: FC = () => {
 
   const { lang, changeLang } = useContext(LangContext);
 
@@ -24,15 +25,13 @@ const ParamsLang: FC = () => {
 
       <ul className={styles.list}>
         <li key={uuidv4()}>
-          <button
-            className={lang === 'fr' ?
+          <Button
+            styles={lang === 'fr' ?
               `${styles.button} ${styles.button_active}`
             :
               `${styles.button}`
             }
-            type="button"
             title={"Site français"}
-            aria-label={"Site français"}
             onClick={() => changeLang('fr')}
           >
             <Image
@@ -41,19 +40,17 @@ const ParamsLang: FC = () => {
               height={32}
               src={frenchFlag}
             />
-          </button>
+          </Button>
         </li>
 
         <li key={uuidv4()}>
-          <button
-            className={lang === 'en' ?
+          <Button
+            styles={lang === 'en' ?
               `${styles.button} ${styles.button_active}`
             :
               `${styles.button}`
             }
-            type="button"
             title={"English website"}
-            aria-label={"English website"}
             onClick={() => changeLang('en')}
           >
             <Image
@@ -62,11 +59,9 @@ const ParamsLang: FC = () => {
               height={32}
               src={ukFlag}
             />
-          </button>
+          </Button>
         </li>
       </ul>
     </section>
   );
 };
-
-export default ParamsLang;

@@ -5,7 +5,7 @@ import styles from './InputArea.module.scss';
 import { LangContext } from '../../../contexts/LangContext';
 import { limitTexts } from '../../../translations/components/inputs';
 
-const InputArea: FC<InputAreaProps> = ({
+export const InputArea: FC<InputAreaProps> = ({
   value,
   setValue,
   label,
@@ -68,5 +68,3 @@ const InputArea: FC<InputAreaProps> = ({
     </div>
   );
 };
-
-export default InputArea;

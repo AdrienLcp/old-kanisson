@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import type { IconButtonProps } from '../../../types/components/buttons';
+import { Button } from '../Button/Button';
 import styles from './IconButton.module.scss';
 
-const IconButton: FC<IconButtonProps> = ({
+export const IconButton: FC<IconButtonProps> = ({
   title,
   label,
   disabled,
@@ -11,11 +12,9 @@ const IconButton: FC<IconButtonProps> = ({
 }) => {
 
   return (
-    <button
-      className={styles.button}
-      type="button"
-      title={title}
-      aria-label={title ? title : label}
+    <Button
+      styles={styles.button}
+      title={title ? title : label}
       disabled={disabled}
       onClick={handleFunction}
     >
@@ -26,8 +25,6 @@ const IconButton: FC<IconButtonProps> = ({
           {label}
         </label>
       }
-    </button>
+    </Button>
   );
 };
-
-export default IconButton;

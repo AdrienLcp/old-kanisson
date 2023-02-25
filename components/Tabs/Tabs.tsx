@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './Tabs.module.scss';
 
-const Tabs: FC<TabsProps> = ({
+export const Tabs: FC<TabsProps> = ({
   tabs,
   contents
 }) => {
@@ -41,5 +41,3 @@ const Tabs: FC<TabsProps> = ({
     </section>
   );
 };
-
-export default Tabs;

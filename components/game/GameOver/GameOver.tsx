@@ -7,9 +7,9 @@ import { LangContext } from '../../../contexts/LangContext';
 import { endgameTexts, gameTexts } from '../../../translations/pages/play';
 import Link from 'next/link';
 import styles from './GameOver.module.scss';
-import Button from '../../buttons/Button/Button';
+import { Button } from '../../buttons/Button/Button';
 import { Rate } from '../Rate/container';
-import Stars from '../../Stars/Stars';
+import { Stars } from '../../Stars/Stars';
 
 export const GameOver: FC<GameOverProps> = ({
   playlist,
@@ -71,7 +71,7 @@ export const GameOver: FC<GameOverProps> = ({
       </article>
 
       <Button
-        handleFunction={() => router.reload()}
+        onClick={() => router.reload()}
         title={replayTitle}
         styles={styles.replay}
       >

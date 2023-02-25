@@ -4,12 +4,12 @@ import { useState, useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
 import { passwordTexts } from '../../translations/components/inputs';
-import InputPassword from '../inputs/InputPassword/InputPassword';
+import { InputPassword } from '../inputs/InputPassword/InputPassword';
 import styles from './PasswordValidation.module.scss';
-import PasswordValidationItem from './Item/Item';
-import Message from '../Message/Message';
+import { PasswordValidationItem } from './Item/Item';
+import { Message } from '../Message/Message';
 
-const PasswordValidationView: FC<PasswordValidationViewProps> = ({
+export const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   validMessage, setValidMessage,
@@ -103,5 +103,3 @@ const PasswordValidationView: FC<PasswordValidationViewProps> = ({
     </>
   );
 };
-
-export default PasswordValidationView;

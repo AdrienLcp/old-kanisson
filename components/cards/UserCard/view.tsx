@@ -5,13 +5,13 @@ import { UserContext } from '../../../contexts/UserContext';
 import { LangContext } from '../../../contexts/LangContext';
 import { usersTexts } from '../../../translations/components/moderation';
 import styles from './UserCard.module.scss';
-import IconButton from '../../buttons/IconButton/IconButton';
+import { IconButton } from '../../buttons/IconButton/IconButton';
 import BanIcon from '../../../icons/BanIcon';
 import DowngradeIcon from '../../../icons/DowngradeIcon';
 import PromoteIcon from '../../../icons/PromoteIcon';
 import AdminIcon from '../../../icons/AdminIcon';
 
-const UserCardView: FC<UserCardViewProps> = ({
+export const UserCardView: FC<UserCardViewProps> = ({
   currentUser,
   manageUser,
   banUser
@@ -55,5 +55,3 @@ const UserCardView: FC<UserCardViewProps> = ({
     </article>
   );
 };
-
-export default UserCardView;

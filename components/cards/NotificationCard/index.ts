@@ -1,3 +1,3 @@
-import NotificationCard from "./container";
+import { NotificationCard } from "./container";
 
 export default NotificationCard;
