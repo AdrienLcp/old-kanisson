@@ -32,14 +32,13 @@ const UsersModeration: NextPage = () => {
   const [bannedUsers, setBannedUsers] = useState<User[]>([]);
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getUsers();
   }, []);
 
   const getUsers = async() => {
-    setLoading(true);
     const token = localStorage.getItem('token');
 
     await fetch(`${api}/user/getAll`, {
