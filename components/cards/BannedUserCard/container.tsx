@@ -6,7 +6,7 @@ import { usersTexts } from '../../../translations/components/moderation';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { BannedUserCardView } from './view';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 
 export const BannedUserCard: FC<UserCardProps> = ({
   user,

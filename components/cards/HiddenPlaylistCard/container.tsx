@@ -6,7 +6,7 @@ import { playlistsTexts } from '../../../translations/components/moderation';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { HiddenPlaylistCardView } from './view';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 
 export const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,

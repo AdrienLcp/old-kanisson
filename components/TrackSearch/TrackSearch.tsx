@@ -10,7 +10,7 @@ import styles from './TrackSearch.module.scss';
 import { InputField } from '../inputs/InputField/InputField';
 import { IconButton } from '../buttons/IconButton/IconButton';
 import { TrackSearchCard } from '../cards/TrackSearchCard/TrackSearchCard';
-import { Loader } from '../../layouts/Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import SearchIcon from '../../icons/SearchIcon';
 
 export const TrackSearch: FC<TrackSearchProps> = ({

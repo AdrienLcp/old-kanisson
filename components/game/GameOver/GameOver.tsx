@@ -70,14 +70,6 @@ export const GameOver: FC<GameOverProps> = ({
         }
       </article>
 
-      <Button
-        onClick={() => router.reload()}
-        title={replayTitle}
-        styles={styles.replay}
-      >
-        {replayLabel}
-      </Button>
-
       <Link
         href='/'
         title={homeTitle}

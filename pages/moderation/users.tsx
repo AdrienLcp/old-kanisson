@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { NextHead } from '../../layouts/Head/Head';
 import { ModerationNav } from '../../components/moderation/Navigation/ModerationNav';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import { Loader } from '../../layouts/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import { Message } from '../../components/Message/Message';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { UsersList } from '../../components/moderation/UsersList/UsersList';

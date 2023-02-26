@@ -10,7 +10,7 @@ import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
 import { NextHead } from '../../layouts/Head/Head';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import { Loader } from '../../layouts/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { VisiblePlaylistsList } from '../../components/moderation/VisiblePlaylistsList/VisiblePlaylistsList';
 import { HiddenPlaylistsList } from '../../components/moderation/HiddenPlaylistsList/HiddenPlaylistsList';

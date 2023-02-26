@@ -7,7 +7,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
 import { nothingChangedText, updatedText, wrongPasswordText } from '../../../translations/pages/profile';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 import { UpdateUserFormView } from './view';
 
 export const UpdateUserForm: FC = () => {

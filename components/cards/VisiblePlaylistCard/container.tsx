@@ -7,7 +7,7 @@ import { moderationMessage } from '../../../translations/others/notification';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { VisiblePlaylistCardView } from './view';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 
 export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,

@@ -11,7 +11,7 @@ import { pageTitleTexts } from '../../translations/pages/update';
 import { NextHead } from '../../layouts/Head/Head';
 import PlaylistForm from '../../components/forms/PlaylistForm';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import { Loader } from '../../layouts/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 const Update: NextPage<UpdateProps> = ({
   playlist,

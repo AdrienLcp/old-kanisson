@@ -9,6 +9,7 @@ import { NextHead } from '../layouts/Head/Head';
 import SignInForm from '../components/forms/SignInForm';
 import styles from '../styles/Login.module.scss';
 import SignUpForm from '../components/forms/SignUpForm';
+import { Button } from '../components/buttons/Button/Button';
 
 const Login: NextPage = () => {
 
@@ -33,6 +34,7 @@ const Login: NextPage = () => {
 
   useEffect(() => {
     if(logged) router.push('/');
+    router.prefetch('/');
   }, [logged]);
 
   return (
@@ -53,17 +55,15 @@ const Login: NextPage = () => {
 
             <SignUpForm />
 
-            <button
-              className={styles.button}
-              type="button"
-              aria-label={signUpButtonTitle}
+            <Button
+              styles={styles.button}
               title={signUpButtonTitle}
               onClick={() => setToggleForm(prev => !prev)}
             >
               {signUpLabel1}
               <br />
               {signUpLabel2}
-            </button>
+            </Button>
           </section>
         :
           <section className={styles.sign_in}>
@@ -75,17 +75,15 @@ const Login: NextPage = () => {
 
             <SignInForm />
 
-            <button
-              className={styles.button}
-              type="button"
-              aria-label={signInButtonTitle}
+            <Button
+              styles={styles.button}
               title={signInButtonTitle}
               onClick={() => setToggleForm(prev => !prev)}
             >
               {signInLabel1}
               <br />
               {signInLabel2}
-            </button>
+            </Button>
           </section>
         }
       </div>

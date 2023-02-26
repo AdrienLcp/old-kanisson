@@ -5,6 +5,7 @@ import { LangContextProvider } from '../../contexts/LangContext';
 import { Background } from '../Background/Background';
 import { Navbar } from '../Navbar/Navbar';
 import { Params } from '../Params/Params';
+import { PageLoader } from '../PageLoader/PageLoader';
 
 export const Container: FC<PropsWithChildren> = ({ children }) => {
 
@@ -27,6 +28,8 @@ export const Container: FC<PropsWithChildren> = ({ children }) => {
           toggleMenu={toggleMenu}
           setToggleMenu={setToggleMenu}
         />
+
+        {/* <PageLoader /> */}
 
       </LangContextProvider>
     </UserContextProvider>

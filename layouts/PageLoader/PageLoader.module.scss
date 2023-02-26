@@ -1,0 +1,58 @@
+@import '../../styles/mixins';
+
+.container {
+  @include posFixed(0, auto, auto, 0);
+  @include flexCenter;
+  cursor: wait;
+  width: 100vw;
+  height: 100vh;
+  background: var(--sm-opacity);
+  opacity: 0;
+  animation: apparition 0.1s ease-in forwards;
+}
+
+@keyframes apparition {
+  100% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+}
+
+.loader span {
+  display: block;
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  margin: 0.5rem;
+  border: 0.5rem solid var(--main-color);
+  border-color: var(--main-color) transparent transparent transparent;
+  border-radius: 50%;
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loader span:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

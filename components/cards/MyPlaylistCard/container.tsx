@@ -6,7 +6,7 @@ import { myPlaylistCard } from '../../../translations/components/cards';
 import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { MyPlaylistCardView } from './view';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 
 export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
   playlist,

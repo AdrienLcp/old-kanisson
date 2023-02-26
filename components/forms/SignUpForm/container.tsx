@@ -5,7 +5,7 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 import { SignUpFormView } from './view';
 
 export const SignUpForm: FC = () => {

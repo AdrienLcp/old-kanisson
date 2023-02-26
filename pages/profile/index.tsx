@@ -11,7 +11,7 @@ import UpdateUserForm from '../../components/forms/UpdateUserForm';
 import styles from '../../styles/Profile.module.scss';
 import { MyPlaylists } from '../../components/MyPlaylists/MyPlaylists';
 import Link from 'next/link';
-import { Loader } from '../../layouts/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import { Notifications } from '../../components/Notifications/Notifications';
 import { Button } from '../../components/buttons/Button/Button';
 

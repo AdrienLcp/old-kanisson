@@ -4,7 +4,7 @@ import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { messages } from '../../../translations/others/error';
-import { Loader } from '../../../layouts/Loader/Loader';
+import { Loader } from '../../Loader/Loader';
 import { SignInFormView } from './view';
 
 export const SignInForm: FC = () => {
