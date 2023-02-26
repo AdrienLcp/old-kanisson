@@ -25,6 +25,7 @@ const Update: NextPage<UpdateProps> = ({
   const router = useRouter();
 
   if(!playlist) router.push('/404');
+  if(logged && user.banned) router.push('/banned');
   if(!logged || logged && playlist.user_id !== user.id) return <Loader />;
 
   const headTitle = updateHeadTexts.title[lang as keyof typeof updateHeadTexts.title];

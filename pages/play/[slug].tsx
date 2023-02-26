@@ -18,10 +18,12 @@ const Play: NextPage<PlayProps> = ({
 }) => {
 
   const router = useRouter();
-  if(!playlist || !playlist.playable || !playlist.visible) router.push('/404');
 
   const { logged, user } = useContext(UserContext);
   const { lang } = useContext(LangContext);
+
+  if(!playlist || !playlist.playable || !playlist.visible) router.push('/404');
+
   const headTitle = playHeadTexts.title;
   const headDescriptionBefore = playHeadTexts.description.before[lang as keyof typeof playHeadTexts.description.before];
   const headDescriptionAfter = playHeadTexts.description.after[lang as keyof typeof playHeadTexts.description.after];
@@ -30,7 +32,7 @@ const Play: NextPage<PlayProps> = ({
   const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
-    if(logged && step === 3) saveGame();
+    if(step === 3 && logged && !user.banned) saveGame();
   }, [step]);
 
   const saveGame = async() => {

@@ -65,8 +65,6 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
     setLoading(false);
   };
 
-  if(loading || !logged || logged && !user.moderator || logged && !user.admin) return <Loader />
-
   return (
     <>
       <NextHead title={headTitle} />
@@ -75,39 +73,45 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
 
       <PageWrapper title={pageTitle}>
 
-        <Message
-          validMessage={validMessage}
-          setValidMessage={setValidMessage}
-          warningMessage={warningMessage}
-          setWarningMessage={setWarningMessage}
-        />
-
-        <Tabs
-          tabs={[
-            <h2 key={uuidv4()}>{visiblePlaylistsTitle}</h2>,
-            <h2 key={uuidv4()}>{hiddenTitle}</h2>
-          ]}
-          contents={[
-            <VisiblePlaylistsList
-              key={uuidv4()}
-              visiblePlaylists={visiblePlaylists}
-              setVisiblePlaylists={setVisiblePlaylists}
-              hiddenPlaylists={hiddenPlaylists}
-              setHiddenPlaylists={setHiddenPlaylists}
+        {loading || !logged || logged && !user.moderator || logged && !user.admin ?
+          <Loader />
+        :
+          <>
+            <Message
+              validMessage={validMessage}
               setValidMessage={setValidMessage}
-              setWarningMessage={setWarningMessage}
-            />,
-            <HiddenPlaylistsList
-              key={uuidv4()}
-              visiblePlaylists={visiblePlaylists}
-              setVisiblePlaylists={setVisiblePlaylists}
-              hiddenPlaylists={hiddenPlaylists}
-              setHiddenPlaylists={setHiddenPlaylists}
-              setValidMessage={setValidMessage}
+              warningMessage={warningMessage}
               setWarningMessage={setWarningMessage}
             />
-          ]}
-        />
+
+            <Tabs
+              tabs={[
+                <h2 key={uuidv4()}>{visiblePlaylistsTitle}</h2>,
+                <h2 key={uuidv4()}>{hiddenTitle}</h2>
+              ]}
+              contents={[
+                <VisiblePlaylistsList
+                  key={uuidv4()}
+                  visiblePlaylists={visiblePlaylists}
+                  setVisiblePlaylists={setVisiblePlaylists}
+                  hiddenPlaylists={hiddenPlaylists}
+                  setHiddenPlaylists={setHiddenPlaylists}
+                  setValidMessage={setValidMessage}
+                  setWarningMessage={setWarningMessage}
+                />,
+                <HiddenPlaylistsList
+                  key={uuidv4()}
+                  visiblePlaylists={visiblePlaylists}
+                  setVisiblePlaylists={setVisiblePlaylists}
+                  hiddenPlaylists={hiddenPlaylists}
+                  setHiddenPlaylists={setHiddenPlaylists}
+                  setValidMessage={setValidMessage}
+                  setWarningMessage={setWarningMessage}
+                />
+              ]}
+            />
+          </>
+        }
       </PageWrapper>
     </>
   );

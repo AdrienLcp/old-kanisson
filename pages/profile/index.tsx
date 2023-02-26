@@ -14,11 +14,14 @@ import Link from 'next/link';
 import { Loader } from '../../components/Loader/Loader';
 import { Notifications } from '../../components/Notifications/Notifications';
 import { Button } from '../../components/buttons/Button/Button';
+import { useRouter } from 'next/router';
 
 const MyProfile: NextPage = () => {
 
   const { lang } = useContext(LangContext);
   const { user, logged } = useContext(UserContext);
+
+  const router = useRouter();
 
   const headTitle = profileHeadTexts.title[lang as keyof typeof profileHeadTexts.title];
   const headDescription = profileHeadTexts.description[lang as keyof typeof profileHeadTexts.description];
@@ -31,6 +34,7 @@ const MyProfile: NextPage = () => {
   const [toggleForm, setToggleForm] = useState<boolean>(false);
 
   if(!logged) return <Loader />
+  if(logged && user.banned) router.push('/banned');
 
   return (
     <>

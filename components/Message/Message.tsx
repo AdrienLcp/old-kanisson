@@ -28,12 +28,12 @@ export const Message: FC<MessageProps> = ({
           {setValidMessage &&
             <CloseButton
               handleFunction={() => setValidMessage('')}
-              color="var(--valid)"
+              color='var(--valid)'
             />
           }
 
           <span className={styles.icon}>
-            <CheckIcon color="var(--valid)" />
+            <CheckIcon color='var(--valid)' />
           </span>
 
           {validMessage}
@@ -45,12 +45,12 @@ export const Message: FC<MessageProps> = ({
           {setWarningMessage &&
             <CloseButton
               handleFunction={() => setWarningMessage('')}
-              color="var(--warning)"
+              color='var(--warning)'
             />
           }
 
           <span className={styles.icon}>
-            <CrossIcon color="var(--warning)" />
+            <CrossIcon color='var(--warning)' />
           </span>
 
           {warningMessage}

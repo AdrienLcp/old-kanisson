@@ -6,6 +6,9 @@ import { createHeadTexts } from '../translations/layouts/head';
 import { createTexts } from '../translations/pages/create';
 import { NextHead } from '../layouts/Head/Head';
 import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
+import { UserContext } from '../contexts/UserContext';
+import { useRouter } from 'next/router';
+import { PageLoader } from '../layouts/PageLoader/PageLoader';
 import PlaylistForm from '../components/forms/PlaylistForm';
 
 const Create: NextPage<CreateProps> = ({
@@ -13,6 +16,12 @@ const Create: NextPage<CreateProps> = ({
 }) => {
 
   const { lang } = useContext(LangContext);
+  const { logged, user } = useContext(UserContext);
+
+  const router = useRouter();
+
+  if(logged && user.banned) router.push('/banned');
+  if(!logged) return <PageLoader />
 
   const headTitle = createHeadTexts.title[lang as keyof typeof createHeadTexts.title];
   const headDescription = createHeadTexts.description[lang as keyof typeof createHeadTexts.description];

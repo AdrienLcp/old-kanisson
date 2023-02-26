@@ -69,8 +69,6 @@ const UsersModeration: NextPage = () => {
     setBannedUsers(filteredBannedUsers);
   };
 
-  if(loading || !logged || logged && !user.moderator || logged && !user.admin) return <Loader />
-
   return (
     <>
       <NextHead title={headTitle} />
@@ -79,39 +77,45 @@ const UsersModeration: NextPage = () => {
 
       <PageWrapper title={pageTitle}>
 
-        <Message
-          validMessage={validMessage}
-          setValidMessage={setValidMessage}
-          warningMessage={warningMessage}
-          setWarningMessage={setWarningMessage}
-        />
-
-        <Tabs
-          tabs={[
-            <h2 key={uuidv4()}>{usersTab}</h2>,
-            <h2 key={uuidv4()}>{bannedUsersTab}</h2>
-          ]}
-          contents={[
-            <UsersList
-              key={uuidv4()}
-              users={users}
-              setUsers={setUsers}
-              bannedUsers={bannedUsers}
-              setBannedUsers={setBannedUsers}
+        {loading || !logged || logged && !user.moderator || logged && !user.admin ?
+          <Loader />
+        :
+          <>
+            <Message
+              validMessage={validMessage}
               setValidMessage={setValidMessage}
-              setWarningMessage={setWarningMessage}
-            />,
-            <BannedUsersList
-              key={uuidv4()}
-              users={users}
-              setUsers={setUsers}
-              bannedUsers={bannedUsers}
-              setBannedUsers={setBannedUsers}
-              setValidMessage={setValidMessage}
+              warningMessage={warningMessage}
               setWarningMessage={setWarningMessage}
             />
-          ]}
-        />
+
+            <Tabs
+              tabs={[
+                <h2 key={uuidv4()}>{usersTab}</h2>,
+                <h2 key={uuidv4()}>{bannedUsersTab}</h2>
+              ]}
+              contents={[
+                <UsersList
+                  key={uuidv4()}
+                  users={users}
+                  setUsers={setUsers}
+                  bannedUsers={bannedUsers}
+                  setBannedUsers={setBannedUsers}
+                  setValidMessage={setValidMessage}
+                  setWarningMessage={setWarningMessage}
+                />,
+                <BannedUsersList
+                  key={uuidv4()}
+                  users={users}
+                  setUsers={setUsers}
+                  bannedUsers={bannedUsers}
+                  setBannedUsers={setBannedUsers}
+                  setValidMessage={setValidMessage}
+                  setWarningMessage={setWarningMessage}
+                />
+              ]}
+            />
+          </>
+        }
       </PageWrapper>
     </>
   );
