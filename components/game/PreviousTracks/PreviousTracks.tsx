@@ -7,15 +7,15 @@ import { gameTexts } from '../../../translations/pages/play';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './PreviousTracks.module.scss';
 import { Button } from '../../buttons/Button/Button';
-import ArrowIcon from '../../../icons/ArrowIcon';
 import { CoverImage } from '../../CoverImage/CoverImage';
+import ArrowIcon from '../../../icons/ArrowIcon';
 
 export const PreviousTracks: FC<PreviousTracksProps> = ({
   previousTracks
 }) => {
 
   const { lang } = useContext(LangContext);
-  const buttonLabel = gameTexts.previousTracks[lang as keyof typeof gameTexts.previousTracks];
+  const label = gameTexts.previousTracks[lang as keyof typeof gameTexts.previousTracks];
 
   const [opened, setOpened] = useState<boolean>(false);
 
@@ -26,12 +26,12 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
   return (
     <section className={styles.container}>
       <header className={styles.header}>
-        <h4>
+        <h2 className={styles.desktop_hidden}>
           <Button
             onClick={() => setOpened(prev => !prev)}
             styles={styles.button}
           >
-            {buttonLabel} ({previousTracks.length})
+            {label} ({previousTracks.length})
 
             <span className={opened ?
               `${styles.arrow} ${styles.rotated}`
@@ -41,7 +41,11 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
               <ArrowIcon height='16' />
             </span>
           </Button>
-        </h4>
+        </h2>
+
+        <h2 className={`${styles.mobile_hidden} ${styles.previous_title}`}>
+          {label} ({previousTracks.length})
+        </h2>
       </header>
 
       <ul className={opened ?

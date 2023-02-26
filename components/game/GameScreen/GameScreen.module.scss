@@ -15,18 +15,19 @@
   font-weight: 300;
   max-width: 50vw;
   box-shadow: var(--box-shadow);
-  animation: fromBottom 0.5s ease-out forwards;
 
   &_good {
     color: var(--valid);
     background: var(--valid-bg);
     border: 0.1rem solid var(--valid-border);
+    animation: from-bottom 0.5s ease-out forwards;
   }
 
   &_wrong {
     color: var(--warning);
     background: var(--warning-bg);
     border: 0.1rem solid var(--warning-border);
+    animation: shaking 0.5s ease-out forwards;
   }
 }
 
@@ -57,14 +58,34 @@
   }
 }
 
-@keyframes fromBottom {
+@keyframes from-bottom {
   0% {
     opacity: 0;
-    transform: translate(-50%, 3rem);
+    transform: translate(-50%, 3rem) scale(0);
   }
 
   100% {
     opacity: 1;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) scale(1);
   }
+}
+
+@keyframes shaking {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  10% { transform: translateX(calc(-50% + 0.5rem)); }
+  20% {
+    transform: translateX(calc(-50% - 0.5rem));
+    opacity: 1;
+  }
+  30% { transform: translateX(calc(-50% + 0.5rem)); }
+  40% { transform: translateX(calc(-50% - 0.5rem)); }
+  50% { transform: translateX(calc(-50% + 0.5rem)); }
+  60% { transform: translateX(calc(-50% - 0.5rem)); }
+  70% { transform: translateX(calc(-50% + 0.5rem)); }
+  80% { transform: translateX(calc(-50% - 0.5rem)); }
+  90% { transform: translateX(calc(-50% + 0.5rem)); }
+  100% { transform: translateX(-50%); }
 }

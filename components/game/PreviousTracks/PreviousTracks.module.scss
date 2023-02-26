@@ -1,5 +1,9 @@
 @import '../../../styles/mixins';
 
+.mobile_hidden {
+  display: none;
+}
+
 .container {
   @include flexCenter;
   flex-direction: column;
@@ -16,6 +20,7 @@
 }
 
 .header {
+  @include flexCenter;
   width: 100%;
 }
 
@@ -71,6 +76,14 @@
 }
 
 @media screen and (min-width: 850px) {
+  .mobile_hidden {
+    display: block;
+  }
+
+  .desktop_hidden {
+    display: none;
+  }
+
   .container {
     width: 100%;
   }
@@ -79,30 +92,26 @@
     height: auto;
   }
 
-  .button {
+  .previous_title {
     font-size: 1.5rem;
-    height: auto;
-    cursor: default;
+    font-weight: 400;
 
     &:after {
-      content: ':';
-      margin-left: 0.4em;
+      content: ' :';
     }
   }
 
-  .arrow {
-    display: none;
-  }
-
   .list {
-    width: 90%;
-    position: relative;
+    position: relative;;
     max-height: 50vh;
-    overflow-y: auto;
+    overflow: auto;
+    width: 90%;
+    background: transparent;
+    transition: none;
 
     &.opened {
-      max-height: auto;
       overflow-y: auto;
+      max-height: auto;
     }
   }
 

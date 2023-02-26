@@ -33,7 +33,7 @@ export const gameTexts = {
     en: 'Nop, that\'s wrong'
   },
   previousTracks: {
-    fr: 'Titres précédents',
+    fr: 'Sons précédents',
     en: 'Previous songs',
   },
   goodAnswer: {

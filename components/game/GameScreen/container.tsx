@@ -91,11 +91,8 @@ export const GameScreen: FC<GameScreenProps> = ({
   const replaceString = (string: string) :string => {
     const newString = string.toLowerCase();
 
-    newString.replace(/[^a-z0-9]/g, "");
-
-    newString.replace(" ", "");
-    // Regex found on web to replace all accents letters
-    return newString.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    // Regex found on web to replace all accents, specials characters & spaces
+    return newString.normalize("NFD").replace(/[^a-z0-9]/g, "").replace(" ", "").replace(/[\u0300-\u036f]/g, "");
   };
 
   const handleSumbitProposal = (event: FormEvent<HTMLFormElement>) => {
@@ -105,15 +102,9 @@ export const GameScreen: FC<GameScreenProps> = ({
     setWrongGuess(false);
     setGoodGuess(false);
 
-    // const title = replaceString(tracks[index].title);
-    // const artist = replaceString(tracks[index].artist);
-    // const proposal = replaceString(userProposal);
-
-    const title = tracks[index].title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const artist = tracks[index].artist.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const proposal = userProposal.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    console.log(title, artist, proposal);
+    const title = replaceString(tracks[index].title);
+    const artist = replaceString(tracks[index].artist);
+    const proposal = replaceString(userProposal);
 
     // If proposal includes title or artist
     if(title && proposal.includes(title)
