@@ -24,9 +24,8 @@ const Update: NextPage<UpdateProps> = ({
 
   const router = useRouter();
 
-  if(!playlist) return <Loader />
-
-  if(logged && playlist.user_id !== user.id) router.push('/404');
+  if(!playlist) router.push('/404');
+  if(!logged || logged && playlist.user_id !== user.id) return <Loader />;
 
   const headTitle = updateHeadTexts.title[lang as keyof typeof updateHeadTexts.title];
   const pageTitle = pageTitleTexts[lang as keyof typeof pageTitleTexts];

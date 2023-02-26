@@ -18,8 +18,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   apiKey
 }) => {
 
-  const { user, logged } = useContext(UserContext);
-  if(!logged) return <Loader />
+  const { user } = useContext(UserContext);
 
   const router = useRouter();
 

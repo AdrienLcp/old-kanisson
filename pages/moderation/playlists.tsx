@@ -10,12 +10,12 @@ import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
 import { NextHead } from '../../layouts/Head/Head';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
-import { Loader } from '../../components/Loader/Loader';
 import { Tabs } from '../../components/Tabs/Tabs';
 import { VisiblePlaylistsList } from '../../components/moderation/VisiblePlaylistsList/VisiblePlaylistsList';
 import { HiddenPlaylistsList } from '../../components/moderation/HiddenPlaylistsList/HiddenPlaylistsList';
 import { Message } from '../../components/Message/Message';
 import { ModerationNav } from '../../components/moderation/Navigation/ModerationNav';
+import { Loader } from '../../components/Loader/Loader';
 
 const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
   visiblePlaylistsData

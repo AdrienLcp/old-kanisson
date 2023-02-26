@@ -22,9 +22,7 @@ export default async function handle (
             id: uuidv4(),
             pseudo: req.body.pseudo,
             email: req.body.email,
-            password: hash,
-            admin: true,
-            moderator: true
+            password: hash
           }
         });
 
