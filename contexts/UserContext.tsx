@@ -1,7 +1,7 @@
 import type { FC, PropsWithChildren } from 'react';
+import type { User } from '@prisma/client';
 import type { UserContextTypes } from '../types/contexts';
 import { createContext, useState, useEffect } from 'react';
-import { User } from '@prisma/client';
 import { api } from '../api/api';
 import { useRouter } from 'next/router';
 
@@ -35,7 +35,11 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const token = localStorage.getItem('token');
 
     // If there is a token in local storage, check in database if it's still valid
-    if(token) checkToken(token);
+    if(token) {
+      checkToken(token);
+    } else if(!token && logged){
+      logOut();
+    };
   }, [logged]);
 
   const checkToken = async(token: string | null) => {
