@@ -36,9 +36,9 @@ export const GameOver: FC<GameOverProps> = ({
     <section className={styles.container}>
       <article className={styles.card}>
         <header>
-          <h2 className={styles.title}>
+          <h1 className={styles.title}>
             {gameOverText}
-          </h2>
+          </h1>
         </header>
 
         <p className={styles.score}>

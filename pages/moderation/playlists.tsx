@@ -8,7 +8,6 @@ import { moderationHeadTexts } from '../../translations/layouts/head';
 import { playlistsTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/router';
 import { NextHead } from '../../layouts/Head/Head';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import { Loader } from '../../layouts/Loader/Loader';
@@ -21,8 +20,6 @@ import { ModerationNav } from '../../components/moderation/Navigation/Moderation
 const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
   visiblePlaylistsData
 }) => {
-
-  const router = useRouter();
 
   const { user, logged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
@@ -86,7 +83,10 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
         />
 
         <Tabs
-          tabs={[`${visiblePlaylistsTitle}`, `${hiddenTitle}`]}
+          tabs={[
+            <h2>{visiblePlaylistsTitle}</h2>,
+            <h2>{hiddenTitle}</h2>
+          ]}
           contents={[
             <VisiblePlaylistsList
               key={uuidv4()}

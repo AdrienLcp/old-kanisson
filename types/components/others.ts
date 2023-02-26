@@ -86,8 +86,8 @@ export type StarsProps = {
 };
 
 export type TabsProps = {
-  tabs: string[];
-  contents: ReactElement<any>[];
+  tabs: ReactElement[];
+  contents: ReactElement[];
 };
 
 export type UserGamesProps = {

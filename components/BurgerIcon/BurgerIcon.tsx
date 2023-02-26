@@ -5,6 +5,7 @@ import styles from './BurgerIcon.module.scss';
 export const BurgerIcon: FC<BurgerIconProps> = ({
   state,
 }) => {
+
   return (
     <ul
       className={state ?

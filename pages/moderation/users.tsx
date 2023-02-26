@@ -7,7 +7,6 @@ import { moderationHeadTexts } from '../../translations/layouts/head';
 import { usersTexts } from '../../translations/pages/moderation';
 import { api } from '../../api/api';
 import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/router';
 import { NextHead } from '../../layouts/Head/Head';
 import { ModerationNav } from '../../components/moderation/Navigation/ModerationNav';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
@@ -18,8 +17,6 @@ import { UsersList } from '../../components/moderation/UsersList/UsersList';
 import { BannedUsersList } from '../../components/moderation/BannedUsersList/BannedUsersList';
 
 const UsersModeration: NextPage = () => {
-
-  const router = useRouter();
 
   const { user, logged } = useContext(UserContext);
   const { lang } = useContext(LangContext);
@@ -90,7 +87,10 @@ const UsersModeration: NextPage = () => {
         />
 
         <Tabs
-          tabs={[`${usersTab}`, `${bannedUsersTab}`]}
+          tabs={[
+            <h2>{usersTab}</h2>,
+            <h2>{bannedUsersTab}</h2>
+          ]}
           contents={[
             <UsersList
               key={uuidv4()}
@@ -112,7 +112,6 @@ const UsersModeration: NextPage = () => {
             />
           ]}
         />
-
       </PageWrapper>
     </>
   );

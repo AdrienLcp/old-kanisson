@@ -25,13 +25,13 @@ export const BeforeGame: FC<BeforeGameProps> = ({
     <section className={styles.container}>
       <article className={styles.card}>
         <header>
-          <h2 className={styles.title}>
+          <h1 className={styles.title}>
             {playlist.title}
-          </h2>
+          </h1>
 
-          <h3 className={styles.description}>
+          <h2 className={styles.description}>
             {playlist.description}
-          </h3>
+          </h2>
         </header>
 
         <section className={styles.details}>

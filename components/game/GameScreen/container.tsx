@@ -15,8 +15,7 @@ export const GameScreen: FC<GameScreenProps> = ({
   setStep
 }) => {
 
-  let index = 0;
-
+  const [index, setIndex] = useState<number>(0);
   const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
   const [goodAnswer, setGoodAnswer] = useState<Track>(tracks[0]);
   const [previousTracks, setPreviousTracks] = useState<Track[]>([]);
@@ -49,37 +48,54 @@ export const GameScreen: FC<GameScreenProps> = ({
     // Start game & turn on 'guessing time' state
     setGuessingTime(true);
 
-    // Prepare good answer
-    setGoodAnswer(tracks[index]);
+    // Use current value of setState from index to update goodAnswer state
+    setIndex(currentValue => {
+      setGoodAnswer(tracks[currentValue]);
+      return currentValue;
+    });
 
     // After 30 seconds, show good answer
     setTimeout(() => showGoodAnswer(), guessTime * 1000);
   };
 
   const showGoodAnswer = () => {
-    // Add current track to 'previousTracks list'
-    setPreviousTracks(array => [...array, tracks[index]]);
+    // Use current value of setState's index to update all needed states
+    setIndex(currentValue => {
+      // Add current track to 'previousTracks list'
+      setPreviousTracks(array => [...array, tracks[currentValue]]);
 
-    // Increment index to watch when it's 10th song
-    index++;
+      // Prepare current track for next song
+      setCurrentTrack(tracks[currentValue + 1]);
 
-    // Change current track to prepare next song
-    setCurrentTrack(tracks[index]);
+      // Reset guessingTime & guessed states
+      setGuessingTime(false);
+      setGuessed(false);
 
-    // Stop 'guessing time' state & reset guessed state
-    setGuessingTime(false);
-    setGuessed(false);
+      // After good answer time,
+      setTimeout(() => {
+        // If all the tracks have been played
+        if(currentValue + 1 === tracks.length) {
+          // Go to step 3 => game over
+          setStep(value => value + 1);
+        } else {
+          // Or play the next song
+          nextSong();
+        };
+      }, goodAnswerTime * 1000);
 
-    // After 5 seconds
-    setTimeout(() => {
-      if(index === tracks.length) {
-        // Game is over
-        setStep(value => value + 1);
-      } else {
-        // Start next song
-        nextSong();
-      };
-    }, goodAnswerTime * 1000);
+      // Increment index
+      return currentValue + 1;
+    });
+  };
+
+  const replaceString = (string: string) :string => {
+    const newString = string.toLowerCase();
+
+    newString.replace(/[^a-z0-9]/g, "");
+
+    newString.replace(" ", "");
+    // Regex found on web to replace all accents letters
+    return newString.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
 
   const handleSumbitProposal = (event: FormEvent<HTMLFormElement>) => {
@@ -89,10 +105,13 @@ export const GameScreen: FC<GameScreenProps> = ({
     setWrongGuess(false);
     setGoodGuess(false);
 
-    // Remove all spaces & specials carachters
-    const title = tracks[index].title.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const artist = tracks[index].artist.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const proposal = userProposal.toLowerCase().replace(/[^a-z0-9]/g, "");
+    // const title = replaceString(tracks[index].title);
+    // const artist = replaceString(tracks[index].artist);
+    // const proposal = replaceString(userProposal);
+
+    const title = tracks[index].title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const artist = tracks[index].artist.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const proposal = userProposal.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     console.log(title, artist, proposal);
 

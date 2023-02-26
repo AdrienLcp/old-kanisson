@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { PreviousTracksProps } from '../../../types/components/game';
 import type { Track } from '@prisma/client';
-import { useState, useContext } from 'react';
+import { useState, useContext, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
 import { v4 as uuidv4 } from 'uuid';
@@ -19,6 +19,10 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
 
   const [opened, setOpened] = useState<boolean>(false);
 
+  const displayedTracks = useMemo(() => {
+    return previousTracks;
+  }, [previousTracks]);
+
   return (
     <section className={styles.container}>
       <header className={styles.header}>
@@ -27,7 +31,7 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
             onClick={() => setOpened(prev => !prev)}
             styles={styles.button}
           >
-            {buttonLabel}
+            {buttonLabel} ({previousTracks.length})
 
             <span className={opened ?
               `${styles.arrow} ${styles.rotated}`
@@ -46,7 +50,7 @@ export const PreviousTracks: FC<PreviousTracksProps> = ({
         `${styles.list}`
       }>
 
-        {previousTracks?.map((track: Track) =>
+        {displayedTracks?.map((track: Track) =>
           <li key={uuidv4()} className={styles.item}>
             <article className={styles.card}>
 
