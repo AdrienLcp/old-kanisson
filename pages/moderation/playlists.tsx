@@ -84,8 +84,8 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
 
         <Tabs
           tabs={[
-            <h2>{visiblePlaylistsTitle}</h2>,
-            <h2>{hiddenTitle}</h2>
+            <h2 key={uuidv4()}>{visiblePlaylistsTitle}</h2>,
+            <h2 key={uuidv4()}>{hiddenTitle}</h2>
           ]}
           contents={[
             <VisiblePlaylistsList

@@ -27,8 +27,8 @@ export const TracksForm: FC<TracksFormProps> = ({
       <div className={`${styles.container} ${styles.mobile}`}>
         <Tabs
           tabs={[
-            <h2>{listTitle} ({tracks.length})</h2>,
-            <h2>{searchTitle}</h2>
+            <h2 key={uuidv4()}>{listTitle} ({tracks.length})</h2>,
+            <h2 key={uuidv4()}>{searchTitle}</h2>
           ]}
           contents={[
             <TrackList

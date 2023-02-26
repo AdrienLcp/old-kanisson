@@ -88,8 +88,8 @@ const UsersModeration: NextPage = () => {
 
         <Tabs
           tabs={[
-            <h2>{usersTab}</h2>,
-            <h2>{bannedUsersTab}</h2>
+            <h2 key={uuidv4()}>{usersTab}</h2>,
+            <h2 key={uuidv4()}>{bannedUsersTab}</h2>
           ]}
           contents={[
             <UsersList
