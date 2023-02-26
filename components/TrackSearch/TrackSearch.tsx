@@ -43,14 +43,16 @@ export const TrackSearch: FC<TrackSearchProps> = ({
       const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=50`);
       const results: SearchResults = await dataSearched.json();
 
+      const validTracks = [] as SearchResultItem[];
+
       // If track result from youtube API is already on the blind test track list, we filter it
-      const filteredTracks = results.items.filter(result => {
-        return tracks.map(track => {
-          if(track.youtube_id !== result.id.videoId) return result;
+      results.items.forEach(result => {
+        tracks.forEach(track => {
+          if(result.id.videoId !== track.youtube_id) validTracks.push(result);
         });
       });
 
-      setTracksResults(filteredTracks);
+      setTracksResults(validTracks);
       setLoading(false);
     };
   };
