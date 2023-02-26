@@ -13,6 +13,7 @@ import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
 import { ConfirmModal } from '../components/ConfirmModal/ConfirmModal';
 import { ContactForm } from '../components/forms/ContactForm/ContactForm';
 import { Message } from '../components/Message/Message';
+import { Button } from '../components/buttons/Button/Button';
 import styles from '../styles/Banned.module.scss';
 
 const Banned: NextPage = () => {
@@ -102,15 +103,13 @@ const Banned: NextPage = () => {
           setWarningMessage={setWarningMessage}
         />
 
-        <button
-          className={styles.button}
-          type='button'
+        <Button
+          styles={styles.button}
           title={buttonTitle}
-          aria-label={buttonTitle}
           onClick={() => setToggleModal(true)}
         >
           {buttonLabel}
-        </button>
+        </Button>
 
         {toggleModal &&
           <ConfirmModal

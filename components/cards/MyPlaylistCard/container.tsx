@@ -7,6 +7,7 @@ import { messages } from '../../../translations/others/error';
 import { api } from '../../../api/api';
 import { MyPlaylistCardView } from './view';
 import { Loader } from '../../Loader/Loader';
+import { UserContext } from '../../../contexts/UserContext';
 
 export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
   playlist,
@@ -17,6 +18,7 @@ export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
   setValidMessage
 }) => {
 
+  const { user } = useContext(UserContext);
   const { lang } = useContext(LangContext);
   const errorMessage = messages.globalError[lang as keyof typeof messages.globalError];
   const notAuthorized = messages.authorization[lang as keyof typeof messages.authorization];
@@ -29,6 +31,11 @@ export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
     setLoading(true);
     const token = localStorage.getItem('token');
 
+    const body = {
+      user_id: user.id,
+      playlist_id: playlist.id
+    };
+
     // Delete playlist from database
     await fetch(`${api}/playlist/delete`, {
       method: 'POST',
@@ -36,7 +43,7 @@ export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
         'Content-Type': 'application/json',
         'Authorization': `${token}`
       },
-      body: JSON.stringify({ playlist_id: playlist.id })
+      body: JSON.stringify(body)
     })
     .then(async(res) => {
       const data = await res.json();

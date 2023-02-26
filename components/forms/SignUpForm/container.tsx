@@ -43,6 +43,8 @@ export const SignUpForm: FC = () => {
 
   // Check if everything is ok
   const checkForm = () => {
+    setWarningMessage('');
+
     // If password doesn't have a lowercase, a uppercase, a special caracter, a number & at least 8 caracters
     if(!validPassword) {
       // Set warning message

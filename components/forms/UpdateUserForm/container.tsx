@@ -41,6 +41,10 @@ export const UpdateUserForm: FC = () => {
   const special = new RegExp('(?=.*[!@#\$%\^&\*])');
 
   const checkForm = () => {
+    // Reset messages
+    setWarningMessage('');
+    setValidMessage('');
+
     if(pseudo === user.pseudo && email === user.email) {
       // Nothing change
       setValidMessage(nothingChanged);

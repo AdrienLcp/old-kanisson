@@ -20,18 +20,18 @@ export const isLogged = (fn: NextApiHandler) => async (
 
         if(user) {
           if(user.banned) {
-            res.status(401).json({message: "Vous avez été banni"});
+            res.status(403).json({message: "You were banned"});
           } else {
             return await fn(req, res);
           };
         } else {
-          res.status(404).json({message: "Utilisateur inexistant"});
+          res.status(404).json({message: "Unkown user"});
         };
       } catch (error){
         res.status(404).json(error);
       };
     } else {
-      res.status(401).json({message: "Vous n'êtes pas authentifié"});
+      res.status(401).json({message: "You're not authenticated"});
     };
   });
 };

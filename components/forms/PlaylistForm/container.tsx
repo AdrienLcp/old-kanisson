@@ -40,6 +40,10 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const checkForm = () => {
+    // Reset messages
+    setValidMessage('');
+    setWarningMessage('');
+
     const special = new RegExp('(?=.*[!@/#\$%\^&\*])');
 
     // If nothing changed
