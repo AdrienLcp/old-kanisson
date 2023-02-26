@@ -16,21 +16,18 @@ import SearchIcon from '../../icons/SearchIcon';
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
   setTracks,
-  search,
-  setSearch,
-  previousSearch,
-  setPreviousSearch,
-  tracksResults,
-  setTracksResults,
   apiKey
 }) => {
 
   const { lang } = useContext(LangContext);
-
   const inputLabel = inputTexts.label[lang as keyof typeof inputTexts.label];
   const inputTitle = inputTexts.title[lang as keyof typeof inputTexts.title];
   const buttonTitle = buttonTexts[lang as keyof typeof buttonTexts];
 
+  // Search states in this component to prevent to many fetchs with toggle state
+  const [search, setSearch] = useState<string>('');
+  const [previousSearch, setPreviousSearch] = useState<string>('');
+  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchData = async() => {
@@ -41,15 +38,17 @@ export const TrackSearch: FC<TrackSearchProps> = ({
 
       // Fetch data from youtube API
       const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=50`);
-      const results: SearchResults = await dataSearched.json();
+      const fetchedResults: SearchResults = await dataSearched.json();
 
+      const results = [...fetchedResults.items];
       const validTracks = [] as SearchResultItem[];
+      const tracksIDs = [] as string[];
 
-      // If track result from youtube API is already on the blind test track list, we filter it
-      results.items.forEach(result => {
-        tracks.forEach(track => {
-          if(result.id.videoId !== track.youtube_id) validTracks.push(result);
-        });
+      tracks.map(track => tracksIDs.push(track.youtube_id));
+
+      // If track is already in tracksList, filter it
+      results.map(result => {
+        if(!tracksIDs.includes(result.id.videoId)) validTracks.push(result);
       });
 
       setTracksResults(validTracks);

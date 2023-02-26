@@ -3,6 +3,7 @@
 .container {
   width: 90vw;
   max-width: 30rem;
+  box-shadow: var(--box-shadow);
 }
 
 .list {
@@ -17,15 +18,24 @@
   width: 100%;
   padding: 1.5em;
   border-radius: var(--sm-radius) var(--sm-radius) 0 0;
-  background: var(--body-color);
+  background: var(--sm-opacity);
 
   &.selected {
-    background: var(--light-grey);
+    background: var(--body-color);
+  }
+
+  &:hover {
+    background: var(--main-color-light);
+
+    &.selected {
+      background: var(--light-grey);
+      cursor: default;
+    }
   }
 }
 
 .content {
-  background: var(--light-grey);
+  background: var(--body-color);
   padding: 1.5em;
   border-radius: 0 0 var(--sm-radius) var(--sm-radius);
 }
@@ -33,15 +43,6 @@
 @media screen and (min-width: 850px) {
   .container {
     max-width: 50rem;
-  }
-
-  .button:hover {
-    background: var(--main-color-light);
-
-    &.selected {
-      background: var(--light-grey);
-      cursor: default;
-    }
   }
 
   .content {

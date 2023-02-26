@@ -28,7 +28,7 @@ export const Tabs: FC<TabsProps> = ({
                 }
                 onClick={() => setSelectedTab(index)}
               >
-                <h2>{tab}</h2>
+                {tab}
               </Button>
             </li>
           )}

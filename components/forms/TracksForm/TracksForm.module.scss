@@ -8,6 +8,8 @@
   max-width: 50rem;
   background: var(--body-color);
   border-radius: var(--md-radius);
+  box-shadow: var(--box-shadow);
+  margin-top: 1rem;
 }
 
 .header {
@@ -52,8 +54,11 @@
   }
 
   .container {
+    margin-top: 2rem;
+    padding-top: 1rem;
     width: 80rem;
     max-width: 80vw;
+    padding-bottom: 1rem;
   }
 
   .desktop {

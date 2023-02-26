@@ -22,16 +22,14 @@ export const TracksForm: FC<TracksFormProps> = ({
   const listTitle = titlesTexts.list[lang as keyof typeof titlesTexts.list];
   const searchTitle = titlesTexts.search[lang as keyof typeof titlesTexts.search];
 
-  // Search states in this component to prevent to many fetchs with toggle state
-  const [search, setSearch] = useState<string>('');
-  const [previousSearch, setPreviousSearch] = useState<string>('');
-  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
-
   return (
     <>
       <div className={`${styles.container} ${styles.mobile}`}>
         <Tabs
-          tabs={[`${listTitle} (${tracks.length})`, `${searchTitle}`]}
+          tabs={[
+            <h2>{listTitle} ({tracks.length})</h2>,
+            <h2>{searchTitle}</h2>
+          ]}
           contents={[
             <TrackList
               key={uuidv4()}
@@ -42,12 +40,6 @@ export const TracksForm: FC<TracksFormProps> = ({
               key={uuidv4()}
               tracks={tracks}
               setTracks={setTracks}
-              search={search}
-              setSearch={setSearch}
-              previousSearch={previousSearch}
-              setPreviousSearch={setPreviousSearch}
-              tracksResults={tracksResults}
-              setTracksResults={setTracksResults}
               apiKey={apiKey}
             />
           ]}
@@ -67,12 +59,6 @@ export const TracksForm: FC<TracksFormProps> = ({
           <TrackSearch
             tracks={tracks}
             setTracks={setTracks}
-            search={search}
-            setSearch={setSearch}
-            previousSearch={previousSearch}
-            setPreviousSearch={setPreviousSearch}
-            tracksResults={tracksResults}
-            setTracksResults={setTracksResults}
             apiKey={apiKey}
           />
         </ListWrapper>
