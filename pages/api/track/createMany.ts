@@ -19,7 +19,7 @@ export default isLogged(async function handle (
       ]
     });
 
-    res.status(201).json(tracks);
+    res.status(200).json(tracks);
 
   } catch (error){
     res.status(404).json(error);

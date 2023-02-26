@@ -15,7 +15,8 @@ export const SignInFormView: FC<SignInFormProps> = ({
   pseudoOrEmail, setPseudoOrEmail,
   password, setPassword,
   rememberMe, setRememberMe,
-  warningMessage, setWarningMessage
+  warningMessage, setWarningMessage,
+  loading
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -34,6 +35,7 @@ export const SignInFormView: FC<SignInFormProps> = ({
       handleSubmit={handleSubmit}
       submitLabel={submitLabel}
       submitTitle={submitTitle}
+      loading={loading}
     >
       <InputField
         value={pseudoOrEmail}

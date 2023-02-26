@@ -5,7 +5,6 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
-import { Loader } from '../../Loader/Loader';
 import { SignUpFormView } from './view';
 
 export const SignUpForm: FC = () => {
@@ -134,8 +133,6 @@ export const SignUpForm: FC = () => {
     };
   };
 
-  if(loading) return <Loader />;
-
   return (
     <SignUpFormView
       handleSubmit={handleSubmit}
@@ -152,6 +149,7 @@ export const SignUpForm: FC = () => {
       warningMessage={warningMessage}
       setWarningMessage={setWarningMessage}
       setValidPassword={setValidPassword}
+      loading={loading}
     />
   );
 };

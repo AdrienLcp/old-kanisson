@@ -26,6 +26,7 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
   const confirmContent = myPlaylistCard.confirmModal.content[lang as keyof typeof myPlaylistCard.confirmModal.content];
   const warningTitle = myPlaylistCard.warningTexts[lang as keyof typeof myPlaylistCard.warningTexts];
   const hiddenTitle = myPlaylistCard.hiddenTexts[lang as keyof typeof myPlaylistCard.hiddenTexts];
+  const nbOfTracksText = playlistCard.songs[lang as keyof typeof playlistCard.songs];
 
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
@@ -41,11 +42,9 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
             {playlist.title}
           </h3>
 
-          {playlist.description &&
-            <p className={styles.description}>
-              {playlist.description}
-            </p>
-          }
+          <p className={styles.tracks}>
+            {playlist.nbOfTracks} {nbOfTracksText}
+          </p>
         </header>
 
         {!playlist.playable &&

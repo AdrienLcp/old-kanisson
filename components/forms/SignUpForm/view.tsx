@@ -18,7 +18,8 @@ export const SignUpFormView: FC<SignUpFormProps> = ({
   confirmPassword, setConfirmPassword,
   rememberMe, setRememberMe,
   warningMessage, setWarningMessage,
-  setValidPassword
+  setValidPassword,
+  loading
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -37,6 +38,7 @@ export const SignUpFormView: FC<SignUpFormProps> = ({
       handleSubmit={handleSubmit}
       submitLabel={submitLabel}
       submitTitle={submitTitle}
+      loading={loading}
     >
       <InputField
         value={pseudo}

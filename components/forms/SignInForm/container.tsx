@@ -4,7 +4,6 @@ import { api } from '../../../api/api';
 import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { messages } from '../../../translations/others/error';
-import { Loader } from '../../Loader/Loader';
 import { SignInFormView } from './view';
 
 export const SignInForm: FC = () => {
@@ -66,8 +65,6 @@ export const SignInForm: FC = () => {
     setLoading(false);
   };
 
-  if(loading) return <Loader />;
-
   return (
     <SignInFormView
       handleSubmit={handleSubmit}
@@ -79,6 +76,7 @@ export const SignInForm: FC = () => {
       setRememberMe={setRememberMe}
       warningMessage={warningMessage}
       setWarningMessage={setWarningMessage}
+      loading={loading}
     />
   );
 };

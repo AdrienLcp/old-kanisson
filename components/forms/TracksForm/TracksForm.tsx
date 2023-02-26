@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import type { TracksFormProps } from '../../../types/components/forms';
-import type { SearchResultItem } from '../../../types/youtube';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { titlesTexts } from '../../../translations/components/trackForm';
 import { v4 as uuidv4 } from 'uuid';

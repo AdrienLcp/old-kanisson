@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Game } from '@prisma/client';
 import db from '../../../lib/prisma';
 
 export default async function handle (
@@ -6,7 +7,7 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
-    const playedGames = await db.game.findMany({
+    const playedGames: Game[] = await db.game.findMany({
       where: {
         pseudo: req.body.pseudo
       }

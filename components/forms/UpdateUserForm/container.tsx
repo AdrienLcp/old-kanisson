@@ -33,7 +33,6 @@ export const UpdateUserForm: FC = () => {
   const [previousPassword, setpreviousPassword] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
-
   const [loading, setLoading] = useState<boolean>(false);
   const [validPassword, setValidPassword] = useState<boolean>(false);
   const [validMessage, setValidMessage] = useState<string>('');

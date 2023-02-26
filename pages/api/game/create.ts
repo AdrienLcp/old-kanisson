@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { checkUser } from '../../../middlewares/checkUser';
-import { v4 as uuidv4 } from 'uuid';
+import { Game } from '@prisma/client';
 import db from '../../../lib/prisma';
 
 export default checkUser(async function handle (
@@ -8,9 +8,8 @@ export default checkUser(async function handle (
   res: NextApiResponse
 ) {
   try {
-    const playedGame = await db.game.create({
+    const playedGame: Game = await db.game.create({
       data: {
-        id: uuidv4(),
         ...req.body
       }
     });

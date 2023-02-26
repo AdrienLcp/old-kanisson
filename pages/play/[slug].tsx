@@ -10,6 +10,7 @@ import { NextHead } from '../../layouts/Head/Head';
 import { BeforeGame } from '../../components/game/BeforeGame/BeforeGame';
 import { GameOver } from '../../components/game/GameOver/GameOver';
 import GameScreen from '../../components/game/GameScreen';
+import styles from '../../styles/Play.module.scss';
 
 const Play: NextPage<PlayProps> = ({
   playlist,
@@ -51,9 +52,7 @@ const Play: NextPage<PlayProps> = ({
       },
       body: JSON.stringify(body)
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
   };
 
   return (
@@ -62,6 +61,12 @@ const Play: NextPage<PlayProps> = ({
         title={`${playlist.title} ${headTitle}`}
         description={`${headDescriptionBefore} "${playlist.title}" ${headDescriptionAfter}`}
       />
+
+      <header className={styles.header}>
+        <h1 className={styles.title}>
+          {playlist.title}
+        </h1>
+      </header>
 
       <main>
         {step === 1 &&

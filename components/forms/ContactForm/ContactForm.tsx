@@ -10,6 +10,7 @@ import { InputField } from '../../inputs/InputField/InputField';
 import { InputArea } from '../../inputs/InputArea/InputArea';
 import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import { Button } from '../../buttons/Button/Button';
+import { Loader } from '../../Loader/Loader';
 
 // We use FormSpree for this contact form
 // ==>    https://formspree.io/
@@ -30,7 +31,9 @@ export const ContactForm: FunctionComponent = () => {
   const [area, setArea] = useState<string>('');
 
   if(state.succeeded) return (
-    <Message validMessage={sentText} />
+    <section className={styles.success}>
+      <Message validMessage={sentText} />
+    </section>
   );
 
   return (
@@ -65,16 +68,20 @@ export const ContactForm: FunctionComponent = () => {
         errors={state.errors}
       />
 
-      <Button
-        styles={styles.button}
-        type='submit'
-        title={sendTitle}
-        disabled={state.submitting}
-      >
-        <SendIcon color={"var(--white)"} />
+      {state.submitting ?
+        <Loader />
+      :
+        <Button
+          styles={styles.button}
+          type='submit'
+          title={sendTitle}
+          disabled={state.submitting}
+        >
+          <SendIcon color={"var(--white)"} />
 
-        {sendLabel}
-      </Button>
+          {sendLabel}
+        </Button>
+      }
     </FormWrapper>
   );
 };

@@ -33,6 +33,7 @@ export type SignInFormProps = {
   setRememberMe: Dispatch<SetStateAction<boolean>>;
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
+  loading: boolean;
 };
 
 export type SignUpFormProps = {
@@ -50,6 +51,7 @@ export type SignUpFormProps = {
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
+  loading: boolean;
 };
 
 export type TracksFormProps = {

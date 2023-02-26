@@ -9,6 +9,10 @@
   font-size: 0.8rem;
 }
 
+.success {
+  @include posCenter;
+}
+
 @media screen and (min-width: 850px) {
 
   .button {

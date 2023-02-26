@@ -12,6 +12,7 @@ import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
 import { Message } from '../../Message/Message';
 import { TracksForm } from '../TracksForm/TracksForm';
 import { Button } from '../../buttons/Button/Button';
+import { Loader } from '../../Loader/Loader';
 
 export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   handleSubmit,
@@ -66,14 +67,18 @@ export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
           setWarningMessage={setWarningMessage}
         />
 
-        <Button
-          styles={styles.button}
-          type='submit'
-          title={router.pathname === '/playlist/create' ? createTitle : updateTitle}
-          disabled={loading}
-        >
-          {router.pathname === '/playlist/create' ? createLabel : updateLabel}
-        </Button>
+        {loading ?
+          <Loader />
+        :
+          <Button
+            styles={styles.button}
+            type='submit'
+            title={router.pathname === '/playlist/create' ? createTitle : updateTitle}
+            disabled={loading}
+          >
+            {router.pathname === '/playlist/create' ? createLabel : updateLabel}
+          </Button>
+        }
       </FormWrapper>
 
       <TracksForm

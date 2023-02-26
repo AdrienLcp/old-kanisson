@@ -18,11 +18,13 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   apiKey
 }) => {
 
-  const { lang } = useContext(LangContext);
   const { user, logged } = useContext(UserContext);
+  if(!logged) return <Loader />
+
   const router = useRouter();
 
   // Translated texts
+  const { lang } = useContext(LangContext);
   const errorMessage = messages.globalError[lang as keyof typeof messages.globalError];
   const alreadyTaken = errorTexts.titleTaken[lang as keyof typeof errorTexts.titleTaken];
   const titleError = errorTexts.titleError[lang as keyof typeof errorTexts.titleError];
@@ -114,7 +116,8 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         if(res.status === 200) {
           setValidMessage(updated);
           await updateTracks(data.id);
-          router.push(`/update/${data.title}`);
+
+          if(router.pathname === '/create') router.push(`/update/${data.title}`);
         } else {
           console.log(data);
           setWarningMessage(alreadyTaken);
@@ -130,6 +133,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   };
 
   const updateTracks = async(playlist_id: string) => {
+    // Get token
     const token = localStorage.getItem('token');
 
     // Update playlist_id for each track (usefull for create a playlist, not for updating)
@@ -145,15 +149,16 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
       body: JSON.stringify(newTracks)
     })
     .then(async(res) => {
-      const data = await res.json();
-      console.log(data);
+      if(res.status !== 200) {
+        const data = await res.json();
+        console.log(data);
+        setWarningMessage(errorMessage);
+      };
     })
     .catch((error) => {
       console.log(error);
     });
   };
-
-  if(loading || !logged) return <Loader />
 
   return (
     <PlaylistFormView
