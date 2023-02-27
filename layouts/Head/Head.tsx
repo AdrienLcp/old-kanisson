@@ -29,7 +29,7 @@ export const NextHead: FC<HeadProps> = ({
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
 
-      <meta property="og:image" content="/favicon/favicon-32x32.png" />
+      <meta property="og:image" content="https://www.kanisson.com/favicon/favicon-32x32.png" />
       <meta property="og:image:width" content="32" />
       <meta property="og:image:height" content="32" />
       <meta property="og:type" content="Website" />
