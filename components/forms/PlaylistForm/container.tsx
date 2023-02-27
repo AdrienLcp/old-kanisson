@@ -40,10 +40,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const checkForm = () => {
-    // Reset messages
-    setValidMessage('');
-    setWarningMessage('');
-
     const special = new RegExp('(?=.*[!@/#\$%\^&\*])');
 
     // If nothing changed
@@ -156,11 +152,11 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         const data = await res.json();
         console.log(data);
         setWarningMessage(errorMessage);
-      };
+      } else {
+        console.log("Ok tout est bon, c'est enregistré")
+      }
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
   };
 
   return (

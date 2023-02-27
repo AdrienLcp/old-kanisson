@@ -39,15 +39,18 @@ export const TrackSearch: FC<TrackSearchProps> = ({
       // Fetch data from youtube API
       const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=50`);
       const fetchedResults: SearchResults = await dataSearched.json();
-
       const results = [...fetchedResults.items];
+
+      // We want only videos (not channels or playlists)
+      const filteredResults = results.filter(result => result.id.kind === 'youtube#video');
+
       const validTracks = [] as SearchResultItem[];
       const tracksIDs = [] as string[];
 
       tracks.map(track => tracksIDs.push(track.youtube_id));
 
       // If track is already in tracksList, filter it
-      results.map(result => {
+      filteredResults.map(result => {
         if(!tracksIDs.includes(result.id.videoId)) validTracks.push(result);
       });
 
