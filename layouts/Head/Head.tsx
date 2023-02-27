@@ -32,23 +32,19 @@ export const NextHead: FC<HeadProps> = ({
       <meta property="og:image" content="/favicon/android-chrome-192x192.png" />
       <meta property="og:image:width" content="192" />
       <meta property="og:image:height" content="192" />
-      <meta property="og:type" content="game" />
+      <meta property="og:type" content="Website" />
       <meta property="og:author" content="Adrien Lacourpaille" />
       <meta property="og:locale" content="fr_FR" />
       <meta property="og:description" content={description ? description : defaultDescription} />
       <meta property="og:title" content={title ? title : defaultTitle} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="/favicon/android-chrome-192x192.png" />
+      <meta name="twitter:image" content="/favicon/favicon-32x32.png" />
       <meta name="twitter:creator" content="@Adrien_Lcp" />
       <meta name="twitter:description" content={description ? description : defaultDescription} />
       <meta name="twitter:title" content={title ? title : defaultTitle} />
 
-      <meta
-        name="description"
-        content={description ? description : defaultDescription}
-      />
-
+      <meta name="description" content={description ? description : defaultDescription} />
       <title>{title ? title : defaultTitle}</title>
     </Head>
   );
