@@ -29,6 +29,18 @@ export const NextHead: FC<HeadProps> = ({
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
 
+      <meta property="og:image" content="https://www.kanisson.com/public/favicon/android-chrome-512x512.png" />
+      <meta property="og:type" content="game" />
+      <meta property="og:locale" content="fr_FR" />
+      <meta property="og:description" content={description ? description : defaultDescription} />
+      <meta property="og:title" content={title ? title : defaultTitle} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://www.kanisson.com/public/favicon/android-chrome-512x512.png" />
+      <meta name="twitter:creator" content="@Adrien_Lcp" />
+      <meta name="twitter:description" content={description ? description : defaultDescription} />
+      <meta name="twitter:title" content={title ? title : defaultTitle} />
+
       <meta
         name="description"
         content={description ? description : defaultDescription}
