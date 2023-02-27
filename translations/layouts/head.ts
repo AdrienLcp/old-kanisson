@@ -4,8 +4,8 @@ export const headTexts = {
     en: 'Kanisson - Blind test site'
   },
   description: {
-    fr: 'Créez votre propre quiz musical et jouez à ceux de la communauté',
-    en: 'Create your own musical quiz and play those of the community'
+    fr: 'Découvrez et jouez aux blind tests créés par la communauté de Kanisson. Concevez vos propres quizz, ajoutez-y des sons grâce à Youtube et laissez les Kanissien.e.s y jouer.',
+    en: 'Discover and play the blind tests created by the Kanisson community. Design your own quizzes, add sounds to them thanks to Youtube and let the Kanissians play it.'
   }
 };
 
