@@ -3,7 +3,6 @@ import type { PlayProps } from '../../types/pages';
 import { useRouter } from 'next/router';
 import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../contexts/UserContext';
-import { LangContext } from '../../contexts/LangContext';
 import { playHeadTexts } from '../../translations/layouts/head';
 import { api } from '../../api/api';
 import { NextHead } from '../../layouts/Head/Head';
@@ -20,13 +19,10 @@ const Play: NextPage<PlayProps> = ({
   const router = useRouter();
 
   const { logged, user } = useContext(UserContext);
-  const { lang } = useContext(LangContext);
 
   if(!playlist || !playlist.playable || !playlist.visible) router.push('/404');
 
   const headTitle = playHeadTexts.title;
-  const headDescriptionBefore = playHeadTexts.description.before[lang as keyof typeof playHeadTexts.description.before];
-  const headDescriptionAfter = playHeadTexts.description.after[lang as keyof typeof playHeadTexts.description.after];
 
   const [step, setStep] = useState<number>(1);
   const [score, setScore] = useState<number>(0);
@@ -61,7 +57,8 @@ const Play: NextPage<PlayProps> = ({
     <>
       <NextHead
         title={`${playlist.title} ${headTitle}`}
-        description={`${headDescriptionBefore} "${playlist.title}" ${headDescriptionAfter}`}
+        description={playlist.description}
+        url={router.pathname}
       />
 
       <header className={styles.header}>

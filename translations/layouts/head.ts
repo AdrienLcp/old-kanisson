@@ -77,16 +77,6 @@ export const notFoundHeadTexts = {
 
 export const playHeadTexts = {
   title: '- Kanisson',
-  description: {
-    before: {
-      fr: 'Jouez à la playlist',
-      en: 'Play to'
-    },
-    after: {
-      fr: 'sur Kanisson, le site de quiz musical. Vous avez 30 secondes pour trouver le titre et/ou l\'artiste de 10 musiques',
-      en: 'on Kanisson, the blind test site. You have 30 seconds to find the title and/or the artist of 10 songs'
-    }
-  }
 };
 
 export const profileHeadTexts = {
