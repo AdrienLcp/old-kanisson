@@ -22,5 +22,9 @@ export const messages = {
   authorization: {
     fr: "Vous n'avez pas l'autorisation pour cette action",
     en: "You do not have permission for this action"
+  },
+  youtubeQuota: {
+    fr: 'Le quota de requête à l\'API Youtube a été atteint, réessayez demain',
+    en: 'Youtube API request quota has been reached, try again tomorrow'
   }
 };

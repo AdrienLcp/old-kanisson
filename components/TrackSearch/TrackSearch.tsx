@@ -6,12 +6,13 @@ import { youtube } from '../../api/api';
 import { LangContext } from '../../contexts/LangContext';
 import { inputTexts, buttonTexts } from '../../translations/components/trackSearch';
 import { v4 as uuidv4 } from 'uuid';
-import styles from './TrackSearch.module.scss';
 import { InputField } from '../inputs/InputField/InputField';
 import { IconButton } from '../buttons/IconButton/IconButton';
 import { TrackSearchCard } from '../cards/TrackSearchCard/TrackSearchCard';
 import { Loader } from '../Loader/Loader';
 import SearchIcon from '../../icons/SearchIcon';
+import styles from './TrackSearch.module.scss';
+import { messages } from '../../translations/others/error';
 
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
@@ -23,12 +24,14 @@ export const TrackSearch: FC<TrackSearchProps> = ({
   const inputLabel = inputTexts.label[lang as keyof typeof inputTexts.label];
   const inputTitle = inputTexts.title[lang as keyof typeof inputTexts.title];
   const buttonTitle = buttonTexts[lang as keyof typeof buttonTexts];
+  const youtubeQuotaText = messages.youtubeQuota[lang as keyof typeof messages.youtubeQuota];
 
   // Search states in this component to prevent to many fetchs with toggle state
   const [search, setSearch] = useState<string>('');
   const [previousSearch, setPreviousSearch] = useState<string>('');
   const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [warningMessage, setWarningMessage] = useState<string>('');
 
   const fetchData = async() => {
     if(search && search !== previousSearch) {
@@ -37,8 +40,12 @@ export const TrackSearch: FC<TrackSearchProps> = ({
       setPreviousSearch(search);
 
       // Fetch data from youtube API
-      const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=50`);
-      const fetchedResults: SearchResults = await dataSearched.json();
+      const dataSearched = await fetch(`${youtube}${search}&key=${apiKey}&maxResults=10`);
+      const fetchedResults = await dataSearched.json();
+
+      console.log(fetchedResults)
+      if(fetchedResults.error.code === 403) return setWarningMessage(youtubeQuotaText);
+
       const results = [...fetchedResults.items];
 
       // We want only videos (not channels or playlists)

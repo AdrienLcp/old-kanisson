@@ -153,8 +153,8 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         console.log(data);
         setWarningMessage(errorMessage);
       } else {
-        console.log("Ok tout est bon, c'est enregistré")
-      }
+        console.log("OK")
+      };
     })
     .catch((error) => console.log(error));
   };
