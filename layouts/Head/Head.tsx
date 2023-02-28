@@ -33,15 +33,16 @@ export const NextHead: FC<HeadProps> = ({
       <meta property="og:image:width" content="1600" />
       <meta property="og:image:height" content="900" />
       <meta property="og:url" content="https://www.kanisson.com/" />
-      <meta property="fb:app_id" content="887231372581458" />
       <meta property="og:type" content="Website" />
       <meta property="og:author" content="Adrien Lacourpaille" />
       <meta property="og:locale" content="fr_FR" />
       <meta property="og:description" content={description ? description : defaultDescription} />
       <meta property="og:title" content={title ? title : defaultTitle} />
+      <meta property="fb:app_id" content="887231372581458" />
+      <meta name="author" content="Adrien Lacourpaille" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="/img/logo-575x575.png" />
+      <meta name="twitter:image" content="https://www.kanisson.com/img/logo-575x575.png" />
       <meta name="twitter:site" content="Kanisson" />
       <meta name="twitter:creator" content="@Adrien_Lcp" />
       <meta name="twitter:description" content={description ? description : defaultDescription} />
