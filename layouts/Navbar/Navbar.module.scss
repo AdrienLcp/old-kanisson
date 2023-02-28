@@ -69,10 +69,10 @@
 
       & .logo {
         opacity: 0.9;
-        transform: translateY(200%) scale(1.5);
+        transform: translateY(calc(7vh + 100%)) scale(1.5);
 
         &:hover {
-          transform: translateY(200%) scale(1.7) rotate(320deg);
+          transform: translateY(calc(7vh + 100%)) scale(1.7) rotate(320deg);
           opacity: 1;
         }
       }
@@ -153,10 +153,10 @@
   .navbar:hover {
     & .logo {
       opacity: 0.9;
-      transform: translateY(calc(5vh + 200%)) scale(2);
+      transform: translateY(calc(7vh + 200%)) scale(2);
 
       &:hover {
-        transform: translateY(calc(5vh + 200%)) scale(3) rotate(320deg);
+        transform: translateY(calc(7vh + 200%)) scale(3) rotate(320deg);
         opacity: 1;
       }
     }

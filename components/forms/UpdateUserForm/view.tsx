@@ -83,14 +83,14 @@ export const UpdateUserFormView: FC<UpdateUserFormProps> = ({
           setValidPassword={setValidPassword}
           required={false}
         />
-
-        <Message
-          validMessage={validMessage}
-          setValidMessage={setValidMessage}
-          warningMessage={warningMessage}
-          setWarningMessage={setWarningMessage}
-        />
       </FormWrapper>
+
+      <Message
+        validMessage={validMessage}
+        setValidMessage={setValidMessage}
+        warningMessage={warningMessage}
+        setWarningMessage={setWarningMessage}
+      />
 
       <Button
         styles={styles.button}
