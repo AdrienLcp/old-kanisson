@@ -32,8 +32,8 @@ export const NextHead: FC<HeadProps> = ({
       <meta property="og:image" content="https://www.kanisson.com/img/banner-1600x900.png" />
       <meta property="og:image:width" content="1600" />
       <meta property="og:image:height" content="900" />
+      <meta property="og:image:alt" content="Vinyl" />
       <meta property="og:url" content="https://www.kanisson.com/" />
-      <meta property="og:type" content="Website" />
       <meta property="og:author" content="Adrien Lacourpaille" />
       <meta property="og:locale" content="fr_FR" />
       <meta property="og:description" content={description ? description : defaultDescription} />
