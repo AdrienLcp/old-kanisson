@@ -18,11 +18,9 @@ export type MyPlaylistCardViewProps = {
 
 export type NotificationCardProps = {
   notification: Notification;
-};
-
-export type NotificationCardViewProps = {
-  notification: Notification;
-  notificationSeen: () => void;
+  index: number;
+  notifications: Notification[];
+  setNotifications: Dispatch<SetStateAction<Notification[]>>;
 };
 
 export type PlaylistCard = {

@@ -3,7 +3,7 @@
 .container {
   background: var(--body-color);
   border-radius: var(--sm-radius);
-  padding: 4em 2em;
+  padding: 4em 2em 2em;
   width: 90vw;
   max-width: 40rem;
   font-size: 1.2rem;
@@ -21,6 +21,37 @@
 
 .date {
   align-self: flex-end;
+}
+
+.buttons {
+  @include flexCenter;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.button {
+  @include mainButton;
+
+  &_ok {
+    background: var(--valid);
+    color: var(--valid-bg);
+    border: var(--valid-border);
+
+    &:hover {
+      background: var(--valid-hover);
+    }
+  }
+
+  &_delete {
+    background: var(--warning);
+    color: var(--warning-bg);
+    border: var(--warning-border);
+
+    &:hover {
+      background: var(--warning-hover);
+    }
+
+  }
 }
 
 @media screen and (min-width: 850px) {

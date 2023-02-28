@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import type { Notification } from '@prisma/client';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { UserContext } from '../../contexts/UserContext';
 import { toggleButton } from '../../translations/components/notifications';
@@ -9,8 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Notifications.module.scss';
 import { Loader } from '../Loader/Loader';
 import { IconButton } from '../buttons/IconButton/IconButton';
+import { NotificationModal } from '../NotificationModal/NotificationModal';
+import { NotificationCard } from '../cards/NotificationCard/NotificationCard';
 import NotificationIcon from '../../icons/NotificationIcon';
-import NotificationCard from '../cards/NotificationCard';
 
 export const Notifications: FC = () => {
 
@@ -18,19 +19,19 @@ export const Notifications: FC = () => {
   const { lang } = useContext(LangContext);
   const newNotificationText = toggleButton.new[lang as keyof typeof toggleButton.new];
   const noNotificationText = toggleButton.none[lang as keyof typeof toggleButton.none];
+  const noNewNotificationText = toggleButton.noNew[lang as keyof typeof toggleButton.noNew];
 
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [currentNotification, setCurrentNotification] = useState<Notification>(notifications[0]);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [toggleModal, setToggleModal] = useState<boolean>(false);
   const [toggleNotifications, setToggleNotifications] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  let newNotifications = [];
-
-  notifications.map(notification => {
-    if(!notification.seen) newNotifications.push(notification);
-  });
+  const newNotifications = useMemo(() =>  notifications.filter(notification => !notification.seen), [notifications]);
 
   useEffect(() => {
-    if(notifications.length === 0) getNotifications();
+    getNotifications();
   }, []);
 
   const getNotifications = async() => {
@@ -50,9 +51,7 @@ export const Notifications: FC = () => {
 
       if(res.status === 200) setNotifications(data);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
 
     setLoading(false);
   };
@@ -60,38 +59,58 @@ export const Notifications: FC = () => {
   if(loading) return <Loader />
 
   return (
-    <section className={styles.container}>
+    <>
+      <section className={styles.container}>
+        <IconButton
+          handleFunction={() => setToggleNotifications(prev => !prev)}
+          disabled={notifications.length > 0 ? false : true}
+          label={notifications.length > 0 ? '' : noNotificationText}
+          title={newNotifications.length > 0 ?
+            `${newNotifications.length} ${newNotificationText}`
+          :
+            noNewNotificationText
+          }
+        >
+          <NotificationIcon />
 
-      <IconButton
-        handleFunction={() => setToggleNotifications(prev => !prev)}
-        disabled={notifications.length > 0 ? false : true}
-        label={notifications.length > 0 ? '' : noNotificationText}
-        title={newNotifications.length > 0 ?
-          `${newNotifications.length} ${newNotificationText}`
-        : '' }
-      >
-        <NotificationIcon />
+          {newNotifications.length > 0 &&
+            <span className={styles.new}>
+              {newNotifications.length}
+            </span>
+          }
+        </IconButton>
 
-        {newNotifications.length > 0 &&
-          <span className={styles.new}>
-            {newNotifications.length}
-          </span>
-        }
-      </IconButton>
+        <ul className={toggleNotifications ?
+          `${styles.list} ${styles.opened}`
+        :
+          `${styles.list}`
+        }>
+          {notifications.map((notification: Notification, index: number) =>
+            <li key={uuidv4()} onClick={() => {
+              setToggleModal(true);
+              setCurrentNotification(notification);
+              setCurrentIndex(index);
+            }}>
+              <NotificationCard
+                notification={notification}
+                index={index}
+                notifications={notifications}
+                setNotifications={setNotifications}
+              />
+            </li>
+          )}
+        </ul>
+      </section>
 
-      <ul className={toggleNotifications ?
-        `${styles.list} ${styles.opened}`
-      :
-        `${styles.list}`
-      }>
-        {notifications.map((notification: Notification) =>
-          <li key={uuidv4()}>
-            <NotificationCard
-              notification={notification}
-            />
-          </li>
-        )}
-      </ul>
-    </section>
+      {toggleModal &&
+        <NotificationModal
+          notification={currentNotification}
+          index={currentIndex}
+          notifications={notifications}
+          setNotifications={setNotifications}
+          setToggleModal={setToggleModal}
+        />
+      }
+    </>
   );
 };

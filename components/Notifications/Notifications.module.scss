@@ -26,6 +26,7 @@
 
 .list {
   background-color: var(--body-color);
+  padding-right: 1rem;
   width: 100%;
   margin: 1rem 0;
   max-height: 0;
@@ -33,7 +34,7 @@
   transition: max-height 0.2s;
 
   &.opened {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 60rem;
   }
 }

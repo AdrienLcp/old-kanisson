@@ -18,7 +18,6 @@ Ce projet a été créé avec :
 - React
 - Next
 - Scss / Sass
-- Postgresql
 - Prisma
 - Json Web Token
 - Bcrypt
