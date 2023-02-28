@@ -58,7 +58,6 @@ const Play: NextPage<PlayProps> = ({
       <NextHead
         title={`${playlist.title} ${headTitle}`}
         description={playlist.description}
-        url={router.pathname}
       />
 
       <header className={styles.header}>

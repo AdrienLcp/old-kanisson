@@ -29,7 +29,7 @@ const UserPage: NextPage<UserProfileProps> = ({
       <NextHead
         title={`${headTitleBefore}${pseudo}${headTitleAfter}`}
         description={`${headDescriptionBefore}${pseudo}${headDescriptionAfter}`}
-        url={pseudo}
+        username={pseudo}
       />
 
       <PageWrapper title={`${pageTitleBefore}${pseudo}${pageTitleAfter}`}>

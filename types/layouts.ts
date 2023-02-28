@@ -14,7 +14,7 @@ export type FormWrapperProps = PropsWithChildren<{
 export type HeadProps = {
   title?: string;
   description?: string;
-  url?: string;
+  username?: string;
 };
 
 export type MobileListWrapperProps = PropsWithChildren<{
