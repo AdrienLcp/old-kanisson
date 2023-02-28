@@ -13,6 +13,7 @@ import { Loader } from '../Loader/Loader';
 import SearchIcon from '../../icons/SearchIcon';
 import styles from './TrackSearch.module.scss';
 import { messages } from '../../translations/others/error';
+import { Message } from '../Message/Message';
 
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
@@ -44,71 +45,80 @@ export const TrackSearch: FC<TrackSearchProps> = ({
       const fetchedResults = await dataSearched.json();
 
       console.log(fetchedResults)
-      if(fetchedResults.error.code === 403) return setWarningMessage(youtubeQuotaText);
+      if(fetchedResults.error.code === 403) {
+        setWarningMessage(youtubeQuotaText);
+      } else {
+        const results = [...fetchedResults.items];
 
-      const results = [...fetchedResults.items];
+        // We want only videos (not channels or playlists)
+        const filteredResults = results.filter(result => result.id.kind === 'youtube#video');
 
-      // We want only videos (not channels or playlists)
-      const filteredResults = results.filter(result => result.id.kind === 'youtube#video');
+        const validTracks = [] as SearchResultItem[];
+        const tracksIDs = [] as string[];
 
-      const validTracks = [] as SearchResultItem[];
-      const tracksIDs = [] as string[];
+        tracks.map(track => tracksIDs.push(track.youtube_id));
 
-      tracks.map(track => tracksIDs.push(track.youtube_id));
+        // If track is already in tracksList, filter it
+        filteredResults.map(result => {
+          if(!tracksIDs.includes(result.id.videoId)) validTracks.push(result);
+        });
 
-      // If track is already in tracksList, filter it
-      filteredResults.map(result => {
-        if(!tracksIDs.includes(result.id.videoId)) validTracks.push(result);
-      });
-
-      setTracksResults(validTracks);
+        setTracksResults(validTracks);
+      };
       setLoading(false);
     };
   };
 
-  if(loading) return <Loader />
-
   return (
     <>
-      <div className={styles.fetch}
-        onKeyDown={(event) => {
-          if(event.code === 'Enter' || event.code === 'NumpadEnter') fetchData();
-        }}
-      >
-        <InputField
-          value={search}
-          setValue={setSearch}
-          id="search-track-input"
-          type="search"
-          title={inputTitle}
-          label={inputLabel}
-        />
+      {warningMessage ?
+        <Message warningMessage={warningMessage} />
+      :
+        <div className={styles.fetch}
+          onKeyDown={(event) => {
+            if(event.code === 'Enter' || event.code === 'NumpadEnter') fetchData();
+          }}
+        >
+          <InputField
+            value={search}
+            setValue={setSearch}
+            id="search-track-input"
+            type="search"
+            title={inputTitle}
+            label={inputLabel}
+          />
 
-        {search &&
-          <IconButton
-            handleFunction={fetchData}
-            title={buttonTitle}
-            disabled={loading}
-          >
-            <SearchIcon />
-          </IconButton>
-        }
-      </div>
+          {search &&
+            <IconButton
+              handleFunction={fetchData}
+              title={buttonTitle}
+              disabled={loading}
+            >
+              <SearchIcon />
+            </IconButton>
+          }
+        </div>
+      }
 
-      <ul className={styles.list}>
-        {tracksResults?.map((track: SearchResultItem, index: number) =>
-          <li key={uuidv4()}>
-            <TrackSearchCard
-              currentTrack={track}
-              index={index}
-              tracks={tracks}
-              setTracks={setTracks}
-              tracksResults={tracksResults}
-              setTracksResults={setTracksResults}
-            />
-          </li>
-        )}
-      </ul>
+
+      {loading ?
+        <Loader />
+      :
+        <ul className={styles.list}>
+          {tracksResults?.map((track: SearchResultItem, index: number) =>
+            <li key={uuidv4()}>
+              <TrackSearchCard
+                currentTrack={track}
+                index={index}
+                tracks={tracks}
+                setTracks={setTracks}
+                tracksResults={tracksResults}
+                setTracksResults={setTracksResults}
+              />
+            </li>
+          )}
+        </ul>
+      }
     </>
   );
 };
