@@ -238,15 +238,13 @@ export const Navbar: FC<NavbarProps> = ({
             </li>
           }
 
-          <li key={uuidv4()} className={styles.desktop_hidden}>
-            <Button
-              styles={styles.link}
-              title={toggleMenu ? closeTitle : openTitle}
-              onClick={() => setToggleMenu(prev => !prev)}
-            >
-              <BurgerIcon state={toggleMenu} />
-            </Button>
-          </li>
+          <Button
+            styles={`${styles.link} ${styles.desktop_hidden}`}
+            title={toggleMenu ? closeTitle : openTitle}
+            onClick={() => setToggleMenu(prev => !prev)}
+          >
+            <BurgerIcon state={toggleMenu} />
+          </Button>
         </ul>
       </nav>
     </aside>

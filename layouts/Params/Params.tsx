@@ -25,7 +25,7 @@ export const Params: FC<ParamsProps> = ({
   const closeTitle = burgerButton.close[lang as keyof typeof burgerButton.close];
 
   return (
-    <aside className={styles.test}>
+    <aside>
       <section
         className={toggleMenu ?
           `${styles.container} ${styles.container_opened}`

@@ -7,11 +7,11 @@
 
   &_active {
     .dash:nth-child(1) {
-      transform: translateY(0.6rem) rotate(-225deg);
+      transform: translateY(0.6rem) rotate(135deg);
     }
 
     .dash:nth-child(2) {
-      transform: rotate(180deg);
+      transform: rotate(360deg);
       opacity: 0;
     }
 
@@ -26,5 +26,5 @@
   height: 0.2rem;
   background: var(--white);
   border-radius: 1rem;
-  transition: all .4s ease-out;
+  transition: all .4s cubic-bezier(.17,.67,.66,.56);
 }
