@@ -16,8 +16,16 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 10vh;
-    padding: 20vh 0;
-    width: 35rem;
+    padding: 10vh 0;
+    width: 20rem;
     height: 100vh;
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .sidebar {
+    width: 35rem;
+    padding: 20vh 0;
   }
 }

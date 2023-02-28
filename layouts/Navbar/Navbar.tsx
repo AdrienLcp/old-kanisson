@@ -59,7 +59,7 @@ export const Navbar: FC<NavbarProps> = ({
           aria-label={homeTitle}
           className={`${styles.logo} ${styles.mobile_hidden}`}
         >
-          <KanissonIcon color='var(--white)' height='100%' />
+          <KanissonIcon color='var(--white)' />
         </Link>
 
         <ul className={styles.list}>
@@ -78,7 +78,7 @@ export const Navbar: FC<NavbarProps> = ({
                       `${styles.link}`
                   }
                 >
-                  <HomeIcon color='var(--white)' />
+                  <HomeIcon color='var(--white)' height={'20'} />
                   <label className={styles.label}>
                     {homeLabel}
                   </label>
@@ -98,7 +98,7 @@ export const Navbar: FC<NavbarProps> = ({
                       `${styles.link}`
                   }
                 >
-                  <SearchIcon color='var(--white)' />
+                  <SearchIcon color='var(--white)' height={'20'} />
                   <label className={styles.label}>
                     {searchLabel}
                   </label>
@@ -122,7 +122,7 @@ export const Navbar: FC<NavbarProps> = ({
                       `${styles.link}`
                   }
                 >
-                  <CreateIcon color='var(--white)' />
+                  <CreateIcon color='var(--white)' height={'20'} />
                   <label className={styles.label}>
                     {createLabel}
                   </label>
@@ -142,7 +142,7 @@ export const Navbar: FC<NavbarProps> = ({
                       `${styles.link}`
                   }
                 >
-                  <AvatarIcon color='var(--white)' />
+                  <AvatarIcon color='var(--white)' height={'20'} />
 
                   <label className={styles.label}>
                     {profileLabel}
@@ -166,7 +166,7 @@ export const Navbar: FC<NavbarProps> = ({
                     `${styles.link}`
                 }
               >
-                <AvatarIcon color='var(--white)' />
+                <AvatarIcon color='var(--white)' height={'20'} />
 
                 <label className={styles.label}>
                   {logInLabel}
@@ -189,7 +189,7 @@ export const Navbar: FC<NavbarProps> = ({
                     `${styles.link}`
                 }
               >
-                <AdminIcon color='var(--white)' />
+                <AdminIcon color='var(--white)' height={'20'} />
 
                 <label className={styles.label}>
                   {moderationLabel}
@@ -211,7 +211,7 @@ export const Navbar: FC<NavbarProps> = ({
                   `${styles.link}`
               }
             >
-              <MailIcon color='var(--white)' />
+              <MailIcon color='var(--white)' height={'20'} />
 
               <label className={styles.label}>
                 {contactLabel}
@@ -229,7 +229,7 @@ export const Navbar: FC<NavbarProps> = ({
                   setToggleMenu(false);
                 }}
               >
-                <LogoutIcon color='var(--white)' />
+                <LogoutIcon color='var(--white)' height={'20'} />
 
                 <label className={styles.label}>
                   {logOutLabel}

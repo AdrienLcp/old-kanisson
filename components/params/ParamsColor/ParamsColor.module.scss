@@ -43,12 +43,21 @@
 
 @media screen and (min-width: 850px) {
   .title {
+    font-size: 1.2rem;
+  }
+
+  .list {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .title {
     font-size: 1.4rem;
-    padding: 0.5rem;
   }
 
   .list {
     padding: 2rem;
-    gap: 1.5rem;
   }
 }

@@ -28,6 +28,7 @@ body {
   font-family: var(--main-font);
   color: var(--text-color);
   font-size: var(--text-size);
+  padding: 0 0 var(--navbar-height) 0;
   line-height: 130%;
   overflow-x: hidden;
 
@@ -71,8 +72,7 @@ h1, h2, h3, h4{
 }
 
 @media screen and (min-width: 850px) {
-  :root {
-    --navbar-width: 35rem;
-    --navbar-height: 100vh;
+  body {
+    padding: 0;
   }
 }

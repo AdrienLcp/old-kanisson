@@ -35,12 +35,12 @@
   .input {
     background: var(--md-opacity);
     bottom: 0;
-    padding: 3em 30vw 2em;
+    padding: 3rem 30vw 2rem;
   }
 
   .guess {
-    @include posFixed(auto, auto, 15vh, 50%);
-    font-size: 2rem;
+    @include posFixed(auto, auto, 13rem, 50%);
+    font-size: 1rem;
 
     &_good {
       border: 0.2rem solid var(--valid-border);
@@ -55,6 +55,11 @@
 @media screen and (min-width: 1500px) {
   .input {
     padding: 3em 35vw 2em;
+  }
+
+  .guess {
+    @include posFixed(auto, auto, 20rem, 50%);
+    font-size: 2rem;
   }
 }
 

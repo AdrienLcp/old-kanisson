@@ -38,8 +38,8 @@
 
 @media screen and (min-width: 850px) {
   .title {
-    font-size: 1.4rem;
-    padding: 1.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
   }
 
   .list {
@@ -52,5 +52,12 @@
     &:hover {
       background: var(--md-opacity);
     }
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .title {
+    font-size: 1.4rem;
+    padding: 1.5rem;
   }
 }

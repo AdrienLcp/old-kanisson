@@ -8,7 +8,6 @@
 @mixin commonLogin {
   @include flexCenter;
   flex-direction: column;
-  width: 20rem;
   padding: 4rem 0 10rem;
   opacity: 0;
 };
@@ -34,7 +33,7 @@
 
 .button {
   @include underlineButton;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 @keyframes signIn {
@@ -53,7 +52,16 @@
 
 @media screen and (min-width: 850px) {
   .sign_in, .sign_up {
+    padding: 3rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .sign_in, .sign_up {
     padding: 10rem 0;
-    width: 40rem;
+  }
+
+  .button {
+    margin-top: 2rem;
   }
 }

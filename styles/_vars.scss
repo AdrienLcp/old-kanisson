@@ -65,10 +65,24 @@
   --border-transparent: 0.2rem solid transparent;
 
   --icon-filter: brightness(90%);
+  --icon-height: 2rem;
 
   --navbar-width: 100vw;
   --navbar-height: 5rem;
 
   --main-font: 'Poppins', sans-serif;
   --title-font: 'Rubik Moonrocks', cursive;
+}
+
+@media screen and (min-width: 850px) {
+  :root {
+    --navbar-width: 25rem;
+    --navbar-height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --navbar-width: 35rem;
+  }
 }
