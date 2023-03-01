@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, KeyboardEvent, SetStateAction } from 'react';
 
 export type CheckBoxProps = {
   state: boolean;
@@ -32,6 +32,7 @@ export type InputFieldProps = {
   disabled?: boolean;
   required?: boolean;
   autoFocus?: boolean;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 };
 
 export type InputPasswordProps = {

@@ -19,7 +19,8 @@ export const InputField: FC<InputFieldProps> = ({
   type = "text",
   disabled = false,
   required = true,
-  autoFocus = false
+  autoFocus = false,
+  onKeyDown
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -58,6 +59,7 @@ export const InputField: FC<InputFieldProps> = ({
       }
     >
       <input
+        onKeyDown={onKeyDown}
         className={styles.input}
         ref={inputRef}
         type={type}

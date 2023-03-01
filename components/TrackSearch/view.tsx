@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, KeyboardEvent } from 'react';
 import type { TrackSearchViewProps } from '../../types/components/tracks';
 import type { SearchResultItem } from '../../types/youtube';
 import { useContext } from 'react';
@@ -34,17 +34,18 @@ export const TrackSearchView: FC<TrackSearchViewProps> = ({
   const refetchLabel = refetchTexts.label[lang as keyof typeof refetchTexts.label];
   const refetchTitle = refetchTexts.title[lang as keyof typeof refetchTexts.title];
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if(!loading && event.code === 'Enter' || event.code === 'NumpadEnter') fetchData();
+  };
+
   return (
     <>
       {warningMessage ?
         <Message warningMessage={warningMessage} />
       :
-        <div className={styles.fetch}
-          onKeyDown={(event) => {
-            if(event.code === 'Enter' || event.code === 'NumpadEnter') fetchData();
-          }}
-        >
+        <div className={styles.fetch}>
           <InputField
+            onKeyDown={handleKeyDown}
             value={search}
             setValue={setSearch}
             id='search-track-input'
@@ -66,7 +67,7 @@ export const TrackSearchView: FC<TrackSearchViewProps> = ({
       }
 
       {tracksResults.length > 0 ?
-        <>
+        <div className={styles.container}>
           <ul className={styles.list}>
             {tracksResults?.map((track: SearchResultItem, index: number) =>
               <li key={uuidv4()}>
@@ -93,9 +94,9 @@ export const TrackSearchView: FC<TrackSearchViewProps> = ({
               {refetchLabel}
             </Button>
           }
-        </>
+        </div>
       :
-        <> {loading && <Loader />} </>
+        loading && <Loader />
       }
     </>
   );
