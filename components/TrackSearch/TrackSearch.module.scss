@@ -15,6 +15,13 @@
   overflow-y: auto;
 }
 
+.button {
+  @include underlineButton;
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0 0.5rem;
+}
+
 @media screen and (min-width: 850px) {
   .fetch {
     padding: 0;
@@ -23,5 +30,9 @@
   .list {
     background: var(--body-color);
     max-height: 50vh;
+  }
+
+  .button {
+    margin: 1rem 0 0.5rem;
   }
 }

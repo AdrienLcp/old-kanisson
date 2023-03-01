@@ -6,7 +6,7 @@ import { titlesTexts } from '../../../translations/components/trackForm';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TracksForm.module.scss';
 import { TrackList } from '../../TrackList/TrackList';
-import { TrackSearch } from '../../TrackSearch/TrackSearch';
+import { TrackSearch } from '../../TrackSearch/container';
 import { ListWrapper } from '../../../layouts/wrappers/ListWrapper/ListWrapper';
 import { Tabs } from '../../Tabs/Tabs';
 

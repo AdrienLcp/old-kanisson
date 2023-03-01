@@ -10,7 +10,7 @@ export const PageLoader: FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url: string) => (url !== router.asPath) && setLoading(true);
+    const handleStart = (url: string) => (url !== router.pathname) && setLoading(true);
     const handleComplete = () => setLoading(false);
 
     router.events.on('routeChangeStart', handleStart);
@@ -28,8 +28,6 @@ export const PageLoader: FC = () => {
     <>
       {loading &&
         <div className={styles.container}>
-          {/*  <span className={styles.loader} /> */}
-
           <div className={styles.loader}>
             <span/>
             <span/>
