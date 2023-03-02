@@ -62,10 +62,6 @@ export const NotificationCard: FC<NotificationCardProps> = ({
           {notification.title}
         </h2>
       </header>
-
-      <span className={styles.date}>
-        {notification.date}
-      </span>
     </article>
   );
 };

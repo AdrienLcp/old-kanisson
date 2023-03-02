@@ -74,10 +74,6 @@ export const NotificationModal: FC<NotificationModalProps> = ({
           <pre className={styles.message}>
             {notification.message}
           </pre>
-
-          <span className={styles.date}>
-            {notification.date}
-          </span>
         </div>
 
         <footer className={styles.buttons}>
@@ -102,7 +98,6 @@ export const NotificationModal: FC<NotificationModalProps> = ({
               </Button>
             </>
           }
-
         </footer>
       </section>
     </Modal>

@@ -19,10 +19,6 @@
   gap: 1rem;
 }
 
-.date {
-  align-self: flex-end;
-}
-
 .buttons {
   @include flexCenter;
   gap: 2rem;

@@ -39,7 +39,11 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const checkForm = () => {
-    const special = new RegExp('(?=.*[!@/#\$%\^&\*])');
+    // Reset messages
+    setWarningMessage('');
+    setValidMessage('');
+
+    const special = new RegExp('(?=.*[?!-@/#\$%\^&\*])');
 
     // If nothing changed
     if(playlist && tracksData &&
@@ -71,10 +75,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     // Avoid refresh
     event.preventDefault();
 
-    // Reset messages
-    setWarningMessage('');
-    setValidMessage('');
-
     if(checkForm()) {
       setLoading(true);
 
@@ -89,8 +89,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         description: description.trim(),
         user_id: user.id,
         creator: user.pseudo,
-        img: '',
-        date: playlist ? playlist.date : new Date().toLocaleDateString(),
+        date: playlist ? playlist.date : new Date(),
         average: playlist ? playlist.average : 0,
         ratings: playlist ? playlist.ratings : [],
         ratings_ids: playlist ? playlist.ratings_ids : [],
@@ -109,15 +108,13 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         body: JSON.stringify(body)
       })
       .then(async(res) => {
-        const data = await res.json();
-
         if(res.status === 200) {
+          const data = await res.json();
           setValidMessage(updated);
           await updateTracks(data.id);
 
           if(router.pathname === '/create') router.push(`/update/${data.title}`);
         } else {
-          console.log(data);
           setWarningMessage(alreadyTaken);
         };
       })
@@ -152,7 +149,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         console.log(data);
         setWarningMessage(errorMessage);
       } else {
-        console.log("OK")
+        console.log("OK");
       };
     })
     .catch((error) => console.log(error));

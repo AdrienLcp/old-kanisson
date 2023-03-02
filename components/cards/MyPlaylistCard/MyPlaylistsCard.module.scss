@@ -25,18 +25,11 @@
   gap: 1rem;
 }
 
-.warning {
+.warnings {
   text-align: center;
-  font-size: 0.7rem;
-  line-height: 100%;
-
-  &_text {
-    margin-top: 0.5rem;
-    color: var(--warning);
-  }
 }
 
-.hidden {
+.warning {
   text-align: center;
   font-size: 0.7rem;
   line-height: 100%;
@@ -64,41 +57,27 @@
     gap: 0.5rem;
   }
 
-  .warning {
+  .warnings {
     position: absolute;
+    left: calc(100% + 1rem);
     @include flexCenter;
-    height: 4rem;
-    width: 4rem;
-    right: -5rem;
-    border-radius: var(--sm-radius);
-    font-size: 1.5rem;
-    cursor: help;
-
-    &_text {
-      display: none;
-    }
-
-    &:hover {
-      background: var(--md-opacity);
-    }
+    gap: 0.5rem;
   }
 
-  .hidden {
-    position: absolute;
+  .warning {
     @include flexCenter;
-    height: 4rem;
     width: 4rem;
-    right: -10rem;
+    height: 4rem;
     border-radius: var(--sm-radius);
     font-size: 1.5rem;
     cursor: help;
 
+      &:hover {
+        background: var(--md-opacity);
+      }
+
     &_text {
       display: none;
-    }
-
-    &:hover {
-      background: var(--md-opacity);
     }
   }
 

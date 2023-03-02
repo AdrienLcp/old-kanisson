@@ -91,7 +91,6 @@ export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
       user_id: playlist.user_id,
       title: notificationTitle,
       message,
-      date: new Date().toLocaleDateString(),
       seen: false
     };
 
@@ -103,9 +102,7 @@ export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
       },
       body: JSON.stringify(body)
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
   };
 
   if(loading) return <Loader />

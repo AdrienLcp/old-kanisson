@@ -9,10 +9,6 @@
   background: var(--sm-opacity);
   cursor: pointer;
 
-  & .seen {
-    background: transparent;
-  }
-
   &.seen {
     background: transparent;
   }
@@ -20,10 +16,6 @@
   &:hover {
     background: var(--main-color-light);
   }
-}
-
-.date {
-  background: transparent !important;
 }
 
 @media screen and (min-width: 850px) {

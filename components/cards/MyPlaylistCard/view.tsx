@@ -47,31 +47,35 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
           </p>
         </header>
 
-        {!playlist.playable &&
-          <span
-            className={styles.warning}
-            aria-label={warningTitle}
-            title={warningTitle}
-          >
-            ⚠️
-            <p className={styles.warning_text}>
-              {warningTitle}
-            </p>
-          </span>
-        }
+        <div className={styles.warnings}>
+          <>
+            {!playlist.playable &&
+              <span
+                className={styles.warning}
+                aria-label={warningTitle}
+                title={warningTitle}
+              >
+                ⚠️
+                <p className={styles.warning_text}>
+                  {warningTitle}
+                </p>
+              </span>
+            }
 
-        {!playlist.visible &&
-          <span
-            className={styles.hidden}
-            aria-label={hiddenTitle}
-            title={hiddenTitle}
-          >
-            ⚠️
-            <p className={styles.hidden_text}>
-              {hiddenTitle}
-            </p>
-          </span>
-        }
+            {!playlist.visible &&
+              <span
+                className={styles.warning}
+                aria-label={hiddenTitle}
+                title={hiddenTitle}
+              >
+                ⚠️
+                <p className={styles.warning_text}>
+                  {hiddenTitle}
+                </p>
+              </span>
+            }
+          </>
+        </div>
 
         <footer className={styles.footer}>
           {playlist.visible &&

@@ -26,8 +26,6 @@ model Playlist {
   creator           String
   title             String        @unique
   description       String
-  img               String
-  date              String
   average           Int
   ratings           Int[]
   ratings_ids       String[]
@@ -35,6 +33,7 @@ model Playlist {
   nbOfPlayed        Int           @default(0)
   playable          Boolean       @default(false)
   visible           Boolean       @default(true)
+  date              DateTime
 }
 
 model Track {
@@ -53,8 +52,8 @@ model Notification {
   user_id       String
   title         String
   message       String
-  date          String
   seen          Boolean           @default(false)
+  date          DateTime
 }
 
 model Game {
@@ -63,5 +62,5 @@ model Game {
   pseudo            String
   playlist_id       String
   score             Int
-  date              String
+  date              DateTime
 }
