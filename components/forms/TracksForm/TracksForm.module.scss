@@ -33,6 +33,11 @@
   }
 }
 
+@media screen and (min-width: 850px) {
+  .container {
+    max-width: 60rem;
+  }
+}
 
 @media screen and (min-width: 1500px) {
   .container {

@@ -1,7 +1,10 @@
 @import "../../styles/mixins";
 
 .container {
+  width: 90vw;
+  max-width: 50rem;
   box-shadow: var(--box-shadow);
+  border-radius: var(--sm-radius);
 }
 
 .list {
@@ -39,7 +42,6 @@
 }
 
 @media screen and (min-width: 850px) {
-
   .content {
     padding: 2rem;
   }

@@ -16,7 +16,7 @@ export const playlistsTexts = {
     en: "Kanisson's blind tests"
   },
   random: {
-    fr: "Quelques blind tests au hasard",
+    fr: "Blind tests aléatoires",
     en: "Some random blind tests"
   },
   userPlaylists: {
@@ -24,11 +24,11 @@ export const playlistsTexts = {
     en: "My blind tests"
   },
   userPlayed: {
-    fr: "Blind tests auxquels j'ai déjà joué",
-    en: "Blind tests that I have already played"
+    fr: "Jouer à nouveau",
+    en: "Play again"
   },
   userLiked: {
-    fr: "Blind tests que j'ai aimé",
+    fr: "Ceux que j'ai aimé",
     en: "Blind tests I liked"
   }
 };
