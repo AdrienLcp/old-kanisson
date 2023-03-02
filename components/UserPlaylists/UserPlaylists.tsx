@@ -5,9 +5,9 @@ import { useContext, useMemo, useState } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { playlistsFilter } from '../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
-import styles from './UserPlaylists.module.scss';
 import { InputField } from '../inputs/InputField/InputField';
 import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
+import styles from './UserPlaylists.module.scss';
 
 export const UserPlaylists: FC<UserPlaylistsProps> = ({
   userPlaylists
@@ -32,12 +32,14 @@ export const UserPlaylists: FC<UserPlaylistsProps> = ({
     <section className={styles.container}>
 
       {userPlaylists.length > 10 &&
-        <InputField
-          value={filter}
-          setValue={setFilter}
-          id='user-playlist-filter-input'
-          label={filterLabel}
-        />
+        <div className={styles.input}>
+          <InputField
+            value={filter}
+            setValue={setFilter}
+            id='user-playlist-filter-input'
+            label={filterLabel}
+          />
+        </div>
       }
 
       <ul className={styles.list}>

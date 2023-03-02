@@ -16,6 +16,12 @@
 
 @media screen and (min-width: 850px) {
   .container {
-    max-width: 60rem;
+    @include flexCenter;
+    flex-direction: column;
+    max-width: 80rem;
+  }
+
+  .input {
+    width: 40rem;
   }
 }

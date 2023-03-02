@@ -41,6 +41,7 @@
     border-radius: var(--main-radius);
     border: var(--border-transparent);
     color: inherit;
+    box-shadow: var(--box-shadow);
 
     &:hover {
       border-color: var(--main-color-light);

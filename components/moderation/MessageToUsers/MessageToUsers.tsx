@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, FormEvent } from 'react';
 import { useState, useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { moderationNotification } from '../../../translations/components/notifications';
@@ -9,9 +9,9 @@ import { Modal } from '../../../layouts/Modal/Modal';
 import { Loader } from '../../Loader/Loader';
 import { InputField } from '../../inputs/InputField/InputField';
 import { InputArea } from '../../inputs/InputArea/InputArea';
+import { Message } from '../../Message/Message';
 import MailIcon from '../../../icons/MailIcon';
 import styles from './MessageToUsers.module.scss';
-import { Message } from '../../Message/Message';
 
 export const MessageToUsers: FC = () => {
 
@@ -31,7 +31,8 @@ export const MessageToUsers: FC = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const sendMessage = async() => {
+  const sendMessage = async(event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setLoading(true);
     const token = localStorage.getItem('token');
 
