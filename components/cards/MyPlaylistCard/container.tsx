@@ -11,7 +11,6 @@ import { UserContext } from '../../../contexts/UserContext';
 
 export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
   playlist,
-  index,
   playlists,
   setPlaylists,
   setWarningMessage,
@@ -51,6 +50,7 @@ export const MyPlaylistsCard: FC<MyPlaylistCardProps> = ({
       if(res.status === 200) {
         // Remove right playlist from state & update it
         const previousPlaylists = [...playlists];
+        const index = previousPlaylists.indexOf(playlist);
         previousPlaylists.splice(index, 1);
         setPlaylists(previousPlaylists);
 

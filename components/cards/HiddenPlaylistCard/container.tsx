@@ -10,7 +10,6 @@ import { Loader } from '../../Loader/Loader';
 
 export const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,
-  index,
   visiblePlaylists,
   setVisiblePlaylists,
   hiddenPlaylists,
@@ -30,6 +29,7 @@ export const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
   const updateRestoredState = () => {
     // Remove playlist from visible playlists
     const previousDeletedPlaylists = [...hiddenPlaylists];
+    const index = previousDeletedPlaylists.indexOf(playlist);
     previousDeletedPlaylists.splice(index, 1);
     setHiddenPlaylists(previousDeletedPlaylists);
 
@@ -99,6 +99,7 @@ export const HiddenPlaylistCard: FC<ModerationPlaylistCardProps> = ({
       if(res.status === 200) {
         setValidMessage(permanentlyDeleted);
         const previousHiddenPlaylists = [...hiddenPlaylists];
+        const index = previousHiddenPlaylists.indexOf(playlist);
         previousHiddenPlaylists.splice(index, 1);
         setHiddenPlaylists(previousHiddenPlaylists);
       } else {

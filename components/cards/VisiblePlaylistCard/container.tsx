@@ -11,7 +11,6 @@ import { Loader } from '../../Loader/Loader';
 
 export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   playlist,
-  index,
   visiblePlaylists,
   setVisiblePlaylists,
   hiddenPlaylists,
@@ -32,6 +31,7 @@ export const VisiblePlaylistCard: FC<ModerationPlaylistCardProps> = ({
   const updateState = () => {
     // Remove playlist from visible playlists
     const previousVisiblePlaylists = [...visiblePlaylists];
+    const index = previousVisiblePlaylists.indexOf(playlist);
     previousVisiblePlaylists.splice(index, 1);
     setVisiblePlaylists(previousVisiblePlaylists);
 

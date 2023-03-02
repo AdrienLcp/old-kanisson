@@ -4,7 +4,6 @@ import { SearchResultItem } from '../youtube';
 
 export type TrackEditProps = {
   track: Track;
-  index: number;
   tracks: Track[];
   setTracks: Dispatch<SetStateAction<Track[]>>;
   setToggleModal: Dispatch<SetStateAction<boolean>>;

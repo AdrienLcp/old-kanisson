@@ -49,11 +49,10 @@ export const VisiblePlaylistsList: FC<PlaylistsListProps> = ({
       }
 
       <ul className={styles.list}>
-        {filteredPlaylists.map((playlist: Playlist, index: number) =>
+        {filteredPlaylists.map((playlist: Playlist) =>
           <li key={uuidv4()}>
             <VisiblePlaylistCard
               playlist={playlist}
-              index={index}
               visiblePlaylists={visiblePlaylists}
               setVisiblePlaylists={setVisiblePlaylists}
               hiddenPlaylists={hiddenPlaylists}

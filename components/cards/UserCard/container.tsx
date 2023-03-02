@@ -10,7 +10,6 @@ import { Loader } from '../../Loader/Loader';
 
 export const UserCard: FC<UserCardProps> = ({
   user,
-  index,
   users,
   setUsers,
   bannedUsers,
@@ -31,6 +30,7 @@ export const UserCard: FC<UserCardProps> = ({
   const updateState = () => {
     // Update users state
     const previousUsers = [...users];
+    const index = previousUsers.indexOf(user);
     previousUsers.splice(index, 1);
     setUsers(previousUsers);
 
@@ -100,6 +100,7 @@ export const UserCard: FC<UserCardProps> = ({
 
         // & update state
         const previousUsers = [...users];
+        const index = previousUsers.indexOf(user);
         previousUsers[index].moderator = !user.moderator;
         setUsers(previousUsers);
 
@@ -109,6 +110,7 @@ export const UserCard: FC<UserCardProps> = ({
     })
     .catch((error) => {
       console.log(error);
+      setWarningMessage(globalError);
     });
 
     setLoading(false);

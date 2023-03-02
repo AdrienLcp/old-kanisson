@@ -6,6 +6,11 @@
   overflow-y: auto;
 }
 
+.nothing {
+  text-align: center;
+}
+
+
 @media screen and (min-width: 850px) {
   .list {
     max-height: 60vh;

@@ -8,7 +8,6 @@ import { warningTexts } from '../../translations/components/trackEdit';
 
 export const TrackEdit: FC<TrackEditProps> = ({
   track,
-  index,
   tracks,
   setTracks,
   setToggleModal
@@ -28,10 +27,10 @@ export const TrackEdit: FC<TrackEditProps> = ({
     setWarningMessage('');
 
     if(title.length > 50) {
-      setWarningMessage(warningLength)
+      setWarningMessage(warningLength);
       return false;
     } else if(artist.length > 50) {
-      setWarningMessage(warningLength)
+      setWarningMessage(warningLength);
       return false;
     };
     return true;
@@ -41,6 +40,7 @@ export const TrackEdit: FC<TrackEditProps> = ({
     if(checkTrack()) {
       // Change title & artist for the right track
       const tracksList = [...tracks];
+      const index = tracksList.indexOf(track);
       tracksList[index].title = title;
       tracksList[index].artist = artist;
 
@@ -54,8 +54,10 @@ export const TrackEdit: FC<TrackEditProps> = ({
   };
 
   const deleteTrack = () => {
-    // Delete the right track from tracksList with his index
     const tracksList = [...tracks];
+
+    // Delete the right track from tracksList with his index
+    const index = tracksList.indexOf(track);
     tracksList.splice(index, 1);
 
     // Update state & close modal

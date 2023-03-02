@@ -3,9 +3,8 @@
 .warning {
   @include flexCenter;
   color: var(--warning);
-  height: 6rem;
   text-align: center;
-  padding: 0 1rem;
+  margin-bottom: 3rem;
 }
 
 .filter {

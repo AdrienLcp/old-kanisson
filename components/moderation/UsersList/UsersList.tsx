@@ -48,11 +48,10 @@ export const UsersList: FC<UsersListProps> = ({
       }
 
       <ul className={styles.list}>
-        {filteredUsers.map((user: User, index: number) =>
+        {filteredUsers.map((user: User) =>
           <li key={uuidv4()}>
             <UserCard
               user={user}
-              index={index}
               users={users}
               setUsers={setUsers}
               bannedUsers={bannedUsers}

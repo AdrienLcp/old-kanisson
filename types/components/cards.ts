@@ -4,7 +4,6 @@ import type { SearchResultItem } from "../youtube";
 
 export type MyPlaylistCardProps = {
   playlist: Playlist;
-  index: number;
   playlists: Playlist[];
   setPlaylists: Dispatch<SetStateAction<Playlist[]>>;
   setWarningMessage: Dispatch<SetStateAction<string>>;
@@ -29,7 +28,6 @@ export type PlaylistCard = {
 
 export type TrackListCardProps = {
   track: Track;
-  index: number;
   tracks: Track[];
   setTracks: Dispatch<SetStateAction<Track[]>>;
 };

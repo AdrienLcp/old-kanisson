@@ -55,11 +55,10 @@ export const TrackList: FC<TrackListProps> = ({
       }
 
       <ul className={styles.list}>
-        {filteredTracks.map((track: Track, index: number) =>
+        {filteredTracks.map((track: Track) =>
           <li key={uuidv4()}>
             <TrackListCard
               track={track}
-              index={index}
               tracks={tracks}
               setTracks={setTracks}
             />

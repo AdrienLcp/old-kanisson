@@ -10,7 +10,6 @@ import { CoverImage } from '../../CoverImage/CoverImage';
 
 export const TrackListCard: FC<TrackListCardProps> = ({
   track,
-  index,
   tracks,
   setTracks
 }) => {
@@ -69,7 +68,6 @@ export const TrackListCard: FC<TrackListCardProps> = ({
         <Modal setToggleModal={setToggleModal}>
           <TrackEdit
             track={track}
-            index={index}
             tracks={tracks}
             setTracks={setTracks}
             setToggleModal={setToggleModal}

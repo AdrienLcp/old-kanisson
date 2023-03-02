@@ -10,7 +10,6 @@ import { api } from '../../../api/api';
 import { messages } from '../../../translations/others/error';
 import { errorTexts, validTexts } from '../../../translations/components/playlistForm';
 import { PlaylistFormView } from './view';
-import { Loader } from '../../Loader/Loader';
 
 export const PlaylistForm: FC<PlaylistFormProps> = ({
   playlist,

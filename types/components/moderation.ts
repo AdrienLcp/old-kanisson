@@ -15,7 +15,6 @@ export type HiddenPlaylistCardViewProps = {
 
 export type ModerationPlaylistCardProps = {
   playlist: Playlist;
-  index: number;
   visiblePlaylists: Playlist[];
   setVisiblePlaylists: Dispatch<SetStateAction<Playlist[]>>;
   hiddenPlaylists: Playlist[];
@@ -42,7 +41,6 @@ export type PlaylistsListProps = {
 
 export type UserCardProps = {
   user: User;
-  index: number;
   users: User[];
   setUsers: Dispatch<SetStateAction<User[]>>;
   bannedUsers: User[];

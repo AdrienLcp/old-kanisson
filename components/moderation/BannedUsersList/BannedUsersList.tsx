@@ -3,6 +3,7 @@ import type { User } from '@prisma/client';
 import type { UsersListProps } from '../../../types/components/moderation';
 import { useContext, useState, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
+import { noData } from '../../../translations/others/others';
 import { usersFilter } from '../../../translations/components/filters';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './BannedUsersList.module.scss';
@@ -21,6 +22,7 @@ export const BannedUsersList: FC<UsersListProps> = ({
   const { lang } = useContext(LangContext);
   const filterLabel = usersFilter.label[lang as keyof typeof usersFilter.label];
   const filterTitle = usersFilter.title[lang as keyof typeof usersFilter.title];
+  const noDataText = noData[lang as keyof typeof noData];
 
   const [filter, setFilter] = useState<string>('');
 
@@ -36,33 +38,42 @@ export const BannedUsersList: FC<UsersListProps> = ({
 
   return (
     <section className={styles.container}>
-      {bannedUsers.length > 10 &&
-        <InputField
-          value={filter}
-          setValue={setFilter}
-          id='moderation-banned-users-filter'
-          type='search'
-          label={filterLabel}
-          title={filterTitle}
-        />
-      }
+      <>
+        {bannedUsers.length > 0 ?
+          <>
+            {bannedUsers.length > 10 &&
+              <InputField
+                value={filter}
+                setValue={setFilter}
+                id='moderation-banned-users-filter'
+                type='search'
+                label={filterLabel}
+                title={filterTitle}
+              />
+            }
 
-      <ul className={styles.list}>
-        {filteredUsers.map((user: User, index: number) =>
-          <li key={uuidv4()}>
-            <BannedUserCard
-              user={user}
-              index={index}
-              users={users}
-              setUsers={setUsers}
-              bannedUsers={bannedUsers}
-              setBannedUsers={setBannedUsers}
-              setValidMessage={setValidMessage}
-              setWarningMessage={setWarningMessage}
-            />
-          </li>
-        )}
-      </ul>
+            <ul className={styles.list}>
+              {filteredUsers.map((user: User) =>
+                <li key={uuidv4()}>
+                  <BannedUserCard
+                    user={user}
+                    users={users}
+                    setUsers={setUsers}
+                    bannedUsers={bannedUsers}
+                    setBannedUsers={setBannedUsers}
+                    setValidMessage={setValidMessage}
+                    setWarningMessage={setWarningMessage}
+                  />
+                </li>
+              )}
+            </ul>
+          </>
+        :
+          <p className={styles.nothing}>
+            {noDataText}
+          </p>
+        }
+      </>
     </section>
   );
 };

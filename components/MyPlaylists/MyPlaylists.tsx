@@ -6,11 +6,11 @@ import { UserContext } from '../../contexts/UserContext';
 import { buttonTexts, filterTexts, titleTexts } from '../../translations/components/myPlaylists';
 import { v4 as uuidv4 } from 'uuid';
 import { api } from '../../api/api';
-import styles from './MyPlaylists.module.scss';
 import { MyPlaylistsCard } from '../cards/MyPlaylistCard/container';
 import { Message } from '../Message/Message';
 import { InputField } from '../inputs/InputField/InputField';
 import Link from 'next/link';
+import styles from './MyPlaylists.module.scss';
 
 export const MyPlaylists: FC = () => {
 
@@ -100,19 +100,18 @@ export const MyPlaylists: FC = () => {
             <InputField
               value={filter}
               setValue={setFilter}
-              type="search"
-              id="my-playlists-filter-input"
+              type='search'
+              id='my-playlists-filter-input'
               label={filterLabel}
               title={filterTitle}
             />
           }
 
           <ul className={styles.list}>
-            {filteredPlaylists.map((playlist: Playlist, index: number) =>
+            {filteredPlaylists.map((playlist: Playlist) =>
               <li key={uuidv4()}>
                 <MyPlaylistsCard
                   playlist={playlist}
-                  index={index}
                   playlists={playlists}
                   setPlaylists={setPlaylists}
                   setWarningMessage={setWarningMessage}

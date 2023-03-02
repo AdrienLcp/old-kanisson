@@ -10,7 +10,6 @@ import { Loader } from '../../Loader/Loader';
 
 export const BannedUserCard: FC<UserCardProps> = ({
   user,
-  index,
   users,
   setUsers,
   bannedUsers,
@@ -30,6 +29,7 @@ export const BannedUserCard: FC<UserCardProps> = ({
   const updateState = () => {
     // Update banned users state
     const previousBannedUsers = [...bannedUsers];
+    const index = previousBannedUsers.indexOf(user);
     previousBannedUsers.splice(index, 1);
     setBannedUsers(previousBannedUsers);
 
@@ -91,6 +91,7 @@ export const BannedUserCard: FC<UserCardProps> = ({
       if(res.status === 200) {
         // Remove user card from state
         const previousBannedUsers = [...bannedUsers];
+        const index = previousBannedUsers.indexOf(user);
         previousBannedUsers.splice(index, 1);
         setBannedUsers(previousBannedUsers);
         setValidMessage(userDeleted);
