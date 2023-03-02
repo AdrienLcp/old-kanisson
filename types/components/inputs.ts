@@ -17,6 +17,7 @@ export type InputAreaProps = {
   name?: string;
   disabled?: boolean;
   required?: boolean;
+  autoFocus?: boolean;
   limit?: number;
 };
 

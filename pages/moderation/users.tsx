@@ -15,6 +15,7 @@ import { Tabs } from '../../components/Tabs/Tabs';
 import { UsersList } from '../../components/moderation/UsersList/UsersList';
 import { BannedUsersList } from '../../components/moderation/BannedUsersList/BannedUsersList';
 import { Loader } from '../../components/Loader/Loader';
+import { MessageToUsers } from '../../components/moderation/MessageToUsers/MessageToUsers';
 
 const UsersModeration: NextPage = () => {
 
@@ -79,6 +80,8 @@ const UsersModeration: NextPage = () => {
           <Loader />
         :
           <>
+            <MessageToUsers />
+
             <Message
               validMessage={validMessage}
               setValidMessage={setValidMessage}

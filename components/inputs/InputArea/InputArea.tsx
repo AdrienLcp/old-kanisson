@@ -14,6 +14,7 @@ export const InputArea: FC<InputAreaProps> = ({
   name,
   disabled = false,
   required = true,
+  autoFocus = false,
   limit
 }) => {
 

@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+.container {
+  margin-bottom: 3rem;
+}
+
+.form {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90vw;
+  max-width: 40rem;
+  background: var(--body-color);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--sm-radius);
+  padding: 4rem 2rem 3rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.3rem;
+}
+
+.button {
+  @include mainButton;
+}

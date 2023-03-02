@@ -15,7 +15,7 @@ export const InputField: FC<InputFieldProps> = ({
   limit,
   title,
   name,
-  type = "text",
+  type = 'text',
   disabled = false,
   required = true,
   autoFocus = false,
