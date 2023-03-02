@@ -8,6 +8,8 @@
   border-radius: var(--md-radius);
   box-shadow: var(--box-shadow);
   margin-top: 1rem;
+  width: 90vw;
+  max-width: 50rem;
 }
 
 .desktop {
@@ -21,14 +23,19 @@
 
   .container {
     margin-top: 2rem;
-    padding-top: 1rem;
-    max-width: 80rem;
-    padding-bottom: 1rem;
+    padding: 2rem;
   }
 
   .desktop {
     display: flex;
     flex-direction: row;
     gap: 5rem;
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .container {
+    max-width: 80rem;
   }
 }

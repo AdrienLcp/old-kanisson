@@ -52,7 +52,7 @@ export const endgameTexts = {
     en: 'Gave over'
   },
   rate: {
-    fr: 'Vous pouvez donner une note à ce quiz musical',
+    fr: 'Vous pouvez donner une note à ce blind test',
     en: 'You can rate this blind test'
   },
   replayButton: {

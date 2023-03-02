@@ -28,7 +28,7 @@ export const playlistsFilter = {
       en: "Filter..."
     },
     title: {
-      fr: "Vous pouvez filtrer les quizz musicaux grâce à leur titre ou le pseudo de leur créateur",
+      fr: "Vous pouvez filtrer les blind tests grâce à leur titre ou le pseudo de leur créateur",
       en: "You can filter blind tests with their titre or their creator's username"
     }
   }

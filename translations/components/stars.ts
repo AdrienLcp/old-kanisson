@@ -1,6 +1,6 @@
 export const titleTexts = {
   ratedText: {
-    fr: "Ce quiz musical a été noté",
+    fr: "Ce blind test musical a été noté",
     en: "This blind test has been rated"
   },
   byText: {

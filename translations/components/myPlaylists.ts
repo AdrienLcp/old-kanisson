@@ -1,6 +1,6 @@
 export const titleTexts = {
   playlists: {
-    fr: "Mes quizz musicaux",
+    fr: "Mes blind tests",
     en: "My blind tests"
   },
   noPlaylist: {

@@ -5,9 +5,9 @@ import { useRef, useContext, useState, useEffect } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { arrowButton } from '../../translations/components/buttons';
 import { v4 as uuidv4 } from 'uuid';
-import styles from './PlaylistsSlider.module.scss';
-import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
 import { ArrowButton } from '../buttons/ArrowButton/ArrowButton';
+import PlaylistCard from '../cards/PlaylistCard/PlaylistCard';
+import styles from './PlaylistsSlider.module.scss';
 
 export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
   playlists,
@@ -27,6 +27,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
 
   // Every time current list's position change
   useEffect(() => {
+
     if(currentPosition >= 0) setToggleLeftArrow(false);
 
     // Get new list width & visible playlists width in case of user change his navigator width
@@ -35,7 +36,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
 
     // Toggle arrows in case of slider go too far
     if(listWidth > visiblePlaylistsWidth &&
-    (currentPosition - visiblePlaylistsWidth) > -listWidth - 100) {
+    (currentPosition - visiblePlaylistsWidth) > -listWidth) {
       setToggleRightArrow(true);
     } else {
       setToggleRightArrow(false);
@@ -56,17 +57,24 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
 
     // Margin change with client device width
     let margin = 40;
+    // Filter width does not exist on mobile device
+    let filterWidth = 0;
+
     // 40px for device under 850px client width
-    if(clientWidth > 850 && clientWidth <= 1200) {
-      // 300px for device between 850px & 1200px
-      margin = 300;
-    } else if(clientWidth > 1200) {
-      // 450px for device above 1200px
+    if(clientWidth > 850 && clientWidth <= 1500) {
+      // 300px for device between 850px & 1500px
+      margin = 350;
+      // Filter width is 80px on desktop devices
+      filterWidth = 80;
+    } else if(clientWidth > 1500) {
+      // 450px for device above 1500px
       margin = 450;
+      // Filter width is 80px on desktop devices
+      filterWidth = 80;
     };
 
     // Visible playlists are between device width & left margin
-    const visiblePlaylistsWidth = clientWidth - margin;
+    const visiblePlaylistsWidth = clientWidth - margin - filterWidth;
     return Math.floor(visiblePlaylistsWidth);
   };
 
@@ -86,7 +94,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     disableButtons();
 
     const visiblePlaylistsWidth = getVisiblePlaylistsWidth();
-    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 10;
+    const newScroll = visiblePlaylistsWidth - gapBetweenCards;
     const listWidth = getListWidth();
 
     // If there is enough space to slide, set new position
@@ -95,7 +103,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
       setCurrentPosition(current => current - newScroll);
     } else {
       // If slide goes to end of the list, set position to maximum
-      const newPosition = (-listWidth + visiblePlaylistsWidth) - 100;
+      const newPosition = (-listWidth + visiblePlaylistsWidth);
       sliderRef.current?.setAttribute('style', `transform: translateX(${newPosition}px)`);
       setCurrentPosition(newPosition);
     };
@@ -105,7 +113,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
     disableButtons();
 
     const visiblePlaylistsWidth = getVisiblePlaylistsWidth();
-    const newScroll = visiblePlaylistsWidth - gapBetweenCards * 10;
+    const newScroll = visiblePlaylistsWidth - gapBetweenCards;
 
     // If new scroll lead to 0 or above, update position to 0
     if((currentPosition + newScroll) >= 0) {
@@ -131,7 +139,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
           handleFunction={slideToRight}
           title={leftTitle}
           disabled={disabledButtons}
-          side="left"
+          side='left'
         />
       }
 
@@ -151,7 +159,7 @@ export const PlaylistsSlider: FC<PlaylistsSliderProps> = ({
           handleFunction={slideToLeft}
           title={rightTitle}
           disabled={disabledButtons}
-          side="right"
+          side='right'
         />
       }
     </section>

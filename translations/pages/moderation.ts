@@ -4,7 +4,7 @@ export const playlistsTexts = {
     en: "Moderate blind tests"
   },
   visiblePlaylists: {
-    fr: "Quizz musicaux",
+    fr: "Blind tests",
     en: "Blind tests"
   },
   hiddenPlaylists: {

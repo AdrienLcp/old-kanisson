@@ -3,10 +3,9 @@ import type { InputFieldProps } from '../../../types/components/inputs';
 import { useRef, useContext, useMemo } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { clearTexts, limitTexts } from '../../../translations/components/inputs';
-import styles from './InputField.module.scss';
-
-import CrossIcon from '../../../icons/CrossIcon';
 import { Button } from '../../buttons/Button/Button';
+import CrossIcon from '../../../icons/CrossIcon';
+import styles from './InputField.module.scss';
 
 export const InputField: FC<InputFieldProps> = ({
   value,

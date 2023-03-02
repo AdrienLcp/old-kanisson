@@ -5,7 +5,7 @@ export const pageTitleTexts = {
 
 export const filterTexts = {
   label: {
-    fr: "Chercher un quiz musical",
+    fr: "Chercher un blind test",
     en: "Filter blind tests"
   },
   title: {

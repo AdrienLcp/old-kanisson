@@ -6,7 +6,6 @@ export default async function handle (
   res: NextApiResponse
 ) {
   try {
-
     const playlists = await db.playlist.findMany({
       where: {
         visible: true,
@@ -23,7 +22,8 @@ export default async function handle (
     };
 
     // For each playlist in database
-    for(let i = 0; i < playlistsList.length; i++) {
+    for(let i = 0; i < playlists.length; i++) {
+
       // Get a random number between 0 & number of playlists
       const randomIndex = getRandomNumber(0, playlistsList.length - 1);
 

@@ -5,22 +5,22 @@ export const myPlaylistCard = {
   },
   buttons: {
     update: {
-      fr: 'Éditer ce quiz',
-      en: 'Update this playlist'
+      fr: 'Éditer ce blind test',
+      en: 'Update this blind test'
     },
     delete: {
-      fr: 'Supprimer ce quiz',
-      en: 'Delete this playlist'
+      fr: 'Supprimer ce blind test',
+      en: 'Delete this blind test'
     }
   },
   confirmModal: {
     title: {
-      fr: 'Êtes vous certain de vouloir supprimer ce quiz musical ?',
-      en: 'Are you sure you want to delete this music quiz ?'
+      fr: 'Êtes vous certain de vouloir supprimer ce blind test ?',
+      en: 'Are you sure you want to delete this blind test ?'
     },
     content: {
-      fr: 'Toutes les informations et musiques qu\'elle contient seront perdues définitivement',
-      en: 'All information and music it contains will be permanently lost'
+      fr: 'Toutes les informations et sons qu\'elle contient seront perdues définitivement',
+      en: 'All information and songs it contains will be permanently lost'
     }
   },
   warningTexts: {
@@ -28,8 +28,8 @@ export const myPlaylistCard = {
     en: 'Please note that your blind test is not visible to users. It does not contain 10 tracks with either a custom title or a custom artist (or both)'
   },
   hiddenTexts: {
-    fr: 'Ce quiz a été caché par l\'équipe de Kanisson, il n\'est pas jouable actuellement. Veillez à surveiller le langage du titre et de la description, et à l\'exactitude des titres et artites des musiques que contient votre blind test',
-    en: 'This quiz has been hidden by the Kanisson team, it is currently not playable. Be sure to monitor the language of the title and description, and the accuracy of the titles and artists of the musics in your blind test'
+    fr: 'Ce blind test a été caché par l\'équipe de Kanisson, il n\'est pas jouable actuellement. Veillez à surveiller le langage du titre et de la description, et à l\'exactitude des titres et artites des musiques que contient votre blind test',
+    en: 'This blind test has been hidden by the Kanisson team, it is currently not playable. Be sure to monitor the language of the title and description, and the accuracy of the titles and artists of the musics in your blind test'
   }
 };
 

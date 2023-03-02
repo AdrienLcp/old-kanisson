@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.scss';
-import type { Playlist } from '@prisma/client';
 import type { GetServerSideProps, NextPage } from 'next';
+import type { Playlist } from '@prisma/client';
+import type { HomeProps } from '../types/pages';
 import { api } from '../api/api';
 import { useState, useContext, Dispatch, SetStateAction, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
@@ -9,15 +10,7 @@ import { playlistsTexts } from '../translations/pages/home';
 import { NextHead } from '../layouts/Head/Head';
 import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
 
-type Props = {
-  mostPlayedPlaylists: Playlist[];
-  topRatedPlaylists: Playlist[];
-  mostRecentPlaylists: Playlist[];
-  kanissonPlaylists: Playlist[];
-  randomPlaylists: Playlist[];
-};
-
-const Home: NextPage<Props> = ({
+const Home: NextPage<HomeProps> = ({
   mostPlayedPlaylists,
   topRatedPlaylists,
   mostRecentPlaylists,
@@ -58,9 +51,7 @@ const Home: NextPage<Props> = ({
       const data = await res.json();
       setUserPlaylists(data);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
   };
 
   const getData = async(url: string, setState: Dispatch<SetStateAction<Playlist[]>>) => {
@@ -78,9 +69,7 @@ const Home: NextPage<Props> = ({
       const data = await res.json();
       setState(data);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
   };
 
   return (

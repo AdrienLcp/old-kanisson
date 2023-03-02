@@ -14,13 +14,13 @@ export default checkUser(async function handle (
       }
     });
 
-    const deletedQuiz = await db.playlist.delete({
+    const deletedPlaylist = await db.playlist.delete({
       where: {
         id: req.body.playlist_id
       }
     });
 
-    res.status(200).json(deletedQuiz);
+    res.status(200).json(deletedPlaylist);
 
   } catch (error){
     res.status(404).json(error);

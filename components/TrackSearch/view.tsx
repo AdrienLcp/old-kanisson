@@ -35,7 +35,7 @@ export const TrackSearchView: FC<TrackSearchViewProps> = ({
   const refetchTitle = refetchTexts.title[lang as keyof typeof refetchTexts.title];
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if(!loading && event.code === 'Enter' || event.code === 'NumpadEnter') fetchData();
+    if(!loading && event.code === 'Enter' || !loading && event.code === 'NumpadEnter') fetchData();
   };
 
   return (

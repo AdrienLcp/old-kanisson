@@ -96,7 +96,7 @@ export const searchHeadTexts = {
     en: 'Find a blind test - Kanisson'
   },
   description: {
-    fr: 'Tous les quizz musicaux de Kanisson, trouvez celui qui vous plaît',
+    fr: 'Tous les blind tests de Kanisson, trouvez celui qui vous plaît',
     en: 'All Kanisson\'s blind tests, find the one you like'
   }
 };
@@ -125,7 +125,7 @@ export const userProfileHeadTexts = {
       en: ''
     },
     after: {
-      fr: ', découvrez les quizz musicaux créés par cet utilisateur de Kanisson ainsi que ses scores',
+      fr: ', découvrez les blind tests créés par cet utilisateur de Kanisson ainsi que ses scores',
       en: '\'s profile page, discover the blind tests created by this Kanisson user as well as his scores'
     }
   }

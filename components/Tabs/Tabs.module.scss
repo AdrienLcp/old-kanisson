@@ -1,8 +1,6 @@
 @import "../../styles/mixins";
 
 .container {
-  width: 90vw;
-  max-width: 50rem;
   box-shadow: var(--box-shadow);
 }
 
@@ -41,11 +39,8 @@
 }
 
 @media screen and (min-width: 850px) {
-  .container {
-    max-width: 50rem;
-  }
 
   .content {
-    padding: 2em;
+    padding: 2rem;
   }
 }

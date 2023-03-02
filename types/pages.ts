@@ -4,6 +4,14 @@ export type CreateProps = {
   apiKey: string;
 };
 
+export type HomeProps = {
+  mostPlayedPlaylists: Playlist[];
+  topRatedPlaylists: Playlist[];
+  mostRecentPlaylists: Playlist[];
+  kanissonPlaylists: Playlist[];
+  randomPlaylists: Playlist[];
+};
+
 export type PlayProps = {
   playlist: Playlist;
   tracks: Track[];

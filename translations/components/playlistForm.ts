@@ -19,12 +19,12 @@ export const errorTexts = {
 
 export const validTexts = {
   alreadyUpToDate: {
-    fr: "Le quiz est déjà à jour",
-    en: "Quiz already up to date"
+    fr: "Le blind test est déjà à jour",
+    en: "Blind test already up to date"
   },
   updated: {
-    fr: "Le quiz a bien été mis à jour",
-    en: "Quiz updated"
+    fr: "Le blind test a bien été mis à jour",
+    en: "Blind test updated"
   }
 };
 

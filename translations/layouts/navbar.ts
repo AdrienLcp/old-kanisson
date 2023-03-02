@@ -4,7 +4,7 @@ export const createTexts = {
     en: "Create blind test"
   },
   title: {
-    fr: "Créer un nouveau quiz musical",
+    fr: "Créer un nouveau blind test",
     en: "Create a new blind test"
   }
 };
