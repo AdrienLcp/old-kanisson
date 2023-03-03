@@ -15,12 +15,11 @@ export default isModerator(async function handle (
     // for each user found
     users.forEach(user => {
       // set new message with data received
-      const message: Notification = {
+      const message: any = {
         id: uuidv4(),
         user_id: user.id,
         title: req.body.title,
         message: req.body.message,
-        date: new Date(),
         seen: false
       };
 

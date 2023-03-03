@@ -7,7 +7,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { messages } from '../../translations/others/error';
 import { TrackSearchView } from './view';
 
-const max = 1;
+const max = 20;
 
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,

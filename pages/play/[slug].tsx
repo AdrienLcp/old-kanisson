@@ -38,7 +38,6 @@ const Play: NextPage<PlayProps> = ({
       user_id: user.id,
       pseudo: user.pseudo,
       playlist_id: playlist.id,
-      date: new Date(),
       score
     };
 
