@@ -27,6 +27,7 @@ model Playlist {
   title             String        @unique
   description       String
   average           Int
+  img               String
   ratings           Int[]
   ratings_ids       String[]
   nbOfTracks        Int

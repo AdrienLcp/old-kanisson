@@ -6,6 +6,7 @@ import { api } from '../api/api';
 import { useState, useContext, Dispatch, SetStateAction, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { LangContext } from '../contexts/LangContext';
+import { noData } from '../translations/others/others';
 import { playlistsTexts } from '../translations/pages/home';
 import { NextHead } from '../layouts/Head/Head';
 import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
@@ -28,6 +29,7 @@ const Home: NextPage<HomeProps> = ({
   const userPlaylistsText = playlistsTexts.userPlaylists[lang as keyof typeof playlistsTexts.userPlaylists];
   const userPlayedText = playlistsTexts.userPlayed[lang as keyof typeof playlistsTexts.userPlayed];
   const userLikedText = playlistsTexts.userLiked[lang as keyof typeof playlistsTexts.userLiked];
+  const noDataText = noData[lang as keyof typeof noData];
 
   const [userPlaylists, setUserPlaylists] = useState<Playlist[]>([]);
   const [userLikedPlaylists, setUserLikedPlaylists] = useState<Playlist[]>([]);
@@ -140,9 +142,22 @@ const Home: NextPage<HomeProps> = ({
           />
         }
 
-        <div className={`${styles.filter} ${styles.filter_left}`} />
-        <div className={`${styles.filter} ${styles.filter_right}`} />
-
+        {mostPlayedPlaylists.length === 0
+        && topRatedPlaylists.length === 0
+        && mostRecentPlaylists.length === 0
+        && kanissonPlaylists.length === 0
+        && randomPlaylists.length === 0
+        && userPlaylists.length === 0
+        && userPlayedPlaylists.length === 0
+        && userLikedPlaylists.length === 0
+        ?
+          <p className={styles.nothing}>{noDataText}</p>
+        :
+          <>
+            <div className={`${styles.filter} ${styles.filter_left}`} />
+            <div className={`${styles.filter} ${styles.filter_right}`} />
+          </>
+        }
       </main>
     </>
   );

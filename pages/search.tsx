@@ -4,10 +4,12 @@ import { useContext } from 'react';
 import { LangContext } from '../contexts/LangContext';
 import { searchHeadTexts } from '../translations/layouts/head';
 import { pageTitleTexts } from '../translations/pages/search';
+import { noData } from '../translations/others/others';
 import { api } from '../api/api';
 import { NextHead } from '../layouts/Head/Head';
 import { PageWrapper } from '../layouts/wrappers/PageWrapper/PageWrapper';
 import { PlaylistFilter } from '../components/PlaylistsFilter/PlaylistsFilter';
+import styles from '../styles/Search.module.scss';
 
 const Search: NextPage<SearchProps> = ({
   playlists
@@ -18,6 +20,7 @@ const Search: NextPage<SearchProps> = ({
   const headTitle = searchHeadTexts.title[lang as keyof typeof searchHeadTexts.title];
   const headDescription = searchHeadTexts.description[lang as keyof typeof searchHeadTexts.description];
   const pageTitle = pageTitleTexts[lang as keyof typeof pageTitleTexts];
+  const noDataText = noData[lang as keyof typeof noData];
 
   return (
     <>
@@ -28,10 +31,13 @@ const Search: NextPage<SearchProps> = ({
 
       <PageWrapper title={pageTitle}>
 
-        <PlaylistFilter
-          playlists={playlists}
-        />
-
+        {playlists.length > 0 ?
+          <PlaylistFilter
+            playlists={playlists}
+          />
+        :
+          <p className={styles.nothing}>{noDataText}</p>
+        }
       </PageWrapper>
     </>
   );

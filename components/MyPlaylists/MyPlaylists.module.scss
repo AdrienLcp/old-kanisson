@@ -18,6 +18,7 @@
 
 .button {
   @include mainButton;
+  margin-top: 2rem;
 }
 
 .list {
