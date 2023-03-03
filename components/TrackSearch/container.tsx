@@ -7,7 +7,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { messages } from '../../translations/others/error';
 import { TrackSearchView } from './view';
 
-const max = 20;
+const max = 1;
 
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
@@ -32,13 +32,18 @@ export const TrackSearch: FC<TrackSearchProps> = ({
 
   const fetchMoreData = () => getDataFromYoutube(`${youtube}${previousSearch}&key=${apiKey}&maxResults=${max}&pageToken=${pageToken}`);
 
+  const fetchFailed = () => {
+    setWarningMessage(youtubeQuotaText);
+    setLoading(false);
+  };
+
   const getDataFromYoutube = async(url: string) => {
     setLoading(true);
 
     const dataSearched = await fetch(url);
     const fetchedResults = await dataSearched.json();
 
-    if(fetchedResults.error) return setWarningMessage(youtubeQuotaText);
+    if(fetchedResults.error) return fetchFailed();
 
     // Save nextPageToken if user want to fetch more data
     setPageToken(fetchedResults.nextPageToken);
