@@ -1,6 +1,6 @@
 import type { FC, FormEvent } from 'react';
 import type { PlaylistFormProps } from '../../../types/components/forms';
-import type { Playlist, Track } from '@prisma/client';
+import type { Track } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -83,13 +83,12 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
 
       const validTracks = tracks.filter(track => track.valid);
 
-      const body: Playlist = {
+      const body = {
         id: playlist ? playlist.id : uuidv4(),
         title: title.trim(),
         description: description.trim(),
         user_id: user.id,
         creator: user.pseudo,
-        date: playlist ? playlist.date : new Date(),
         img: '',
         average: playlist ? playlist.average : 0,
         ratings: playlist ? playlist.ratings : [],

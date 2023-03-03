@@ -34,7 +34,7 @@ model Playlist {
   nbOfPlayed        Int           @default(0)
   playable          Boolean       @default(false)
   visible           Boolean       @default(true)
-  date              DateTime
+  date              DateTime      @default(now())
 }
 
 model Track {
@@ -54,7 +54,7 @@ model Notification {
   title         String
   message       String
   seen          Boolean           @default(false)
-  date          DateTime
+  date          DateTime          @default(now())
 }
 
 model Game {
@@ -63,5 +63,5 @@ model Game {
   pseudo            String
   playlist_id       String
   score             Int
-  date              DateTime
+  date              DateTime      @default(now())
 }
