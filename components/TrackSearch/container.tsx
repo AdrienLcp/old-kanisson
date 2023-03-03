@@ -27,12 +27,7 @@ export const TrackSearch: FC<TrackSearchProps> = ({
   const [warningMessage, setWarningMessage] = useState<string>('');
 
   const fetchData = async() => {
-    if(search && search !== previousSearch) {
-      // Save search to avoid fechting same data
-      setPreviousSearch(search);
-
-      getDataFromYoutube(`${youtube}${search}&key=${apiKey}&maxResults=${max}`);
-    };
+    if(search && search !== previousSearch) getDataFromYoutube(`${youtube}${search}&key=${apiKey}&maxResults=${max}`);
   };
 
   const fetchMoreData = () => getDataFromYoutube(`${youtube}${previousSearch}&key=${apiKey}&maxResults=${max}&pageToken=${pageToken}`);
@@ -60,8 +55,18 @@ export const TrackSearch: FC<TrackSearchProps> = ({
       if(!tracksIDs.includes(result.id.videoId)) validTracks.push(result);
     });
 
-    const newTracksResults = [...tracksResults, ...validTracks];
+    let newTracksResults: SearchResultItem[];
+
+    if(search === previousSearch) {
+      newTracksResults = [...tracksResults, ...validTracks];
+    } else {
+      newTracksResults = [...validTracks];
+    };
+
     setTracksResults(newTracksResults);
+
+    // Save search to avoid fechting same data
+    setPreviousSearch(search);
 
     setLoading(false);
   };

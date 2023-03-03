@@ -26,3 +26,8 @@ export const closeButton = {
     en: "Close"
   }
 };
+
+export const loadingTexts = {
+  fr: 'Chargement...',
+  en: 'Loading...'
+}

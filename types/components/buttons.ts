@@ -15,6 +15,7 @@ export type ButtonProps = PropsWithChildren<{
   onClick?: () => void;
   styles?: string;
   title?: string;
+  loading?: boolean;
   disabled?: boolean;
   tabIndex?: number;
   type?: 'button' | 'submit' | 'reset' | undefined;

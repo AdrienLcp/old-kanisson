@@ -1,5 +1,8 @@
 import type { FC } from 'react';
 import type { ButtonProps } from '../../../types/components/buttons';
+import { useContext } from 'react';
+import { LangContext } from '../../../contexts/LangContext';
+import { loadingTexts } from '../../../translations/components/buttons';
 
 export const Button: FC<ButtonProps> = ({
   onClick,
@@ -7,9 +10,13 @@ export const Button: FC<ButtonProps> = ({
   title,
   type = 'button',
   disabled = false,
+  loading = false,
   tabIndex,
   children
 }) => {
+
+  const { lang } = useContext(LangContext);
+  const loadingText = loadingTexts[lang as keyof typeof loadingTexts];
 
   return (
     <button
@@ -17,11 +24,19 @@ export const Button: FC<ButtonProps> = ({
       type={type}
       arial-label={title ?? undefined}
       title={title ?? undefined}
-      disabled={disabled}
+      disabled={disabled || loading}
       tabIndex={tabIndex ? tabIndex : 0}
       onClick={onClick}
     >
-      {children}
+      {loading ?
+        <>
+          {loadingText}
+        </>
+      :
+        <>
+          {children}
+        </>
+      }
     </button>
   );
 };

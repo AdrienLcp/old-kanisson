@@ -9,17 +9,26 @@
 
 .list {
   display: flex;
+  border-radius: var(--sm-radius) var(--sm-radius) 0 0;
 }
 
 .item {
   width: 100%;
+
+  &:first-child {
+    border-radius: var(--sm-radius) 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 var(--sm-radius) 0 0;
+  }
 }
 
 .button {
   width: 100%;
   padding: 1.5em;
   background: var(--sm-opacity);
-  border-radius: var(--sm-radius) var(--sm-radius) 0 0;
+  border-radius: inherit;
 
   &.selected {
     background: var(--body-color);

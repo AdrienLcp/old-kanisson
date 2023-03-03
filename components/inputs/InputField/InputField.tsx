@@ -17,6 +17,7 @@ export const InputField: FC<InputFieldProps> = ({
   name,
   type = 'text',
   disabled = false,
+  loading = false,
   required = true,
   autoFocus = false,
   onKeyDown
@@ -65,7 +66,7 @@ export const InputField: FC<InputFieldProps> = ({
         id={id}
         value={value}
         onChange={handleChange}
-        disabled={disabled}
+        disabled={disabled || loading}
         required={required}
         autoFocus={autoFocus}
         name={name}
@@ -81,6 +82,7 @@ export const InputField: FC<InputFieldProps> = ({
       <Button
         styles={styles.clear}
         type='reset'
+        disabled={disabled || loading}
         title={clearButtonTitle}
         aria-label={clearButtonLabel}
         tabIndex={-1}

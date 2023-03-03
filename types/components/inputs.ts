@@ -31,6 +31,7 @@ export type InputFieldProps = {
   type?: string;
   name?: string;
   disabled?: boolean;
+  loading?: boolean;
   required?: boolean;
   autoFocus?: boolean;
   onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
