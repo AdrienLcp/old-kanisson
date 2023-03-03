@@ -20,6 +20,7 @@ export default isModerator(async function handle (
         user_id: user.id,
         title: req.body.title,
         message: req.body.message,
+        date: new Date().toDateString(),
         seen: false
       };
 
