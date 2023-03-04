@@ -22,7 +22,9 @@ export default async function handle (
             id: uuidv4(),
             pseudo: req.body.pseudo,
             email: req.body.email,
-            password: hash
+            password: hash,
+            date: new Date().toLocaleDateString(),
+            iso_date: new Date().toISOString()
           }
         });
 

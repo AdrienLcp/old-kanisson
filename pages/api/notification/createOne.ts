@@ -11,7 +11,8 @@ export default isModerator(async function handle (
     const notification = await db.notification.create({
       data: {
         id: uuidv4(),
-        date: new Date().toISOString(),
+        date: new Date().toLocaleDateString(),
+        iso_date: new Date().toISOString(),
         ...req.body
       }
     });

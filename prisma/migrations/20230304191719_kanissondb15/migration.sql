@@ -7,6 +7,8 @@ CREATE TABLE "User" (
     "banned" BOOLEAN NOT NULL DEFAULT false,
     "moderator" BOOLEAN NOT NULL DEFAULT false,
     "admin" BOOLEAN NOT NULL DEFAULT false,
+    "date" TEXT NOT NULL,
+    "iso_date" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -26,7 +28,8 @@ CREATE TABLE "Playlist" (
     "nbOfPlayed" INTEGER NOT NULL DEFAULT 0,
     "playable" BOOLEAN NOT NULL DEFAULT false,
     "visible" BOOLEAN NOT NULL DEFAULT true,
-    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "date" TEXT NOT NULL,
+    "iso_date" TEXT NOT NULL,
 
     CONSTRAINT "Playlist_pkey" PRIMARY KEY ("id")
 );
@@ -52,7 +55,8 @@ CREATE TABLE "Notification" (
     "title" TEXT NOT NULL,
     "message" TEXT NOT NULL,
     "seen" BOOLEAN NOT NULL DEFAULT false,
-    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "date" TEXT NOT NULL,
+    "iso_date" TEXT NOT NULL,
 
     CONSTRAINT "Notification_pkey" PRIMARY KEY ("id")
 );
@@ -64,7 +68,8 @@ CREATE TABLE "Game" (
     "pseudo" TEXT NOT NULL,
     "playlist_id" TEXT NOT NULL,
     "score" INTEGER NOT NULL,
-    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "date" TEXT NOT NULL,
+    "iso_date" TEXT NOT NULL,
 
     CONSTRAINT "Game_pkey" PRIMARY KEY ("id")
 );

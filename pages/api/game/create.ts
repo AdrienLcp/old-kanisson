@@ -10,7 +10,9 @@ export default checkUser(async function handle (
   try {
     const playedGame: Game = await db.game.create({
       data: {
-        ...req.body
+        ...req.body,
+        date: new Date().toLocaleDateString(),
+        iso_date: new Date().toISOString()
       }
     });
 

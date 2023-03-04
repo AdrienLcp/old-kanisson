@@ -90,7 +90,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         user_id: user.id,
         creator: user.pseudo,
         img: '',
-        date: playlist ? playlist.date : new Date().toISOString(),
         average: playlist ? playlist.average : 0,
         ratings: playlist ? playlist.ratings : [],
         ratings_ids: playlist ? playlist.ratings_ids : [],
