@@ -20,7 +20,7 @@ const Banned: NextPage = () => {
 
   const router = useRouter();
   const { lang } = useContext(LangContext);
-  const { user, setUser, setLogged } = useContext(UserContext);
+  const { user, logOut } = useContext(UserContext);
 
   useEffect(() => {
     if(!user.banned) router.push('/');
@@ -41,22 +41,6 @@ const Banned: NextPage = () => {
   const [validMessage, setValidMessage] = useState<string>('');
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
-  const disconnectUser = () => {
-    setLogged(false);
-    setUser({
-      id: '',
-      pseudo: '',
-      email: '',
-      password: '',
-      admin: false,
-      moderator: false,
-      banned: false
-    });
-
-    // Push user to home page
-    router.push('/');
-  };
-
   const deleteAccount = async() => {
     // Get token from local storage, for authorization
     const token = localStorage.getItem('token');
@@ -75,7 +59,7 @@ const Banned: NextPage = () => {
         // Set messages to notify user
         setWarningMessage('');
         setValidMessage(deletedAccountText);
-        disconnectUser();
+        logOut();
       } else {
         setWarningMessage(errorMessage);
       };

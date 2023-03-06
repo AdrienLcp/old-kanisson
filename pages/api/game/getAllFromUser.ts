@@ -11,9 +11,9 @@ export default async function handle (
       where: {
         pseudo: req.body.pseudo
       },
-      orderBy: [{
-        iso_date: 'desc'
-      }]
+      // orderBy: [{
+      //   iso_date: 'desc'
+      // }]
     });
 
     res.status(200).json(playedGames);
