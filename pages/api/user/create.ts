@@ -16,6 +16,9 @@ export default async function handle (
       res.status(404).json(err);
     } else {
 
+      const localeDate = new Date().toLocaleDateString();
+      const isoDate = new Date().toISOString();
+
       try {
         const user = await db.user.create({
           data: {
@@ -23,8 +26,8 @@ export default async function handle (
             pseudo: req.body.pseudo,
             email: req.body.email,
             password: hash,
-            date: new Date().toLocaleDateString(),
-            iso_date: new Date().toISOString()
+            date: localeDate,
+            iso_date: isoDate
           }
         });
 
