@@ -10,9 +10,9 @@ export default async function handle (
       where: {
         user_id: req.body.user_id
       },
-      // orderBy: [{
-      //   iso_date: 'desc'
-      // }]
+      orderBy: [{
+        date: 'desc'
+      }]
     });
 
     res.status(200).json(notifications);
