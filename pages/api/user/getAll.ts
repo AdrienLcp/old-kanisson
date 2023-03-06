@@ -8,9 +8,9 @@ export default isModerator(async function getAllUsers (
 ) {
   try {
     const users = await db.user.findMany({
-      orderBy: {
+      orderBy: [{
         iso_date: 'desc'
-      }
+      }]
     });
 
     res.status(200).json(users);
