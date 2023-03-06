@@ -13,7 +13,9 @@ const initialState = {
     password: '',
     admin: false,
     moderator: false,
-    banned: false
+    banned: false,
+    date: '',
+    iso_date: ''
   },
   logged: false,
   setUser: () => {},

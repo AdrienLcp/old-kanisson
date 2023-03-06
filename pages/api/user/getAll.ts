@@ -7,7 +7,11 @@ export default isModerator(async function getAllUsers (
   res: NextApiResponse
 ) {
   try {
-    const users = await db.user.findMany();
+    const users = await db.user.findMany({
+      orderBy: {
+        iso_date: 'desc'
+      }
+    });
 
     res.status(200).json(users);
 

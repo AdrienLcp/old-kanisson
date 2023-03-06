@@ -26,7 +26,7 @@ export const TrackSearch: FC<TrackSearchProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
 
-  const fetchData = async() => {
+  const fetchData = () => {
     if(search && search !== previousSearch) getDataFromYoutube(`${youtube}${search}&key=${apiKey}&maxResults=${max}`);
   };
 

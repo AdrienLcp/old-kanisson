@@ -10,6 +10,9 @@ export default async function handle (
     const playedGames: Game[] = await db.game.findMany({
       where: {
         pseudo: req.body.pseudo
+      },
+      orderBy: {
+        iso_date: 'desc'
       }
     });
 

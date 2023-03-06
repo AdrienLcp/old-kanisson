@@ -3,7 +3,7 @@
 .container {
   @include flexCenter;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .card {
