@@ -9,7 +9,7 @@ export default isModerator(async function getAllUsers (
   try {
     const users = await db.user.findMany({
       orderBy: [{
-        date: 'desc'
+        iso_date: 'desc'
       }]
     });
 
