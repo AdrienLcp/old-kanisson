@@ -13,7 +13,7 @@ export default isModerator(async function handle (
         playable: true
       },
       orderBy: {
-        title: 'desc'
+        iso_date: 'desc'
       }
     });
     res.status(200).json(playlists);
