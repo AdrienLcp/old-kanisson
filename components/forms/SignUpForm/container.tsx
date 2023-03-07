@@ -1,3 +1,4 @@
+import { User } from '@prisma/client';
 import type { FC, FormEvent } from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { api } from '../../../api/api';
@@ -100,7 +101,9 @@ export const SignUpForm: FC = () => {
         pseudo: pseudo.trim(),
         email: email.trim(),
         password,
-        rememberMe
+        rememberMe,
+        date: new Date().toLocaleDateString(),
+        iso_date: new Date().toISOString()
       };
 
       // Create user on database
