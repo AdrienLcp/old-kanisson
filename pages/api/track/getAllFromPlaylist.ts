@@ -9,9 +9,6 @@ export default async function handle (
     const tracks = await db.track.findMany({
       where: {
         playlist_id: req.body.playlist_id
-      },
-      orderBy: {
-        youtube_title: 'desc'
       }
     });
 

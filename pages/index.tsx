@@ -35,6 +35,8 @@ const Home: NextPage<HomeProps> = ({
   const [userLikedPlaylists, setUserLikedPlaylists] = useState<Playlist[]>([]);
   const [userPlayedPlaylists, setUserPlayedPlaylists] = useState<Playlist[]>([]);
 
+  console.log(mostRecentPlaylists);
+
   useEffect(() => {
     if(logged) {
       getUserPlaylists();
