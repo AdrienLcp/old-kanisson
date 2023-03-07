@@ -12,7 +12,7 @@ export default checkUser(async function handle (
         user_id: req.body.user_id
       },
       orderBy: {
-        iso_date: 'desc'
+        date: 'desc'
       }
     });
     res.status(200).json(playlists);

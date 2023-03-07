@@ -12,7 +12,7 @@ export default async function handle (
         pseudo: req.body.pseudo
       },
       orderBy: {
-        iso_date: 'desc'
+        date: 'desc'
       }
     });
 

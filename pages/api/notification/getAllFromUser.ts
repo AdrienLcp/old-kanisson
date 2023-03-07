@@ -11,7 +11,7 @@ export default async function handle (
         user_id: req.body.user_id
       },
       orderBy: {
-        iso_date: 'desc'
+        date: 'desc'
       }
     });
 
