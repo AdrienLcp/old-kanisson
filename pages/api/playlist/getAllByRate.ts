@@ -11,9 +11,9 @@ export default async function handle (
         visible: true,
         playable: true
       },
-      orderBy: [{
+      orderBy: {
         average: 'desc'
-      }]
+      }
     });
     res.status(200).json(playlists);
 

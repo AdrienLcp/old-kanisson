@@ -12,9 +12,9 @@ export default isModerator(async function handle (
         visible: false,
         playable: true
       },
-      orderBy: [{
+      orderBy: {
         title: 'desc'
-      }]
+      }
     });
     res.status(200).json(playlists);
 

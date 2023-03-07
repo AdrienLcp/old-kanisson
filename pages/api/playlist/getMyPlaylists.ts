@@ -11,9 +11,9 @@ export default checkUser(async function handle (
       where: {
         user_id: req.body.user_id
       },
-      orderBy: [{
+      orderBy: {
         date: 'desc'
-      }]
+      }
     });
     res.status(200).json(playlists);
 

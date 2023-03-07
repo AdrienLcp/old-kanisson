@@ -13,9 +13,9 @@ export default checkUser(async function handle (
         visible: true,
         playable: true
       },
-      orderBy: [{
+      orderBy: {
         average: 'desc'
-      }]
+      }
     });
 
     const playlistsRatedByUser = [] as Playlist[];
