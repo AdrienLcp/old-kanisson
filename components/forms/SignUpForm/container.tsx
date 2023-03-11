@@ -1,4 +1,3 @@
-import { User } from '@prisma/client';
 import type { FC, FormEvent } from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { api } from '../../../api/api';
@@ -6,6 +5,7 @@ import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
+import { v4 as uuidv4 } from 'uuid';
 import { SignUpFormView } from './view';
 
 export const SignUpForm: FC = () => {
@@ -98,9 +98,12 @@ export const SignUpForm: FC = () => {
 
       // Set body with all needed data
       const body = {
+        id: uuidv4(),
         pseudo: pseudo.trim(),
         email: email.trim(),
         password,
+        date: new Date().toLocaleDateString(),
+        iso_date: new Date().toISOString(),
         rememberMe
       };
 
