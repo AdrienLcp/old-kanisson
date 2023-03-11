@@ -1,14 +1,14 @@
 import type { FC, FormEvent } from 'react';
 import type { PlaylistFormProps } from '../../../types/components/forms';
 import type { Track } from '@prisma/client';
-import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
-import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
+import { LangContext } from '../../../contexts/LangContext';
+import { errorTexts, validTexts } from '../../../translations/components/playlistForm';
 import { api } from '../../../api/api';
 import { messages } from '../../../translations/others/error';
-import { errorTexts, validTexts } from '../../../translations/components/playlistForm';
 import { PlaylistFormView } from './view';
 
 export const PlaylistForm: FC<PlaylistFormProps> = ({
@@ -32,6 +32,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const updated = validTexts.updated[lang as keyof typeof validTexts.updated];
 
   const [title, setTitle] = useState<string>(playlist ? playlist.title : '');
+  const [previousTitle, setPreviousTitle] = useState<string>(playlist ? playlist.title : '');
   const [description, setDescription] = useState<string>(playlist ? playlist.description : '');
   const [tracks, setTracks] = useState<Track[]>(tracksData ? tracksData : [] as Track[]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,11 +44,11 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     setWarningMessage('');
     setValidMessage('');
 
-    const special = new RegExp('(?=.*[?!-@/#\$%\^&\*])');
+    const special = new RegExp('/^[a-zA-Z0-9\-\'\(\)\[\]\.,: ]+$/');
 
     // If nothing changed
     if(playlist && tracksData &&
-      playlist.title === title &&
+      previousTitle === title &&
       playlist.description === description &&
       tracksData === tracks) {
       // Set valid message & return false
@@ -57,16 +58,17 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     // if title isn't correct
     } else if(title.length < 3
       || title.length > 50
-      || special.test(title) ) {
+      || special.test(title)
+      ) {
       // set warning message, and return false
       setWarningMessage(titleError);
       return false;
     } else if(description.length > 100) {
       setWarningMessage(descriptionLength);
       return false;
-    } else if(tracks.length <= 0) {
-      setWarningMessage(noTrack);
-      return false;
+    // } else if(tracks.length <= 0) {
+    //   setWarningMessage(noTrack);
+    //   return false;
     };
     return true;
   };
@@ -82,6 +84,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
       const token = localStorage.getItem('token');
 
       const validTracks = tracks.filter(track => track.valid);
+      // const validTitle = title.replace(, " ");
 
       const body = {
         id: playlist ? playlist.id : uuidv4(),
@@ -99,6 +102,9 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         visible: playlist ? playlist.visible : true
       };
 
+      console.log('playlist : ', playlist);
+      console.log('body : ', body);
+
       await fetch(`${api}/playlist/upsert`, {
         method: 'POST',
         headers: {
@@ -110,6 +116,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
       .then(async(res) => {
         if(res.status === 200) {
           const data = await res.json();
+          setPreviousTitle(data.title);
           setValidMessage(updated);
           await updateTracks(data.id);
 

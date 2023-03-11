@@ -14,7 +14,7 @@ import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
 const Home: NextPage<HomeProps> = ({
   mostPlayedPlaylists,
   topRatedPlaylists,
-  mostRecentPlaylists,
+  // mostRecentPlaylists,
   kanissonPlaylists,
   randomPlaylists
 }) => {
@@ -23,7 +23,7 @@ const Home: NextPage<HomeProps> = ({
   const { lang } = useContext(LangContext);
   const playedText = playlistsTexts.played[lang as keyof typeof playlistsTexts.played];
   const ratedText = playlistsTexts.rated[lang as keyof typeof playlistsTexts.rated];
-  const recentText = playlistsTexts.recent[lang as keyof typeof playlistsTexts.recent];
+  // const recentText = playlistsTexts.recent[lang as keyof typeof playlistsTexts.recent];
   const baseText = playlistsTexts.base[lang as keyof typeof playlistsTexts.base];
   const randomText = playlistsTexts.random[lang as keyof typeof playlistsTexts.random];
   const userPlaylistsText = playlistsTexts.userPlaylists[lang as keyof typeof playlistsTexts.userPlaylists];
@@ -34,8 +34,6 @@ const Home: NextPage<HomeProps> = ({
   const [userPlaylists, setUserPlaylists] = useState<Playlist[]>([]);
   const [userLikedPlaylists, setUserLikedPlaylists] = useState<Playlist[]>([]);
   const [userPlayedPlaylists, setUserPlayedPlaylists] = useState<Playlist[]>([]);
-
-  console.log(mostRecentPlaylists);
 
   useEffect(() => {
     if(logged) {
@@ -102,12 +100,12 @@ const Home: NextPage<HomeProps> = ({
           />
         }
 
-        {mostRecentPlaylists.length > 0 &&
+        {/* {mostRecentPlaylists.length > 0 &&
           <PlaylistsSlider
             playlists={mostRecentPlaylists}
             title={recentText}
           />
-        }
+        } */}
 
         {kanissonPlaylists.length > 0 &&
           <PlaylistsSlider
@@ -146,7 +144,7 @@ const Home: NextPage<HomeProps> = ({
 
         {mostPlayedPlaylists.length === 0
         && topRatedPlaylists.length === 0
-        && mostRecentPlaylists.length === 0
+        // && mostRecentPlaylists.length === 0
         && kanissonPlaylists.length === 0
         && randomPlaylists.length === 0
         && userPlaylists.length === 0
@@ -173,8 +171,8 @@ export const getServerSideProps: GetServerSideProps = async() => {
   const fetchedTopRatedPlaylists = await fetch(`${api}/playlist/getAllByRate`);
   const topRatedPlaylists = await fetchedTopRatedPlaylists.json();
 
-  const fetchedMostRecentPlaylists = await fetch(`${api}/playlist/getAllByDate`);
-  const mostRecentPlaylists = await fetchedMostRecentPlaylists.json();
+  // const fetchedMostRecentPlaylists = await fetch(`${api}/playlist/getAllByDate`);
+  // const mostRecentPlaylists = await fetchedMostRecentPlaylists.json();
 
   const fetchedKanissonPlaylists = await fetch(`${api}/playlist/getKanissonPlaylists`);
   const kanissonPlaylists = await fetchedKanissonPlaylists.json();
@@ -186,7 +184,7 @@ export const getServerSideProps: GetServerSideProps = async() => {
     props: {
       mostPlayedPlaylists,
       topRatedPlaylists,
-      mostRecentPlaylists,
+      // mostRecentPlaylists,
       kanissonPlaylists,
       randomPlaylists
     }

@@ -101,9 +101,7 @@ export const SignUpForm: FC = () => {
         pseudo: pseudo.trim(),
         email: email.trim(),
         password,
-        rememberMe,
-        date: new Date().toLocaleDateString(),
-        iso_date: new Date().toISOString()
+        rememberMe
       };
 
       // Create user on database

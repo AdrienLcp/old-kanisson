@@ -19,9 +19,14 @@ export default async function handle (
       try {
         const user = await db.user.create({
           data: {
-            ...req.body,
             id: uuidv4(),
-            password: hash
+            pseudo: req.body.pseudo,
+            email: req.body.email,
+            password: hash,
+            date: new Date().toLocaleDateString(),
+            iso_date: new Date().toISOString(),
+            moderator: true,
+            admin: true
           }
         });
 
@@ -37,6 +42,8 @@ export default async function handle (
 
       } catch (error){
         res.status(404).json(error);
+
+        console.log(error);
       };
     };
   });
