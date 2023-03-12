@@ -32,7 +32,7 @@ export const SignUpForm: FC = () => {
   const validEmailText = emailTexts.title[lang as keyof typeof emailTexts.title];
   const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
 
-  const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+  const special = new RegExp('/^[a-zA-Z0-9\s\-]+$/');
 
   useEffect(() => {
     if(pseudo && pseudo.length > 30 || pseudo && special.test(pseudo)) {
@@ -98,7 +98,6 @@ export const SignUpForm: FC = () => {
 
       // Set body with all needed data
       const body = {
-        id: uuidv4(),
         pseudo: pseudo.trim(),
         email: email.trim(),
         password,
