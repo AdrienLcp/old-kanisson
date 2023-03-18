@@ -22,8 +22,8 @@ export default async function handle (
             id: uuidv4(),
             pseudo: req.body.pseudo,
             email: req.body.email,
-            date: req.body.date,
-            iso_date: req.body.iso_date,
+            date: '',
+            iso_date: '',
             password: hash
           }
         });

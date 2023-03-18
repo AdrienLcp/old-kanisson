@@ -101,8 +101,6 @@ export const SignUpForm: FC = () => {
         pseudo: pseudo.trim(),
         email: email.trim(),
         password,
-        date: new Date().toLocaleDateString(),
-        iso_date: new Date().toISOString(),
         rememberMe
       };
 
