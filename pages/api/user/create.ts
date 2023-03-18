@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import db from '../../../lib/prisma';
+import { User } from '@prisma/client';
 
 export default async function handle (
   req: NextApiRequest,
@@ -17,7 +18,7 @@ export default async function handle (
     } else {
 
       try {
-        const user = await db.user.create({
+        const user: User = await db.user.create({
           data: {
             id: uuidv4(),
             pseudo: req.body.pseudo,
