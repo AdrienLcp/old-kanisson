@@ -35,12 +35,8 @@ export const SignUpForm: FC = () => {
   const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
   useEffect(() => {
-    if(pseudo && pseudo.length > 30 ||
-      pseudo && !special.test(pseudo)) {
-      setWarningMessage(validPseudoText);
-    } else {
-      setWarningMessage('');
-    };
+    if(pseudo.length > 30 || pseudo && !special.test(pseudo)) return setWarningMessage(validPseudoText);
+    setWarningMessage('');
   }, [pseudo]);
 
   // Check if everything is ok

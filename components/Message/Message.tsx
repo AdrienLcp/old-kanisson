@@ -19,6 +19,14 @@ export const Message: FC<MessageProps> = ({
     } else if(warningMessage && setValidMessage) {
       setValidMessage('');
     };
+
+    // Erase messages after 10 seconds
+    const timerID = setTimeout(() => {
+      setValidMessage && setValidMessage('');
+      setWarningMessage && setWarningMessage('');
+    }, 10000);
+
+    return () => window.clearTimeout(timerID);
   }, [validMessage, warningMessage]);
 
   return (

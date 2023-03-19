@@ -28,16 +28,16 @@ export const GoodAnswer: FC<GoodAnswerProps> = ({
         </div>
 
         <header className={styles.header}>
-          {goodAnswer.artist &&
-            <h2 className={styles.artist}>
-              {goodAnswer.artist}
-            </h2>
-          }
-
           {goodAnswer.title &&
             <h3 className={styles.title}>
               {goodAnswer.title}
             </h3>
+          }
+
+          {goodAnswer.artist &&
+            <h2 className={styles.artist}>
+              {goodAnswer.artist}
+            </h2>
           }
         </header>
       </article>

@@ -18,6 +18,7 @@ export const Stars: FC<StarsProps> = ({
   const byText = titleTexts.byText[lang as keyof typeof titleTexts.byText];
   const userText = titleTexts.userText[lang as keyof typeof titleTexts.userText];
   const usersText = titleTexts.usersText[lang as keyof typeof titleTexts.usersText];
+  const noRate = titleTexts.noRate[lang as keyof typeof titleTexts.noRate];
 
   // Get number of filled stars
   const filledStars = [] as string[];
@@ -27,12 +28,17 @@ export const Stars: FC<StarsProps> = ({
   const emptyStars = [] as string[];
   for(let k = 0; k < 5 - average; k++) emptyStars.push('+1');
 
+  // Text = "This quiz has been rated {average rate}/5 by {number of rates} user / users"
+  const title = ratings.length > 0 ?
+    `${ratedText} ${average}${byText} ${ratings.length} ${ratings.length < 2 ? userText : usersText}`
+  :
+    noRate;
+
   return (
     <div
       className={styles.stars}
-      // Text = "This quiz has been rated {average rate}/5 by {number of rates} user / users"
-      title={`${ratedText} ${average}${byText} ${ratings.length} ${ratings.length < 2 ? userText : usersText}`}
-      aria-label={`${ratedText} ${average}${byText} ${ratings.length} ${ratings.length < 2 ? userText : usersText}`}
+      title={title}
+      aria-label={title}
     >
       {filledStars?.map(star =>
         <span key={uuidv4()}>

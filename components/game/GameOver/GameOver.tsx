@@ -57,10 +57,14 @@ export const GameOver: FC<GameOverProps> = ({
             </footer>
           </div>
         :
-          <Stars
-            average={playlistAverage}
-            ratings={playlistRatings}
-          />
+          <>
+            {playlistRatings.length > 0 &&
+              <Stars
+                average={playlistAverage}
+                ratings={playlistRatings}
+              />
+            }
+          </>
         }
       </article>
 

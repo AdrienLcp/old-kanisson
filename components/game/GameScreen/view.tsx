@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import type { GameScreenViewProps } from '../../../types/components/game';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
 import styles from './GameScreen.module.scss';
@@ -34,10 +34,10 @@ export const GameScreenView: FC<GameScreenViewProps> = ({
   return (
     <>
       {gameStarted ?
-        <>
+        <div className={styles.container}>
           <form
             className={styles.input}
-            onSubmit={(e) => handleSubmitProposal(e)}
+            onSubmit={handleSubmitProposal}
           >
             <InputField
               value={userProposal}
@@ -75,7 +75,7 @@ export const GameScreenView: FC<GameScreenViewProps> = ({
             previousTracks={previousTracks}
             score={score}
           />
-        </>
+        </div>
       :
         <CountDown />
       }

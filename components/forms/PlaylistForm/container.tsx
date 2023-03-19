@@ -41,12 +41,8 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
   useEffect(() => {
-    if(title && title.length > 50 ||
-      title && !special.test(title)) {
-      setWarningMessage(titleError);
-    } else {
-      setWarningMessage('');
-    };
+    if(title.length > 50 || title && !special.test(title)) return setWarningMessage(titleError);
+    setWarningMessage('');
   }, [title]);
 
   const checkForm = () => {

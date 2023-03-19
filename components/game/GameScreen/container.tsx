@@ -1,7 +1,7 @@
-import type { FC, FormEvent } from 'react';
+import type { ChangeEvent, FC, FormEvent } from 'react';
 import type { GameScreenProps } from '../../../types/components/game';
 import type { Track } from '@prisma/client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { GameScreenView } from './view';
 
 const guessTime = 30;
