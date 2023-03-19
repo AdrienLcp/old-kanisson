@@ -1,5 +1,9 @@
 @import "../../../styles/mixins";
 
+.wrapper {
+  min-height: 100vh;
+}
+
 .header {
   @include flexCenter;
   flex-direction: column;

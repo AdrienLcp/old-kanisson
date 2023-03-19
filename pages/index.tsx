@@ -10,6 +10,7 @@ import { LangContext } from '../contexts/LangContext';
 import { playlistsTexts } from '../translations/pages/home';
 import { NextHead } from '../layouts/Head/Head';
 import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
+import { Footer } from '../layouts/Footer/Footer';
 
 const Home: NextPage<HomeProps> = ({
   mostPlayedPlaylists,
@@ -77,64 +78,67 @@ const Home: NextPage<HomeProps> = ({
     <>
       <NextHead />
 
-      <header className={styles.header}>
-        <h1 className={styles.title}>
-          Kanisson
-        </h1>
-      </header>
+      <div className={styles.home}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>
+            Kanisson
+          </h1>
+        </header>
 
-      <main className={styles.main}>
+        <main className={styles.main}>
 
-        <PlaylistsSlider
-          playlists={mostPlayedPlaylists}
-          title={playedText}
-        />
-
-        <PlaylistsSlider
-          playlists={topRatedPlaylists}
-          title={ratedText}
-        />
-
-        <PlaylistsSlider
-          playlists={mostRecentPlaylists}
-          title={recentText}
-        />
-
-        <PlaylistsSlider
-          playlists={kanissonPlaylists}
-          title={baseText}
-        />
-
-        <PlaylistsSlider
-          playlists={randomPlaylists}
-          title={randomText}
-        />
-
-        {userPlaylists.length > 0 &&
           <PlaylistsSlider
-            playlists={userPlaylists}
-            title={userPlaylistsText}
+            playlists={mostPlayedPlaylists}
+            title={playedText}
           />
-        }
 
-        {userPlayedPlaylists.length > 0 &&
           <PlaylistsSlider
-            playlists={userPlayedPlaylists}
-            title={userPlayedText}
+            playlists={topRatedPlaylists}
+            title={ratedText}
           />
-        }
 
-        {userLikedPlaylists.length > 0 &&
           <PlaylistsSlider
-            playlists={userLikedPlaylists}
-            title={userLikedText}
+            playlists={mostRecentPlaylists}
+            title={recentText}
           />
-        }
 
+          <PlaylistsSlider
+            playlists={kanissonPlaylists}
+            title={baseText}
+          />
 
-        <div className={`${styles.filter} ${styles.filter_left}`} />
-        <div className={`${styles.filter} ${styles.filter_right}`} />
-      </main>
+          <PlaylistsSlider
+            playlists={randomPlaylists}
+            title={randomText}
+          />
+
+          {userPlaylists.length > 0 &&
+            <PlaylistsSlider
+              playlists={userPlaylists}
+              title={userPlaylistsText}
+            />
+          }
+
+          {userPlayedPlaylists.length > 0 &&
+            <PlaylistsSlider
+              playlists={userPlayedPlaylists}
+              title={userPlayedText}
+            />
+          }
+
+          {userLikedPlaylists.length > 0 &&
+            <PlaylistsSlider
+              playlists={userLikedPlaylists}
+              title={userLikedText}
+            />
+          }
+
+          <div className={`${styles.filter} ${styles.filter_left}`} />
+          <div className={`${styles.filter} ${styles.filter_right}`} />
+        </main>
+      </div>
+
+      <Footer />
     </>
   );
 };
