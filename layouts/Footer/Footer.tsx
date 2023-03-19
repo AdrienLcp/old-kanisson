@@ -24,8 +24,10 @@ export const Footer: FC = () => {
       <section className={styles.links}>
         <a
           href='https://www.linkedin.com/in/adrien-lacourpaille/'
-          title={linkedinText}
           className={styles.link}
+          target='_blank'
+          rel='noreferrer'
+          title={linkedinText}
         >
           <LinkedinIcon height='18' />
           LinkedIn
@@ -34,6 +36,8 @@ export const Footer: FC = () => {
         <a
           href='https://www.adrienlacourpaille.com/'
           className={styles.link}
+          target='_blank'
+          rel='noreferrer'
           title={portfolioText}
         >
           <AvatarIcon height='18' color='var(--main-color)' />
@@ -43,6 +47,8 @@ export const Footer: FC = () => {
         <a
           href='https://github.com/AdrienLcp'
           className={styles.link}
+          target='_blank'
+          rel='noreferrer'
           title={githubText}
         >
           <GithubIcon height='18' color='var(--white)' />
