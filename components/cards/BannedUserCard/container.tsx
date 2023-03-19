@@ -49,6 +49,7 @@ export const BannedUserCard: FC<UserCardProps> = ({
 
     const body = {
       user_id: user.id,
+      moderator: false,
       banned: false
     };
 
@@ -78,6 +79,10 @@ export const BannedUserCard: FC<UserCardProps> = ({
   const deleteUser = async() => {
     setLoading(true);
     const token = localStorage.getItem('token');
+
+    const body = {
+      user_id: user.id,
+    };
 
     await fetch(`${api}/user/delete`, {
       method: 'POST',

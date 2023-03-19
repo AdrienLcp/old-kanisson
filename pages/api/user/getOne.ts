@@ -12,6 +12,7 @@ export default checkUser(async function handle (
         id: req.body.user_id
       },
       select: {
+        id: true,
         pseudo: true,
         date: true,
         moderator: true,

@@ -50,6 +50,7 @@ export const UserCard: FC<UserCardProps> = ({
 
     const body = {
       user_id: user.id,
+      moderator: false,
       banned: true
     };
 

@@ -9,6 +9,7 @@ export default isModerator(async function getAllUsers (
   try {
     const users = await db.user.findMany({
       select: {
+        id: true,
         pseudo: true,
         date: true,
         moderator: true,

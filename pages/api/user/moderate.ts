@@ -26,11 +26,22 @@ export default isModerator(async function handle (
           visible: false
         }
       });
+    } else {
+      await db.playlist.updateMany({
+        where: {
+          user_id: user.id
+        },
+        data: {
+          visible: true
+        }
+      });
     };
 
     res.status(200).json(user);
 
   } catch (error){
     res.status(404).json(error);
+    console.log('==== ERROR CATCH ====');
+    console.log(error);
   };
 });
