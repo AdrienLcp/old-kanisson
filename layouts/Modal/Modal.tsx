@@ -8,6 +8,7 @@ export const Modal: FC<ModalProps> = ({
   setToggleModal,
   children
 }) => {
+
   return (
     <div
       className={styles.wrapper}

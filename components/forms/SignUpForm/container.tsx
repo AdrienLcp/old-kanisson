@@ -32,10 +32,11 @@ export const SignUpForm: FC = () => {
   const validEmailText = emailTexts.title[lang as keyof typeof emailTexts.title];
   const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
 
-  const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\.:À-ÖØ-öø-ÿ]+$/);
+  const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
   useEffect(() => {
-    if(pseudo && pseudo.length > 30 || pseudo && special.test(pseudo)) {
+    if(pseudo && pseudo.length > 30 ||
+      pseudo && !special.test(pseudo)) {
       setWarningMessage(validPseudoText);
     } else {
       setWarningMessage('');
@@ -72,7 +73,7 @@ export const SignUpForm: FC = () => {
     || pseudo.includes('.')
     || pseudo.length < 3
     || pseudo.length > 30
-    || special.test(pseudo)) {
+    || !special.test(pseudo)) {
       // You can't use '@' or '.' in username, return false
       setWarningMessage(validPseudoText);
       return false;

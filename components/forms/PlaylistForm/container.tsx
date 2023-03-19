@@ -1,7 +1,7 @@
 import type { FC, FormEvent } from 'react';
 import type { PlaylistFormProps } from '../../../types/components/forms';
 import type { Track } from '@prisma/client';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import { UserContext } from '../../../contexts/UserContext';
@@ -38,12 +38,21 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
 
+  const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
+
+  useEffect(() => {
+    if(title && title.length > 50 ||
+      title && !special.test(title)) {
+      setWarningMessage(titleError);
+    } else {
+      setWarningMessage('');
+    };
+  }, [title]);
+
   const checkForm = () => {
     // Reset messages
     setWarningMessage('');
     setValidMessage('');
-
-    const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
     // If nothing changed
     if(playlist && tracksData &&
@@ -57,8 +66,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     // if title isn't correct
     } else if(title.length < 3
       || title.length > 50
-      || special.test(title)
-      ) {
+      || !special.test(title)) {
       // set warning message, and return false
       setWarningMessage(titleError);
       return false;

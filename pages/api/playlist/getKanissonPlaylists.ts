@@ -12,6 +12,9 @@ export default async function handle (
         creator: "Kanisson",
         visible: true,
         playable: true
+      },
+      orderBy: {
+        iso_date: "asc"
       }
     });
 

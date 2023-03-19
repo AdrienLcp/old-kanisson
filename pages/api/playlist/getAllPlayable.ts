@@ -12,7 +12,7 @@ export default async function handle (
         playable: true
       },
       orderBy: {
-        date: 'desc'
+        iso_date: 'desc'
       }
     });
     res.status(200).json(playlists);

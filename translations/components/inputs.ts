@@ -37,8 +37,8 @@ export const pseudoTexts = {
     en: 'Username'
   },
   title: {
-    fr: 'Le pseudo doit contenir entre 3 et 30 caractères et ne doit pas contenir de caractère spécial',
-    en: 'Enter a nickname between 3 and 30 characters and must not contain special character'
+    fr: 'Le pseudo doit contenir entre 3 et 30 caractères et ne peut contenir que certains caractères spéciaux',
+    en: 'Enter a nickname between 3 and 30 characters and can only contain certain special characters'
   }
 };
 

@@ -10,6 +10,13 @@ export default checkUser(async function handle (
     const user = await db.user.findUnique({
       where: {
         id: req.body.user_id
+      },
+      select: {
+        pseudo: true,
+        date: true,
+        moderator: true,
+        admin: true,
+        banned: true
       }
     });
 
