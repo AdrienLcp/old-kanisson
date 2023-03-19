@@ -41,7 +41,5 @@ export default isModerator(async function handle (
 
   } catch (error){
     res.status(404).json(error);
-    console.log('==== ERROR CATCH ====');
-    console.log(error);
   };
 });

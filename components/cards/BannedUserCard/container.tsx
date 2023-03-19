@@ -80,10 +80,6 @@ export const BannedUserCard: FC<UserCardProps> = ({
     setLoading(true);
     const token = localStorage.getItem('token');
 
-    const body = {
-      user_id: user.id,
-    };
-
     await fetch(`${api}/user/delete`, {
       method: 'POST',
       headers: {

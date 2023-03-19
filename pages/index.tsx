@@ -6,7 +6,6 @@ import { api } from '../api/api';
 import { useState, useContext, Dispatch, SetStateAction, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { LangContext } from '../contexts/LangContext';
-import { noData } from '../translations/others/others';
 import { playlistsTexts } from '../translations/pages/home';
 import { NextHead } from '../layouts/Head/Head';
 import { PlaylistsSlider } from '../components/PlaylistsSlider/PlaylistsSlider';
@@ -29,7 +28,6 @@ const Home: NextPage<HomeProps> = ({
   const userPlaylistsText = playlistsTexts.userPlaylists[lang as keyof typeof playlistsTexts.userPlaylists];
   const userPlayedText = playlistsTexts.userPlayed[lang as keyof typeof playlistsTexts.userPlayed];
   const userLikedText = playlistsTexts.userLiked[lang as keyof typeof playlistsTexts.userLiked];
-  const noDataText = noData[lang as keyof typeof noData];
 
   const [userPlaylists, setUserPlaylists] = useState<Playlist[]>([]);
   const [userLikedPlaylists, setUserLikedPlaylists] = useState<Playlist[]>([]);
@@ -86,78 +84,48 @@ const Home: NextPage<HomeProps> = ({
 
       <main className={styles.main}>
 
-        {mostPlayedPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={mostPlayedPlaylists}
-            title={playedText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={mostPlayedPlaylists}
+          title={playedText}
+        />
 
-        {topRatedPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={topRatedPlaylists}
-            title={ratedText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={topRatedPlaylists}
+          title={ratedText}
+        />
 
-        {mostRecentPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={mostRecentPlaylists}
-            title={recentText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={mostRecentPlaylists}
+          title={recentText}
+        />
 
-        {kanissonPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={kanissonPlaylists}
-            title={baseText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={kanissonPlaylists}
+          title={baseText}
+        />
 
-        {randomPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={randomPlaylists}
-            title={randomText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={randomPlaylists}
+          title={randomText}
+        />
 
-        {userPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={userPlaylists}
-            title={userPlaylistsText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={userPlaylists}
+          title={userPlaylistsText}
+        />
 
-        {userPlayedPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={userPlayedPlaylists}
-            title={userPlayedText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={userPlayedPlaylists}
+          title={userPlayedText}
+        />
 
-        {userLikedPlaylists.length > 0 &&
-          <PlaylistsSlider
-            playlists={userLikedPlaylists}
-            title={userLikedText}
-          />
-        }
+        <PlaylistsSlider
+          playlists={userLikedPlaylists}
+          title={userLikedText}
+        />
 
-        {mostPlayedPlaylists.length === 0
-        && topRatedPlaylists.length === 0
-        && mostRecentPlaylists.length === 0
-        && kanissonPlaylists.length === 0
-        && randomPlaylists.length === 0
-        && userPlaylists.length === 0
-        && userPlayedPlaylists.length === 0
-        && userLikedPlaylists.length === 0
-        ?
-          <p className={styles.nothing}>{noDataText}</p>
-        :
-          <>
-            <div className={`${styles.filter} ${styles.filter_left}`} />
-            <div className={`${styles.filter} ${styles.filter_right}`} />
-          </>
-        }
+        <div className={`${styles.filter} ${styles.filter_left}`} />
+        <div className={`${styles.filter} ${styles.filter_right}`} />
       </main>
     </>
   );

@@ -6,6 +6,8 @@ import { headerTexts } from '../../../translations/components/moderation';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import styles from './ModerationNav.module.scss';
+import AvatarIcon from '../../../icons/AvatarIcon';
+import SongIcon from '../../../icons/SongIcon';
 
 export const ModerationNav: FC = () => {
 
@@ -31,6 +33,7 @@ export const ModerationNav: FC = () => {
             title={playlistsTitle}
             href="/moderation/playlists"
           >
+            <SongIcon color='var(--white)' height='18'/>
             {playlistsLabel}
           </Link>
         </li>
@@ -45,6 +48,7 @@ export const ModerationNav: FC = () => {
             title={usersTitle}
             href="/moderation/users"
           >
+            <AvatarIcon color='var(--white)' height='18' />
             {usersLabel}
           </Link>
         </li>
