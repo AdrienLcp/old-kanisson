@@ -110,21 +110,21 @@ const Home: NextPage<HomeProps> = ({
           title={randomText}
         />
 
-        {userPlaylists &&
+        {userPlaylists.length > 0 &&
           <PlaylistsSlider
             playlists={userPlaylists}
             title={userPlaylistsText}
           />
         }
 
-        {userPlayedPlaylists &&
+        {userPlayedPlaylists.length > 0 &&
           <PlaylistsSlider
             playlists={userPlayedPlaylists}
             title={userPlayedText}
           />
         }
 
-        {userLikedPlaylists &&
+        {userLikedPlaylists.length > 0 &&
           <PlaylistsSlider
             playlists={userLikedPlaylists}
             title={userLikedText}
