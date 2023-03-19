@@ -1,9 +1,10 @@
 import styles from '../styles/Home.module.scss';
 import type { GetServerSideProps, NextPage } from 'next';
+import type { SetStateAction, Dispatch } from 'react';
 import type { Playlist } from '@prisma/client';
 import type { HomeProps } from '../types/pages';
 import { api } from '../api/api';
-import { useState, useContext, Dispatch, SetStateAction, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { LangContext } from '../contexts/LangContext';
 import { playlistsTexts } from '../translations/pages/home';
@@ -109,20 +110,27 @@ const Home: NextPage<HomeProps> = ({
           title={randomText}
         />
 
-        <PlaylistsSlider
-          playlists={userPlaylists}
-          title={userPlaylistsText}
-        />
+        {userPlaylists &&
+          <PlaylistsSlider
+            playlists={userPlaylists}
+            title={userPlaylistsText}
+          />
+        }
 
-        <PlaylistsSlider
-          playlists={userPlayedPlaylists}
-          title={userPlayedText}
-        />
+        {userPlayedPlaylists &&
+          <PlaylistsSlider
+            playlists={userPlayedPlaylists}
+            title={userPlayedText}
+          />
+        }
 
-        <PlaylistsSlider
-          playlists={userLikedPlaylists}
-          title={userLikedText}
-        />
+        {userLikedPlaylists &&
+          <PlaylistsSlider
+            playlists={userLikedPlaylists}
+            title={userLikedText}
+          />
+        }
+
 
         <div className={`${styles.filter} ${styles.filter_left}`} />
         <div className={`${styles.filter} ${styles.filter_right}`} />
