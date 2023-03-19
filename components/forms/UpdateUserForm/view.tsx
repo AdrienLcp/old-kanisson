@@ -81,6 +81,7 @@ export const UpdateUserFormView: FC<UpdateUserFormProps> = ({
           confirmPassword={confirmPassword}
           setConfirmPassword={setConfirmPassword}
           setValidPassword={setValidPassword}
+          setValidMessage={setValidMessage}
           required={false}
         />
       </FormWrapper>

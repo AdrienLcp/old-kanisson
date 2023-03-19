@@ -48,6 +48,8 @@ export type SignUpFormProps = {
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   rememberMe: boolean;
   setRememberMe: Dispatch<SetStateAction<boolean>>;
+  validMessage: string;
+  setValidMessage: Dispatch<SetStateAction<string>>;
   warningMessage: string;
   setWarningMessage: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;

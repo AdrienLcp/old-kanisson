@@ -9,6 +9,7 @@ export const PasswordValidation: FC<PasswordValidationProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   setValidPassword,
+  setValidMessage,
   required = true
 }) => {
 
@@ -16,7 +17,6 @@ export const PasswordValidation: FC<PasswordValidationProps> = ({
 
   const matchText = passwordTexts.match[lang as keyof typeof passwordTexts.match];
 
-  const [validMessage, setValidMessage] = useState<string>('');
   const [validCases, setValidCases] = useState<ValidCasesState>({
     lowerCase: false,
     upperCase: false,
@@ -87,8 +87,6 @@ export const PasswordValidation: FC<PasswordValidationProps> = ({
       setPassword={setPassword}
       confirmPassword={confirmPassword}
       setConfirmPassword={setConfirmPassword}
-      validMessage={validMessage}
-      setValidMessage={setValidMessage}
       validCases={validCases}
       required={required}
     />

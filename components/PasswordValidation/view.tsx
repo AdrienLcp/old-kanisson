@@ -12,7 +12,6 @@ import { Message } from '../Message/Message';
 export const PasswordValidationView: FC<PasswordValidationViewProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
-  validMessage, setValidMessage,
   validCases,
   required
 }) => {
@@ -95,11 +94,6 @@ export const PasswordValidationView: FC<PasswordValidationViewProps> = ({
           text={lengthText}
         />
       </ul>
-
-      <Message
-        validMessage={validMessage}
-        setValidMessage={setValidMessage}
-      />
     </>
   );
 };

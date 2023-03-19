@@ -49,6 +49,7 @@ export type PasswordValidationProps = {
   confirmPassword: string;
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   setValidPassword: Dispatch<SetStateAction<boolean>>;
+  setValidMessage: Dispatch<SetStateAction<string>>;
   required?: boolean;
 };
 
@@ -58,8 +59,6 @@ export type PasswordValidationViewProps = {
   confirmPassword: string;
   setConfirmPassword: Dispatch<SetStateAction<string>>;
   validCases: ValidCasesState;
-  validMessage: string;
-  setValidMessage: Dispatch<SetStateAction<string>>;
   required: boolean;
 };
 

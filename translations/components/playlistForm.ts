@@ -4,8 +4,8 @@ export const errorTexts = {
     en: "The title of this blind test is already in use"
   },
   titleError: {
-    fr: `Le titre doit contenir entre 3 et 50 caractères et ne doit pas contenir les caractères spéciaux suivants ? , / ou &`,
-    en: `The title must contain between 3 and 50 characters and must not contain special characters ?, / or &`
+    fr: `Le titre doit contenir entre 3 et 50 caractères et ne peut contenir que certains caractères spéciaux`,
+    en: `The title must contain between 3 and 50 characters and can only contain certain special characters`
   },
   descriptionLength: {
     fr: "Votre description ne doit pas dépasser 200 caractères",

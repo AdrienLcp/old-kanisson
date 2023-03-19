@@ -27,7 +27,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const alreadyTaken = errorTexts.titleTaken[lang as keyof typeof errorTexts.titleTaken];
   const titleError = errorTexts.titleError[lang as keyof typeof errorTexts.titleError];
   const descriptionLength = errorTexts.descriptionLength[lang as keyof typeof errorTexts.descriptionLength];
-  const noTrack = errorTexts.noTrack[lang as keyof typeof errorTexts.noTrack];
   const upToDate = validTexts.alreadyUpToDate[lang as keyof typeof validTexts.alreadyUpToDate];
   const updated = validTexts.updated[lang as keyof typeof validTexts.updated];
 
@@ -44,7 +43,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     setWarningMessage('');
     setValidMessage('');
 
-    const special = new RegExp('/^[a-zA-Z0-9\-\'\(\)\[\]\.,: ]+$/');
+    const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
     // If nothing changed
     if(playlist && tracksData &&
@@ -66,9 +65,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
     } else if(description.length > 100) {
       setWarningMessage(descriptionLength);
       return false;
-    // } else if(tracks.length <= 0) {
-    //   setWarningMessage(noTrack);
-    //   return false;
     };
     return true;
   };

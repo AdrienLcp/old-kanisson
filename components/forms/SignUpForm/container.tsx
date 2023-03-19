@@ -1,11 +1,10 @@
 import type { FC, FormEvent } from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { api } from '../../../api/api';
-import { LangContext } from '../../../contexts/LangContext';
 import { UserContext } from '../../../contexts/UserContext';
+import { LangContext } from '../../../contexts/LangContext';
 import { emailTexts, passwordTexts, pseudoTexts } from '../../../translations/components/inputs';
 import { messages } from '../../../translations/others/error';
-import { v4 as uuidv4 } from 'uuid';
 import { SignUpFormView } from './view';
 
 export const SignUpForm: FC = () => {
@@ -20,6 +19,7 @@ export const SignUpForm: FC = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [validPassword, setValidPassword] = useState<boolean>(false);
+  const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -32,7 +32,7 @@ export const SignUpForm: FC = () => {
   const validEmailText = emailTexts.title[lang as keyof typeof emailTexts.title];
   const validPasswordsMatch = messages.passwordsDoesntMatch[lang as keyof typeof messages.passwordsDoesntMatch];
 
-  const special = new RegExp('/^[a-zA-Z0-9\s\-]+$/');
+  const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\.:À-ÖØ-öø-ÿ]+$/);
 
   useEffect(() => {
     if(pseudo && pseudo.length > 30 || pseudo && special.test(pseudo)) {
@@ -149,6 +149,8 @@ export const SignUpForm: FC = () => {
       setConfirmPassword={setConfirmPassword}
       rememberMe={rememberMe}
       setRememberMe={setRememberMe}
+      validMessage={validMessage}
+      setValidMessage={setValidMessage}
       warningMessage={warningMessage}
       setWarningMessage={setWarningMessage}
       setValidPassword={setValidPassword}

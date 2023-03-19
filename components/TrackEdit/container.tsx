@@ -26,10 +26,7 @@ export const TrackEdit: FC<TrackEditProps> = ({
   const checkTrack = () => {
     setWarningMessage('');
 
-    if(title.length > 50) {
-      setWarningMessage(warningLength);
-      return false;
-    } else if(artist.length > 50) {
+    if(title.length > 50 || artist.length > 50) {
       setWarningMessage(warningLength);
       return false;
     };

@@ -17,6 +17,7 @@ export const SignUpFormView: FC<SignUpFormProps> = ({
   password, setPassword,
   confirmPassword, setConfirmPassword,
   rememberMe, setRememberMe,
+  validMessage, setValidMessage,
   warningMessage, setWarningMessage,
   setValidPassword,
   loading
@@ -63,11 +64,14 @@ export const SignUpFormView: FC<SignUpFormProps> = ({
         confirmPassword={confirmPassword}
         setConfirmPassword={setConfirmPassword}
         setValidPassword={setValidPassword}
+        setValidMessage={setValidMessage}
       />
 
       <Message
         warningMessage={warningMessage}
         setWarningMessage={setWarningMessage}
+        validMessage={validMessage}
+        setValidMessage={setValidMessage}
       />
 
       <CheckBox
