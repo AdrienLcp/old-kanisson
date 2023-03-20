@@ -44,7 +44,7 @@ export const NextHead: FC<HeadProps> = ({
       <meta name="author" content="Adrien Lacourpaille" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://www.kanisson.com/img/logo-900x900.png" />
+      <meta name="twitter:image" content="https://www.kanisson.com/img/logo-500x500.png" />
       <meta name="twitter:url" content="https://www.kanisson.com/" />
       <meta name="twitter:site" content="@kanisson" />
       <meta name="twitter:creator" content="@Adrien_Lcp" />
