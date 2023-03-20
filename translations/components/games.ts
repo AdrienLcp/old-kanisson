@@ -14,5 +14,9 @@ export const userGamesTexts = {
   noGame: {
     fr: "n'a encore jamais joué à Kanisson",
     en: 'has not yet played in Kanisson'
+  },
+  total: {
+    fr: 'Score total',
+    en: 'Total score'
   }
 };

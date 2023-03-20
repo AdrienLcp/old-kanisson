@@ -29,6 +29,7 @@ export const NextHead: FC<HeadProps> = ({
       <meta property="og:locale:alternate" content="en-GB" />
       <meta property="og:locale:alternate" content="en-US" />
 
+      {username && <meta name="og:type:profile:username" content={username} /> }
       <meta property="og:image" content="https://www.kanisson.com/img/banner-1600x900.png" />
       <meta property="og:image:width" content="1600" />
       <meta property="og:image:height" content="900" />
@@ -36,7 +37,6 @@ export const NextHead: FC<HeadProps> = ({
       <meta property="og:url" content="https://www.kanisson.com/" />
       <meta property="og:site_name" content="Kanisson" />
       <meta property="og:type" content={username ? "profile" : "website"} />
-      {username && <meta name="og:type:profile:username" content={username} /> }
       <meta property="og:author" content="Adrien Lacourpaille" />
       <meta property="og:description" content={description ? description : defaultDescription} />
       <meta property="og:title" content={title ? title : defaultTitle} />

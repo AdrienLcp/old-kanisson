@@ -11,9 +11,12 @@ export const Footer: FC = () => {
 
   const { lang } = useContext(LangContext);
   const text = footerTexts.text[lang as keyof typeof footerTexts.text];
-  const linkedinText = footerTexts.linkedin[lang as keyof typeof footerTexts.linkedin];
-  const githubText = footerTexts.github[lang as keyof typeof footerTexts.github];
-  const portfolioText = footerTexts.portfolio[lang as keyof typeof footerTexts.portfolio];
+  const linkedinLabel = footerTexts.linkedin.label[lang as keyof typeof footerTexts.linkedin.label];
+  const linkedinTitle = footerTexts.linkedin.title[lang as keyof typeof footerTexts.linkedin.title];
+  const githubLabel = footerTexts.github.label[lang as keyof typeof footerTexts.github.label];
+  const githubTitle = footerTexts.github.title[lang as keyof typeof footerTexts.github.title];
+  const portfolioLabel = footerTexts.portfolio.label[lang as keyof typeof footerTexts.portfolio.label];
+  const portfolioTitle = footerTexts.portfolio.title[lang as keyof typeof footerTexts.portfolio.title];
 
   return (
     <footer className={styles.footer}>
@@ -27,10 +30,10 @@ export const Footer: FC = () => {
           className={styles.link}
           target='_blank'
           rel='noreferrer'
-          title={linkedinText}
+          title={linkedinTitle}
         >
           <LinkedinIcon height='18' />
-          LinkedIn
+          {linkedinLabel}
         </a>
 
         <a
@@ -38,10 +41,10 @@ export const Footer: FC = () => {
           className={styles.link}
           target='_blank'
           rel='noreferrer'
-          title={portfolioText}
+          title={portfolioTitle}
         >
           <AvatarIcon height='18' color='var(--main-color)' />
-          Portfolio
+          {portfolioLabel}
         </a>
 
         <a
@@ -49,10 +52,10 @@ export const Footer: FC = () => {
           className={styles.link}
           target='_blank'
           rel='noreferrer'
-          title={githubText}
+          title={githubTitle}
         >
           <GithubIcon height='18' color='var(--white)' />
-          Github
+          {githubLabel}
         </a>
       </section>
     </footer>

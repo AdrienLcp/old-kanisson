@@ -11,11 +11,15 @@ export const UserGames: FC<UserGamesProps> = ({
   pseudo
 }) => {
 
+  const scores = [] as number[];
+  userGames?.forEach(userGame => scores.push(userGame.score));
+
   const { lang } = useContext(LangContext);
   const noGameText = userGamesTexts.noGame[lang as keyof typeof userGamesTexts.noGame];
   const bestText = userGamesTexts.best[lang as keyof typeof userGamesTexts.best];
   const averageText = userGamesTexts.average[lang as keyof typeof userGamesTexts.average];
   const nbOfPlayedText = userGamesTexts.nbOfPlayed[lang as keyof typeof userGamesTexts.nbOfPlayed];
+  const totalText = userGamesTexts.total[lang as keyof typeof userGamesTexts.total];
 
   // Get average scores for user games
   const averageScore = useMemo(() => {
@@ -27,16 +31,33 @@ export const UserGames: FC<UserGamesProps> = ({
 
   // Get best score for user games
   const bestScore = useMemo(() => {
-    const scores = [] as number[];
-    userGames?.forEach(userGame => scores.push(userGame.score));
     const bestScore = Math.max(...scores);
     return bestScore;
+  }, [userGames]);
+
+  const totalScore = useMemo(() => {
+    let sum = 0;
+    // Calcul total of scores
+    for(let i = 0; i < scores.length; i++) sum += scores[i];
+    return sum;
   }, [userGames]);
 
   return (
     <>
       {userGames?.length > 0 ?
         <ul className={styles.list}>
+
+          <li
+            className={styles.card}
+            key={uuidv4()}
+          >
+            {totalText}
+
+            <span className={styles.data}>
+              {totalScore}
+            </span>
+          </li>
+
           <li
             className={styles.card}
             key={uuidv4()}
