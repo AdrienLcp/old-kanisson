@@ -17,16 +17,24 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+}
+
+.message {
   background: var(--sm-opacity);
   border-radius: var(--main-radius);
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
   padding: 2rem;
+}
+
+.date {
+  align-self: flex-end;
+  font-style: italic;
 }
 
 .buttons {
   @include flexCenter;
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .button {

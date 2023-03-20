@@ -1,5 +1,9 @@
 @import '../styles/mixins';
 
+.pseudo {
+  transform: translateY(-2rem);
+}
+
 .toggle_button {
   @include underlineButton;
   margin: 2rem 0;
@@ -27,5 +31,17 @@
 @keyframes show-overflow {
   100% {
     overflow: visible;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .pseudo {
+    transform: translateY(-1rem);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .pseudo {
+    transform: translateY(-3rem);
   }
 }

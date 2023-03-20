@@ -3,6 +3,11 @@ export const pageTitleTexts = {
   en: "My personnal space"
 };
 
+export const pseudoTexts = {
+  fr: 'Connecté en tant que',
+  en: 'Connected as'
+};
+
 export const updatedText = {
   fr: "Votre profil a correctement été mis à jour",
   en: "Your profile has been successfully updated"

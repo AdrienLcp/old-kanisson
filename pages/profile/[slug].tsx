@@ -3,17 +3,18 @@ import type { UserProfileProps } from '../../types/pages';
 import { useContext } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { userProfileHeadTexts } from '../../translations/layouts/head';
-import { pageTitle } from '../../translations/pages/userProfile';
+import { dateTexts, pageTitle } from '../../translations/pages/userProfile';
 import { api } from '../../api/api';
 import { NextHead } from '../../layouts/Head/Head';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
 import { UserGames } from '../../components/UserGames/UserGames';
 import { UserPlaylists } from '../../components/UserPlaylists/UserPlaylists';
+import styles from '../../styles/UserPage.module.scss';
 
 const UserPage: NextPage<UserProfileProps> = ({
   userPlaylists,
   userGames,
-  pseudo
+  user
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -23,20 +24,25 @@ const UserPage: NextPage<UserProfileProps> = ({
   const headDescriptionAfter = userProfileHeadTexts.description.after[lang as keyof typeof userProfileHeadTexts.description.after];
   const pageTitleBefore = pageTitle.before[lang as keyof typeof pageTitle.before];
   const pageTitleAfter = pageTitle.after[lang as keyof typeof pageTitle.after];
+  const dateText = dateTexts[lang as keyof typeof dateTexts];
 
   return (
     <>
       <NextHead
-        title={`${headTitleBefore}${pseudo}${headTitleAfter}`}
-        description={`${headDescriptionBefore}${pseudo}${headDescriptionAfter}`}
-        username={pseudo}
+        title={`${headTitleBefore}${user.pseudo}${headTitleAfter}`}
+        description={`${headDescriptionBefore}${user.pseudo}${headDescriptionAfter}`}
+        username={user.pseudo}
       />
 
-      <PageWrapper title={`${pageTitleBefore}${pseudo}${pageTitleAfter}`}>
+      <PageWrapper title={`${pageTitleBefore}${user.pseudo}${pageTitleAfter}`}>
+
+        <p className={styles.date}>
+          {dateText} {user.date}
+        </p>
 
         <UserGames
           userGames={userGames}
-          pseudo={pseudo}
+          pseudo={user.pseudo}
         />
 
         <UserPlaylists userPlaylists={userPlaylists} />
@@ -66,11 +72,18 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
   });
   const userGames = await fetchedUserGames.json();
 
+  const fetchedUser = await fetch(`${api}/user/getSafeInfos`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pseudo })
+  });
+  const user = await fetchedUser.json();
+
   return {
     props: {
       userPlaylists,
       userGames,
-      pseudo
+      user
     }
   };
 };

@@ -18,6 +18,7 @@ export const PlaylistModal: FC<PlaylistModalProps> = ({
   const description = playlistCard.description[lang as keyof typeof playlistCard.description];
   const linkTitle = playlistCard.link[lang as keyof typeof playlistCard.link];
   const createdBy = playlistCard.creator[lang as keyof typeof playlistCard.creator];
+  const createdOn = playlistCard.createdOn[lang as keyof typeof playlistCard.createdOn];
   const rated = playlistCard.rate[lang as keyof typeof playlistCard.rate];
   const nbOfTracks = playlistCard.nbOfTracks[lang as keyof typeof playlistCard.nbOfTracks];
   const playable = playlistCard.playable[lang as keyof typeof playlistCard.playable];
@@ -48,7 +49,6 @@ export const PlaylistModal: FC<PlaylistModalProps> = ({
                 {playlist.description}
               </p>
             </h5>
-
           }
         </header>
 
@@ -66,6 +66,14 @@ export const PlaylistModal: FC<PlaylistModalProps> = ({
               {playlist.creator}
             </Link>
           </div>
+
+        <div>
+          <span className={styles.span}>
+            {createdOn}
+          </span>
+
+          {playlist.date}
+        </div>
 
           <div>
             <span className={styles.span}>

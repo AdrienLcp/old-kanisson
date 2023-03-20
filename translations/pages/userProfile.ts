@@ -8,3 +8,8 @@ export const pageTitle = {
     en: "'s profile"
   }
 };
+
+export const dateTexts = {
+  fr: 'Membre depuis le',
+  en: 'Member since'
+};

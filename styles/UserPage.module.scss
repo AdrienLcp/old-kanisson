@@ -1,0 +1,15 @@
+.date {
+  transform: translateY(-2rem);
+}
+
+@media screen and (min-width: 850px) {
+  .date {
+    transform: translateY(-1rem);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .date {
+    transform: translateY(-3rem);
+  }
+}

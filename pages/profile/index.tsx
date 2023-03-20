@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { LangContext } from '../../contexts/LangContext';
 import { toggleButton } from '../../translations/components/updateUser';
 import { profileHeadTexts } from '../../translations/layouts/head';
-import { linkTexts, pageTitleTexts } from '../../translations/pages/profile';
+import { linkTexts, pageTitleTexts, pseudoTexts } from '../../translations/pages/profile';
 import { UserContext } from '../../contexts/UserContext';
 import { NextHead } from '../../layouts/Head/Head';
 import { PageWrapper } from '../../layouts/wrappers/PageWrapper/PageWrapper';
@@ -26,6 +26,7 @@ const MyProfile: NextPage = () => {
   const headTitle = profileHeadTexts.title[lang as keyof typeof profileHeadTexts.title];
   const headDescription = profileHeadTexts.description[lang as keyof typeof profileHeadTexts.description];
   const pageTitle = pageTitleTexts[lang as keyof typeof pageTitleTexts];
+  const pseudoText = pseudoTexts[lang as keyof typeof pseudoTexts];
   const toggleButtonOpenedText = toggleButton.opened[lang as keyof typeof toggleButton.opened];
   const toggleButtonClosedText = toggleButton.closed[lang as keyof typeof toggleButton.closed];
   const linkLabel = linkTexts.label[lang as keyof typeof linkTexts.label];
@@ -44,6 +45,10 @@ const MyProfile: NextPage = () => {
       />
 
       <PageWrapper title={pageTitle}>
+
+        <p className={styles.pseudo}>
+          {pseudoText} {user.pseudo}
+        </p>
 
         <Notifications />
 
