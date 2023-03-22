@@ -32,7 +32,7 @@ export const Rate: FC<RateProps> = ({
       user_id: user.id,
       playlist_id: playlist.id,
       ratings: playlist.ratings,
-      ratings_id: playlist.ratings_ids,
+      ratings_ids: playlist.ratings_ids,
       rate: newRate
     };
 

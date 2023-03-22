@@ -6,8 +6,8 @@ import { headTexts } from "../../translations/layouts/head";
 import Head from "next/head";
 
 export const NextHead: FC<HeadProps> = ({
-  title = "",
-  description = "",
+  title,
+  description,
   username
 }) => {
 

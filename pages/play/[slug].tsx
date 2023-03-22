@@ -28,7 +28,7 @@ const Play: NextPage<PlayProps> = ({
   const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
-    if(step === 3 && logged && !user.banned) saveGame();
+    if(step === 3 && logged && !user.banned && score > 0) saveGame();
   }, [step]);
 
   const saveGame = async() => {

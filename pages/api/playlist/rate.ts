@@ -25,7 +25,7 @@ export default checkUser(async function handle (
 
     // Calculate new average of the playlist
     let sum = 0;
-    newRatings.map(rate => sum + rate);
+    newRatings.forEach(rate => sum = sum + rate);
     const newAverage = Math.ceil(sum / newRatings.length);
 
     // Update playlist with new data

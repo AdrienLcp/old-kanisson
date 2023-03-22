@@ -102,9 +102,6 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
         visible: playlist ? playlist.visible : true
       };
 
-      console.log('playlist : ', playlist);
-      console.log('body : ', body);
-
       await fetch(`${api}/playlist/upsert`, {
         method: 'POST',
         headers: {

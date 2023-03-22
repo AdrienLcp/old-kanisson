@@ -20,7 +20,7 @@
     color: var(--valid);
     background: var(--valid-bg);
     border: 0.1rem solid var(--valid-border);
-    animation: from-bottom 0.5s ease-out forwards;
+    animation: anim-scale 0.5s ease-out forwards;
   }
 
   &_wrong {
@@ -63,10 +63,10 @@
   }
 }
 
-@keyframes from-bottom {
+@keyframes anim-scale {
   0% {
     opacity: 0;
-    transform: translate(-50%, 3rem) scale(0);
+    transform: translate(-50%, 0) scale(5);
   }
 
   100% {
