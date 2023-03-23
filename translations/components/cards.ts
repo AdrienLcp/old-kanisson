@@ -74,7 +74,7 @@ export const playlistCard = {
     en: 'Rate :'
   },
   nbOfTracks: {
-    fr: 'Nombre de musiques :',
+    fr: 'Nombre de sons :',
     en: 'Number of tracks :'
   },
   playable: {
@@ -86,8 +86,8 @@ export const playlistCard = {
     en: 'Visible :'
   },
   songs: {
-    fr: 'musiques',
-    en: 'songs'
+    fr: 'sons',
+    en: 'tracks'
   }
 };
 
