@@ -2,6 +2,8 @@
 
 Un site de blind-tests participatifs en ligne. Vous pouvez créer vos propres quizz musicaux et jouer à ceux des autres.
 
+[Lien vers le site](https://www.kanisson.com/)
+
 ## Créateur
 
 **Adrien**
@@ -17,7 +19,7 @@ Ce projet a été créé avec :
 - TypeScript
 - React
 - Next
-- Scss / Sass
+- Scss
 - Prisma
 - Json Web Token
 - Bcrypt

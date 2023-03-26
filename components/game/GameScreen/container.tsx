@@ -44,8 +44,9 @@ export const GameScreen: FC<GameScreenProps> = ({
     // Reset messages
     setWrongGuess(false);
     setGoodGuess(false);
+    setUserProposal('');
 
-    // Start game & turn on 'guessing time' state
+    // Turn on 'guessing time' state
     setGuessingTime(true);
 
     // Use current value of setState from index to update goodAnswer state
