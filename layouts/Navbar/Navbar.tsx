@@ -175,7 +175,7 @@ export const Navbar: FC<NavbarProps> = ({
             </li>
           }
 
-          {logged && user.admin && !user.banned &&
+          {logged && user.moderator && !user.banned &&
             <li key={uuidv4()} className={styles.mobile_hidden}>
               <Link
                 href='/moderation/playlists'
