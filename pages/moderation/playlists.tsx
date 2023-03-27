@@ -58,9 +58,7 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
         console.log(data);
       };
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
 
     setLoading(false);
   };
@@ -73,7 +71,7 @@ const PlaylistsModeration: NextPage<PlaylistsModerationProps> = ({
 
       <PageWrapper title={pageTitle}>
 
-        {loading || !logged || logged && !user.moderator || logged && !user.admin ?
+        {loading || !logged || logged && !user.moderator ?
           <Loader />
         :
           <>

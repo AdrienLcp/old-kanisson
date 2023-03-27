@@ -76,7 +76,7 @@ const UsersModeration: NextPage = () => {
 
       <PageWrapper title={pageTitle}>
 
-        {loading || !logged || logged && !user.moderator || logged && !user.admin ?
+        {loading || !logged || logged && !user.moderator ?
           <Loader />
         :
           <>
