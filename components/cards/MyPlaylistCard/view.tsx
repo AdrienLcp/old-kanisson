@@ -30,6 +30,8 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
 
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
+  const url = playlist.title.replace(/ /g, "_");
+
   return (
     <>
       <article className={!playlist.visible ?
@@ -80,7 +82,7 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
         <footer className={styles.footer}>
           {playlist.visible &&
             <IconButton
-              handleFunction={() => router.push(`/play/${playlist.title}`)}
+              handleFunction={() => router.push(`/play/${url}`)}
               title={playTitle}
             >
               <PlayIcon />
@@ -88,7 +90,7 @@ export const MyPlaylistCardView: FC<MyPlaylistCardViewProps> = ({
           }
 
           <IconButton
-            handleFunction={() => router.push(`/update/${playlist.title}`)}
+            handleFunction={() => router.push(`/update/${url}`)}
             title={editTitle}
           >
             <PenIcon />

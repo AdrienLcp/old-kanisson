@@ -56,7 +56,8 @@ export default UserPage;
 
 export const getServerSideProps: GetServerSideProps = async(context) => {
 
-  const pseudo = context.query.slug;
+  const url = context.query.slug as string;
+  const pseudo = url.replace(/_/g, " ");
 
   const fetchedUserPlaylists = await fetch(`${api}/playlist/getUserPlaylists`, {
     method: 'POST',

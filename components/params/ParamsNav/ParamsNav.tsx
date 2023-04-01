@@ -5,13 +5,13 @@ import { UserContext } from '../../../contexts/UserContext';
 import { LangContext } from '../../../contexts/LangContext';
 import { moderationTexts, contactTexts, logOutTexts } from '../../../translations/layouts/navbar';
 import { v4 as uuidv4 } from 'uuid';
+import { CloseButton } from '../../buttons/CloseButton/CloseButton';
+import { Button } from '../../buttons/Button/Button';
 import Link from 'next/link';
 import AdminIcon from '../../../icons/AdminIcon';
 import LogoutIcon from '../../../icons/LogoutIcon';
 import MailIcon from '../../../icons/MailIcon';
-import { CloseButton } from '../../buttons/CloseButton/CloseButton';
 import styles from './ParamsNav.module.scss';
-import { Button } from '../../buttons/Button/Button';
 
 export const ParamsNav: FC<ParamsNavProps> = ({
   setToggleMenu
@@ -52,7 +52,7 @@ export const ParamsNav: FC<ParamsNavProps> = ({
             </Link>
           </li>
 
-          {logged && user.admin && !user.banned &&
+          {logged && user.moderator && !user.banned &&
             <li key={uuidv4()}>
               <Link
                 href="/moderation/playlists"

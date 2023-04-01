@@ -26,8 +26,8 @@
   &.active::before {
     content: '';
     position: absolute;
-    bottom: 1.5rem;
-    width: 75%;
+    bottom: 1rem;
+    width: 80%;
     height: 0.2rem;
     background: var(--white);
   }
@@ -45,6 +45,10 @@
 
     &:hover {
       background: var(--md-opacity);
+    }
+
+    &.active:before {
+      bottom: 1.5rem;
     }
   }
 }

@@ -4,14 +4,13 @@ import { LangContext } from '../../contexts/LangContext';
 import { title } from '../../translations/layouts/params';
 import { burgerButton } from '../../translations/components/buttons';
 import { useContext } from 'react';
-import styles from './Params.module.scss';
-
 import { BurgerIcon } from '../../components/BurgerIcon/BurgerIcon';
 import { ParamsNav } from '../../components/params/ParamsNav/ParamsNav';
 import { ParamsLang } from '../../components/params/ParamsLang/ParamsLang';
 import { ParamsColor } from '../../components/params/ParamsColor/ParamsColor';
 import { ParamsTheme } from '../../components/params/ParamsTheme/ParamsTheme';
 import { Button } from '../../components/buttons/Button/Button';
+import styles from './Params.module.scss';
 
 export const Params: FC<ParamsProps> = ({
   toggleMenu,

@@ -52,7 +52,8 @@ export default Update;
 
 export const getServerSideProps: GetServerSideProps = async(context) => {
 
-  const title = context.query.slug;
+  const url = context.query.slug as string;
+  const title = url.replace(/_/g, " ");
 
   const fetchedPlaylist = await fetch(`${api}/playlist/getOne`, {
     method: 'POST',

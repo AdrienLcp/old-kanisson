@@ -38,7 +38,7 @@ export const UpdateUserForm: FC = () => {
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
 
-  const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+  const special = new RegExp(/^[a-zA-Z0-9\s,'"\-\(\)\[\]\.:À-ÖØ-öø-ÿ]+$/);
 
   const checkForm = () => {
     // Reset messages

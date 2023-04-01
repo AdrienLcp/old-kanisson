@@ -117,7 +117,10 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
           setValidMessage(updated);
           await updateTracks(data.id);
 
-          if(router.pathname === '/create') router.push(`/update/${data.title}`);
+          if(router.pathname === '/create') {
+            const url = data.title.replace(/ /g, "_");
+            router.push(`/update/${url}`);
+          };
         } else {
           setWarningMessage(alreadyTaken);
         };

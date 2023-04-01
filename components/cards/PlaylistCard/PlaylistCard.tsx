@@ -4,9 +4,9 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { LangContext } from '../../../contexts/LangContext';
 import { playlistCard } from '../../../translations/components/cards';
-import styles from './PlaylistCard.module.scss';
-import Link from 'next/link';
 import { Stars } from '../../Stars/Stars';
+import Link from 'next/link';
+import styles from './PlaylistCard.module.scss';
 
 const PlaylistCard: FC<PlaylistCard> = ({
   playlist
@@ -20,9 +20,12 @@ const PlaylistCard: FC<PlaylistCard> = ({
   const linkTitle = playlistCard.link[lang as keyof typeof playlistCard.link];
   const createdBy = playlistCard.creator[lang as keyof typeof playlistCard.creator];
 
+  const gameUrl = playlist.title.replace(/ /g, "_");
+  const profileUrl = playlist.creator.replace(/ /g, "_");
+
   return (
     <section className={styles.container}>
-      <Link href={`/play/${playlist.title}`}>
+      <Link href={`/play/${gameUrl}`}>
         <article
           className={styles.card}
           title={playTitle}
@@ -61,7 +64,7 @@ const PlaylistCard: FC<PlaylistCard> = ({
           {createdBy}
 
           <Link
-            href={`/profile/${playlist.creator}`}
+            href={`/profile/${profileUrl}`}
             className={styles.link}
             title={`${linkTitle} ${playlist.creator}`}
           >

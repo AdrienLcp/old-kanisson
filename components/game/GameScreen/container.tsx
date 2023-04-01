@@ -1,7 +1,7 @@
-import type { ChangeEvent, FC, FormEvent } from 'react';
+import type { FC, FormEvent } from 'react';
 import type { GameScreenProps } from '../../../types/components/game';
 import type { Track } from '@prisma/client';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { GameScreenView } from './view';
 
 const guessTime = 30;
@@ -99,8 +99,8 @@ export const GameScreen: FC<GameScreenProps> = ({
   const handleSumbitProposal = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if(guessed) return setUserProposal('');
     setWrongGuess(false);
+    if(guessed) return setUserProposal('');
     setGoodGuess(false);
 
     const title = replaceString(tracks[index].title);

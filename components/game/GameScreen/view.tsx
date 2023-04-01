@@ -1,15 +1,15 @@
 import type { FC } from 'react';
 import type { GameScreenViewProps } from '../../../types/components/game';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { LangContext } from '../../../contexts/LangContext';
 import { gameTexts } from '../../../translations/pages/play';
-import styles from './GameScreen.module.scss';
 import { CountDown } from '../CountDown/CountDown';
 import { InputField } from '../../inputs/InputField/InputField';
 import { Timer } from '../Timer/Timer';
 import { Player } from '../../Player/Player';
 import { SideBar } from '../SideBar/SideBar';
 import { GoodAnswer } from '../GoodAnswer/GoodAnswer';
+import styles from './GameScreen.module.scss';
 
 export const GameScreenView: FC<GameScreenViewProps> = ({
   currentTrack,
