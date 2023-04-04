@@ -13,6 +13,8 @@ import { Tabs } from '../../Tabs/Tabs';
 export const TracksForm: FC<TracksFormProps> = ({
   tracks,
   setTracks,
+  tracksResults,
+  setTracksResults,
   apiKey
 }) => {
 
@@ -39,6 +41,8 @@ export const TracksForm: FC<TracksFormProps> = ({
               key={uuidv4()}
               tracks={tracks}
               setTracks={setTracks}
+              tracksResults={tracksResults}
+              setTracksResults={setTracksResults}
               apiKey={apiKey}
             />
           ]}
@@ -58,6 +62,8 @@ export const TracksForm: FC<TracksFormProps> = ({
           <TrackSearch
             tracks={tracks}
             setTracks={setTracks}
+            tracksResults={tracksResults}
+            setTracksResults={setTracksResults}
             apiKey={apiKey}
           />
         </ListWrapper>

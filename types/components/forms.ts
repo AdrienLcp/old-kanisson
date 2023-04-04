@@ -1,5 +1,6 @@
-import { Playlist, Track } from '@prisma/client';
-import { Dispatch, FormEvent, SetStateAction } from 'react';
+import type { Playlist, Track } from '@prisma/client';
+import type { Dispatch, FormEvent, SetStateAction } from 'react';
+import type { SearchResultItem } from '../youtube';
 
 export type PlaylistFormProps = {
   playlist?: Playlist;
@@ -21,6 +22,8 @@ export type PlaylistFormViewProps = {
   setWarningMessage: Dispatch<SetStateAction<string>>;
   loading: boolean;
   apiKey: string;
+  tracksResults: SearchResultItem[];
+  setTracksResults: Dispatch<SetStateAction<SearchResultItem[]>>;
 };
 
 export type SignInFormProps = {
@@ -59,6 +62,8 @@ export type SignUpFormProps = {
 export type TracksFormProps = {
   tracks: Track[];
   setTracks: Dispatch<SetStateAction<Track[]>>;
+  tracksResults: SearchResultItem[];
+  setTracksResults: Dispatch<SetStateAction<SearchResultItem[]>>;
   apiKey: string;
 };
 

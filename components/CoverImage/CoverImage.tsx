@@ -18,7 +18,7 @@ export const CoverImage: FC<CoverImageProps> = ({
 
   return (
     <>
-      {url ?
+      {/* {url ?
         <Image
           className={styles.image}
           width={height ?? 30}
@@ -26,9 +26,9 @@ export const CoverImage: FC<CoverImageProps> = ({
           alt={alt ?? defaultAltText}
           src={url}
         />
-      :
+      : */}
         <ImageIcon height={height ? `${height}` : '30'} />
-      }
+      {/* } */}
     </>
   );
 };

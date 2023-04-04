@@ -10,6 +10,7 @@ import { errorTexts, validTexts } from '../../../translations/components/playlis
 import { api } from '../../../api/api';
 import { messages } from '../../../translations/others/error';
 import { PlaylistFormView } from './view';
+import { SearchResultItem } from '../../../types/youtube';
 
 export const PlaylistForm: FC<PlaylistFormProps> = ({
   playlist,
@@ -34,6 +35,7 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
   const [previousTitle, setPreviousTitle] = useState<string>(playlist ? playlist.title : '');
   const [description, setDescription] = useState<string>(playlist ? playlist.description : '');
   const [tracks, setTracks] = useState<Track[]>(tracksData ? tracksData : [] as Track[]);
+  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [validMessage, setValidMessage] = useState<string>('');
   const [warningMessage, setWarningMessage] = useState<string>('');
@@ -177,6 +179,8 @@ export const PlaylistForm: FC<PlaylistFormProps> = ({
       setWarningMessage={setWarningMessage}
       loading={loading}
       apiKey={apiKey}
+      tracksResults={tracksResults}
+      setTracksResults={setTracksResults}
     />
   );
 };

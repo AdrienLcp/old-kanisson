@@ -69,11 +69,10 @@ export const TrackSearchView: FC<TrackSearchViewProps> = ({
       {tracksResults.length > 0 ?
         <div className={styles.container}>
           <ul className={styles.list}>
-            {tracksResults?.map((track: SearchResultItem, index: number) =>
+            {tracksResults?.map((track: SearchResultItem) =>
               <li key={uuidv4()}>
                 <TrackSearchCard
                   currentTrack={track}
-                  index={index}
                   tracks={tracks}
                   setTracks={setTracks}
                   tracksResults={tracksResults}

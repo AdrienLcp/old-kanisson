@@ -5,7 +5,6 @@ import { LangContext } from '../../../contexts/LangContext';
 import { titleTexts, descriptionTexts } from '../../../translations/components/inputs';
 import { buttonsTexts } from '../../../translations/components/playlistForm';
 import { useRouter } from 'next/router';
-import styles from './PlaylistForm.module.scss';
 import { InputField } from '../../inputs/InputField/InputField';
 import { InputArea } from '../../inputs/InputArea/InputArea';
 import { FormWrapper } from '../../../layouts/wrappers/FormWrapper/FormWrapper';
@@ -13,6 +12,7 @@ import { Message } from '../../Message/Message';
 import { TracksForm } from '../TracksForm/TracksForm';
 import { Button } from '../../buttons/Button/Button';
 import { Loader } from '../../Loader/Loader';
+import styles from './PlaylistForm.module.scss';
 
 export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   handleSubmit,
@@ -22,7 +22,8 @@ export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
   validMessage, setValidMessage,
   warningMessage, setWarningMessage,
   loading,
-  apiKey
+  apiKey,
+  tracksResults, setTracksResults
 }) => {
 
   const { lang } = useContext(LangContext);
@@ -84,6 +85,8 @@ export const PlaylistFormView: FC<PlaylistFormViewProps> = ({
       <TracksForm
         tracks={tracks}
         setTracks={setTracks}
+        tracksResults={tracksResults}
+        setTracksResults={setTracksResults}
         apiKey={apiKey}
       />
     </>

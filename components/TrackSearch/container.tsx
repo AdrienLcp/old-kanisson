@@ -12,6 +12,8 @@ const max = 20;
 export const TrackSearch: FC<TrackSearchProps> = ({
   tracks,
   setTracks,
+  tracksResults,
+  setTracksResults,
   apiKey
 }) => {
 
@@ -21,7 +23,6 @@ export const TrackSearch: FC<TrackSearchProps> = ({
   // Search states in this component to prevent to many fetchs with toggle state
   const [search, setSearch] = useState<string>('');
   const [previousSearch, setPreviousSearch] = useState<string>('');
-  const [tracksResults, setTracksResults] = useState<SearchResultItem[]>([]);
   const [pageToken, setPageToken] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');

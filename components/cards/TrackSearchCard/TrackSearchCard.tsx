@@ -10,7 +10,6 @@ import { CoverImage } from '../../CoverImage/CoverImage';
 
 export const TrackSearchCard: FC<TrackSearchCardProps> = ({
   currentTrack,
-  index,
   tracksResults,
   setTracksResults,
   tracks,
@@ -41,6 +40,7 @@ export const TrackSearchCard: FC<TrackSearchCardProps> = ({
 
     // Remove this track from results list and update state
     const searchList = [...tracksResults];
+    const index = searchList.indexOf(currentTrack);
     searchList.splice(index, 1);
     setTracksResults(searchList);
   };

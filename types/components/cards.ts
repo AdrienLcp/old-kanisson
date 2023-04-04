@@ -34,7 +34,6 @@ export type TrackListCardProps = {
 
 export type TrackSearchCardProps = {
   currentTrack: SearchResultItem;
-  index: number;
   tracksResults: SearchResultItem[];
   setTracksResults: Dispatch<SetStateAction<SearchResultItem[]>>;
   tracks: Track[];
